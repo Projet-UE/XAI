@@ -7,13 +7,14 @@ Usage:
   scripts/autopet_submit_grid5000.sh <mode> [split] [trainer] [walltime] [cluster]
 
 Examples:
-  scripts/autopet_submit_grid5000.sh train fdg_full nnUNetTrainer_10epochs 04:00:00 kinovis
-  scripts/autopet_submit_grid5000.sh predict fdg_full nnUNetTrainer_10epochs 02:00:00 kinovis
-  scripts/autopet_submit_grid5000.sh xai fdg_full nnUNetTrainer_10epochs 02:00:00 kinovis
+  scripts/autopet_submit_grid5000.sh train fdg_full nnUNetTrainer_10epochs 04:00:00 vercors14
+  scripts/autopet_submit_grid5000.sh predict fdg_full nnUNetTrainer_10epochs 02:00:00 vercors14
+  scripts/autopet_submit_grid5000.sh xai fdg_full nnUNetTrainer_10epochs 02:00:00 vercors14
 
 Notes:
   - Run this from a Grenoble frontend session.
   - The script submits a single-GPU besteffort OAR job.
+  - Use a concrete GPU cluster name such as vercors14, not a broad family alias like vercors.
   - It assumes the repo lives in $HOME/XAI and the FDG artifacts in $HOME/XAI/artifacts/autopet_fdg_poc.
 EOF
   exit 1
@@ -23,7 +24,7 @@ MODE="${1}"
 SPLIT="${2:-fdg_full}"
 TRAINER="${3:-nnUNetTrainer_10epochs}"
 WALLTIME="${4:-04:00:00}"
-CLUSTER="${5:-kinovis}"
+CLUSTER="${5:-vercors14}"
 
 REPO_ROOT="${HOME}/XAI"
 ARTIFACTS_DIR="${REPO_ROOT}/artifacts/autopet_fdg_poc"

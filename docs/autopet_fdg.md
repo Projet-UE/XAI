@@ -87,7 +87,7 @@ For Grenoble OAR submission, you can also use the helper wrapper:
 
 ```bash
 cd "$HOME/XAI"
-bash scripts/autopet_submit_grid5000.sh train fdg_dev nnUNetTrainer_1epoch 01:00:00 kinovis
+bash scripts/autopet_submit_grid5000.sh train fdg_dev nnUNetTrainer_1epoch 01:00:00 vercors14
 ```
 
 ## 4. Predict on review cases and export segmentation metrics
@@ -158,15 +158,15 @@ Once the pipeline is validated on `fdg_dev`, the next step is to scale on the fu
 
 ```bash
 cd "$HOME/XAI"
-bash scripts/autopet_submit_grid5000.sh train fdg_full nnUNetTrainer_10epochs 04:00:00 kinovis
+bash scripts/autopet_submit_grid5000.sh train fdg_full nnUNetTrainer_10epochs 04:00:00 vercors14
 ```
 
 Then follow with:
 
 ```bash
 cd "$HOME/XAI"
-bash scripts/autopet_submit_grid5000.sh predict fdg_full nnUNetTrainer_10epochs 02:00:00 kinovis
-bash scripts/autopet_submit_grid5000.sh xai fdg_full nnUNetTrainer_10epochs 02:00:00 kinovis
+bash scripts/autopet_submit_grid5000.sh predict fdg_full nnUNetTrainer_10epochs 02:00:00 vercors14
+bash scripts/autopet_submit_grid5000.sh xai fdg_full nnUNetTrainer_10epochs 02:00:00 vercors14
 ```
 
 ## Notes
@@ -174,3 +174,26 @@ bash scripts/autopet_submit_grid5000.sh xai fdg_full nnUNetTrainer_10epochs 02:0
 - Keep the classification branch as a backup and comparison point.
 - The first target is a **solid FDG POC**, not a full challenge reproduction.
 - The XAI step is qualitative by design in this first pass.
+- On Grenoble, prefer a concrete GPU cluster name such as `vercors14`; broad aliases like `vercors` can be rejected by OAR.
+
+## 8. Compare stronger iterations
+
+Once you have two tracked result folders, you can compare them directly:
+
+```bash
+cd "$HOME/XAI"
+python scripts/autopet_compare_runs.py \
+  --baseline-dir results/autopet_fdg_full_20260324 \
+  --candidate-dir results/autopet_fdg_full_20epochs_20260324 \
+  --baseline-label nnUNetTrainer_10epochs \
+  --candidate-label nnUNetTrainer_20epochs \
+  --run-id autopet_fdg_full_comparison_20260324
+```
+
+This writes a lightweight comparison snapshot under:
+
+```text
+results/autopet_fdg_full_comparison_20260324/
+```
+
+with aggregate deltas and per-case metric changes.
