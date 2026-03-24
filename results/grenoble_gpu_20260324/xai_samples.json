@@ -1,0 +1,25 @@
+{
+  "methods": ["gradcam", "integrated_gradients", "occlusion"],
+  "samples": [
+    {
+      "label": "yes",
+      "relative_path": "yes/Y195.JPG",
+      "predicted_positive_probability": 0.992295503616333
+    },
+    {
+      "label": "yes",
+      "relative_path": "yes/Y109.JPG",
+      "predicted_positive_probability": 0.9074329733848572
+    },
+    {
+      "label": "no",
+      "relative_path": "no/No22.jpg",
+      "predicted_positive_probability": 0.03244807943701744
+    },
+    {
+      "label": "no",
+      "relative_path": "no/4 no.jpg",
+      "predicted_positive_probability": 0.01678227074444294
+    }
+  ]
+}

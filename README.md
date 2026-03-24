@@ -9,6 +9,17 @@ This repository turns the project into a reproducible Python pipeline instead of
 - Dataset: <https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection/data>
 - Notebook reference: <https://www.kaggle.com/code/aayushontherocks/brain-tumor-xai-demo>
 
+## Latest tracked run snapshot
+
+A lightweight snapshot of the Grenoble GPU run from 2026-03-24 is tracked in Git under:
+
+- `results/grenoble_gpu_20260324/README.md`
+- `results/grenoble_gpu_20260324/metrics.json`
+- `results/grenoble_gpu_20260324/run_config.json`
+- `results/grenoble_gpu_20260324/xai_samples.json`
+
+This folder is meant to keep useful experiment metadata and summary outputs in Git, while the full `artifacts/` tree stays out of version control.
+
 ## Project layout
 
 ```text

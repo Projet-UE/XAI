@@ -1,0 +1,17 @@
+{
+  "platform": "Grid5000 Grenoble",
+  "run_date": "2026-03-24",
+  "job_id": "2712949",
+  "gpu_node": "vercors16-1.grenoble.grid5000.fr",
+  "gpu": "NVIDIA L4",
+  "data_root": "~/data/brain-mri-images",
+  "artifacts_dir": "~/XAI/artifacts/grenoble_gpu_20260324",
+  "classes": ["no", "yes"],
+  "device": "cuda",
+  "epochs": 5,
+  "batch_size": 16,
+  "image_size": 224,
+  "learning_rate": 0.0001,
+  "pretrained": true,
+  "seed": 42
+}
