@@ -28,6 +28,11 @@ Lightweight Grenoble run snapshots tracked in Git:
   - `results/autopet_fdg_20260324/segmentation_metrics.json`
   - `results/autopet_fdg_20260324/run_config.json`
   - `results/autopet_fdg_20260324/review_cases.json`
+- autoPET FDG nnUNet + qualitative XAI stronger `fdg_full` run:
+  - `results/autopet_fdg_full_20260324/README.md`
+  - `results/autopet_fdg_full_20260324/segmentation_metrics.json`
+  - `results/autopet_fdg_full_20260324/run_config.json`
+  - `results/autopet_fdg_full_20260324/review_cases.json`
 
 This folder is meant to keep useful experiment metadata and summary outputs in Git, while the full `artifacts/` tree stays out of version control.
 

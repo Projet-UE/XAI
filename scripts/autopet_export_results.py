@@ -37,13 +37,22 @@ def main() -> None:
     metrics_path = split_root / "review_metrics" / "segmentation_metrics.json"
     review_cases_path = split_root / "xai" / "review_cases.json"
     run_config_path = split_root / "training_run_config.json"
+    predict_run_config_path = split_root / "review_metrics" / "predict_run_config.json"
+    xai_run_config_path = split_root / "xai" / "xai_run_config.json"
 
     if not metrics_path.exists():
         raise FileNotFoundError(f"Missing segmentation metrics at {metrics_path}")
 
     target_dir = ensure_dir(args.results_root / args.run_id)
     metrics = load_json(metrics_path)
-    run_config = load_json(run_config_path) if run_config_path.exists() else {}
+    if run_config_path.exists():
+        run_config = load_json(run_config_path)
+    else:
+        run_config = {}
+        if predict_run_config_path.exists():
+            run_config.update(load_json(predict_run_config_path))
+        if xai_run_config_path.exists():
+            run_config.update(load_json(xai_run_config_path))
     review_cases = load_json(review_cases_path) if review_cases_path.exists() else {"cases": []}
 
     save_json(metrics, target_dir / "segmentation_metrics.json")
