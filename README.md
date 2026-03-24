@@ -47,10 +47,12 @@ Main components:
 - `scripts/evaluate.py`: evaluate a trained checkpoint
 - `scripts/generate_xai.py`: export XAI visualizations
 - `src/autopet_xai/data.py`: FDG PET/CT normalization, manifests, splits, nnUNet dataset export
+- `src/autopet_xai/fetch.py`: selective FDG subset download from the public autoPET NIfTI ZIP
 - `src/autopet_xai/nnunet.py`: orchestration helpers for `nnUNetv2`
 - `src/autopet_xai/metrics.py`: Dice and false-volume metrics for review cases
 - `src/autopet_xai/xai.py`: qualitative PET/CT attribution export for lesion-centric review cases
 - `scripts/autopet_prepare_fdg.py`: prepare the FDG dataset and create `fdg_dev` / `fdg_full`
+- `scripts/autopet_fetch_fdg_subset.py`: fetch only the FDG cases needed for a first POC
 - `scripts/autopet_train_nnunet.py`: plan/preprocess + train the official-style nnUNet baseline
 - `scripts/autopet_predict_nnunet.py`: run review inference and export segmentation metrics
 - `scripts/autopet_generate_xai.py`: export Saliency / Integrated Gradients / Occlusion figures
@@ -81,7 +83,7 @@ git config --global user.email "your-email@example.com"
 cd "$HOME"
 git clone https://github.com/Projet-UE/XAI.git
 cd XAI
-git checkout feature/classification-xai-baseline
+git checkout feature/autopet-fdg-nnunet-baseline
 git pull --ff-only
 ```
 

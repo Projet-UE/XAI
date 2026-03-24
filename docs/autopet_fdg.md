@@ -10,31 +10,42 @@ Build a first reproducible POC on Grid'5000 Grenoble using:
 - model family: official autoPET `nnUNet` baseline
 - target: segmentation metrics on a fixed review split plus qualitative XAI exports
 
-## Input expectation
+## 1. Fetch a selective FDG NIfTI subset
 
-The preparation script currently expects a **NIfTI-like case layout** as input, with one folder per case and identifiable PET, CT, and label files inside each folder.
+Instead of downloading the full public `nifti.zip` archive (~283 GB), start with a selective subset pull directly from the remote ZIP:
 
-Example source layout:
+```bash
+cd "$HOME/XAI"
+source .venv/bin/activate
 
-```text
-$HOME/data/autopet-fdg-source/
-├── PETCT_001/
-│   ├── PET.nii.gz
-│   ├── CT.nii.gz
-│   └── SEG.nii.gz
-└── ...
+python scripts/autopet_fetch_fdg_subset.py \
+  --destination-root "$HOME/data/autopet-fdg-source" \
+  --target-count 64 \
+  --seed 42
 ```
 
-If you only have TCIA DICOM, convert it first using the official `lab-midas/autoPET` conversion logic or an equivalent preprocessing step, then feed the resulting NIfTI folders to the script below.
+This materializes only the required study folders under:
 
-## 1. Prepare the normalized FDG dataset
+```text
+$HOME/data/autopet-fdg-source/FDG-PET-CT-Lesions/...
+```
+
+and writes a tracked selection report in:
+
+```text
+$HOME/data/autopet-fdg-source/fdg_subset_selection.json
+```
+
+If you already have TCIA DICOM instead, you can still convert it first with the official `lab-midas/autoPET` logic and then feed the resulting NIfTI layout to the preparation script below.
+
+## 2. Prepare the normalized FDG dataset
 
 ```bash
 cd "$HOME/XAI"
 source .venv/bin/activate
 
 python scripts/autopet_prepare_fdg.py \
-  --source-root "$HOME/data/autopet-fdg-source" \
+  --source-root "$HOME/data/autopet-fdg-source/FDG-PET-CT-Lesions" \
   --prepared-root "$HOME/data/autopet-fdg/prepared" \
   --artifacts-dir "$HOME/XAI/artifacts/autopet_fdg_poc" \
   --dataset-id 501 \
@@ -55,7 +66,7 @@ This creates:
   - `artifacts/autopet_fdg_poc/fdg_dev/nnunet_raw/...`
   - `artifacts/autopet_fdg_poc/fdg_full/nnunet_raw/...`
 
-## 2. Train the nnUNet baseline
+## 3. Train the nnUNet baseline
 
 ```bash
 cd "$HOME/XAI"
@@ -69,7 +80,7 @@ python scripts/autopet_train_nnunet.py \
   --fold 0
 ```
 
-## 3. Predict on review cases and export segmentation metrics
+## 4. Predict on review cases and export segmentation metrics
 
 ```bash
 cd "$HOME/XAI"
@@ -89,7 +100,7 @@ Tracked outputs:
 - `review_metrics/segmentation_metrics.json`
 - `review_metrics/per_case_metrics.json`
 
-## 4. Generate qualitative XAI on review cases
+## 5. Generate qualitative XAI on review cases
 
 ```bash
 cd "$HOME/XAI"
@@ -113,7 +124,7 @@ Tracked outputs:
 - `xai/<case_id>/integrated_gradients.png`
 - `xai/<case_id>/occlusion.png`
 
-## 5. Export a lightweight Git snapshot
+## 6. Export a lightweight Git snapshot
 
 ```bash
 cd "$HOME/XAI"
