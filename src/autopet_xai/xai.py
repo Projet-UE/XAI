@@ -92,8 +92,10 @@ def _foreground_score(output: Any) -> torch.Tensor:
     if output.ndim != 5:
         raise ValueError(f"Expected 5D segmentation logits, got shape {tuple(output.shape)}")
     if output.shape[1] == 1:
-        return output[:, 0].sum()
-    return output[:, 1].sum()
+        foreground = output[:, 0]
+    else:
+        foreground = output[:, 1]
+    return foreground.reshape(foreground.shape[0], -1).sum(dim=1)
 
 
 def _compute_attribution(network: torch.nn.Module, input_tensor: torch.Tensor, method: str) -> np.ndarray:
