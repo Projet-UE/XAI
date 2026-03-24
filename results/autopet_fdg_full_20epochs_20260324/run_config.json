@@ -1,0 +1,13 @@
+{
+  "artifacts_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full",
+  "configuration": "3d_fullres",
+  "dataset_id": 501,
+  "device": "cuda",
+  "fold": "0",
+  "force_plan_and_preprocess": false,
+  "plans": "nnUNetPlans",
+  "skip_plan_and_preprocess": false,
+  "split_name": "fdg_full",
+  "trainer": "nnUNetTrainer_20epochs",
+  "training_output_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/nnunet_results/Dataset501_AutoPETFDG/nnUNetTrainer_20epochs__nnUNetPlans__3d_fullres"
+}
