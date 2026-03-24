@@ -36,7 +36,7 @@ def save_checkpoint(model: nn.Module, path: str, extra: Optional[Dict[str, Any]]
 
 
 def load_checkpoint(model: nn.Module, checkpoint_path: str, map_location: Union[str, torch.device] = "cpu") -> Dict[str, Any]:
-    payload = torch.load(checkpoint_path, map_location=map_location)
+    payload = torch.load(checkpoint_path, map_location=map_location, weights_only=False)
     state_dict = payload["state_dict"] if "state_dict" in payload else payload
     model.load_state_dict(state_dict)
     return payload
