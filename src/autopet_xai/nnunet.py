@@ -69,6 +69,12 @@ def plan_and_preprocess(
     return env
 
 
+def preprocessed_dataset_exists(dataset_id: int, artifacts_dir: Union[str, Path]) -> bool:
+    dataset_name = resolve_dataset_name(dataset_id)
+    preprocessed_root = Path(artifacts_dir) / "nnunet_preprocessed" / dataset_name
+    return (preprocessed_root / "nnUNetPlans.json").exists()
+
+
 def train_model(
     dataset_id: int,
     configuration: str,

@@ -4,7 +4,12 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from autopet_xai.nnunet import plan_and_preprocess, resolve_training_output_dir, train_model
+from autopet_xai.nnunet import (
+    plan_and_preprocess,
+    preprocessed_dataset_exists,
+    resolve_training_output_dir,
+    train_model,
+)
 from brain_tumor_xai.utils import ensure_dir, save_json
 
 
@@ -19,6 +24,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--plans", type=str, default="nnUNetPlans")
     parser.add_argument("--device", choices=["cuda", "cpu", "mps"], help="Execution device passed through to nnUNetv2_train.")
     parser.add_argument("--skip-plan-and-preprocess", action="store_true")
+    parser.add_argument("--force-plan-and-preprocess", action="store_true")
     parser.add_argument("--disable-dataset-integrity-check", action="store_true")
     return parser.parse_args()
 
@@ -30,7 +36,14 @@ def main() -> None:
     if not split_specific_artifacts.exists():
         split_specific_artifacts = artifacts_dir
 
-    if not args.skip_plan_and_preprocess:
+    should_plan_and_preprocess = not args.skip_plan_and_preprocess
+    if should_plan_and_preprocess and not args.force_plan_and_preprocess:
+        should_plan_and_preprocess = not preprocessed_dataset_exists(
+            dataset_id=args.dataset_id,
+            artifacts_dir=split_specific_artifacts,
+        )
+
+    if should_plan_and_preprocess:
         plan_and_preprocess(
             dataset_id=args.dataset_id,
             artifacts_dir=split_specific_artifacts,
@@ -63,6 +76,8 @@ def main() -> None:
             "trainer": args.trainer,
             "plans": args.plans,
             "device": args.device,
+            "skip_plan_and_preprocess": args.skip_plan_and_preprocess,
+            "force_plan_and_preprocess": args.force_plan_and_preprocess,
             "training_output_dir": str(training_output_dir),
         },
         split_specific_artifacts / "training_run_config.json",

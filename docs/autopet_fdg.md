@@ -69,6 +69,7 @@ This creates:
 ## 3. Train the nnUNet baseline
 
 The training wrapper automatically patches the known `nnUNetv2` scheduler incompatibility with `torch 2.8+` before launching `nnUNetv2_train`.
+If the split-specific `nnunet_preprocessed/<Dataset...>/nnUNetPlans.json` already exists, the wrapper now skips plan/preprocess automatically unless `--force-plan-and-preprocess` is passed.
 
 ```bash
 cd "$HOME/XAI"
