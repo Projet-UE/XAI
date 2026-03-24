@@ -21,7 +21,23 @@ def parse_args() -> argparse.Namespace:
 
 def _copy_selected_figures(xai_dir: Path, target_dir: Path, max_figures: int) -> List[str]:
     copied: List[str] = []
-    figure_paths = sorted(xai_dir.rglob("*.png"))[:max_figures]
+    figure_paths: List[Path] = []
+
+    case_dirs = [path for path in sorted(xai_dir.iterdir()) if path.is_dir()]
+    preferred_names = ["integrated_gradients.png", "occlusion.png", "saliency.png"]
+    for case_dir in case_dirs:
+        for preferred_name in preferred_names:
+            candidate = case_dir / preferred_name
+            if candidate.exists():
+                figure_paths.append(candidate)
+                break
+        if len(figure_paths) >= max_figures:
+            break
+
+    if len(figure_paths) < max_figures:
+        remaining_candidates = [path for path in sorted(xai_dir.rglob("*.png")) if path not in figure_paths]
+        figure_paths.extend(remaining_candidates[: max_figures - len(figure_paths)])
+
     for figure_path in figure_paths:
         relative = figure_path.relative_to(xai_dir)
         destination = target_dir / relative
