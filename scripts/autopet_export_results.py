@@ -59,7 +59,10 @@ def main() -> None:
     if not metrics_path.exists():
         raise FileNotFoundError(f"Missing segmentation metrics at {metrics_path}")
 
-    target_dir = ensure_dir(args.results_root / args.run_id)
+    target_dir = args.results_root / args.run_id
+    if target_dir.exists():
+        shutil.rmtree(target_dir)
+    target_dir = ensure_dir(target_dir)
     metrics = load_json(metrics_path)
     if run_config_path.exists():
         run_config = load_json(run_config_path)
