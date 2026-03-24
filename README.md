@@ -49,6 +49,10 @@ Lightweight Grenoble run snapshots tracked in Git:
 - autoPET FDG comparison snapshot (`20 epochs` vs `50 epochs` on the same review split):
   - `results/autopet_fdg_full_20vs50_20260324/README.md`
   - `results/autopet_fdg_full_20vs50_20260324/comparison.json`
+- autoPET FDG `50 epochs` post-processing sweep snapshot (`mean_pet` connected-component filtering on review predictions):
+  - `results/autopet_fdg_full_50epochs_postprocess_mean_pet_20260324/README.md`
+  - `results/autopet_fdg_full_50epochs_postprocess_mean_pet_20260324/summary.json`
+  - `results/autopet_fdg_full_50epochs_postprocess_mean_pet_20260324/comparison.json`
 
 This folder is meant to keep useful experiment metadata and summary outputs in Git, while the full `artifacts/` tree stays out of version control.
 
@@ -84,6 +88,7 @@ Main components:
 - `scripts/autopet_predict_nnunet.py`: run review inference and export segmentation metrics
 - `scripts/autopet_generate_xai.py`: export Saliency / Integrated Gradients / Occlusion figures
 - `scripts/autopet_export_results.py`: create a lightweight Git-tracked snapshot under `results/`
+- `scripts/autopet_sweep_postprocess.py`: sweep lightweight connected-component filters on existing review predictions
 
 ## Grid'5000-only workflow
 

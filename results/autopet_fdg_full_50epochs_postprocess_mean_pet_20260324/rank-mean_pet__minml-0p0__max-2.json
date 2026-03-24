@@ -1,0 +1,832 @@
+{
+  "label": "rank-mean_pet__minml-0p0__max-2",
+  "max_components": 2,
+  "metrics": {
+    "case_count": 7,
+    "cases": [
+      {
+        "case_id": "PETCT_05bed31780",
+        "dice": 0.0,
+        "false_negative_volume_ml": 0.0,
+        "false_negative_voxels": 0,
+        "false_positive_volume_ml": 0.08708714388647677,
+        "false_positive_voxels": 7,
+        "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_05bed31780/label.nii.gz",
+        "gt_volume_ml": 0.0,
+        "gt_voxels": 0,
+        "nnunet_case_id": "FDG_0057",
+        "pred_volume_ml": 0.08708714388647677,
+        "pred_voxels": 7,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0057.nii.gz",
+        "spacing_xyz": [
+          2.0364201068878174,
+          2.0364201068878174,
+          3.0
+        ]
+      },
+      {
+        "case_id": "PETCT_3bce0eb7aa",
+        "dice": 1.0,
+        "false_negative_volume_ml": 0.0,
+        "false_negative_voxels": 0,
+        "false_positive_volume_ml": 0.0,
+        "false_positive_voxels": 0,
+        "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_3bce0eb7aa/label.nii.gz",
+        "gt_volume_ml": 0.0,
+        "gt_voxels": 0,
+        "nnunet_case_id": "FDG_0058",
+        "pred_volume_ml": 0.0,
+        "pred_voxels": 0,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0058.nii.gz",
+        "spacing_xyz": [
+          2.0364201068878174,
+          2.0364201068878174,
+          3.0
+        ]
+      },
+      {
+        "case_id": "PETCT_402c061122",
+        "dice": 0.0,
+        "false_negative_volume_ml": 0.0,
+        "false_negative_voxels": 0,
+        "false_positive_volume_ml": 0.8335483771991349,
+        "false_positive_voxels": 67,
+        "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_402c061122/label.nii.gz",
+        "gt_volume_ml": 0.0,
+        "gt_voxels": 0,
+        "nnunet_case_id": "FDG_0059",
+        "pred_volume_ml": 0.8335483771991349,
+        "pred_voxels": 67,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0059.nii.gz",
+        "spacing_xyz": [
+          2.0364201068878174,
+          2.0364201068878174,
+          3.0
+        ]
+      },
+      {
+        "case_id": "PETCT_4848bebb10",
+        "dice": 0.21053472943809448,
+        "false_negative_volume_ml": 238.58145118728072,
+        "false_negative_voxels": 19177,
+        "false_positive_volume_ml": 7.178468860356729,
+        "false_positive_voxels": 577,
+        "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_4848bebb10/label.nii.gz",
+        "gt_volume_ml": 271.3510993297064,
+        "gt_voxels": 21811,
+        "nnunet_case_id": "FDG_0060",
+        "pred_volume_ml": 39.94811700278242,
+        "pred_voxels": 3211,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0060.nii.gz",
+        "spacing_xyz": [
+          2.0364201068878174,
+          2.0364201068878174,
+          3.0
+        ]
+      },
+      {
+        "case_id": "PETCT_a1db71e797",
+        "dice": 0.8965952080706179,
+        "false_negative_volume_ml": 1.965681247723333,
+        "false_negative_voxels": 158,
+        "false_positive_volume_ml": 0.0746461233312658,
+        "false_positive_voxels": 6,
+        "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_a1db71e797/label.nii.gz",
+        "gt_volume_ml": 10.811246862478331,
+        "gt_voxels": 869,
+        "nnunet_case_id": "FDG_0061",
+        "pred_volume_ml": 8.920211738086264,
+        "pred_voxels": 717,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0061.nii.gz",
+        "spacing_xyz": [
+          2.0364201068878174,
+          2.0364201068878174,
+          3.0
+        ]
+      },
+      {
+        "case_id": "PETCT_be3e55a32f",
+        "dice": 0.5128772317901722,
+        "false_negative_volume_ml": 37.95755371394866,
+        "false_negative_voxels": 3051,
+        "false_positive_volume_ml": 0.398112657766751,
+        "false_positive_voxels": 32,
+        "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_be3e55a32f/label.nii.gz",
+        "gt_volume_ml": 58.14933007505606,
+        "gt_voxels": 4674,
+        "nnunet_case_id": "FDG_0062",
+        "pred_volume_ml": 20.589889018874153,
+        "pred_voxels": 1655,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0062.nii.gz",
+        "spacing_xyz": [
+          2.0364201068878174,
+          2.0364201068878174,
+          3.0
+        ]
+      },
+      {
+        "case_id": "PETCT_e2309b8f92",
+        "dice": 0.0,
+        "false_negative_volume_ml": 0.0,
+        "false_negative_voxels": 0,
+        "false_positive_volume_ml": 0.3234665344354852,
+        "false_positive_voxels": 26,
+        "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_e2309b8f92/label.nii.gz",
+        "gt_volume_ml": 0.0,
+        "gt_voxels": 0,
+        "nnunet_case_id": "FDG_0063",
+        "pred_volume_ml": 0.3234665344354852,
+        "pred_voxels": 26,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0063.nii.gz",
+        "spacing_xyz": [
+          2.0364201068878174,
+          2.0364201068878174,
+          3.0
+        ]
+      }
+    ],
+    "mean_dice": 0.3742867384712692,
+    "mean_false_negative_volume_ml": 39.78638373556468,
+    "mean_false_positive_volume_ml": 1.2707613852822632
+  },
+  "min_component_volume_ml": 0.0,
+  "negative_case_count": 4.0,
+  "negative_mean_dice": 0.25,
+  "negative_mean_false_positive_volume_ml": 0.3110255138802742,
+  "positive_case_count": 3.0,
+  "positive_mean_dice": 0.5400023897662949,
+  "positive_mean_false_negative_volume_ml": 92.83489538298424,
+  "positive_mean_false_positive_volume_ml": 2.5504092138182486,
+  "postprocess_report": {
+    "case_count": 7,
+    "cases": [
+      {
+        "case_id": "PETCT_05bed31780",
+        "component_count_after": 2,
+        "component_count_before": 8,
+        "components_after": [
+          {
+            "label": 3,
+            "max_pet": 51.192501068115234,
+            "mean_pet": 34.93558883666992,
+            "volume_ml": 0.04976408222084387,
+            "voxels": 4
+          },
+          {
+            "label": 4,
+            "max_pet": 55.55536651611328,
+            "mean_pet": 33.75566482543945,
+            "volume_ml": 0.0373230616656329,
+            "voxels": 3
+          }
+        ],
+        "components_before": [
+          {
+            "label": 1,
+            "max_pet": 66.38401794433594,
+            "mean_pet": 18.44544792175293,
+            "volume_ml": 0.09952816444168774,
+            "voxels": 8
+          },
+          {
+            "label": 2,
+            "max_pet": 23.206146240234375,
+            "mean_pet": 16.0351619720459,
+            "volume_ml": 0.08708714388647677,
+            "voxels": 7
+          },
+          {
+            "label": 3,
+            "max_pet": 51.192501068115234,
+            "mean_pet": 34.93558883666992,
+            "volume_ml": 0.04976408222084387,
+            "voxels": 4
+          },
+          {
+            "label": 4,
+            "max_pet": 55.55536651611328,
+            "mean_pet": 33.75566482543945,
+            "volume_ml": 0.0373230616656329,
+            "voxels": 3
+          },
+          {
+            "label": 5,
+            "max_pet": 8.582914352416992,
+            "mean_pet": 3.5526371002197266,
+            "volume_ml": 8.584304183095568,
+            "voxels": 690
+          },
+          {
+            "label": 6,
+            "max_pet": 8.682629585266113,
+            "mean_pet": 3.316889524459839,
+            "volume_ml": 0.7340202127574471,
+            "voxels": 59
+          },
+          {
+            "label": 7,
+            "max_pet": 7.654303073883057,
+            "mean_pet": 7.654303073883057,
+            "volume_ml": 0.012441020555210968,
+            "voxels": 1
+          },
+          {
+            "label": 8,
+            "max_pet": 18.139123916625977,
+            "mean_pet": 12.896136283874512,
+            "volume_ml": 0.0373230616656329,
+            "voxels": 3
+          }
+        ],
+        "max_components": 2,
+        "min_component_volume_ml": 0.0,
+        "nnunet_case_id": "FDG_0057",
+        "output_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0057.nii.gz",
+        "pred_volume_ml_after": 0.08708714388647677,
+        "pred_volume_ml_before": 9.6417909302885,
+        "pred_voxels_after": 7,
+        "pred_voxels_before": 775,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0057.nii.gz",
+        "rank_by": "mean_pet"
+      },
+      {
+        "case_id": "PETCT_3bce0eb7aa",
+        "component_count_after": 0,
+        "component_count_before": 0,
+        "components_after": [],
+        "components_before": [],
+        "max_components": 2,
+        "min_component_volume_ml": 0.0,
+        "nnunet_case_id": "FDG_0058",
+        "output_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0058.nii.gz",
+        "pred_volume_ml_after": 0.0,
+        "pred_volume_ml_before": 0.0,
+        "pred_voxels_after": 0,
+        "pred_voxels_before": 0,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0058.nii.gz",
+        "rank_by": "mean_pet"
+      },
+      {
+        "case_id": "PETCT_402c061122",
+        "component_count_after": 2,
+        "component_count_before": 21,
+        "components_after": [
+          {
+            "label": 5,
+            "max_pet": 35.89144515991211,
+            "mean_pet": 11.682509422302246,
+            "volume_ml": 0.758902253867869,
+            "voxels": 61
+          },
+          {
+            "label": 1,
+            "max_pet": 15.952224731445312,
+            "mean_pet": 7.325685024261475,
+            "volume_ml": 0.0746461233312658,
+            "voxels": 6
+          }
+        ],
+        "components_before": [
+          {
+            "label": 1,
+            "max_pet": 15.952224731445312,
+            "mean_pet": 7.325685024261475,
+            "volume_ml": 0.0746461233312658,
+            "voxels": 6
+          },
+          {
+            "label": 2,
+            "max_pet": 4.78056001663208,
+            "mean_pet": 4.78056001663208,
+            "volume_ml": 0.012441020555210968,
+            "voxels": 1
+          },
+          {
+            "label": 3,
+            "max_pet": 2.4094183444976807,
+            "mean_pet": 1.9669218063354492,
+            "volume_ml": 0.17417428777295355,
+            "voxels": 14
+          },
+          {
+            "label": 4,
+            "max_pet": 14.285261154174805,
+            "mean_pet": 3.499439001083374,
+            "volume_ml": 2.8987577893641556,
+            "voxels": 233
+          },
+          {
+            "label": 5,
+            "max_pet": 35.89144515991211,
+            "mean_pet": 11.682509422302246,
+            "volume_ml": 0.758902253867869,
+            "voxels": 61
+          },
+          {
+            "label": 6,
+            "max_pet": 31.80868148803711,
+            "mean_pet": 3.633512258529663,
+            "volume_ml": 28.042060331445523,
+            "voxels": 2254
+          },
+          {
+            "label": 7,
+            "max_pet": 2.4256017208099365,
+            "mean_pet": 2.4256017208099365,
+            "volume_ml": 0.012441020555210968,
+            "voxels": 1
+          },
+          {
+            "label": 8,
+            "max_pet": 4.671301364898682,
+            "mean_pet": 3.0702953338623047,
+            "volume_ml": 1.0201636855272993,
+            "voxels": 82
+          },
+          {
+            "label": 9,
+            "max_pet": 1.5574252605438232,
+            "mean_pet": 1.1538231372833252,
+            "volume_ml": 0.4603177605428058,
+            "voxels": 37
+          },
+          {
+            "label": 10,
+            "max_pet": 1.4192675352096558,
+            "mean_pet": 1.2390505075454712,
+            "volume_ml": 0.062205102776054844,
+            "voxels": 5
+          },
+          {
+            "label": 11,
+            "max_pet": 33.816627502441406,
+            "mean_pet": 4.215196132659912,
+            "volume_ml": 2.6126143165943034,
+            "voxels": 210
+          },
+          {
+            "label": 12,
+            "max_pet": 6.808889865875244,
+            "mean_pet": 2.856065511703491,
+            "volume_ml": 1.4182763432940504,
+            "voxels": 114
+          },
+          {
+            "label": 13,
+            "max_pet": 1.4285770654678345,
+            "mean_pet": 1.4285770654678345,
+            "volume_ml": 0.012441020555210968,
+            "voxels": 1
+          },
+          {
+            "label": 14,
+            "max_pet": 1.3925366401672363,
+            "mean_pet": 1.3925366401672363,
+            "volume_ml": 0.012441020555210968,
+            "voxels": 1
+          },
+          {
+            "label": 15,
+            "max_pet": 4.93281364440918,
+            "mean_pet": 1.8456485271453857,
+            "volume_ml": 6.120982113163796,
+            "voxels": 492
+          },
+          {
+            "label": 16,
+            "max_pet": 1.9241960048675537,
+            "mean_pet": 1.267899990081787,
+            "volume_ml": 1.0450457266377213,
+            "voxels": 84
+          },
+          {
+            "label": 17,
+            "max_pet": 1.703973650932312,
+            "mean_pet": 1.1773850917816162,
+            "volume_ml": 1.0450457266377213,
+            "voxels": 84
+          },
+          {
+            "label": 18,
+            "max_pet": 3.6228513717651367,
+            "mean_pet": 3.6228513717651367,
+            "volume_ml": 0.012441020555210968,
+            "voxels": 1
+          },
+          {
+            "label": 19,
+            "max_pet": 5.594931602478027,
+            "mean_pet": 4.783023357391357,
+            "volume_ml": 0.08708714388647677,
+            "voxels": 7
+          },
+          {
+            "label": 20,
+            "max_pet": 2.8012876510620117,
+            "mean_pet": 2.3873815536499023,
+            "volume_ml": 0.1990563288833755,
+            "voxels": 16
+          },
+          {
+            "label": 21,
+            "max_pet": 6.190980911254883,
+            "mean_pet": 4.353641510009766,
+            "volume_ml": 0.12441020555210969,
+            "voxels": 10
+          }
+        ],
+        "max_components": 2,
+        "min_component_volume_ml": 0.0,
+        "nnunet_case_id": "FDG_0059",
+        "output_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0059.nii.gz",
+        "pred_volume_ml_after": 0.8335483771991349,
+        "pred_volume_ml_before": 46.205950342053534,
+        "pred_voxels_after": 67,
+        "pred_voxels_before": 3714,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0059.nii.gz",
+        "rank_by": "mean_pet"
+      },
+      {
+        "case_id": "PETCT_4848bebb10",
+        "component_count_after": 2,
+        "component_count_before": 7,
+        "components_after": [
+          {
+            "label": 7,
+            "max_pet": 12.652067184448242,
+            "mean_pet": 6.9621262550354,
+            "volume_ml": 0.0746461233312658,
+            "voxels": 6
+          },
+          {
+            "label": 1,
+            "max_pet": 18.959613800048828,
+            "mean_pet": 5.723105430603027,
+            "volume_ml": 39.873470879451155,
+            "voxels": 3205
+          }
+        ],
+        "components_before": [
+          {
+            "label": 1,
+            "max_pet": 18.959613800048828,
+            "mean_pet": 5.723105430603027,
+            "volume_ml": 39.873470879451155,
+            "voxels": 3205
+          },
+          {
+            "label": 2,
+            "max_pet": 9.03725528717041,
+            "mean_pet": 5.470901012420654,
+            "volume_ml": 0.6842561305366033,
+            "voxels": 55
+          },
+          {
+            "label": 3,
+            "max_pet": 3.5473828315734863,
+            "mean_pet": 3.410428047180176,
+            "volume_ml": 0.04976408222084387,
+            "voxels": 4
+          },
+          {
+            "label": 4,
+            "max_pet": 3.233776569366455,
+            "mean_pet": 3.138110637664795,
+            "volume_ml": 0.062205102776054844,
+            "voxels": 5
+          },
+          {
+            "label": 5,
+            "max_pet": 6.3976521492004395,
+            "mean_pet": 3.1456494331359863,
+            "volume_ml": 1.2689840966315187,
+            "voxels": 102
+          },
+          {
+            "label": 6,
+            "max_pet": 11.189210891723633,
+            "mean_pet": 3.254457712173462,
+            "volume_ml": 2.0403273710545986,
+            "voxels": 164
+          },
+          {
+            "label": 7,
+            "max_pet": 12.652067184448242,
+            "mean_pet": 6.9621262550354,
+            "volume_ml": 0.0746461233312658,
+            "voxels": 6
+          }
+        ],
+        "max_components": 2,
+        "min_component_volume_ml": 0.0,
+        "nnunet_case_id": "FDG_0060",
+        "output_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0060.nii.gz",
+        "pred_volume_ml_after": 39.94811700278242,
+        "pred_volume_ml_before": 44.05365378600204,
+        "pred_voxels_after": 3211,
+        "pred_voxels_before": 3541,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0060.nii.gz",
+        "rank_by": "mean_pet"
+      },
+      {
+        "case_id": "PETCT_a1db71e797",
+        "component_count_after": 2,
+        "component_count_before": 9,
+        "components_after": [
+          {
+            "label": 8,
+            "max_pet": 10.854171752929688,
+            "mean_pet": 9.441350936889648,
+            "volume_ml": 0.0373230616656329,
+            "voxels": 3
+          },
+          {
+            "label": 9,
+            "max_pet": 27.686655044555664,
+            "mean_pet": 9.247426986694336,
+            "volume_ml": 8.882888676420631,
+            "voxels": 714
+          }
+        ],
+        "components_before": [
+          {
+            "label": 1,
+            "max_pet": 8.10558032989502,
+            "mean_pet": 3.5858259201049805,
+            "volume_ml": 1.2192200144106748,
+            "voxels": 98
+          },
+          {
+            "label": 2,
+            "max_pet": 8.243814468383789,
+            "mean_pet": 3.4967567920684814,
+            "volume_ml": 1.0077226649720885,
+            "voxels": 81
+          },
+          {
+            "label": 3,
+            "max_pet": 10.687281608581543,
+            "mean_pet": 3.5006895065307617,
+            "volume_ml": 3.8318343310049783,
+            "voxels": 308
+          },
+          {
+            "label": 4,
+            "max_pet": 18.762989044189453,
+            "mean_pet": 3.965907573699951,
+            "volume_ml": 8.148868463663185,
+            "voxels": 655
+          },
+          {
+            "label": 5,
+            "max_pet": 28.31299591064453,
+            "mean_pet": 4.940133571624756,
+            "volume_ml": 76.79841988731731,
+            "voxels": 6173
+          },
+          {
+            "label": 6,
+            "max_pet": 22.628477096557617,
+            "mean_pet": 4.118900299072266,
+            "volume_ml": 37.59676411784755,
+            "voxels": 3022
+          },
+          {
+            "label": 7,
+            "max_pet": 7.329509258270264,
+            "mean_pet": 4.122730255126953,
+            "volume_ml": 0.48519980165322774,
+            "voxels": 39
+          },
+          {
+            "label": 8,
+            "max_pet": 10.854171752929688,
+            "mean_pet": 9.441350936889648,
+            "volume_ml": 0.0373230616656329,
+            "voxels": 3
+          },
+          {
+            "label": 9,
+            "max_pet": 27.686655044555664,
+            "mean_pet": 9.247426986694336,
+            "volume_ml": 8.882888676420631,
+            "voxels": 714
+          }
+        ],
+        "max_components": 2,
+        "min_component_volume_ml": 0.0,
+        "nnunet_case_id": "FDG_0061",
+        "output_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0061.nii.gz",
+        "pred_volume_ml_after": 8.920211738086264,
+        "pred_volume_ml_before": 138.00824101895526,
+        "pred_voxels_after": 717,
+        "pred_voxels_before": 11093,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0061.nii.gz",
+        "rank_by": "mean_pet"
+      },
+      {
+        "case_id": "PETCT_be3e55a32f",
+        "component_count_after": 2,
+        "component_count_before": 16,
+        "components_after": [
+          {
+            "label": 1,
+            "max_pet": 37.30009841918945,
+            "mean_pet": 11.116978645324707,
+            "volume_ml": 10.512662369153269,
+            "voxels": 845
+          },
+          {
+            "label": 14,
+            "max_pet": 23.797258377075195,
+            "mean_pet": 8.06482219696045,
+            "volume_ml": 10.077226649720885,
+            "voxels": 810
+          }
+        ],
+        "components_before": [
+          {
+            "label": 1,
+            "max_pet": 37.30009841918945,
+            "mean_pet": 11.116978645324707,
+            "volume_ml": 10.512662369153269,
+            "voxels": 845
+          },
+          {
+            "label": 2,
+            "max_pet": 9.392192840576172,
+            "mean_pet": 4.537380218505859,
+            "volume_ml": 1.1943379733002528,
+            "voxels": 96
+          },
+          {
+            "label": 3,
+            "max_pet": 26.81728172302246,
+            "mean_pet": 7.372769832611084,
+            "volume_ml": 12.664958925204765,
+            "voxels": 1018
+          },
+          {
+            "label": 4,
+            "max_pet": 3.870030403137207,
+            "mean_pet": 3.0544192790985107,
+            "volume_ml": 0.17417428777295355,
+            "voxels": 14
+          },
+          {
+            "label": 5,
+            "max_pet": 8.733478546142578,
+            "mean_pet": 3.119957685470581,
+            "volume_ml": 0.9952816444168775,
+            "voxels": 80
+          },
+          {
+            "label": 6,
+            "max_pet": 14.03744888305664,
+            "mean_pet": 3.013385772705078,
+            "volume_ml": 5.39940292096156,
+            "voxels": 434
+          },
+          {
+            "label": 7,
+            "max_pet": 4.7468743324279785,
+            "mean_pet": 3.052996873855591,
+            "volume_ml": 0.7464612333126581,
+            "voxels": 60
+          },
+          {
+            "label": 8,
+            "max_pet": 9.98457145690918,
+            "mean_pet": 2.9726884365081787,
+            "volume_ml": 7.141145798691095,
+            "voxels": 574
+          },
+          {
+            "label": 9,
+            "max_pet": 19.4025821685791,
+            "mean_pet": 4.127192974090576,
+            "volume_ml": 1.8537120627264343,
+            "voxels": 149
+          },
+          {
+            "label": 10,
+            "max_pet": 9.464929580688477,
+            "mean_pet": 3.380204677581787,
+            "volume_ml": 2.0403273710545986,
+            "voxels": 164
+          },
+          {
+            "label": 11,
+            "max_pet": 9.031645774841309,
+            "mean_pet": 2.7142467498779297,
+            "volume_ml": 2.401116967155717,
+            "voxels": 193
+          },
+          {
+            "label": 12,
+            "max_pet": 4.859169960021973,
+            "mean_pet": 4.654186725616455,
+            "volume_ml": 0.0373230616656329,
+            "voxels": 3
+          },
+          {
+            "label": 13,
+            "max_pet": 9.282240867614746,
+            "mean_pet": 2.7757086753845215,
+            "volume_ml": 2.2393836999379744,
+            "voxels": 180
+          },
+          {
+            "label": 14,
+            "max_pet": 23.797258377075195,
+            "mean_pet": 8.06482219696045,
+            "volume_ml": 10.077226649720885,
+            "voxels": 810
+          },
+          {
+            "label": 15,
+            "max_pet": 23.99249267578125,
+            "mean_pet": 4.640789985656738,
+            "volume_ml": 2.05276839160981,
+            "voxels": 165
+          },
+          {
+            "label": 16,
+            "max_pet": 7.009242534637451,
+            "mean_pet": 3.8828823566436768,
+            "volume_ml": 1.1321328705241982,
+            "voxels": 91
+          }
+        ],
+        "max_components": 2,
+        "min_component_volume_ml": 0.0,
+        "nnunet_case_id": "FDG_0062",
+        "output_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0062.nii.gz",
+        "pred_volume_ml_after": 20.589889018874153,
+        "pred_volume_ml_before": 60.66241622720868,
+        "pred_voxels_after": 1655,
+        "pred_voxels_before": 4876,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0062.nii.gz",
+        "rank_by": "mean_pet"
+      },
+      {
+        "case_id": "PETCT_e2309b8f92",
+        "component_count_after": 2,
+        "component_count_before": 3,
+        "components_after": [
+          {
+            "label": 2,
+            "max_pet": 8.436116218566895,
+            "mean_pet": 6.806094169616699,
+            "volume_ml": 0.12441020555210969,
+            "voxels": 10
+          },
+          {
+            "label": 3,
+            "max_pet": 5.702973365783691,
+            "mean_pet": 4.709386348724365,
+            "volume_ml": 0.1990563288833755,
+            "voxels": 16
+          }
+        ],
+        "components_before": [
+          {
+            "label": 1,
+            "max_pet": 5.622994899749756,
+            "mean_pet": 3.7236568927764893,
+            "volume_ml": 4.926644139863543,
+            "voxels": 396
+          },
+          {
+            "label": 2,
+            "max_pet": 8.436116218566895,
+            "mean_pet": 6.806094169616699,
+            "volume_ml": 0.12441020555210969,
+            "voxels": 10
+          },
+          {
+            "label": 3,
+            "max_pet": 5.702973365783691,
+            "mean_pet": 4.709386348724365,
+            "volume_ml": 0.1990563288833755,
+            "voxels": 16
+          }
+        ],
+        "max_components": 2,
+        "min_component_volume_ml": 0.0,
+        "nnunet_case_id": "FDG_0063",
+        "output_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0063.nii.gz",
+        "pred_volume_ml_after": 0.3234665344354852,
+        "pred_volume_ml_before": 5.2501106742990284,
+        "pred_voxels_after": 26,
+        "pred_voxels_before": 422,
+        "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0063.nii.gz",
+        "rank_by": "mean_pet"
+      }
+    ],
+    "max_components": 2,
+    "min_component_volume_ml": 0.0,
+    "rank_by": "mean_pet"
+  },
+  "rank_by": "mean_pet"
+}

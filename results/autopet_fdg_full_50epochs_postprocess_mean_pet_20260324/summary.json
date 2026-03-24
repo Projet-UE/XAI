@@ -1,0 +1,107 @@
+{
+  "evaluated_count": 9,
+  "ranking": [
+    {
+      "label": "rank-mean_pet__minml-5p0__max-1",
+      "max_components": 1,
+      "mean_dice": 0.48667995056475377,
+      "mean_false_negative_volume_ml": 41.20999194481096,
+      "mean_false_positive_volume_ml": 6.293379112286005,
+      "min_component_volume_ml": 5.0,
+      "negative_mean_false_positive_volume_ml": 9.156591128635274,
+      "positive_mean_dice": 0.46891988465109224,
+      "rank_by": "mean_pet"
+    },
+    {
+      "label": "rank-mean_pet__minml-5p0__max-2",
+      "max_components": 2,
+      "mean_dice": 0.41525776943931053,
+      "mean_false_negative_volume_ml": 39.78638373556468,
+      "mean_false_positive_volume_ml": 18.155003567354292,
+      "min_component_volume_ml": 5.0,
+      "negative_mean_false_positive_volume_ml": 10.686836656926221,
+      "positive_mean_dice": 0.30226812869172465,
+      "rank_by": "mean_pet"
+    },
+    {
+      "label": "rank-mean_pet__minml-0p0__max-2",
+      "max_components": 2,
+      "mean_dice": 0.3742867384712692,
+      "mean_false_negative_volume_ml": 39.78638373556468,
+      "mean_false_positive_volume_ml": 1.2707613852822632,
+      "min_component_volume_ml": 0.0,
+      "negative_mean_false_positive_volume_ml": 0.3110255138802742,
+      "positive_mean_dice": 0.5400023897662949,
+      "rank_by": "mean_pet"
+    },
+    {
+      "label": "rank-mean_pet__minml-2p0__max-1",
+      "max_components": 1,
+      "mean_dice": 0.3438228077076109,
+      "mean_false_negative_volume_ml": 41.20999194481096,
+      "mean_false_positive_volume_ml": 3.3644074158591946,
+      "min_component_volume_ml": 2.0,
+      "negative_mean_false_positive_volume_ml": 4.030890659888354,
+      "positive_mean_dice": 0.46891988465109224,
+      "rank_by": "mean_pet"
+    },
+    {
+      "label": "raw_predictions",
+      "max_components": null,
+      "mean_dice": 0.3051383754820529,
+      "mean_false_negative_volume_ml": 35.66840593178984,
+      "mean_false_positive_volume_ml": 30.45561831915645,
+      "min_component_volume_ml": 0.0,
+      "negative_mean_false_positive_volume_ml": 15.274462986660266,
+      "positive_mean_dice": 0.3786562094581234,
+      "rank_by": null
+    },
+    {
+      "label": "rank-mean_pet__minml-0p0__max-3",
+      "max_components": 3,
+      "mean_dice": 0.29999689016835696,
+      "mean_false_negative_volume_ml": 37.989544909662065,
+      "mean_false_positive_volume_ml": 13.082621758129704,
+      "min_component_volume_ml": 0.0,
+      "negative_mean_false_positive_volume_ml": 1.5893403759282012,
+      "positive_mean_dice": 0.3666594103928329,
+      "rank_by": "mean_pet"
+    },
+    {
+      "label": "rank-mean_pet__minml-2p0__max-3",
+      "max_components": 3,
+      "mean_dice": 0.29254930181683886,
+      "mean_false_negative_volume_ml": 37.987767621011315,
+      "mean_false_positive_volume_ml": 24.444828102338814,
+      "min_component_volume_ml": 2.0,
+      "negative_mean_false_positive_volume_ml": 11.766095190090773,
+      "positive_mean_dice": 0.3492817042392908,
+      "rank_by": "mean_pet"
+    },
+    {
+      "label": "rank-mean_pet__minml-2p0__max-2",
+      "max_components": 2,
+      "mean_dice": 0.27282876696016195,
+      "mean_false_negative_volume_ml": 39.68863285977373,
+      "mean_false_positive_volume_ml": 18.551338936470298,
+      "min_component_volume_ml": 2.0,
+      "negative_mean_false_positive_volume_ml": 11.041405742749735,
+      "positive_mean_dice": 0.30326712290704455,
+      "rank_by": "mean_pet"
+    },
+    {
+      "label": "rank-mean_pet__minml-0p0__max-1",
+      "max_components": 1,
+      "mean_dice": 0.18541143581911837,
+      "mean_false_negative_volume_ml": 47.15502248155106,
+      "mean_false_positive_volume_ml": 0.19016988562965337,
+      "min_component_volume_ml": 0.0,
+      "negative_mean_false_positive_volume_ml": 0.23326913541020564,
+      "positive_mean_dice": 0.09929335024460954,
+      "rank_by": "mean_pet"
+    }
+  ],
+  "raw_predictions_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions",
+  "split_name": "fdg_full",
+  "sweep_id": "fdg_full_50epochs_postprocess_mean_pet_20260324"
+}
