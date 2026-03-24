@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Dict, List, Union
 
 import torch
 from torch import nn
@@ -69,8 +69,8 @@ def fit(
     device: torch.device,
     epochs: int,
     learning_rate: float,
-    output_dir: str | Path,
-) -> dict[str, Any]:
+    output_dir: Union[str, Path],
+) -> Dict[str, Any]:
     target = ensure_dir(output_dir)
     checkpoints_dir = ensure_dir(Path(target) / "checkpoints")
     history_path = Path(target) / "history.json"
@@ -80,7 +80,7 @@ def fit(
     criterion = nn.BCEWithLogitsLoss()
     model.to(device)
 
-    history: list[dict[str, Any]] = []
+    history: List[Dict[str, Any]] = []
     best_f1 = float("-inf")
 
     for epoch in range(1, epochs + 1):

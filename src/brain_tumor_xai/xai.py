@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Dict, List, Union
 
 from captum.attr import IntegratedGradients, LayerAttribution, LayerGradCam, Occlusion
 import matplotlib.pyplot as plt
@@ -69,7 +69,7 @@ def compute_attribution(
 def save_explanation_panel(
     image_tensor: torch.Tensor,
     heatmap: np.ndarray,
-    output_path: str | Path,
+    output_path: Union[str, Path],
     title: str,
 ) -> None:
     target = Path(output_path)
@@ -98,16 +98,16 @@ def generate_explanations_for_loader(
     model: torch.nn.Module,
     dataloader: torch.utils.data.DataLoader,
     device: torch.device,
-    methods: list[str],
-    output_dir: str | Path,
+    methods: List[str],
+    output_dir: Union[str, Path],
     max_samples_per_class: int = 2,
-) -> dict[str, Any]:
+) -> Dict[str, Any]:
     target = ensure_dir(output_dir)
     model.to(device)
     model.eval()
 
-    exported: list[dict[str, Any]] = []
-    seen_per_class: dict[str, int] = {}
+    exported: List[Dict[str, Any]] = []
+    seen_per_class: Dict[str, int] = {}
 
     for batch in dataloader:
         images = batch["image"].to(device)
@@ -128,7 +128,7 @@ def generate_explanations_for_loader(
             sample_dir = ensure_dir(target / class_name / sample_name)
             single_image = images[index].detach().cpu()
 
-            methods_written: list[str] = []
+            methods_written: List[str] = []
             for method in methods:
                 heatmap = compute_attribution(model, images[index], method)
                 output_path = sample_dir / f"{method}.png"

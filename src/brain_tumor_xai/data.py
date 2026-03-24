@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections import Counter
 from pathlib import Path
-from typing import Any
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 from PIL import Image
 from sklearn.model_selection import train_test_split
@@ -17,7 +17,7 @@ IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
 
 
-def scan_image_folder(data_root: str | Path) -> tuple[list[str], list[dict[str, Any]]]:
+def scan_image_folder(data_root: Union[str, Path]) -> Tuple[List[str], List[Dict[str, Any]]]:
     root = Path(data_root)
     if not root.exists():
         raise FileNotFoundError(f"Dataset directory not found: {root}")
@@ -28,7 +28,7 @@ def scan_image_folder(data_root: str | Path) -> tuple[list[str], list[dict[str, 
 
     classes = [directory.name for directory in class_dirs]
     class_to_idx = {name: index for index, name in enumerate(classes)}
-    records: list[dict[str, Any]] = []
+    records: List[Dict[str, Any]] = []
 
     for class_name in classes:
         class_dir = root / class_name
@@ -48,7 +48,7 @@ def scan_image_folder(data_root: str | Path) -> tuple[list[str], list[dict[str, 
     return classes, records
 
 
-def _stratify_or_none(labels: list[int]) -> list[int] | None:
+def _stratify_or_none(labels: List[int]) -> Optional[List[int]]:
     counts = Counter(labels)
     if len(counts) < 2:
         return None
@@ -58,12 +58,12 @@ def _stratify_or_none(labels: list[int]) -> list[int] | None:
 
 
 def create_split_manifest(
-    data_root: str | Path,
-    output_path: str | Path,
+    data_root: Union[str, Path],
+    output_path: Union[str, Path],
     val_ratio: float = 0.15,
     test_ratio: float = 0.15,
     seed: int = 42,
-) -> dict[str, Any]:
+) -> Dict[str, Any]:
     if val_ratio < 0 or test_ratio < 0 or val_ratio + test_ratio >= 1:
         raise ValueError("val_ratio and test_ratio must be >= 0 and sum to < 1.")
 
@@ -83,7 +83,7 @@ def create_split_manifest(
 
     if test_ratio == 0:
         val_records = temp_records
-        test_records: list[dict[str, Any]] = []
+        test_records: List[Dict[str, Any]] = []
     else:
         temp_labels = [record["label"] for record in temp_records]
         temp_stratify = _stratify_or_none(temp_labels)
@@ -110,12 +110,12 @@ def create_split_manifest(
 
 
 def ensure_split_manifest(
-    data_root: str | Path,
-    manifest_path: str | Path,
+    data_root: Union[str, Path],
+    manifest_path: Union[str, Path],
     val_ratio: float = 0.15,
     test_ratio: float = 0.15,
     seed: int = 42,
-) -> dict[str, Any]:
+) -> Dict[str, Any]:
     target = Path(manifest_path)
     if target.exists():
         return load_json(target)
@@ -123,15 +123,15 @@ def ensure_split_manifest(
     return create_split_manifest(data_root, target, val_ratio=val_ratio, test_ratio=test_ratio, seed=seed)
 
 
-def load_manifest(manifest_path: str | Path) -> dict[str, Any]:
+def load_manifest(manifest_path: Union[str, Path]) -> Dict[str, Any]:
     return load_json(manifest_path)
 
 
-class BrainTumorDataset(Dataset[dict[str, Any]]):
+class BrainTumorDataset(Dataset[Dict[str, Any]]):
     def __init__(
         self,
-        data_root: str | Path,
-        manifest: dict[str, Any],
+        data_root: Union[str, Path],
+        manifest: Dict[str, Any],
         split: str,
         image_size: int = 224,
         augment: bool = False,
@@ -143,7 +143,7 @@ class BrainTumorDataset(Dataset[dict[str, Any]]):
 
     @staticmethod
     def _build_transform(image_size: int, augment: bool) -> transforms.Compose:
-        transform_steps: list[Any] = [transforms.Resize((image_size, image_size))]
+        transform_steps: List[Any] = [transforms.Resize((image_size, image_size))]
         if augment:
             transform_steps.extend(
                 [
@@ -162,7 +162,7 @@ class BrainTumorDataset(Dataset[dict[str, Any]]):
     def __len__(self) -> int:
         return len(self.records)
 
-    def __getitem__(self, index: int) -> dict[str, Any]:
+    def __getitem__(self, index: int) -> Dict[str, Any]:
         record = self.records[index]
         image_path = self.data_root / record["path"]
         image = Image.open(image_path).convert("RGB")
@@ -175,12 +175,12 @@ class BrainTumorDataset(Dataset[dict[str, Any]]):
 
 
 def build_dataloaders(
-    data_root: str | Path,
-    manifest: dict[str, Any],
+    data_root: Union[str, Path],
+    manifest: Dict[str, Any],
     image_size: int = 224,
     batch_size: int = 8,
     num_workers: int = 0,
-) -> dict[str, DataLoader]:
+) -> Dict[str, DataLoader]:
     datasets = {
         "train": BrainTumorDataset(data_root, manifest, split="train", image_size=image_size, augment=True),
         "val": BrainTumorDataset(data_root, manifest, split="val", image_size=image_size, augment=False),

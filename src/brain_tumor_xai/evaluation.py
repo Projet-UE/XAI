@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Dict, List, Tuple, Union
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -19,12 +19,12 @@ from .utils import ensure_dir, save_json
 
 
 def compute_binary_classification_metrics(
-    labels: list[int],
-    probabilities: list[float],
+    labels: List[int],
+    probabilities: List[float],
     threshold: float = 0.5,
-) -> dict[str, Any]:
+) -> Dict[str, Any]:
     predictions = [1 if score >= threshold else 0 for score in probabilities]
-    metrics: dict[str, Any] = {
+    metrics: Dict[str, Any] = {
         "accuracy": accuracy_score(labels, predictions),
         "precision": precision_score(labels, predictions, zero_division=0),
         "recall": recall_score(labels, predictions, zero_division=0),
@@ -47,10 +47,11 @@ def collect_predictions(
     dataloader: torch.utils.data.DataLoader,
     device: torch.device,
 ) -> tuple[list[int], list[float], list[str]]:
+) -> Tuple[List[int], List[float], List[str]]:
     model.eval()
-    labels: list[int] = []
-    probabilities: list[float] = []
-    paths: list[str] = []
+    labels: List[int] = []
+    probabilities: List[float] = []
+    paths: List[str] = []
 
     with torch.no_grad():
         for batch in dataloader:
@@ -65,7 +66,7 @@ def collect_predictions(
     return labels, probabilities, paths
 
 
-def save_confusion_matrix_figure(confusion: list[list[int]], output_path: str | Path) -> None:
+def save_confusion_matrix_figure(confusion: List[List[int]], output_path: Union[str, Path]) -> None:
     target = Path(output_path)
     ensure_dir(target.parent)
 
@@ -89,11 +90,11 @@ def save_confusion_matrix_figure(confusion: list[list[int]], output_path: str | 
 
 
 def save_evaluation_report(
-    metrics: dict[str, Any],
-    labels: list[int],
-    probabilities: list[float],
-    paths: list[str],
-    output_dir: str | Path,
+    metrics: Dict[str, Any],
+    labels: List[int],
+    probabilities: List[float],
+    paths: List[str],
+    output_dir: Union[str, Path],
 ) -> None:
     target = ensure_dir(output_dir)
     save_json(metrics, target / "metrics.json")
@@ -103,7 +104,7 @@ def save_evaluation_report(
             "label": int(label),
             "probability": float(probability),
         }
-        for path, label, probability in zip(paths, labels, probabilities, strict=True)
+        for path, label, probability in zip(paths, labels, probabilities)
     ]
     save_json({"predictions": rows}, target / "predictions.json")
     save_confusion_matrix_figure(metrics["confusion_matrix"], target / "confusion_matrix.png")

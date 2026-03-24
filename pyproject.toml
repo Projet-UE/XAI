@@ -7,7 +7,7 @@ name = "brain-tumor-xai"
 version = "0.1.0"
 description = "Reusable baseline for brain MRI classification with XAI"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 license = { file = "LICENSE" }
 dependencies = [
   "captum>=0.7,<1.0",
