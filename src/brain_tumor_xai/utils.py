@@ -38,7 +38,11 @@ def set_seed(seed: int) -> None:
 
 def select_device(device: Optional[str] = None) -> torch.device:
     if device:
-        return torch.device(device)
+        target = torch.device(device)
+        if target.type == "cpu":
+            torch.backends.mkldnn.enabled = False
+        return target
     if torch.cuda.is_available():
         return torch.device("cuda")
+    torch.backends.mkldnn.enabled = False
     return torch.device("cpu")
