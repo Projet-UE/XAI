@@ -27,6 +27,10 @@ def _read_volume(path: Union[str, Path]) -> np.ndarray:
     return sitk.GetArrayFromImage(sitk.ReadImage(str(path))).astype(np.float32)
 
 
+def _count_positive_voxels(path: Union[str, Path]) -> int:
+    return int((_read_volume(path) > 0).sum())
+
+
 def _normalize_channel(volume: np.ndarray) -> np.ndarray:
     finite = np.isfinite(volume)
     if not finite.any():
@@ -84,6 +88,73 @@ def _choose_representative_slices(mask_crop: np.ndarray, count: int = 3) -> List
         return [int(index) for index in positive_slices.tolist()]
     positions = np.linspace(0, len(positive_slices) - 1, num=count)
     return [int(positive_slices[int(round(position))]) for position in positions]
+
+
+def _select_review_case_ids(
+    case_mapping: Dict[str, Any],
+    prediction_dir: Union[str, Path],
+    max_cases: int,
+    balance_classes: bool = True,
+) -> Tuple[List[str], Dict[str, Any]]:
+    prediction_dir = Path(prediction_dir)
+    candidates: List[Dict[str, Any]] = []
+
+    for case_id in case_mapping["review_case_ids"]:
+        record = case_mapping["cases"][case_id]
+        prediction_path = prediction_dir / f"{record['nnunet_case_id']}.nii.gz"
+        if not prediction_path.exists():
+            continue
+        gt_voxels = _count_positive_voxels(record["label"])
+        pred_voxels = _count_positive_voxels(prediction_path)
+        candidates.append(
+            {
+                "case_id": case_id,
+                "positive": gt_voxels > 0,
+                "gt_voxels": gt_voxels,
+                "pred_voxels": pred_voxels,
+            }
+        )
+
+    positives = sorted(
+        [candidate for candidate in candidates if candidate["positive"]],
+        key=lambda candidate: (candidate["gt_voxels"], candidate["pred_voxels"]),
+        reverse=True,
+    )
+    negatives = sorted(
+        [candidate for candidate in candidates if not candidate["positive"]],
+        key=lambda candidate: candidate["pred_voxels"],
+        reverse=True,
+    )
+
+    if not balance_classes:
+        ordered = positives + negatives
+        ordered = sorted(
+            ordered,
+            key=lambda candidate: (candidate["positive"], candidate["gt_voxels"], candidate["pred_voxels"]),
+            reverse=True,
+        )
+        selected = ordered[:max_cases]
+    else:
+        positive_target = min(len(positives), max_cases // 2 if max_cases % 2 == 0 else (max_cases + 1) // 2)
+        negative_target = min(len(negatives), max_cases - positive_target)
+        selected = positives[:positive_target] + negatives[:negative_target]
+
+        remaining = positives[positive_target:] + negatives[negative_target:]
+        remaining = sorted(
+            remaining,
+            key=lambda candidate: (candidate["positive"], candidate["gt_voxels"], candidate["pred_voxels"]),
+            reverse=True,
+        )
+        if len(selected) < max_cases:
+            selected.extend(remaining[: max_cases - len(selected)])
+
+    return [candidate["case_id"] for candidate in selected], {
+        "balanced_classes": balance_classes,
+        "available_case_count": len(candidates),
+        "available_positive_case_count": len(positives),
+        "available_negative_case_count": len(negatives),
+        "selected_case_ids": [candidate["case_id"] for candidate in selected],
+    }
 
 
 def _foreground_score(output: Any) -> torch.Tensor:
@@ -208,6 +279,7 @@ def generate_review_xai(
     methods: Sequence[str] = ("saliency", "integrated_gradients", "occlusion"),
     max_cases: int = 4,
     crop_size: Tuple[int, int, int] = (32, 128, 128),
+    balance_classes: bool = True,
 ) -> Dict[str, Any]:
     predictor = _load_predictor(training_output_dir, fold=fold, checkpoint_name=checkpoint_name, device=device)
     network = predictor.network
@@ -216,7 +288,12 @@ def generate_review_xai(
 
     output_dir = ensure_dir(output_dir)
     exported: List[Dict[str, Any]] = []
-    review_case_ids = case_mapping["review_case_ids"][:max_cases]
+    review_case_ids, selection_summary = _select_review_case_ids(
+        case_mapping=case_mapping,
+        prediction_dir=prediction_dir,
+        max_cases=max_cases,
+        balance_classes=balance_classes,
+    )
 
     for case_id in review_case_ids:
         record = case_mapping["cases"][case_id]
@@ -269,6 +346,6 @@ def generate_review_xai(
             }
         )
 
-    report = {"cases": exported}
+    report = {"cases": exported, "selection": selection_summary}
     save_json(report, output_dir / "review_cases.json")
     return report

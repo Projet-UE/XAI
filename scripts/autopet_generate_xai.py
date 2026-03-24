@@ -21,7 +21,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--checkpoint-name", type=str, default="checkpoint_best.pth")
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--max-cases", type=int, default=4)
+    parser.add_argument("--prediction-dir", type=Path, default=None)
     parser.add_argument("--output-dir", type=Path, default=None)
+    parser.add_argument("--disable-balanced-selection", action="store_true")
     parser.add_argument(
         "--methods",
         nargs="+",
@@ -35,7 +37,7 @@ def main() -> None:
     args = parse_args()
     split_root = args.artifacts_dir / args.split_name if (args.artifacts_dir / args.split_name).exists() else args.artifacts_dir
     mapping = load_json(split_root / "manifests" / f"case_mapping_{args.split_name}.json")
-    prediction_dir = split_root / "review_predictions"
+    prediction_dir = args.prediction_dir or (split_root / "review_predictions")
     output_dir = ensure_dir(args.output_dir or split_root / "xai")
     training_output_dir = resolve_training_output_dir(
         dataset_id=args.dataset_id,
@@ -55,6 +57,7 @@ def main() -> None:
         device=args.device,
         methods=args.methods,
         max_cases=args.max_cases,
+        balance_classes=not args.disable_balanced_selection,
     )
     save_json(
         {
@@ -63,6 +66,7 @@ def main() -> None:
             "output_dir": str(output_dir),
             "split_name": args.split_name,
             "case_count": len(report["cases"]),
+            "balanced_selection": not args.disable_balanced_selection,
         },
         output_dir / "xai_run_config.json",
     )
