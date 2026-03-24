@@ -58,9 +58,12 @@ def train_model(
     artifacts_dir: Union[str, Path],
     trainer: str = "nnUNetTrainer",
     plans: str = "nnUNetPlans",
+    device: Optional[str] = None,
 ) -> Dict[str, str]:
     env = build_nnunet_environment(artifacts_dir)
     command = ["nnUNetv2_train", str(dataset_id), configuration, str(fold), "-tr", trainer, "-p", plans]
+    if device:
+        command.extend(["-device", device])
     run_command(command, env)
     return env
 
@@ -115,4 +118,3 @@ def resolve_training_output_dir(
 ) -> Path:
     dataset_name = resolve_dataset_name(dataset_id)
     return Path(artifacts_dir) / "nnunet_results" / dataset_name / f"{trainer}__{plans}__{configuration}"
-

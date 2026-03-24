@@ -17,6 +17,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--fold", type=str, default="0")
     parser.add_argument("--trainer", type=str, default="nnUNetTrainer")
     parser.add_argument("--plans", type=str, default="nnUNetPlans")
+    parser.add_argument("--device", choices=["cuda", "cpu", "mps"], help="Execution device passed through to nnUNetv2_train.")
     parser.add_argument("--skip-plan-and-preprocess", action="store_true")
     parser.add_argument("--disable-dataset-integrity-check", action="store_true")
     return parser.parse_args()
@@ -42,6 +43,7 @@ def main() -> None:
         artifacts_dir=split_specific_artifacts,
         trainer=args.trainer,
         plans=args.plans,
+        device=args.device,
     )
 
     training_output_dir = resolve_training_output_dir(
@@ -60,6 +62,7 @@ def main() -> None:
             "fold": args.fold,
             "trainer": args.trainer,
             "plans": args.plans,
+            "device": args.device,
             "training_output_dir": str(training_output_dir),
         },
         split_specific_artifacts / "training_run_config.json",
