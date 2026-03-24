@@ -1,0 +1,17 @@
+{
+  "raw_50epochs": {
+    "mean_dice": 0.3051383754820529,
+    "mean_false_negative_volume_ml": 35.66840593178984,
+    "mean_false_positive_volume_ml": 30.45561831915645
+  },
+  "post_best_dice_50epochs": {
+    "mean_dice": 0.48667995056475377,
+    "mean_false_negative_volume_ml": 41.20999194481096,
+    "mean_false_positive_volume_ml": 6.293379112286005
+  },
+  "post_low_fp_50epochs": {
+    "mean_dice": 0.3742867384712692,
+    "mean_false_negative_volume_ml": 39.78638373556468,
+    "mean_false_positive_volume_ml": 1.2707613852822632
+  }
+}

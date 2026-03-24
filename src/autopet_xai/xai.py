@@ -247,6 +247,8 @@ def _load_predictor(
         raise ImportError("nnUNetv2 is required for autoPET XAI generation.")
 
     torch_device = torch.device(device)
+    if torch_device.type == "cpu":
+        torch.backends.mkldnn.enabled = False
     predictor = nnUNetPredictor(
         tile_step_size=0.5,
         use_gaussian=True,
@@ -281,10 +283,14 @@ def generate_review_xai(
     crop_size: Tuple[int, int, int] = (32, 128, 128),
     balance_classes: bool = True,
 ) -> Dict[str, Any]:
+    torch_device = torch.device(device)
+    if torch_device.type == "cpu":
+        torch.backends.mkldnn.enabled = False
+
     predictor = _load_predictor(training_output_dir, fold=fold, checkpoint_name=checkpoint_name, device=device)
     network = predictor.network
     network.eval()
-    network.to(torch.device(device))
+    network.to(torch_device)
 
     output_dir = ensure_dir(output_dir)
     exported: List[Dict[str, Any]] = []
@@ -316,7 +322,7 @@ def generate_review_xai(
         pred_crop = _crop_with_padding(prediction.astype(np.float32), center, crop_size).astype(np.uint8)
 
         input_tensor = np.stack([_normalize_channel(pet_crop), _normalize_channel(ct_crop)], axis=0)
-        input_tensor_torch = torch.from_numpy(input_tensor).unsqueeze(0).to(torch.device(device), dtype=torch.float32)
+        input_tensor_torch = torch.from_numpy(input_tensor).unsqueeze(0).to(torch_device, dtype=torch.float32)
         slice_indices = _choose_representative_slices(label_crop if np.count_nonzero(label_crop) else pred_crop, count=3)
 
         case_dir = ensure_dir(output_dir / case_id)

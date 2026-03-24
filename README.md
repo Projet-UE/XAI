@@ -18,41 +18,43 @@ The goal is to keep both pipelines reproducible and scriptable on Grid'5000, ins
 
 Lightweight Grenoble run snapshots tracked in Git:
 
-- Classification + XAI baseline:
+- Classification + XAI backup baseline:
   - `results/grenoble_gpu_20260324/README.md`
   - `results/grenoble_gpu_20260324/metrics.json`
   - `results/grenoble_gpu_20260324/run_config.json`
   - `results/grenoble_gpu_20260324/xai_samples.json`
-- autoPET FDG nnUNet + qualitative XAI POC:
-  - `results/autopet_fdg_20260324/README.md`
-  - `results/autopet_fdg_20260324/segmentation_metrics.json`
-  - `results/autopet_fdg_20260324/run_config.json`
-  - `results/autopet_fdg_20260324/review_cases.json`
-- autoPET FDG nnUNet + qualitative XAI stronger `fdg_full` run:
-  - `results/autopet_fdg_full_20260324/README.md`
-  - `results/autopet_fdg_full_20260324/segmentation_metrics.json`
-  - `results/autopet_fdg_full_20260324/run_config.json`
-  - `results/autopet_fdg_full_20260324/review_cases.json`
-- autoPET FDG nnUNet + qualitative XAI `fdg_full` run with `nnUNetTrainer_20epochs`:
-  - `results/autopet_fdg_full_20epochs_20260324/README.md`
-  - `results/autopet_fdg_full_20epochs_20260324/segmentation_metrics.json`
-  - `results/autopet_fdg_full_20epochs_20260324/run_config.json`
-  - `results/autopet_fdg_full_20epochs_20260324/review_cases.json`
-- autoPET FDG comparison snapshot (`10 epochs` vs `20 epochs` on the same review split):
-  - `results/autopet_fdg_full_comparison_20260324/README.md`
-  - `results/autopet_fdg_full_comparison_20260324/comparison.json`
-- autoPET FDG nnUNet + qualitative XAI `fdg_full` run with `nnUNetTrainer_50epochs`:
-  - `results/autopet_fdg_full_50epochs_20260324/README.md`
-  - `results/autopet_fdg_full_50epochs_20260324/segmentation_metrics.json`
-  - `results/autopet_fdg_full_50epochs_20260324/run_config.json`
-  - `results/autopet_fdg_full_50epochs_20260324/review_cases.json`
-- autoPET FDG comparison snapshot (`20 epochs` vs `50 epochs` on the same review split):
-  - `results/autopet_fdg_full_20vs50_20260324/README.md`
-  - `results/autopet_fdg_full_20vs50_20260324/comparison.json`
-- autoPET FDG `50 epochs` post-processing sweep snapshot (`mean_pet` connected-component filtering on review predictions):
-  - `results/autopet_fdg_full_50epochs_postprocess_mean_pet_20260324/README.md`
-  - `results/autopet_fdg_full_50epochs_postprocess_mean_pet_20260324/summary.json`
-  - `results/autopet_fdg_full_50epochs_postprocess_mean_pet_20260324/comparison.json`
+- Current autoPET FDG reference checkpoint: `fdg_full` + `nnUNetTrainer_50epochs`
+  - Raw baseline state `raw_50epochs`:
+    - `results/autopet_fdg_full_50epochs_20260324/README.md`
+    - `results/autopet_fdg_full_50epochs_20260324/segmentation_metrics.json`
+    - `results/autopet_fdg_full_50epochs_20260324/run_config.json`
+    - `results/autopet_fdg_full_50epochs_20260324/review_cases.json`
+  - Primary postprocessed state `post_best_dice_50epochs`:
+    - `results/autopet_fdg_full_post_best_dice_50epochs_20260324/README.md`
+    - `results/autopet_fdg_full_post_best_dice_50epochs_20260324/segmentation_metrics.json`
+    - `results/autopet_fdg_full_post_best_dice_50epochs_20260324/run_config.json`
+    - `results/autopet_fdg_full_post_best_dice_50epochs_20260324/review_cases.json`
+  - Secondary postprocessed state `post_low_fp_50epochs`:
+    - `results/autopet_fdg_full_post_low_fp_50epochs_20260324/README.md`
+    - `results/autopet_fdg_full_post_low_fp_50epochs_20260324/segmentation_metrics.json`
+    - `results/autopet_fdg_full_post_low_fp_50epochs_20260324/run_config.json`
+    - `results/autopet_fdg_full_post_low_fp_50epochs_20260324/review_cases.json`
+  - Compact comparison snapshot:
+    - `results/autopet_fdg_full_50epochs_variant_comparison_20260324/README.md`
+    - `results/autopet_fdg_full_50epochs_variant_comparison_20260324/comparison.json`
+    - `results/autopet_fdg_full_50epochs_variant_comparison_20260324/segmentation_metrics.json`
+
+Tradeoff summary:
+- `post_best_dice_50epochs` improves mean Dice over `raw_50epochs`, but raises mean false-negative volume relative to raw
+- `post_low_fp_50epochs` suppresses mean false-positive volume much more aggressively than raw, with a smaller Dice gain than `post_best_dice_50epochs`
+
+Earlier exploratory autoPET milestones remain tracked for project history:
+- `results/autopet_fdg_20260324/`
+- `results/autopet_fdg_full_20260324/`
+- `results/autopet_fdg_full_20epochs_20260324/`
+- `results/autopet_fdg_full_comparison_20260324/`
+- `results/autopet_fdg_full_20vs50_20260324/`
+- `results/autopet_fdg_full_50epochs_postprocess_mean_pet_20260324/`
 
 This folder is meant to keep useful experiment metadata and summary outputs in Git, while the full `artifacts/` tree stays out of version control.
 

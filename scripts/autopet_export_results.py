@@ -16,6 +16,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--split-name", type=str, default="fdg_dev", choices=["fdg_dev", "fdg_full"])
     parser.add_argument("--results-root", type=Path, default=Path("results"))
     parser.add_argument("--max-figures", type=int, default=4)
+    parser.add_argument("--metrics-path", type=Path, default=None)
+    parser.add_argument("--review-cases-path", type=Path, default=None)
+    parser.add_argument("--xai-dir", type=Path, default=None)
+    parser.add_argument("--run-config-path", type=Path, default=None)
+    parser.add_argument("--snapshot-title", type=str, default="autoPET FDG run snapshot")
     return parser.parse_args()
 
 
@@ -47,11 +52,18 @@ def _copy_selected_figures(xai_dir: Path, target_dir: Path, max_figures: int) ->
     return copied
 
 
+def _normalize_metrics_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
+    candidate = payload.get("metrics")
+    if isinstance(candidate, dict) and "mean_dice" in candidate:
+        return candidate
+    return payload
+
+
 def main() -> None:
     args = parse_args()
     split_root = args.artifacts_dir / args.split_name if (args.artifacts_dir / args.split_name).exists() else args.artifacts_dir
-    metrics_path = split_root / "review_metrics" / "segmentation_metrics.json"
-    review_cases_path = split_root / "xai" / "review_cases.json"
+    metrics_path = args.metrics_path or (split_root / "review_metrics" / "segmentation_metrics.json")
+    review_cases_path = args.review_cases_path or (split_root / "xai" / "review_cases.json")
     run_config_path = split_root / "training_run_config.json"
     predict_run_config_path = split_root / "review_metrics" / "predict_run_config.json"
     xai_run_config_path = split_root / "xai" / "xai_run_config.json"
@@ -63,8 +75,11 @@ def main() -> None:
     if target_dir.exists():
         shutil.rmtree(target_dir)
     target_dir = ensure_dir(target_dir)
-    metrics = load_json(metrics_path)
-    if run_config_path.exists():
+    metrics_payload = load_json(metrics_path)
+    metrics = _normalize_metrics_payload(metrics_payload)
+    if args.run_config_path is not None:
+        run_config = load_json(args.run_config_path)
+    elif run_config_path.exists():
         run_config = load_json(run_config_path)
     else:
         run_config = {}
@@ -79,11 +94,11 @@ def main() -> None:
     save_json(review_cases, target_dir / "review_cases.json")
 
     copied_figures = []
-    xai_dir = split_root / "xai"
+    xai_dir = args.xai_dir or (split_root / "xai")
     if xai_dir.exists():
         copied_figures = _copy_selected_figures(xai_dir, target_dir / "figures", args.max_figures)
 
-    readme = f"""# autoPET FDG run snapshot
+    readme = f"""# {args.snapshot_title}
 
 This folder tracks a lightweight snapshot of an autoPET FDG nnUNet run.
 

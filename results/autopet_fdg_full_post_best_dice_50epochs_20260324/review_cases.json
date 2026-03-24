@@ -1,0 +1,80 @@
+{
+  "cases": [
+    {
+      "case_id": "PETCT_4848bebb10",
+      "methods": [
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs/PETCT_4848bebb10/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0060",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0060.nii.gz",
+      "slice_indices": [
+        0,
+        9,
+        18
+      ]
+    },
+    {
+      "case_id": "PETCT_be3e55a32f",
+      "methods": [
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs/PETCT_be3e55a32f/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0062",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0062.nii.gz",
+      "slice_indices": [
+        4,
+        14,
+        31
+      ]
+    },
+    {
+      "case_id": "PETCT_402c061122",
+      "methods": [
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs/PETCT_402c061122/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0059",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0059.nii.gz",
+      "slice_indices": [
+        8,
+        16,
+        24
+      ]
+    },
+    {
+      "case_id": "PETCT_05bed31780",
+      "methods": [
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs/PETCT_05bed31780/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0057",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0057.nii.gz",
+      "slice_indices": [
+        10,
+        16,
+        21
+      ]
+    }
+  ],
+  "selection": {
+    "available_case_count": 7,
+    "available_negative_case_count": 4,
+    "available_positive_case_count": 3,
+    "balanced_classes": true,
+    "selected_case_ids": [
+      "PETCT_4848bebb10",
+      "PETCT_be3e55a32f",
+      "PETCT_402c061122",
+      "PETCT_05bed31780"
+    ]
+  }
+}

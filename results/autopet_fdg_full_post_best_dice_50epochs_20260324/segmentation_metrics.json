@@ -1,0 +1,148 @@
+{
+  "case_count": 7,
+  "cases": [
+    {
+      "case_id": "PETCT_05bed31780",
+      "dice": 0.0,
+      "false_negative_volume_ml": 0.0,
+      "false_negative_voxels": 0,
+      "false_positive_volume_ml": 8.584304183095568,
+      "false_positive_voxels": 690,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_05bed31780/label.nii.gz",
+      "gt_volume_ml": 0.0,
+      "gt_voxels": 0,
+      "nnunet_case_id": "FDG_0057",
+      "pred_volume_ml": 8.584304183095568,
+      "pred_voxels": 690,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0057.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_3bce0eb7aa",
+      "dice": 1.0,
+      "false_negative_volume_ml": 0.0,
+      "false_negative_voxels": 0,
+      "false_positive_volume_ml": 0.0,
+      "false_positive_voxels": 0,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_3bce0eb7aa/label.nii.gz",
+      "gt_volume_ml": 0.0,
+      "gt_voxels": 0,
+      "nnunet_case_id": "FDG_0058",
+      "pred_volume_ml": 0.0,
+      "pred_voxels": 0,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0058.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_402c061122",
+      "dice": 0.0,
+      "false_negative_volume_ml": 0.0,
+      "false_negative_voxels": 0,
+      "false_positive_volume_ml": 28.042060331445523,
+      "false_positive_voxels": 2254,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_402c061122/label.nii.gz",
+      "gt_volume_ml": 0.0,
+      "gt_voxels": 0,
+      "nnunet_case_id": "FDG_0059",
+      "pred_volume_ml": 28.042060331445523,
+      "pred_voxels": 2254,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0059.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_4848bebb10",
+      "dice": 0.21058522545570835,
+      "false_negative_volume_ml": 238.58145118728072,
+      "false_negative_voxels": 19177,
+      "false_positive_volume_ml": 7.103822737025463,
+      "false_positive_voxels": 571,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_4848bebb10/label.nii.gz",
+      "gt_volume_ml": 271.3510993297064,
+      "gt_voxels": 21811,
+      "nnunet_case_id": "FDG_0060",
+      "pred_volume_ml": 39.873470879451155,
+      "pred_voxels": 3205,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0060.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_a1db71e797",
+      "dice": 0.8982943777637398,
+      "false_negative_volume_ml": 1.965681247723333,
+      "false_negative_voxels": 158,
+      "false_positive_volume_ml": 0.0373230616656329,
+      "false_positive_voxels": 3,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_a1db71e797/label.nii.gz",
+      "gt_volume_ml": 10.811246862478331,
+      "gt_voxels": 869,
+      "nnunet_case_id": "FDG_0061",
+      "pred_volume_ml": 8.882888676420631,
+      "pred_voxels": 714,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0061.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_be3e55a32f",
+      "dice": 0.2978800507338286,
+      "false_negative_volume_ml": 47.922811178672646,
+      "false_negative_voxels": 3852,
+      "false_positive_volume_ml": 0.28614347276985225,
+      "false_positive_voxels": 23,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_be3e55a32f/label.nii.gz",
+      "gt_volume_ml": 58.14933007505606,
+      "gt_voxels": 4674,
+      "nnunet_case_id": "FDG_0062",
+      "pred_volume_ml": 10.512662369153269,
+      "pred_voxels": 845,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0062.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_e2309b8f92",
+      "dice": 1.0,
+      "false_negative_volume_ml": 0.0,
+      "false_negative_voxels": 0,
+      "false_positive_volume_ml": 0.0,
+      "false_positive_voxels": 0,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_e2309b8f92/label.nii.gz",
+      "gt_volume_ml": 0.0,
+      "gt_voxels": 0,
+      "nnunet_case_id": "FDG_0063",
+      "pred_volume_ml": 0.0,
+      "pred_voxels": 0,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0063.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    }
+  ],
+  "mean_dice": 0.48667995056475377,
+  "mean_false_negative_volume_ml": 41.20999194481096,
+  "mean_false_positive_volume_ml": 6.293379112286005
+}

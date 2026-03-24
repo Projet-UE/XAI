@@ -1,0 +1,25 @@
+{
+  "artifacts_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full",
+  "configuration": "3d_fullres",
+  "dataset_id": 501,
+  "device": "cuda",
+  "fold": "0",
+  "force_plan_and_preprocess": false,
+  "metrics_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/metrics/rank-mean_pet__minml-0p0__max-2.json",
+  "plans": "nnUNetPlans",
+  "postprocess": {
+    "max_components": 2,
+    "min_component_volume_ml": 0.0,
+    "rank_by": "mean_pet"
+  },
+  "prediction_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2",
+  "skip_plan_and_preprocess": false,
+  "snapshot_title": "autoPET FDG postprocessed 50-epoch snapshot (low false positives)",
+  "split_name": "fdg_full",
+  "state_name": "post_low_fp_50epochs",
+  "trainer": "nnUNetTrainer_50epochs",
+  "training_output_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/nnunet_results/Dataset501_AutoPETFDG/nnUNetTrainer_50epochs__nnUNetPlans__3d_fullres",
+  "xai_methods": [
+    "integrated_gradients"
+  ]
+}
