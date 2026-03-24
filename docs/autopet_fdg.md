@@ -68,6 +68,8 @@ This creates:
 
 ## 3. Train the nnUNet baseline
 
+The training wrapper automatically patches the known `nnUNetv2` scheduler incompatibility with `torch 2.8+` before launching `nnUNetv2_train`.
+
 ```bash
 cd "$HOME/XAI"
 source .venv/bin/activate

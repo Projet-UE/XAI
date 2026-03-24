@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import inspect
 import os
 import subprocess
 from pathlib import Path
@@ -38,6 +39,23 @@ def run_command(command: Sequence[str], env: Dict[str, str], cwd: Optional[Union
     subprocess.run(list(command), check=True, env=env, cwd=str(cwd) if cwd else None)
 
 
+def patch_nnunet_torch_compatibility() -> Optional[Path]:
+    try:
+        from nnunetv2.training.lr_scheduler import polylr
+    except ImportError:
+        return None
+
+    module_path = Path(inspect.getsourcefile(polylr) or inspect.getfile(polylr))
+    source = module_path.read_text(encoding="utf-8")
+    legacy_call = "super().__init__(optimizer, current_step if current_step is not None else -1, False)"
+    compatible_call = "super().__init__(optimizer, current_step if current_step is not None else -1)"
+    if legacy_call not in source:
+        return None
+
+    module_path.write_text(source.replace(legacy_call, compatible_call), encoding="utf-8")
+    return module_path
+
+
 def plan_and_preprocess(
     dataset_id: int,
     artifacts_dir: Union[str, Path],
@@ -60,6 +78,7 @@ def train_model(
     plans: str = "nnUNetPlans",
     device: Optional[str] = None,
 ) -> Dict[str, str]:
+    patch_nnunet_torch_compatibility()
     env = build_nnunet_environment(artifacts_dir)
     command = ["nnUNetv2_train", str(dataset_id), configuration, str(fold), "-tr", trainer, "-p", plans]
     if device:
