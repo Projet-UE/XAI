@@ -1,13 +1,18 @@
-# Brain Tumor Classification + XAI
+# Medical Imaging Baselines + XAI
 
-Research-oriented baseline for binary brain MRI classification with explainability methods.
+This repository now contains two complementary project tracks:
 
-This repository turns the project into a reproducible Python pipeline instead of a single notebook. It uses the Kaggle MRI dataset and Kaggle XAI demo as references, then reorganizes the work into reusable modules, scripts, and a light demo notebook.
+- a working **brain MRI classification + XAI** baseline used as a backup and quick experimentation path
+- a new **PET/CT lesion segmentation + XAI** path built around the official autoPET FDG nnUNet baseline
+
+The goal is to keep both pipelines reproducible and scriptable on Grid'5000, instead of relying on disconnected notebooks.
 
 ## References
 
 - Dataset: <https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection/data>
 - Notebook reference: <https://www.kaggle.com/code/aayushontherocks/brain-tumor-xai-demo>
+- autoPET code reference: <https://github.com/lab-midas/autoPET>
+- autoPET FDG dataset reference: <https://doi.org/10.7937/gkr0-xv29>
 
 ## Latest tracked run snapshot
 
@@ -41,6 +46,15 @@ Main components:
 - `scripts/train.py`: train the baseline
 - `scripts/evaluate.py`: evaluate a trained checkpoint
 - `scripts/generate_xai.py`: export XAI visualizations
+- `src/autopet_xai/data.py`: FDG PET/CT normalization, manifests, splits, nnUNet dataset export
+- `src/autopet_xai/nnunet.py`: orchestration helpers for `nnUNetv2`
+- `src/autopet_xai/metrics.py`: Dice and false-volume metrics for review cases
+- `src/autopet_xai/xai.py`: qualitative PET/CT attribution export for lesion-centric review cases
+- `scripts/autopet_prepare_fdg.py`: prepare the FDG dataset and create `fdg_dev` / `fdg_full`
+- `scripts/autopet_train_nnunet.py`: plan/preprocess + train the official-style nnUNet baseline
+- `scripts/autopet_predict_nnunet.py`: run review inference and export segmentation metrics
+- `scripts/autopet_generate_xai.py`: export Saliency / Integrated Gradients / Occlusion figures
+- `scripts/autopet_export_results.py`: create a lightweight Git-tracked snapshot under `results/`
 
 ## Grid'5000-only workflow
 
@@ -186,5 +200,6 @@ python scripts/generate_xai.py \
 ## Detailed run guide
 
 The main execution guide lives in `docs/grid5000.md`.
+The PET/CT-specific guide lives in `docs/autopet_fdg.md`.
 
 Do not commit raw datasets, large checkpoints, or bulk artifacts.
