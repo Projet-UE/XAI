@@ -1,0 +1,168 @@
+{
+  "case_count": 8,
+  "cases": [
+    {
+      "case_id": "PETCT_176bdc5388",
+      "dice": 0.0,
+      "false_negative_volume_ml": 0.0,
+      "false_negative_voxels": 0,
+      "false_positive_volume_ml": 577.5868202962243,
+      "false_positive_voxels": 46426,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_176bdc5388/label.nii.gz",
+      "gt_volume_ml": 0.0,
+      "gt_voxels": 0,
+      "nnunet_case_id": "FDG_0056",
+      "pred_volume_ml": 577.5868202962243,
+      "pred_voxels": 46426,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0056.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_1f6b6b0548",
+      "dice": 0.0,
+      "false_negative_volume_ml": 1.2192200144106748,
+      "false_negative_voxels": 98,
+      "false_positive_volume_ml": 965.8959538654691,
+      "false_positive_voxels": 77638,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_1f6b6b0548/label.nii.gz",
+      "gt_volume_ml": 1.2192200144106748,
+      "gt_voxels": 98,
+      "nnunet_case_id": "FDG_0057",
+      "pred_volume_ml": 965.8959538654691,
+      "pred_voxels": 77638,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0057.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_3a4be713a1",
+      "dice": 0.015949788899852796,
+      "false_negative_volume_ml": 11.072508294137762,
+      "false_negative_voxels": 890,
+      "false_positive_volume_ml": 745.7520951410111,
+      "false_positive_voxels": 59943,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_3a4be713a1/label.nii.gz",
+      "gt_volume_ml": 17.20593142785677,
+      "gt_voxels": 1383,
+      "nnunet_case_id": "FDG_0058",
+      "pred_volume_ml": 751.8855182747301,
+      "pred_voxels": 60436,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0058.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_49479d6e64",
+      "dice": 0.5846800923491896,
+      "false_negative_volume_ml": 274.8470261057207,
+      "false_negative_voxels": 22092,
+      "false_positive_volume_ml": 177.23477882953546,
+      "false_positive_voxels": 14246,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_49479d6e64/label.nii.gz",
+      "gt_volume_ml": 593.0634498669068,
+      "gt_voxels": 47670,
+      "nnunet_case_id": "FDG_0059",
+      "pred_volume_ml": 495.4512025907216,
+      "pred_voxels": 39824,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0059.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_7abe274c10",
+      "dice": 0.0,
+      "false_negative_volume_ml": 0.0,
+      "false_negative_voxels": 0,
+      "false_positive_volume_ml": 992.0220970314122,
+      "false_positive_voxels": 79738,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_7abe274c10/label.nii.gz",
+      "gt_volume_ml": 0.0,
+      "gt_voxels": 0,
+      "nnunet_case_id": "FDG_0060",
+      "pred_volume_ml": 992.0220970314122,
+      "pred_voxels": 79738,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0060.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_7c1e6175e0",
+      "dice": 0.0,
+      "false_negative_volume_ml": 0.0,
+      "false_negative_voxels": 0,
+      "false_positive_volume_ml": 1068.372640178742,
+      "false_positive_voxels": 85875,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_7c1e6175e0/label.nii.gz",
+      "gt_volume_ml": 0.0,
+      "gt_voxels": 0,
+      "nnunet_case_id": "FDG_0061",
+      "pred_volume_ml": 1068.372640178742,
+      "pred_voxels": 85875,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0061.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_cbbc9e2879",
+      "dice": 0.20405076056811497,
+      "false_negative_volume_ml": 236.10568809679376,
+      "false_negative_voxels": 18978,
+      "false_positive_volume_ml": 706.5255573304308,
+      "false_positive_voxels": 56790,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_cbbc9e2879/label.nii.gz",
+      "gt_volume_ml": 356.93287972900265,
+      "gt_voxels": 28690,
+      "nnunet_case_id": "FDG_0062",
+      "pred_volume_ml": 827.3527489626398,
+      "pred_voxels": 66502,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0062.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    },
+    {
+      "case_id": "PETCT_d5e2aa7feb",
+      "dice": 0.0,
+      "false_negative_volume_ml": 0.0,
+      "false_negative_voxels": 0,
+      "false_positive_volume_ml": 1240.5314826217514,
+      "false_positive_voxels": 99713,
+      "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_d5e2aa7feb/label.nii.gz",
+      "gt_volume_ml": 0.0,
+      "gt_voxels": 0,
+      "nnunet_case_id": "FDG_0063",
+      "pred_volume_ml": 1240.5314826217514,
+      "pred_voxels": 99713,
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0063.nii.gz",
+      "spacing_xyz": [
+        2.0364201068878174,
+        2.0364201068878174,
+        3.0
+      ]
+    }
+  ],
+  "mean_dice": 0.10058508022714467,
+  "mean_false_negative_volume_ml": 65.40555531388287,
+  "mean_false_positive_volume_ml": 809.240178161822
+}

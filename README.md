@@ -14,14 +14,20 @@ The goal is to keep both pipelines reproducible and scriptable on Grid'5000, ins
 - autoPET code reference: <https://github.com/lab-midas/autoPET>
 - autoPET FDG dataset reference: <https://doi.org/10.7937/gkr0-xv29>
 
-## Latest tracked run snapshot
+## Latest tracked run snapshots
 
-A lightweight snapshot of the Grenoble GPU run from 2026-03-24 is tracked in Git under:
+Lightweight Grenoble run snapshots tracked in Git:
 
-- `results/grenoble_gpu_20260324/README.md`
-- `results/grenoble_gpu_20260324/metrics.json`
-- `results/grenoble_gpu_20260324/run_config.json`
-- `results/grenoble_gpu_20260324/xai_samples.json`
+- Classification + XAI baseline:
+  - `results/grenoble_gpu_20260324/README.md`
+  - `results/grenoble_gpu_20260324/metrics.json`
+  - `results/grenoble_gpu_20260324/run_config.json`
+  - `results/grenoble_gpu_20260324/xai_samples.json`
+- autoPET FDG nnUNet + qualitative XAI POC:
+  - `results/autopet_fdg_20260324/README.md`
+  - `results/autopet_fdg_20260324/segmentation_metrics.json`
+  - `results/autopet_fdg_20260324/run_config.json`
+  - `results/autopet_fdg_20260324/review_cases.json`
 
 This folder is meant to keep useful experiment metadata and summary outputs in Git, while the full `artifacts/` tree stays out of version control.
 

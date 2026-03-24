@@ -1,0 +1,100 @@
+{
+  "cases": [
+    {
+      "case_id": "PETCT_176bdc5388",
+      "methods": [
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_176bdc5388/saliency.png",
+          "method": "saliency"
+        },
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_176bdc5388/integrated_gradients.png",
+          "method": "integrated_gradients"
+        },
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_176bdc5388/occlusion.png",
+          "method": "occlusion"
+        }
+      ],
+      "nnunet_case_id": "FDG_0056",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0056.nii.gz",
+      "slice_indices": [
+        7,
+        13,
+        20
+      ]
+    },
+    {
+      "case_id": "PETCT_1f6b6b0548",
+      "methods": [
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_1f6b6b0548/saliency.png",
+          "method": "saliency"
+        },
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_1f6b6b0548/integrated_gradients.png",
+          "method": "integrated_gradients"
+        },
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_1f6b6b0548/occlusion.png",
+          "method": "occlusion"
+        }
+      ],
+      "nnunet_case_id": "FDG_0057",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0057.nii.gz",
+      "slice_indices": [
+        15,
+        17,
+        18
+      ]
+    },
+    {
+      "case_id": "PETCT_3a4be713a1",
+      "methods": [
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_3a4be713a1/saliency.png",
+          "method": "saliency"
+        },
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_3a4be713a1/integrated_gradients.png",
+          "method": "integrated_gradients"
+        },
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_3a4be713a1/occlusion.png",
+          "method": "occlusion"
+        }
+      ],
+      "nnunet_case_id": "FDG_0058",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0058.nii.gz",
+      "slice_indices": [
+        2,
+        10,
+        30
+      ]
+    },
+    {
+      "case_id": "PETCT_49479d6e64",
+      "methods": [
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_49479d6e64/saliency.png",
+          "method": "saliency"
+        },
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_49479d6e64/integrated_gradients.png",
+          "method": "integrated_gradients"
+        },
+        {
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/xai/PETCT_49479d6e64/occlusion.png",
+          "method": "occlusion"
+        }
+      ],
+      "nnunet_case_id": "FDG_0059",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_dev/review_predictions/FDG_0059.nii.gz",
+      "slice_indices": [
+        1,
+        20,
+        31
+      ]
+    }
+  ]
+}
