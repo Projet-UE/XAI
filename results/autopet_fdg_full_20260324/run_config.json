@@ -1,11 +1,12 @@
 {
+  "balanced_selection": true,
+  "case_count": 4,
   "configuration": "3d_fullres",
   "fold": "0",
   "metrics_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_metrics",
-  "predictions_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions",
-  "split_name": "fdg_full",
-  "case_count": 4,
   "output_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai",
   "prediction_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions",
+  "predictions_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions",
+  "split_name": "fdg_full",
   "training_output_dir": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/nnunet_results/Dataset501_AutoPETFDG/nnUNetTrainer_10epochs__nnUNetPlans__3d_fullres"
 }
