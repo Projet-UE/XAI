@@ -46,7 +46,6 @@ def collect_predictions(
     model: torch.nn.Module,
     dataloader: torch.utils.data.DataLoader,
     device: torch.device,
-) -> tuple[list[int], list[float], list[str]]:
 ) -> Tuple[List[int], List[float], List[str]]:
     model.eval()
     labels: List[int] = []
