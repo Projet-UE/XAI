@@ -82,6 +82,13 @@ python scripts/autopet_train_nnunet.py \
   --fold 0
 ```
 
+For Grenoble OAR submission, you can also use the helper wrapper:
+
+```bash
+cd "$HOME/XAI"
+bash scripts/autopet_submit_grid5000.sh train fdg_dev nnUNetTrainer_1epoch 01:00:00 kinovis
+```
+
 ## 4. Predict on review cases and export segmentation metrics
 
 ```bash
@@ -142,6 +149,23 @@ This writes a small tracked folder under:
 
 ```text
 results/autopet_fdg_YYYYMMDD/
+```
+
+## 7. Stronger FDG run after the first smoke POC
+
+Once the pipeline is validated on `fdg_dev`, the next step is to scale on the full selected FDG subset with a less toy trainer:
+
+```bash
+cd "$HOME/XAI"
+bash scripts/autopet_submit_grid5000.sh train fdg_full nnUNetTrainer_10epochs 04:00:00 kinovis
+```
+
+Then follow with:
+
+```bash
+cd "$HOME/XAI"
+bash scripts/autopet_submit_grid5000.sh predict fdg_full nnUNetTrainer_10epochs 02:00:00 kinovis
+bash scripts/autopet_submit_grid5000.sh xai fdg_full nnUNetTrainer_10epochs 02:00:00 kinovis
 ```
 
 ## Notes
