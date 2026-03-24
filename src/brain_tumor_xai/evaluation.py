@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict, List, Tuple, Union
 
-import matplotlib.pyplot as plt
+import matplotlib
 import numpy as np
 from sklearn.metrics import (
     accuracy_score,
@@ -16,6 +16,9 @@ from sklearn.metrics import (
 import torch
 
 from .utils import ensure_dir, save_json
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 
 def compute_binary_classification_metrics(

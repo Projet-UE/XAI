@@ -4,13 +4,16 @@ from pathlib import Path
 from typing import Any, Dict, List, Union
 
 from captum.attr import IntegratedGradients, LayerAttribution, LayerGradCam, Occlusion
-import matplotlib.pyplot as plt
+import matplotlib
 import numpy as np
 from PIL import Image
 import torch
 
 from .data import IMAGENET_MEAN, IMAGENET_STD
 from .utils import ensure_dir, save_json
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 
 def denormalize(image_tensor: torch.Tensor) -> torch.Tensor:
