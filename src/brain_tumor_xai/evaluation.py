@@ -94,6 +94,46 @@ def save_confusion_matrix_figure(confusion: List[List[int]], output_path: Union[
     plt.close(fig)
 
 
+def save_metric_summary_figure(metrics: Dict[str, Any], output_path: Union[str, Path]) -> None:
+    target = Path(output_path)
+    ensure_dir(target.parent)
+
+    metric_order = ["accuracy", "precision", "recall", "f1"]
+    if metrics.get("roc_auc") is not None:
+        metric_order.append("roc_auc")
+
+    labels = {
+        "accuracy": "Accuracy",
+        "precision": "Precision",
+        "recall": "Recall",
+        "f1": "F1",
+        "roc_auc": "ROC-AUC",
+    }
+
+    values = [float(metrics[name]) for name in metric_order]
+    positions = np.arange(len(metric_order))
+
+    fig, ax = plt.subplots(figsize=(8, 4.5))
+    bars = ax.bar(positions, values)
+    ax.set_title("Evaluation metric summary")
+    ax.set_ylabel("Score")
+    ax.set_ylim(0.0, 1.05)
+    ax.set_xticks(positions, [labels[name] for name in metric_order], rotation=20, ha="right")
+
+    for bar, value in zip(bars, values):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            value + 0.02,
+            f"{value:.3f}",
+            ha="center",
+            va="bottom",
+        )
+
+    fig.tight_layout()
+    fig.savefig(target, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
 def save_evaluation_report(
     metrics: Dict[str, Any],
     labels: List[int],
@@ -113,3 +153,4 @@ def save_evaluation_report(
     ]
     save_json({"predictions": rows}, target / "predictions.json")
     save_confusion_matrix_figure(metrics["confusion_matrix"], target / "confusion_matrix.png")
+    save_metric_summary_figure(metrics, target / "metric_summary.png")
