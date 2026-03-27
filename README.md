@@ -7,6 +7,38 @@ This repository now contains two complementary project tracks:
 
 The goal is to keep both pipelines reproducible and scriptable on Grid'5000, instead of relying on disconnected notebooks.
 
+## At a glance
+
+- primary project direction: **autoPET FDG PET/CT lesion segmentation + XAI**
+- backup direction: **brain MRI classification + XAI**
+- execution environment: **Grid'5000 Grenoble**
+- final modeling base kept for the project: **`fdg_full` + `nnUNetTrainer_50epochs`**
+- main presentation result: **`post_best_dice_50epochs`**
+
+## What this repository contains
+
+This repo is not just a code dump. It contains:
+
+- reusable pipelines instead of one-off notebooks
+- tracked lightweight experiment snapshots under [`results/`](results/)
+- XAI visual examples that can directly be reused in reports and slides
+- a clear separation between:
+  - the **backup MRI classification baseline**
+  - the **main PET/CT autoPET segmentation line**
+
+## Project objective
+
+The main goal of the project is to study **explainability in medical imaging**, not only to produce a prediction score.
+
+In practice, that means:
+
+- training a reproducible medical imaging model
+- evaluating its predictions quantitatively
+- generating XAI explanations
+- understanding **why** the model succeeds or fails on representative cases
+
+For the current project stage, we chose to focus on a **controlled FDG subset** instead of the full autoPET data volume, so that the pipeline remains executable, comparable, and interpretable within the project deadline.
+
 ## Project highlights
 
 - primary track: **autoPET FDG PET/CT lesion segmentation + XAI**
@@ -33,6 +65,31 @@ Secondary comparison (`post_low_fp_50epochs`):
 | Mean false negative volume | `39.7864` mL |
 | Mean false positive volume | `1.2708` mL |
 
+## Experimental setup
+
+### Main autoPET line
+
+- dataset family: **autoPET I/II**
+- data source used in practice: **FDG-PET-CT-Lesions**
+- task: **lesion segmentation**
+- baseline model: **nnUNet v2 (`3d_fullres`)**
+- postprocessing explored: lightweight connected-component filtering
+- XAI methods exported: **Saliency**, **Integrated Gradients**, **Occlusion**
+
+### Backup MRI line
+
+- dataset: Kaggle brain MRI tumor detection
+- task: **binary classification**
+- baseline model: **ResNet18**
+- XAI methods: **Grad-CAM**, **Integrated Gradients**, **Occlusion**
+
+## Main takeaways
+
+- the raw `50 epochs` autoPET checkpoint was already usable, but postprocessing made it much more presentation-ready
+- the retained main result, `post_best_dice_50epochs`, gives the best overall segmentation tradeoff for the project
+- the low-FP variant is useful because it shows that the model behavior can be tuned depending on whether we prioritize Dice or false-positive suppression
+- the XAI analysis is used here to explain **model behavior**, not to claim that highlighted regions are automatically pathological
+
 ## Visual examples
 
 Main XAI examples from the final all-review snapshot:
@@ -49,6 +106,36 @@ These panels combine:
 - predicted mask
 
 This makes the repo immediately usable for discussing both successful detections and failure modes.
+
+## More tracked figures
+
+### Final all-review XAI gallery
+
+| Positive case | Positive case | False positive | True negative |
+| --- | --- | --- | --- |
+| ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_4848bebb10/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_be3e55a32f/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_05bed31780/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_3bce0eb7aa/integrated_gradients.png) |
+
+### Variant comparison snapshot
+
+These tracked figures make the postprocessing tradeoff visible directly from GitHub:
+
+| Raw 50 epochs | Raw 50 epochs | Best-Dice postprocess | Low-FP postprocess |
+| --- | --- | --- | --- |
+| ![](results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/raw_50epochs__PETCT_402c061122.png) | ![](results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/raw_50epochs__PETCT_4848bebb10.png) | ![](results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/post_best_dice_50epochs__PETCT_be3e55a32f.png) | ![](results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/post_low_fp_50epochs__PETCT_e2309b8f92.png) |
+
+## How to read the XAI figures
+
+The highlighted areas should be interpreted as:
+
+- regions that influenced the model prediction more strongly
+- not a direct medical proof that the highlighted area is a lesion
+
+In this project, the XAI figures are used to answer questions such as:
+
+- does the model focus on lesion-related uptake?
+- does it highlight coherent regions in successful detections?
+- does it drift toward irrelevant uptake or surrounding structures in false positives?
+- does it miss part of the lesion in hard cases?
 
 ## References
 
@@ -110,6 +197,21 @@ Project-ready handoff material:
 - final figure/case selection: `results/autopet_fdg_final_selection_20260327.json`
 
 This folder is meant to keep useful experiment metadata and summary outputs in Git, while the full `artifacts/` tree stays out of version control.
+
+## Recommended files for the final project
+
+If you only need the most useful material for the report, slides, or paper draft, start here:
+
+- main result metrics:
+  - [`results/autopet_fdg_full_post_best_dice_50epochs_20260324/segmentation_metrics.json`](results/autopet_fdg_full_post_best_dice_50epochs_20260324/segmentation_metrics.json)
+- secondary comparison:
+  - [`results/autopet_fdg_full_post_low_fp_50epochs_20260324/segmentation_metrics.json`](results/autopet_fdg_full_post_low_fp_50epochs_20260324/segmentation_metrics.json)
+- compact comparison snapshot:
+  - [`results/autopet_fdg_full_50epochs_variant_comparison_20260324/README.md`](results/autopet_fdg_full_50epochs_variant_comparison_20260324/README.md)
+- broader XAI interpretation:
+  - [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json)
+- ready-to-use handoff note:
+  - [`docs/autopet_modeling_handoff.md`](docs/autopet_modeling_handoff.md)
 
 ## Project layout
 
