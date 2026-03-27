@@ -9,133 +9,208 @@ The goal is to keep both pipelines reproducible and scriptable on Grid'5000, ins
 
 ## At a glance
 
-- primary project direction: **autoPET FDG PET/CT lesion segmentation + XAI**
-- backup direction: **brain MRI classification + XAI**
+- main scientific line: **autoPET FDG PET/CT lesion segmentation + XAI**
+- backup line: **brain MRI classification + XAI**
 - execution environment: **Grid'5000 Grenoble**
-- final modeling base kept for the project: **`fdg_full` + `nnUNetTrainer_50epochs`**
-- main presentation result: **`post_best_dice_50epochs`**
+- main result currently retained for the project: **`post_best_dice_50epochs`**
+- full tracked outputs live under [`results/`](results/)
 
-## What this repository contains
+## Repository overview
 
-This repo is not just a code dump. It contains:
+This repository is organized around **two complementary tracks**:
 
-- reusable pipelines instead of one-off notebooks
-- tracked lightweight experiment snapshots under [`results/`](results/)
-- XAI visual examples that can directly be reused in reports and slides
-- a clear separation between:
-  - the **backup MRI classification baseline**
-  - the **main PET/CT autoPET segmentation line**
+1. **autoPET FDG segmentation + XAI**
+   - the main line kept for the project
+   - based on PET/CT lesion segmentation
+   - used to study both performance and model behavior through XAI
+2. **Brain MRI classification + XAI**
+   - a lighter backup baseline
+   - useful for quick experiments and for comparison with a simpler setup
 
-## Project objective
+The objective is not only to report a score, but to build pipelines that are:
 
-The main goal of the project is to study **explainability in medical imaging**, not only to produce a prediction score.
+- reproducible
+- scriptable
+- comparable
+- interpretable
 
-In practice, that means:
+For the current project stage, we intentionally focused on a **controlled subset** rather than the full raw data volume, so that the experiments remain feasible and analyzable within the project deadline.
 
-- training a reproducible medical imaging model
-- evaluating its predictions quantitatively
-- generating XAI explanations
-- understanding **why** the model succeeds or fails on representative cases
+## autoPET FDG PET/CT segmentation + XAI
 
-For the current project stage, we chose to focus on a **controlled FDG subset** instead of the full autoPET data volume, so that the pipeline remains executable, comparable, and interpretable within the project deadline.
+This is the **main project track**.
 
-## Project highlights
+### Why this is the main line
 
-- primary track: **autoPET FDG PET/CT lesion segmentation + XAI**
-- main result kept for the project: `post_best_dice_50epochs`
-- secondary comparison: `post_low_fp_50epochs`
-- broader XAI interpretation available on **all 7 review cases**
-- backup track: **brain MRI classification + XAI**
+- it is closer to the original project direction in medical imaging
+- it includes a genuine **segmentation** task rather than only classification
+- it gives more interesting XAI behavior to analyze on successes and failures
 
-## Current headline result
+### Experimental setup
 
-Main autoPET result (`post_best_dice_50epochs`, `fdg_full`, `nnUNetTrainer_50epochs`):
-
-| Metric | Value |
+| Item | Choice |
 | --- | --- |
-| Mean Dice | `0.4867` |
-| Mean false negative volume | `41.2100` mL |
-| Mean false positive volume | `6.2934` mL |
+| Dataset family | `autoPET I/II` |
+| Data used in practice | `FDG-PET-CT-Lesions` |
+| Task | lesion segmentation |
+| Baseline model | `nnUNet v2 (3d_fullres)` |
+| Main checkpoint base | `fdg_full + nnUNetTrainer_50epochs` |
+| Main retained variant | `post_best_dice_50epochs` |
+| Secondary retained variant | `post_low_fp_50epochs` |
+| XAI methods exported | Saliency, Integrated Gradients, Occlusion |
+| Execution platform | Grid'5000 Grenoble |
 
-Secondary comparison (`post_low_fp_50epochs`):
+### Main results
 
-| Metric | Value |
-| --- | --- |
-| Mean Dice | `0.3743` |
-| Mean false negative volume | `39.7864` mL |
-| Mean false positive volume | `1.2708` mL |
+| Variant | Mean Dice | Mean FN volume | Mean FP volume |
+| --- | --- | --- | --- |
+| `raw_50epochs` | `0.3051` | `35.6684` mL | `30.4556` mL |
+| `post_best_dice_50epochs` | `0.4867` | `41.2100` mL | `6.2934` mL |
+| `post_low_fp_50epochs` | `0.3743` | `39.7864` mL | `1.2708` mL |
 
-## Experimental setup
+Interpretation:
 
-### Main autoPET line
+- `post_best_dice_50epochs` is the best **overall project result**
+- `post_low_fp_50epochs` is useful to show a more conservative regime with much lower false positives
+- this gives a clean tradeoff story for the report and presentation
 
-- dataset family: **autoPET I/II**
-- data source used in practice: **FDG-PET-CT-Lesions**
-- task: **lesion segmentation**
-- baseline model: **nnUNet v2 (`3d_fullres`)**
-- postprocessing explored: lightweight connected-component filtering
-- XAI methods exported: **Saliency**, **Integrated Gradients**, **Occlusion**
+### What the XAI figures mean
 
-### Backup MRI line
+In this project, XAI does **not** mean:
 
-- dataset: Kaggle brain MRI tumor detection
-- task: **binary classification**
-- baseline model: **ResNet18**
-- XAI methods: **Grad-CAM**, **Integrated Gradients**, **Occlusion**
+- “red = lesion”
+- “highlighted area = medical truth”
 
-## Main takeaways
+Instead, it means:
 
-- the raw `50 epochs` autoPET checkpoint was already usable, but postprocessing made it much more presentation-ready
-- the retained main result, `post_best_dice_50epochs`, gives the best overall segmentation tradeoff for the project
-- the low-FP variant is useful because it shows that the model behavior can be tuned depending on whether we prioritize Dice or false-positive suppression
-- the XAI analysis is used here to explain **model behavior**, not to claim that highlighted regions are automatically pathological
+- the model relied more strongly on that region to produce its prediction
+- the figure helps explain **why** the model succeeded or failed
 
-## Visual examples
+This is why the autoPET section is useful scientifically:
 
-Main XAI examples from the final all-review snapshot:
+- on successful positives, we can check whether attention overlaps lesion-related uptake
+- on false positives, we can see whether the model focuses on non-lesion uptake or irrelevant structures
+- on hard cases, we can inspect whether the model misses part of the lesion or stays too diffuse
 
-| Strong positive | False positive | True negative |
-| --- | --- | --- |
-| ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_a1db71e797/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_05bed31780/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_3bce0eb7aa/integrated_gradients.png) |
+### autoPET XAI gallery
 
-These panels combine:
+The panels below combine:
 
 - original PET image with attribution overlay
 - CT image with attribution overlay
 - ground-truth mask
 - predicted mask
 
-This makes the repo immediately usable for discussing both successful detections and failure modes.
+#### Representative cases from the final all-review analysis
 
-## More tracked figures
+<p align="center">
+  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_4848bebb10/integrated_gradients.png" width="230" alt="Positive autoPET case PETCT_4848bebb10" />
+  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_be3e55a32f/integrated_gradients.png" width="230" alt="Positive autoPET case PETCT_be3e55a32f" />
+  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_a1db71e797/integrated_gradients.png" width="230" alt="Positive autoPET case PETCT_a1db71e797" />
+</p>
 
-### Final all-review XAI gallery
+<p align="center">
+  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_05bed31780/integrated_gradients.png" width="230" alt="False positive autoPET case PETCT_05bed31780" />
+  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_402c061122/integrated_gradients.png" width="230" alt="False positive or hard negative autoPET case PETCT_402c061122" />
+  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_3bce0eb7aa/integrated_gradients.png" width="230" alt="True negative autoPET case PETCT_3bce0eb7aa" />
+</p>
 
-| Positive case | Positive case | False positive | True negative |
-| --- | --- | --- | --- |
-| ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_4848bebb10/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_be3e55a32f/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_05bed31780/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_3bce0eb7aa/integrated_gradients.png) |
+<p align="center">
+  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_e2309b8f92/integrated_gradients.png" width="230" alt="Negative autoPET case PETCT_e2309b8f92" />
+</p>
 
-### Variant comparison snapshot
+#### Variant comparison figures
 
 These tracked figures make the postprocessing tradeoff visible directly from GitHub:
 
-| Raw 50 epochs | Raw 50 epochs | Best-Dice postprocess | Low-FP postprocess |
-| --- | --- | --- | --- |
-| ![](results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/raw_50epochs__PETCT_402c061122.png) | ![](results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/raw_50epochs__PETCT_4848bebb10.png) | ![](results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/post_best_dice_50epochs__PETCT_be3e55a32f.png) | ![](results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/post_low_fp_50epochs__PETCT_e2309b8f92.png) |
+<p align="center">
+  <img src="results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/raw_50epochs__PETCT_402c061122.png" width="220" alt="Raw 50 epochs case PETCT_402c061122" />
+  <img src="results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/raw_50epochs__PETCT_4848bebb10.png" width="220" alt="Raw 50 epochs case PETCT_4848bebb10" />
+  <img src="results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/post_best_dice_50epochs__PETCT_be3e55a32f.png" width="220" alt="Best-Dice postprocessed case PETCT_be3e55a32f" />
+  <img src="results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/post_low_fp_50epochs__PETCT_e2309b8f92.png" width="220" alt="Low-FP postprocessed case PETCT_e2309b8f92" />
+</p>
 
-## How to read the XAI figures
+### Most useful autoPET files for the project
 
-The highlighted areas should be interpreted as:
+- main result metrics:
+  - [`results/autopet_fdg_full_post_best_dice_50epochs_20260324/segmentation_metrics.json`](results/autopet_fdg_full_post_best_dice_50epochs_20260324/segmentation_metrics.json)
+- secondary comparison:
+  - [`results/autopet_fdg_full_post_low_fp_50epochs_20260324/segmentation_metrics.json`](results/autopet_fdg_full_post_low_fp_50epochs_20260324/segmentation_metrics.json)
+- comparison snapshot:
+  - [`results/autopet_fdg_full_50epochs_variant_comparison_20260324/README.md`](results/autopet_fdg_full_50epochs_variant_comparison_20260324/README.md)
+- broader XAI interpretation:
+  - [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json)
+- final case selection:
+  - [`results/autopet_fdg_final_selection_20260327.json`](results/autopet_fdg_final_selection_20260327.json)
+- handoff note:
+  - [`docs/autopet_modeling_handoff.md`](docs/autopet_modeling_handoff.md)
 
-- regions that influenced the model prediction more strongly
-- not a direct medical proof that the highlighted area is a lesion
+## Brain MRI classification + XAI
 
-In this project, the XAI figures are used to answer questions such as:
+This is the **backup track**. It is simpler than the autoPET line, but still useful because it gives:
 
-- does the model focus on lesion-related uptake?
-- does it highlight coherent regions in successful detections?
-- does it drift toward irrelevant uptake or surrounding structures in false positives?
-- does it miss part of the lesion in hard cases?
+- a complete end-to-end classification baseline
+- a faster pipeline for quick checks
+- a second XAI setting to compare with segmentation
+
+### Experimental setup
+
+| Item | Choice |
+| --- | --- |
+| Dataset | Kaggle brain MRI tumor detection |
+| Task | binary classification (`yes` / `no`) |
+| Baseline model | `ResNet18` |
+| Execution platform | Grid'5000 Grenoble |
+| Epochs in tracked run | `5` |
+| Image size | `224` |
+| XAI methods | Grad-CAM, Integrated Gradients, Occlusion |
+
+### Tracked MRI classification result
+
+| Metric | Value |
+| --- | --- |
+| Accuracy | `0.8684` |
+| Precision | `0.9091` |
+| Recall | `0.8696` |
+| F1 | `0.8889` |
+| ROC-AUC | `0.9391` |
+
+Confusion matrix:
+
+- true negatives: `13`
+- false positives: `2`
+- false negatives: `3`
+- true positives: `20`
+
+### Tracked MRI sample predictions
+
+The lightweight Git snapshot keeps sample metadata for 4 XAI examples:
+
+| Ground truth | File | Predicted positive probability |
+| --- | --- | --- |
+| `yes` | `yes/Y195.JPG` | `0.9923` |
+| `yes` | `yes/Y109.JPG` | `0.9074` |
+| `no` | `no/No22.jpg` | `0.0324` |
+| `no` | `no/4 no.jpg` | `0.0168` |
+
+At the moment, the tracked MRI snapshot in Git keeps:
+
+- metrics
+- run configuration
+- sample-level XAI metadata
+
+and does **not** keep the full image gallery, unlike the autoPET line. This was kept lightweight on purpose.
+
+### Most useful MRI files for the project
+
+- tracked run summary:
+  - [`results/grenoble_gpu_20260324/README.md`](results/grenoble_gpu_20260324/README.md)
+- metrics:
+  - [`results/grenoble_gpu_20260324/metrics.json`](results/grenoble_gpu_20260324/metrics.json)
+- run configuration:
+  - [`results/grenoble_gpu_20260324/run_config.json`](results/grenoble_gpu_20260324/run_config.json)
+- tracked XAI sample metadata:
+  - [`results/grenoble_gpu_20260324/xai_samples.json`](results/grenoble_gpu_20260324/xai_samples.json)
 
 ## References
 
