@@ -7,6 +7,49 @@ This repository now contains two complementary project tracks:
 
 The goal is to keep both pipelines reproducible and scriptable on Grid'5000, instead of relying on disconnected notebooks.
 
+## Project highlights
+
+- primary track: **autoPET FDG PET/CT lesion segmentation + XAI**
+- main result kept for the project: `post_best_dice_50epochs`
+- secondary comparison: `post_low_fp_50epochs`
+- broader XAI interpretation available on **all 7 review cases**
+- backup track: **brain MRI classification + XAI**
+
+## Current headline result
+
+Main autoPET result (`post_best_dice_50epochs`, `fdg_full`, `nnUNetTrainer_50epochs`):
+
+| Metric | Value |
+| --- | --- |
+| Mean Dice | `0.4867` |
+| Mean false negative volume | `41.2100` mL |
+| Mean false positive volume | `6.2934` mL |
+
+Secondary comparison (`post_low_fp_50epochs`):
+
+| Metric | Value |
+| --- | --- |
+| Mean Dice | `0.3743` |
+| Mean false negative volume | `39.7864` mL |
+| Mean false positive volume | `1.2708` mL |
+
+## Visual examples
+
+Main XAI examples from the final all-review snapshot:
+
+| Strong positive | False positive | True negative |
+| --- | --- | --- |
+| ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_a1db71e797/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_05bed31780/integrated_gradients.png) | ![](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_3bce0eb7aa/integrated_gradients.png) |
+
+These panels combine:
+
+- original PET image with attribution overlay
+- CT image with attribution overlay
+- ground-truth mask
+- predicted mask
+
+This makes the repo immediately usable for discussing both successful detections and failure modes.
+
 ## References
 
 - Dataset: <https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection/data>
