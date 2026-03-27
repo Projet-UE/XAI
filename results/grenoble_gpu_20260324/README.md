@@ -61,6 +61,7 @@ The snapshot now also includes lightweight visual summaries that are small enoug
 - [metrics_overview.png](./figures/metrics_overview.png)
 - [confusion_matrix.png](./figures/confusion_matrix.png)
 - [sample_predictions.png](./figures/sample_predictions.png)
+- real XAI panels under [`xai/`](./xai/)
 
 ### Metrics overview
 
@@ -73,6 +74,36 @@ The snapshot now also includes lightweight visual summaries that are small enoug
 ### Sample predictions kept in the snapshot
 
 ![](./figures/sample_predictions.png)
+
+## Tracked Brain MRI XAI panels
+
+The actual XAI outputs from the Grenoble run are also tracked in Git for four representative samples:
+
+- two `yes`
+- two `no`
+
+Methods:
+
+- Grad-CAM
+- Integrated Gradients
+- Occlusion
+
+### Integrated Gradients gallery
+
+| Positive `Y195` | Positive `Y109` |
+| --- | --- |
+| ![](./xai/yes/Y195/integrated_gradients.png) | ![](./xai/yes/Y109/integrated_gradients.png) |
+
+| Negative `No22` | Negative `4 no` |
+| --- | --- |
+| ![](./xai/no/No22/integrated_gradients.png) | ![](./xai/no/4%20no/integrated_gradients.png) |
+
+### Method comparison for one positive and one negative sample
+
+| Sample | Grad-CAM | Integrated Gradients | Occlusion |
+| --- | --- | --- | --- |
+| `yes/Y195.JPG` | ![](./xai/yes/Y195/gradcam.png) | ![](./xai/yes/Y195/integrated_gradients.png) | ![](./xai/yes/Y195/occlusion.png) |
+| `no/No22.jpg` | ![](./xai/no/No22/gradcam.png) | ![](./xai/no/No22/integrated_gradients.png) | ![](./xai/no/No22/occlusion.png) |
 
 ## Notes
 

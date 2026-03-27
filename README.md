@@ -184,7 +184,7 @@ Confusion matrix:
 
 ### Brain MRI tracked figures
 
-Unlike before, the Brain MRI section now includes visible tracked result figures directly in GitHub:
+The Brain MRI section now includes both tracked summary figures and the real XAI panels from the Grenoble run:
 
 <p align="center">
   <img src="results/grenoble_gpu_20260324/figures/metrics_overview.png" width="420" alt="Brain MRI metrics overview" />
@@ -193,6 +193,34 @@ Unlike before, the Brain MRI section now includes visible tracked result figures
 
 <p align="center">
   <img src="results/grenoble_gpu_20260324/figures/sample_predictions.png" width="820" alt="Brain MRI tracked sample predictions" />
+</p>
+
+### Brain MRI XAI gallery
+
+#### Integrated Gradients examples
+
+<p align="center">
+  <img src="results/grenoble_gpu_20260324/xai/yes/Y195/integrated_gradients.png" width="420" alt="Brain MRI integrated gradients positive case Y195" />
+  <img src="results/grenoble_gpu_20260324/xai/yes/Y109/integrated_gradients.png" width="420" alt="Brain MRI integrated gradients positive case Y109" />
+</p>
+
+<p align="center">
+  <img src="results/grenoble_gpu_20260324/xai/no/No22/integrated_gradients.png" width="420" alt="Brain MRI integrated gradients negative case No22" />
+  <img src="results/grenoble_gpu_20260324/xai/no/4%20no/integrated_gradients.png" width="420" alt="Brain MRI integrated gradients negative case 4 no" />
+</p>
+
+#### Method comparison on representative samples
+
+<p align="center">
+  <img src="results/grenoble_gpu_20260324/xai/yes/Y195/gradcam.png" width="280" alt="Brain MRI Grad-CAM positive case Y195" />
+  <img src="results/grenoble_gpu_20260324/xai/yes/Y195/integrated_gradients.png" width="280" alt="Brain MRI Integrated Gradients positive case Y195" />
+  <img src="results/grenoble_gpu_20260324/xai/yes/Y195/occlusion.png" width="280" alt="Brain MRI Occlusion positive case Y195" />
+</p>
+
+<p align="center">
+  <img src="results/grenoble_gpu_20260324/xai/no/No22/gradcam.png" width="280" alt="Brain MRI Grad-CAM negative case No22" />
+  <img src="results/grenoble_gpu_20260324/xai/no/No22/integrated_gradients.png" width="280" alt="Brain MRI Integrated Gradients negative case No22" />
+  <img src="results/grenoble_gpu_20260324/xai/no/No22/occlusion.png" width="280" alt="Brain MRI Occlusion negative case No22" />
 </p>
 
 ### Tracked MRI sample predictions
@@ -212,8 +240,9 @@ At the moment, the tracked MRI snapshot in Git keeps:
 - run configuration
 - sample-level XAI metadata
 - lightweight rendered figures built from the tracked snapshot
+- actual tracked XAI panels for 4 representative samples
 
-The Brain MRI section is still lighter than the autoPET line, but it now shows visible results directly on the repository front page.
+The Brain MRI section is still lighter than the autoPET line, but it now shows both visible summary results and the real XAI outputs directly on the repository front page.
 
 ### Most useful MRI files for the project
 
@@ -225,6 +254,8 @@ The Brain MRI section is still lighter than the autoPET line, but it now shows v
   - [`results/grenoble_gpu_20260324/run_config.json`](results/grenoble_gpu_20260324/run_config.json)
 - tracked XAI sample metadata:
   - [`results/grenoble_gpu_20260324/xai_samples.json`](results/grenoble_gpu_20260324/xai_samples.json)
+- actual XAI outputs:
+  - [`results/grenoble_gpu_20260324/xai/`](results/grenoble_gpu_20260324/xai/)
 - tracked figures:
   - [`results/grenoble_gpu_20260324/figures/metrics_overview.png`](results/grenoble_gpu_20260324/figures/metrics_overview.png)
   - [`results/grenoble_gpu_20260324/figures/confusion_matrix.png`](results/grenoble_gpu_20260324/figures/confusion_matrix.png)
