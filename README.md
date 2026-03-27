@@ -209,19 +209,38 @@ The Brain MRI section now includes both tracked summary figures and the real XAI
   <img src="results/grenoble_gpu_20260324/xai/no/4%20no/integrated_gradients.png" width="420" alt="Brain MRI integrated gradients negative case 4 no" />
 </p>
 
-#### Method comparison on representative samples
+#### Grad-CAM examples
 
 <p align="center">
   <img src="results/grenoble_gpu_20260324/xai/yes/Y195/gradcam.png" width="280" alt="Brain MRI Grad-CAM positive case Y195" />
-  <img src="results/grenoble_gpu_20260324/xai/yes/Y195/integrated_gradients.png" width="280" alt="Brain MRI Integrated Gradients positive case Y195" />
-  <img src="results/grenoble_gpu_20260324/xai/yes/Y195/occlusion.png" width="280" alt="Brain MRI Occlusion positive case Y195" />
+  <img src="results/grenoble_gpu_20260324/xai/yes/Y109/gradcam.png" width="280" alt="Brain MRI Grad-CAM positive case Y109" />
+  <img src="results/grenoble_gpu_20260324/xai/no/No22/gradcam.png" width="280" alt="Brain MRI Grad-CAM negative case No22" />
 </p>
 
 <p align="center">
-  <img src="results/grenoble_gpu_20260324/xai/no/No22/gradcam.png" width="280" alt="Brain MRI Grad-CAM negative case No22" />
-  <img src="results/grenoble_gpu_20260324/xai/no/No22/integrated_gradients.png" width="280" alt="Brain MRI Integrated Gradients negative case No22" />
+  <img src="results/grenoble_gpu_20260324/xai/no/4%20no/gradcam.png" width="280" alt="Brain MRI Grad-CAM negative case 4 no" />
+</p>
+
+#### Occlusion examples
+
+<p align="center">
+  <img src="results/grenoble_gpu_20260324/xai/yes/Y195/occlusion.png" width="280" alt="Brain MRI Occlusion positive case Y195" />
+  <img src="results/grenoble_gpu_20260324/xai/yes/Y109/occlusion.png" width="280" alt="Brain MRI Occlusion positive case Y109" />
   <img src="results/grenoble_gpu_20260324/xai/no/No22/occlusion.png" width="280" alt="Brain MRI Occlusion negative case No22" />
 </p>
+
+<p align="center">
+  <img src="results/grenoble_gpu_20260324/xai/no/4%20no/occlusion.png" width="280" alt="Brain MRI Occlusion negative case 4 no" />
+</p>
+
+#### Method comparison on all tracked samples
+
+| Sample | Grad-CAM | Integrated Gradients | Occlusion |
+| --- | --- | --- | --- |
+| `yes/Y195.JPG` | ![](results/grenoble_gpu_20260324/xai/yes/Y195/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/yes/Y195/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/yes/Y195/occlusion.png) |
+| `yes/Y109.JPG` | ![](results/grenoble_gpu_20260324/xai/yes/Y109/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/yes/Y109/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/yes/Y109/occlusion.png) |
+| `no/No22.jpg` | ![](results/grenoble_gpu_20260324/xai/no/No22/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/no/No22/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/no/No22/occlusion.png) |
+| `no/4 no.jpg` | ![](results/grenoble_gpu_20260324/xai/no/4%20no/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/no/4%20no/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/no/4%20no/occlusion.png) |
 
 ### Tracked MRI sample predictions
 

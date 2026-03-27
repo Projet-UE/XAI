@@ -98,12 +98,34 @@ Methods:
 | --- | --- |
 | ![](./xai/no/No22/integrated_gradients.png) | ![](./xai/no/4%20no/integrated_gradients.png) |
 
-### Method comparison for one positive and one negative sample
+### Grad-CAM gallery
+
+| Positive `Y195` | Positive `Y109` |
+| --- | --- |
+| ![](./xai/yes/Y195/gradcam.png) | ![](./xai/yes/Y109/gradcam.png) |
+
+| Negative `No22` | Negative `4 no` |
+| --- | --- |
+| ![](./xai/no/No22/gradcam.png) | ![](./xai/no/4%20no/gradcam.png) |
+
+### Occlusion gallery
+
+| Positive `Y195` | Positive `Y109` |
+| --- | --- |
+| ![](./xai/yes/Y195/occlusion.png) | ![](./xai/yes/Y109/occlusion.png) |
+
+| Negative `No22` | Negative `4 no` |
+| --- | --- |
+| ![](./xai/no/No22/occlusion.png) | ![](./xai/no/4%20no/occlusion.png) |
+
+### Method comparison for all tracked samples
 
 | Sample | Grad-CAM | Integrated Gradients | Occlusion |
 | --- | --- | --- | --- |
 | `yes/Y195.JPG` | ![](./xai/yes/Y195/gradcam.png) | ![](./xai/yes/Y195/integrated_gradients.png) | ![](./xai/yes/Y195/occlusion.png) |
+| `yes/Y109.JPG` | ![](./xai/yes/Y109/gradcam.png) | ![](./xai/yes/Y109/integrated_gradients.png) | ![](./xai/yes/Y109/occlusion.png) |
 | `no/No22.jpg` | ![](./xai/no/No22/gradcam.png) | ![](./xai/no/No22/integrated_gradients.png) | ![](./xai/no/No22/occlusion.png) |
+| `no/4 no.jpg` | ![](./xai/no/4%20no/gradcam.png) | ![](./xai/no/4%20no/integrated_gradients.png) | ![](./xai/no/4%20no/occlusion.png) |
 
 ## Notes
 
