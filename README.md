@@ -43,10 +43,15 @@ Lightweight Grenoble run snapshots tracked in Git:
     - `results/autopet_fdg_full_50epochs_variant_comparison_20260324/README.md`
     - `results/autopet_fdg_full_50epochs_variant_comparison_20260324/comparison.json`
     - `results/autopet_fdg_full_50epochs_variant_comparison_20260324/segmentation_metrics.json`
+  - All-review XAI analysis on the primary postprocessed state:
+    - `results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/README.md`
+    - `results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json`
+    - `results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/review_cases.json`
 
 Tradeoff summary:
 - `post_best_dice_50epochs` improves mean Dice over `raw_50epochs`, but raises mean false-negative volume relative to raw
 - `post_low_fp_50epochs` suppresses mean false-positive volume much more aggressively than raw, with a smaller Dice gain than `post_best_dice_50epochs`
+- The all-review XAI analysis gives a broader qualitative read on the primary result: 7 review cases, 3 positives, 4 negatives, with attribution intensity enriched inside lesions on positives and inside predicted foreground on false positives
 
 Earlier exploratory autoPET milestones remain tracked for project history:
 - `results/autopet_fdg_20260324/`
@@ -90,6 +95,7 @@ Main components:
 - `scripts/autopet_predict_nnunet.py`: run review inference and export segmentation metrics
 - `scripts/autopet_generate_xai.py`: export Saliency / Integrated Gradients / Occlusion figures
 - `scripts/autopet_export_results.py`: create a lightweight Git-tracked snapshot under `results/`
+- `scripts/autopet_analyze_xai.py`: summarize attribution behavior into a paper-friendly JSON/Markdown report
 - `scripts/autopet_sweep_postprocess.py`: sweep lightweight connected-component filters on existing review predictions
 
 ## Grid'5000-only workflow

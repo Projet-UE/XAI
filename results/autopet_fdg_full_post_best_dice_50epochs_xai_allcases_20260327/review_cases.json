@@ -1,0 +1,260 @@
+{
+  "cases": [
+    {
+      "case_id": "PETCT_4848bebb10",
+      "ground_truth_positive": true,
+      "ground_truth_voxels": 21811,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 5718,
+            "mass_ratio_inside_gt": 0.022039613816991748,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.022039613816991748,
+            "mean_attr_inside_gt": 0.03765823692083359,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.01842527464032173,
+            "mean_attr_outside_prediction": 0.018635036423802376,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.03654466039787141,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 9770.1259765625
+          },
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_4848bebb10/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0060",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0060.nii.gz",
+      "prediction_positive": true,
+      "prediction_voxels": 3205,
+      "slice_indices": [
+        0,
+        9,
+        18
+      ]
+    },
+    {
+      "case_id": "PETCT_be3e55a32f",
+      "ground_truth_positive": true,
+      "ground_truth_voxels": 4674,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 1142,
+            "mass_ratio_inside_gt": 0.05203984700596316,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.05203984700596316,
+            "mean_attr_inside_gt": 0.07885131239891052,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.003135496051982045,
+            "mean_attr_outside_prediction": 0.003300419310107827,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.015144290373648173,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 1730.3702392578125
+          },
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_be3e55a32f/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0062",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0062.nii.gz",
+      "prediction_positive": true,
+      "prediction_voxels": 845,
+      "slice_indices": [
+        4,
+        14,
+        31
+      ]
+    },
+    {
+      "case_id": "PETCT_a1db71e797",
+      "ground_truth_positive": true,
+      "ground_truth_voxels": 869,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.016607999801635742,
+            "mean_attr_outside_prediction": 0.016607999801635742,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 8707.375
+          },
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_a1db71e797/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0061",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0061.nii.gz",
+      "prediction_positive": true,
+      "prediction_voxels": 714,
+      "slice_indices": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "case_id": "PETCT_402c061122",
+      "ground_truth_positive": false,
+      "ground_truth_voxels": 0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.004071980052823305,
+            "mass_ratio_inside_union": 0.004071980052823305,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": 0.019262216985225677,
+            "mean_attr_outside_gt": 0.020336894318461418,
+            "mean_attr_outside_prediction": 0.020341530442237854,
+            "pred_positive_voxels": 2254,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0054168494535467016,
+            "total_positive_attribution_mass": 10662.3896484375
+          },
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_402c061122/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0059",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0059.nii.gz",
+      "prediction_positive": true,
+      "prediction_voxels": 2254,
+      "slice_indices": [
+        8,
+        16,
+        24
+      ]
+    },
+    {
+      "case_id": "PETCT_05bed31780",
+      "ground_truth_positive": false,
+      "ground_truth_voxels": 0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.03918155030889872,
+            "mass_ratio_inside_union": 0.03918155030889872,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": 0.11795908957719803,
+            "mean_attr_outside_gt": 0.0039621321484446526,
+            "mean_attr_outside_prediction": 0.0038119065575301647,
+            "pred_positive_voxels": 690,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.012931774399664309,
+            "total_positive_attribution_mass": 2077.29833984375
+          },
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_05bed31780/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0057",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0057.nii.gz",
+      "prediction_positive": true,
+      "prediction_voxels": 690,
+      "slice_indices": [
+        10,
+        16,
+        21
+      ]
+    },
+    {
+      "case_id": "PETCT_3bce0eb7aa",
+      "ground_truth_positive": false,
+      "ground_truth_voxels": 0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.0204810481518507,
+            "mean_attr_outside_prediction": 0.0204810481518507,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 10737.9677734375
+          },
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_3bce0eb7aa/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0058",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0058.nii.gz",
+      "prediction_positive": false,
+      "prediction_voxels": 0,
+      "slice_indices": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "case_id": "PETCT_e2309b8f92",
+      "ground_truth_positive": false,
+      "ground_truth_voxels": 0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.019225185737013817,
+            "mean_attr_outside_prediction": 0.019225185737013817,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 10079.5341796875
+          },
+          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_e2309b8f92/integrated_gradients.png",
+          "method": "integrated_gradients"
+        }
+      ],
+      "nnunet_case_id": "FDG_0063",
+      "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0063.nii.gz",
+      "prediction_positive": false,
+      "prediction_voxels": 0,
+      "slice_indices": [
+        15,
+        16,
+        17
+      ]
+    }
+  ],
+  "selection": {
+    "available_case_count": 7,
+    "available_negative_case_count": 4,
+    "available_positive_case_count": 3,
+    "balanced_classes": true,
+    "selected_case_count": 7,
+    "selected_case_ids": [
+      "PETCT_4848bebb10",
+      "PETCT_be3e55a32f",
+      "PETCT_a1db71e797",
+      "PETCT_402c061122",
+      "PETCT_05bed31780",
+      "PETCT_3bce0eb7aa",
+      "PETCT_e2309b8f92"
+    ],
+    "selected_negative_case_count": 4,
+    "selected_positive_case_count": 3
+  }
+}

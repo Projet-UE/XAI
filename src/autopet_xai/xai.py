@@ -148,11 +148,17 @@ def _select_review_case_ids(
         if len(selected) < max_cases:
             selected.extend(remaining[: max_cases - len(selected)])
 
+    selected_positive_count = int(sum(1 for candidate in selected if candidate["positive"]))
+    selected_negative_count = int(sum(1 for candidate in selected if not candidate["positive"]))
+
     return [candidate["case_id"] for candidate in selected], {
         "balanced_classes": balance_classes,
         "available_case_count": len(candidates),
         "available_positive_case_count": len(positives),
         "available_negative_case_count": len(negatives),
+        "selected_case_count": len(selected),
+        "selected_positive_case_count": selected_positive_count,
+        "selected_negative_case_count": selected_negative_count,
         "selected_case_ids": [candidate["case_id"] for candidate in selected],
     }
 
@@ -192,6 +198,51 @@ def _compute_attribution(network: torch.nn.Module, input_tensor: torch.Tensor, m
     if max_value > 0:
         volume /= max_value
     return volume
+
+
+def _summarize_attribution(
+    attribution_crop: np.ndarray,
+    label_crop: np.ndarray,
+    pred_crop: np.ndarray,
+) -> Dict[str, Any]:
+    attr = np.clip(attribution_crop.astype(np.float32), a_min=0.0, a_max=None)
+    gt_mask = label_crop.astype(bool)
+    pred_mask = pred_crop.astype(bool)
+    union_mask = np.logical_or(gt_mask, pred_mask)
+    total_mass = float(attr.sum())
+    top_threshold = float(np.percentile(attr, 90)) if attr.size else 0.0
+    top_mask = attr >= top_threshold if top_threshold > 0 else attr > 0
+
+    def _mass_ratio(mask: np.ndarray) -> Optional[float]:
+        if total_mass <= 0:
+            return None
+        return float(attr[mask].sum() / total_mass)
+
+    def _mean_attr(mask: np.ndarray) -> Optional[float]:
+        if not np.any(mask):
+            return None
+        return float(attr[mask].mean())
+
+    def _top_ratio(mask: np.ndarray) -> Optional[float]:
+        top_count = int(top_mask.sum())
+        if top_count == 0:
+            return None
+        return float(np.logical_and(top_mask, mask).sum() / top_count)
+
+    return {
+        "total_positive_attribution_mass": total_mass,
+        "gt_positive_voxels": int(gt_mask.sum()),
+        "pred_positive_voxels": int(pred_mask.sum()),
+        "mass_ratio_inside_gt": _mass_ratio(gt_mask),
+        "mass_ratio_inside_prediction": _mass_ratio(pred_mask),
+        "mass_ratio_inside_union": _mass_ratio(union_mask),
+        "mean_attr_inside_gt": _mean_attr(gt_mask),
+        "mean_attr_outside_gt": _mean_attr(~gt_mask),
+        "mean_attr_inside_prediction": _mean_attr(pred_mask),
+        "mean_attr_outside_prediction": _mean_attr(~pred_mask),
+        "top10_ratio_inside_gt": _top_ratio(gt_mask),
+        "top10_ratio_inside_prediction": _top_ratio(pred_mask),
+    }
 
 
 def _save_case_panel(
@@ -340,13 +391,23 @@ def generate_review_xai(
                 output_path=figure_path,
                 title=method,
             )
-            method_reports.append({"method": method, "figure": str(figure_path)})
+            method_reports.append(
+                {
+                    "method": method,
+                    "figure": str(figure_path),
+                    "attribution_summary": _summarize_attribution(attribution, label_crop, pred_crop),
+                }
+            )
 
         exported.append(
             {
                 "case_id": case_id,
                 "nnunet_case_id": nnunet_case_id,
                 "prediction_path": str(prediction_path),
+                "ground_truth_positive": bool(np.count_nonzero(label) > 0),
+                "prediction_positive": bool(np.count_nonzero(prediction) > 0),
+                "ground_truth_voxels": int(np.count_nonzero(label)),
+                "prediction_voxels": int(np.count_nonzero(prediction)),
                 "slice_indices": [int(index) for index in slice_indices],
                 "methods": method_reports,
             }
