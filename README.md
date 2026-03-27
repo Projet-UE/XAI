@@ -182,6 +182,19 @@ Confusion matrix:
 - false negatives: `3`
 - true positives: `20`
 
+### Brain MRI tracked figures
+
+Unlike before, the Brain MRI section now includes visible tracked result figures directly in GitHub:
+
+<p align="center">
+  <img src="results/grenoble_gpu_20260324/figures/metrics_overview.png" width="420" alt="Brain MRI metrics overview" />
+  <img src="results/grenoble_gpu_20260324/figures/confusion_matrix.png" width="320" alt="Brain MRI confusion matrix" />
+</p>
+
+<p align="center">
+  <img src="results/grenoble_gpu_20260324/figures/sample_predictions.png" width="820" alt="Brain MRI tracked sample predictions" />
+</p>
+
 ### Tracked MRI sample predictions
 
 The lightweight Git snapshot keeps sample metadata for 4 XAI examples:
@@ -198,8 +211,9 @@ At the moment, the tracked MRI snapshot in Git keeps:
 - metrics
 - run configuration
 - sample-level XAI metadata
+- lightweight rendered figures built from the tracked snapshot
 
-and does **not** keep the full image gallery, unlike the autoPET line. This was kept lightweight on purpose.
+The Brain MRI section is still lighter than the autoPET line, but it now shows visible results directly on the repository front page.
 
 ### Most useful MRI files for the project
 
@@ -211,6 +225,10 @@ and does **not** keep the full image gallery, unlike the autoPET line. This was 
   - [`results/grenoble_gpu_20260324/run_config.json`](results/grenoble_gpu_20260324/run_config.json)
 - tracked XAI sample metadata:
   - [`results/grenoble_gpu_20260324/xai_samples.json`](results/grenoble_gpu_20260324/xai_samples.json)
+- tracked figures:
+  - [`results/grenoble_gpu_20260324/figures/metrics_overview.png`](results/grenoble_gpu_20260324/figures/metrics_overview.png)
+  - [`results/grenoble_gpu_20260324/figures/confusion_matrix.png`](results/grenoble_gpu_20260324/figures/confusion_matrix.png)
+  - [`results/grenoble_gpu_20260324/figures/sample_predictions.png`](results/grenoble_gpu_20260324/figures/sample_predictions.png)
 
 ## References
 

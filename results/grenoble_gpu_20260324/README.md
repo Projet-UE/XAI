@@ -54,6 +54,26 @@ Methods:
 
 The tracked summary is in [xai_samples.json](./xai_samples.json).
 
+## Tracked figures
+
+The snapshot now also includes lightweight visual summaries that are small enough to keep in Git:
+
+- [metrics_overview.png](./figures/metrics_overview.png)
+- [confusion_matrix.png](./figures/confusion_matrix.png)
+- [sample_predictions.png](./figures/sample_predictions.png)
+
+### Metrics overview
+
+![](./figures/metrics_overview.png)
+
+### Confusion matrix
+
+![](./figures/confusion_matrix.png)
+
+### Sample predictions kept in the snapshot
+
+![](./figures/sample_predictions.png)
+
 ## Notes
 
 - This is a project-oriented baseline, not a claim of methodological novelty.
