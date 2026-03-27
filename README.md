@@ -61,6 +61,11 @@ Earlier exploratory autoPET milestones remain tracked for project history:
 - `results/autopet_fdg_full_20vs50_20260324/`
 - `results/autopet_fdg_full_50epochs_postprocess_mean_pet_20260324/`
 
+Project-ready handoff material:
+
+- modeling handoff note: `docs/autopet_modeling_handoff.md`
+- final figure/case selection: `results/autopet_fdg_final_selection_20260327.json`
+
 This folder is meant to keep useful experiment metadata and summary outputs in Git, while the full `artifacts/` tree stays out of version control.
 
 ## Project layout
