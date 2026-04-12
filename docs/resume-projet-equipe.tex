@@ -1,0 +1,303 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{geometry}
+\geometry{margin=2.2cm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlist[itemize]{leftmargin=*, itemsep=0.25em, topsep=0.25em}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\LARGE\bfseries Résumé utile du projet XAI\par}
+\vspace{0.5cm}
+{\large Version pour l'\'equipe\par}
+\vspace{1cm}
+
+{\large Projet: autoPET FDG + Brain MRI\par}
+\vspace{0.3cm}
+{\large Date: \today\par}
+\vspace{1.8cm}
+
+\begin{minipage}{0.88\textwidth}
+\small
+Ce document ne garde que ce qui sert vraiment au projet: les deux lignes utiles
+du dépôt, les résultats à citer, les figures qui expliquent le comportement des
+modèles, et les fichiers à réutiliser pour le rapport, les slides ou l'article.
+\end{minipage}
+
+\vfill
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Ce qu'il faut retenir}
+
+Le dépôt contient deux pistes complémentaires:
+
+\begin{itemize}
+  \item \textbf{la piste principale}: segmentation autoPET FDG avec \texttt{nnUNet} et XAI;
+  \item \textbf{la piste de secours}: classification Brain MRI avec XAI.
+\end{itemize}
+
+Le point important pour l'\^equipe est simple:
+
+\begin{itemize}
+  \item on ne garde pas tout le dataset brut;
+  \item on ne relance pas des entra\^\i{}nements lourds pour rien;
+  \item on s'appuie sur les r\'esultats d\'ej\`a produits et trac\'es dans \texttt{results/}.
+\end{itemize}
+
+La ligne autoPET est la plus utile scientifiquement. La ligne Brain MRI reste
+utile comme baseline de secours et comme comparaison plus simple.
+
+\section{Partie principale: autoPET FDG}
+
+Cette partie est la plus importante pour le projet, car elle colle le mieux au
+sujet initial: imagerie m\'edicale, segmentation et explicabilit\'e.
+
+\subsection{Ce qui a \'et\'e gard\'e}
+
+\begin{tabular}{L{5.2cm}L{9.2cm}}
+\toprule
+\textbf{El\'ement} & \textbf{Choix retenu} \\
+\midrule
+Famille de donn\'ees & \texttt{autoPET I/II} \\
+Donn\'ee utilis\'ee en pratique & \texttt{FDG-PET-CT-Lesions} \\
+T\^ache & segmentation de l\'esions \\
+Mod\`ele de base & \texttt{nnUNet v2 (3d\_fullres)} \\
+Variante principale & \texttt{post\_best\_dice\_50epochs} \\
+Variante secondaire & \texttt{post\_low\_fp\_50epochs} \\
+XAI export\'ee & Saliency, Integrated Gradients, Occlusion \\
+\bottomrule
+\end{tabular}
+
+On a volontairement travaill\'e sur un \textbf{sous-ensemble contr\^ol\'e} plut\^ot que
+sur tout le volume brut. Cela rend l'exp\'erience faisable et lisible dans le
+temps du projet.
+
+\subsection{R\'esultats \`a citer}
+
+\begin{tabular}{L{5.0cm}L{3.2cm}L{3.2cm}L{3.2cm}}
+\toprule
+\textbf{Variante} & \textbf{Dice moyen} & \textbf{FN moyen} & \textbf{FP moyen} \\
+\midrule
+\texttt{raw\_50epochs} & 0.3051 & 35.6684 mL & 30.4556 mL \\
+\texttt{post\_best\_dice\_50epochs} & 0.4867 & 41.2100 mL & 6.2934 mL \\
+\texttt{post\_low\_fp\_50epochs} & 0.3743 & 39.7864 mL & 1.2708 mL \\
+\bottomrule
+\end{tabular}
+
+Lecture simple:
+
+\begin{itemize}
+  \item \texttt{post\_best\_dice\_50epochs} est le meilleur r\'esultat \`a montrer;
+  \item \texttt{post\_low\_fp\_50epochs} sert \`a discuter le compromis faux positifs / Dice.
+\end{itemize}
+
+\subsection{Ce que la XAI veut dire ici}
+
+Dans ce projet, la XAI ne veut pas dire ``zone rouge = cancer''. Elle veut dire:
+
+\begin{itemize}
+  \item \textbf{quelles zones ont le plus influenc\'e la pr\'ediction du mod\`ele};
+  \item \textbf{pourquoi} le mod\`ele a bien fonctionn\'e ou s'est tromp\'e;
+  \item si le mod\`ele regarde des zones coh\'erentes avec la l\'esion ou s'il se
+  laisse attirer par d'autres zones.
+\end{itemize}
+
+L'analyse XAI la plus utile pour le rapport est celle sur les \textbf{7 cas de revue}
+du r\'esultat principal:
+
+\begin{itemize}
+  \item 3 cas positifs d\'etect\'es;
+  \item 2 faux positifs;
+  \item 2 vrais n\'egatifs.
+\end{itemize}
+
+La m\'ethode la plus parlante pour la discussion est \texttt{Integrated Gradients}.
+Sur cette s\'erie:
+
+\begin{itemize}
+  \item l'attribution est environ \textbf{4.58x} plus forte \`a l'int\'erieur de la
+  l\'esion que dehors sur les cas positifs;
+  \item sur les faux positifs, l'attribution est environ \textbf{5.68x} plus forte
+  dans la zone pr\'edite que dans le reste de l'image.
+\end{itemize}
+
+\subsection{Figures utiles}
+
+\textbf{Cas positif bien d\'etect\'e:}
+
+\begin{center}
+\includegraphics[width=0.86\linewidth]{../results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_a1db71e797/integrated_gradients.png}
+\end{center}
+
+\textbf{Cas faux positif:}
+
+\begin{center}
+\includegraphics[width=0.86\linewidth]{../results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_05bed31780/integrated_gradients.png}
+\end{center}
+
+\textbf{Comparaison entre brut et post-trait\'e:}
+
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width=0.46\linewidth]{../results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/raw_50epochs__PETCT_402c061122.png} &
+\includegraphics[width=0.46\linewidth]{../results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/raw_50epochs__PETCT_4848bebb10.png} \\
+\includegraphics[width=0.46\linewidth]{../results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/post_best_dice_50epochs__PETCT_be3e55a32f.png} &
+\includegraphics[width=0.46\linewidth]{../results/autopet_fdg_full_50epochs_variant_comparison_20260324/figures/post_low_fp_50epochs__PETCT_e2309b8f92.png}
+\end{tabular}
+\end{center}
+
+\section{Partie de secours: Brain MRI}
+
+Cette partie est la baseline de secours. Elle est plus simple, mais utile pour:
+
+\begin{itemize}
+  \item garder un pipeline complet de classification;
+  \item disposer d'un second point de comparaison;
+  \item avoir une XAI plus rapide \`a relire si besoin.
+\end{itemize}
+
+\subsection{Ce qui a \'et\'e gard\'e}
+
+\begin{tabular}{L{5.2cm}L{9.2cm}}
+\toprule
+\textbf{El\'ement} & \textbf{Choix retenu} \\
+\midrule
+Donn\'ee & Kaggle Brain MRI tumor detection \\
+T\^ache & classification binaire \texttt{yes/no} \\
+Mod\`ele de base & \texttt{ResNet18} \\
+Plateforme & Grid'5000 Grenoble \\
+R\'esultat trac\'e & 5 \`a 6 \'epoques selon les snapshots gard\'es \\
+XAI & Grad-CAM, Integrated Gradients, Occlusion \\
+\bottomrule
+\end{tabular}
+
+\subsection{R\'esultats \`a citer}
+
+\begin{tabular}{L{5.0cm}L{4.8cm}}
+\toprule
+\textbf{M\'etrique} & \textbf{Valeur} \\
+\midrule
+Accuracy & 0.8684 \\
+Precision & 0.9091 \\
+Recall & 0.8696 \\
+F1 & 0.8889 \\
+ROC-AUC & 0.9391 \\
+\bottomrule
+\end{tabular}
+
+Confusion matrix:
+
+\begin{itemize}
+  \item vrais n\'egatifs: 13
+  \item faux positifs: 2
+  \item faux n\'egatifs: 3
+  \item vrais positifs: 20
+\end{itemize}
+
+\subsection{Figures utiles}
+
+\textbf{Vue d'ensemble du run:}
+
+\begin{center}
+\includegraphics[width=0.92\linewidth]{../results/grenoble_gpu_20260324/figures/metrics_overview.png}
+\end{center}
+
+\textbf{Matrice de confusion:}
+
+\begin{center}
+\includegraphics[width=0.55\linewidth]{../results/grenoble_gpu_20260324/figures/confusion_matrix.png}
+\end{center}
+
+\textbf{Exemples d'explicabilit\'e Brain MRI:}
+
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width=0.46\linewidth]{../results/grenoble_gpu_20260324/xai/yes/Y195/integrated_gradients.png} &
+\includegraphics[width=0.46\linewidth]{../results/grenoble_gpu_20260324/xai/yes/Y109/integrated_gradients.png} \\
+\includegraphics[width=0.46\linewidth]{../results/grenoble_gpu_20260324/xai/no/No22/integrated_gradients.png} &
+\includegraphics[width=0.46\linewidth]{../results/grenoble_gpu_20260324/xai/no/No22/occlusion.png}
+\end{tabular}
+\end{center}
+
+\subsection{Pourquoi cette partie reste utile}
+
+La piste Brain MRI n'est pas la piste principale, mais elle reste utile:
+
+\begin{itemize}
+  \item comme baseline de secours si la partie autoPET devait poser probl\`eme;
+  \item comme exemple plus simple pour expliquer la XAI \`a l'\^equipe;
+  \item comme r\'esultat de comparaison dans le rapport.
+\end{itemize}
+
+\section{Code utile}
+
+Les scripts \`a conna\^\i{}tre vraiment sont:
+
+\begin{itemize}
+  \item \texttt{scripts/autopet\_prepare\_fdg.py}: pr\'epare le sous-ensemble FDG;
+  \item \texttt{scripts/autopet\_train\_nnunet.py}: lance l'entra\^\i{}nement \texttt{nnUNet};
+  \item \texttt{scripts/autopet\_predict\_nnunet.py}: produit les m\'etriques de segmentation;
+  \item \texttt{scripts/autopet\_generate\_xai.py}: exporte les figures XAI PET/CT;
+  \item \texttt{scripts/autopet\_export\_results.py}: cr\'ee les snapshots l\'egers pour Git;
+  \item \texttt{scripts/generate\_xai.py}: exporte la XAI pour la classification Brain MRI.
+\end{itemize}
+
+Ce sont les scripts qui servent r\'eellement au projet. Le reste est soit de
+l'historique, soit du support, soit du r\'esultat d'exploration.
+
+\section{Fichiers \`a utiliser en priorit\'e}
+
+\begin{itemize}
+  \item \href{../results/autopet_fdg_full_post_best_dice_50epochs_20260324/segmentation_metrics.json}{M\'etriques autoPET principales}
+  \item \href{../results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json}{Synth\`ese XAI autoPET}
+  \item \href{../results/autopet_fdg_full_50epochs_variant_comparison_20260324/README.md}{Comparaison autoPET brut vs post-trait\'e}
+  \item \href{../results/grenoble_gpu_20260324/metrics.json}{M\'etriques Brain MRI}
+  \item \href{../results/grenoble_gpu_20260324/xai/}{Figures XAI Brain MRI}
+\end{itemize}
+
+\section{Ce qu'on peut ignorer maintenant}
+
+\begin{itemize}
+  \item le dataset complet \`a \~{}400 GB;
+  \item les nouvelles exp\'eriences lourdes sans demande explicite;
+  \item le multi-traceur / PSMA tant que le FDG n'est pas la cible directe;
+  \item les gros artefacts non trac\'es dans \texttt{results/}.
+\end{itemize}
+
+\section{Conclusion}
+
+Pour l'\^equipe, le message simple est le suivant:
+
+\begin{itemize}
+  \item garder la piste autoPET FDG comme r\'esultat principal;
+  \item garder la classification Brain MRI comme backup;
+  \item utiliser les figures et m\'etriques trac\'ees dans Git pour le rapport;
+  \item ne pas repartir sur des exp\'eriences lourdes inutiles.
+\end{itemize}
+
+\end{document}
