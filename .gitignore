@@ -18,6 +18,8 @@ venv/
 # Data and artifacts
 data/
 artifacts/
+new/
+**/local-secrets.json
 
 # OS/editor
 .DS_Store

@@ -1,0 +1,20 @@
+dataset:
+  split: test
+  image_size: 224
+  max_samples_per_class: 8
+  balanced_sampling: true
+  seed: 42
+
+model:
+  architecture: resnet18_binary
+  checkpoint_name: best.pt
+  device: cuda
+
+xai_benchmark:
+  methods: [gradcam, integrated_gradients, occlusion]
+  masking_top_fractions: [0.10, 0.20, 0.30]
+  ranking_metric: mean_confidence_drop
+  bootstrap_iterations:
+    routine: 2000
+    final: 5000
+  bootstrap_seed: 42

@@ -20,6 +20,20 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--review-cases-path", type=Path, default=None)
     parser.add_argument("--xai-dir", type=Path, default=None)
     parser.add_argument("--run-config-path", type=Path, default=None)
+    parser.add_argument("--analysis-summary-path", type=Path, default=None)
+    parser.add_argument("--method-benchmark-path", type=Path, default=None)
+    parser.add_argument("--require-review-cases", action="store_true")
+    parser.add_argument("--require-xai-dir", action="store_true")
+    parser.add_argument("--require-analysis-summary", action="store_true")
+    parser.add_argument("--require-method-benchmark", action="store_true")
+    parser.add_argument(
+        "--require-protocol-benchmark",
+        action="store_true",
+        help=(
+            "Fail if neither analysis summary with method benchmark nor standalone "
+            "method benchmark file is available."
+        ),
+    )
     parser.add_argument("--snapshot-title", type=str, default="autoPET FDG run snapshot")
     return parser.parse_args()
 
@@ -67,9 +81,13 @@ def main() -> None:
     run_config_path = split_root / "training_run_config.json"
     predict_run_config_path = split_root / "review_metrics" / "predict_run_config.json"
     xai_run_config_path = split_root / "xai" / "xai_run_config.json"
+    default_analysis_summary_path = split_root / "xai_analysis" / "xai_analysis_summary.json"
+    default_method_benchmark_path = split_root / "xai_analysis" / "method_benchmark.json"
 
     if not metrics_path.exists():
         raise FileNotFoundError(f"Missing segmentation metrics at {metrics_path}")
+    if args.require_review_cases and not review_cases_path.exists():
+        raise FileNotFoundError(f"Missing required review_cases.json at {review_cases_path}")
 
     target_dir = args.results_root / args.run_id
     if target_dir.exists():
@@ -88,15 +106,56 @@ def main() -> None:
         if xai_run_config_path.exists():
             run_config.update(load_json(xai_run_config_path))
     review_cases = load_json(review_cases_path) if review_cases_path.exists() else {"cases": []}
+    analysis_summary_path = args.analysis_summary_path or default_analysis_summary_path
+    method_benchmark_path = args.method_benchmark_path or default_method_benchmark_path
+    if args.require_analysis_summary and not analysis_summary_path.exists():
+        raise FileNotFoundError(f"Missing required xai_analysis_summary.json at {analysis_summary_path}")
+    if args.require_method_benchmark and not method_benchmark_path.exists():
+        raise FileNotFoundError(f"Missing required method_benchmark.json at {method_benchmark_path}")
+    analysis_summary = load_json(analysis_summary_path) if analysis_summary_path.exists() else None
+    method_benchmark = load_json(method_benchmark_path) if method_benchmark_path.exists() else None
+    if args.require_protocol_benchmark:
+        has_summary_ranking = bool(
+            analysis_summary and "ranking" in analysis_summary.get("method_benchmark", {})
+        )
+        has_benchmark_ranking = bool(method_benchmark and "ranking" in method_benchmark)
+        if not has_summary_ranking and not has_benchmark_ranking:
+            raise ValueError(
+                "Protocol benchmark required but ranking data is missing from both "
+                "analysis summary and standalone method benchmark."
+            )
 
     save_json(metrics, target_dir / "segmentation_metrics.json")
     save_json(run_config, target_dir / "run_config.json")
     save_json(review_cases, target_dir / "review_cases.json")
+    if analysis_summary is not None:
+        save_json(analysis_summary, target_dir / "xai_analysis_summary.json")
+    if method_benchmark is not None:
+        save_json(method_benchmark, target_dir / "method_benchmark.json")
 
     copied_figures = []
     xai_dir = args.xai_dir or (split_root / "xai")
+    if args.require_xai_dir and not xai_dir.exists():
+        raise FileNotFoundError(f"Missing required XAI directory at {xai_dir}")
     if xai_dir.exists():
         copied_figures = _copy_selected_figures(xai_dir, target_dir / "figures", args.max_figures)
+
+    top_method = None
+    top_score = None
+    ranking_from_summary = []
+    if analysis_summary is not None:
+        ranking_from_summary = analysis_summary.get("method_benchmark", {}).get("ranking", [])
+    ranking_from_file = method_benchmark.get("ranking", []) if method_benchmark else []
+    ranking = ranking_from_file if ranking_from_file else ranking_from_summary
+    if ranking:
+        top_method = ranking[0].get("method")
+        top_score = ranking[0].get("composite_protocol_score") or ranking[0].get("protocol_score")
+
+    top_method_line = ""
+    if top_method is not None and top_score is not None:
+        top_method_line = f"- Top XAI method by protocol score: `{top_method}` (`{float(top_score):.4f}`)\n"
+    elif top_method is not None:
+        top_method_line = f"- Top XAI method by protocol score: `{top_method}`\n"
 
     readme = f"""# {args.snapshot_title}
 
@@ -106,7 +165,9 @@ This folder tracks a lightweight snapshot of an autoPET FDG nnUNet run.
 - Mean Dice: `{metrics.get('mean_dice', 0.0):.4f}`
 - Mean false negative volume (mL): `{metrics.get('mean_false_negative_volume_ml', 0.0):.4f}`
 - Mean false positive volume (mL): `{metrics.get('mean_false_positive_volume_ml', 0.0):.4f}`
-- Copied figures: `{len(copied_figures)}`
+- Includes XAI analysis summary: `{"yes" if analysis_summary is not None else "no"}`
+- Includes standalone XAI method benchmark: `{"yes" if method_benchmark is not None else "no"}`
+{top_method_line}- Copied figures: `{len(copied_figures)}`
 """
     (target_dir / "README.md").write_text(readme, encoding="utf-8")
 

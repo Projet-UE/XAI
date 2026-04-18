@@ -119,6 +119,39 @@ The panels below combine:
 - modeling handoff:
   - [`docs/autopet_modeling_handoff.md`](docs/autopet_modeling_handoff.md)
 
+### Evaluation-grade XAI comparison (autoPET)
+
+To satisfy a common-protocol XAI comparison requirement, run:
+
+```bash
+python scripts/autopet_analyze_xai.py \
+  --review-cases-path artifacts/autopet_fdg_poc/fdg_full/xai/review_cases.json \
+  --metrics-path artifacts/autopet_fdg_poc/fdg_full/review_metrics/metrics.json \
+  --output-dir artifacts/autopet_fdg_poc/fdg_full/xai_analysis \
+  --state-name post_best_dice_50epochs
+```
+
+This now exports:
+
+- protocol-level method ranking with a composite score
+- bootstrap 95% confidence intervals for key method metrics
+- a markdown summary ready to cite in the report
+
+For explicit paired method deltas (A-B) with confidence intervals:
+
+```bash
+python scripts/autopet_compare_xai_methods.py \
+  --review-cases-path artifacts/autopet_fdg_poc/fdg_full/xai/review_cases.json \
+  --metrics-path artifacts/autopet_fdg_poc/fdg_full/review_metrics/metrics.json \
+  --output-dir artifacts/autopet_fdg_poc/fdg_full/xai_compare \
+  --bootstrap-iterations 5000
+```
+
+Outputs:
+
+- `method_benchmark.json`
+- `method_benchmark.md`
+
 ## Backup track: Brain MRI classification + XAI
 
 This track is kept as a **backup baseline**. It is simpler than the autoPET line, but it is still useful because it provides:
@@ -224,6 +257,63 @@ Confusion matrix:
   - [`results/grenoble_gpu_20260324/run_config.json`](results/grenoble_gpu_20260324/run_config.json)
 - actual XAI outputs:
   - [`results/grenoble_gpu_20260324/xai/`](results/grenoble_gpu_20260324/xai/)
+
+### Evaluation-grade XAI comparison (Brain MRI)
+
+To compare Brain MRI XAI methods with a quantitative faithfulness protocol:
+
+```bash
+python scripts/brain_mri_benchmark_xai_methods.py \
+  --data-root "$HOME/data/brain-mri-images" \
+  --manifest-path artifacts/training/splits/brain_mri_split.json \
+  --checkpoint-path artifacts/training/checkpoints/best.pt \
+  --output-dir artifacts/brain_mri_xai_benchmark \
+  --max-samples-per-class 8
+```
+
+This benchmark ranks methods by predicted-class confidence drop after masking top-attribution pixels.
+Higher confidence drop indicates stronger faithfulness for that protocol.
+
+### Unified evidence pack for evaluation
+
+Build one review-ready package with metrics, benchmark summaries, selected figures, and requirement traceability:
+
+```bash
+python scripts/build_project_evidence_pack.py \
+  --results-root results \
+  --run-index-path results/index.json \
+  --autopet-main-run-id autopet_fdg_full_post_best_dice_50epochs_20260324 \
+  --autopet-comparison-run-id autopet_fdg_full_50epochs_variant_comparison_20260324 \
+  --brain-mri-run-id grenoble_gpu_20260324 \
+  --autopet-xai-analysis-run-id autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327
+```
+
+### Frozen run index
+
+A tracked immutable index of baseline run states is stored in:
+
+- [`results/index.json`](results/index.json)
+
+It includes run IDs, split hashes, checkpoint references, and script checksums.
+
+### Snapshot completeness validation
+
+To fail fast on incomplete tracked snapshots:
+
+```bash
+python scripts/validate_result_snapshot.py \
+  --run-dir results/autopet_fdg_full_post_best_dice_50epochs_20260324 \
+  --track autopet
+```
+
+For protocol-grade XAI evidence:
+
+```bash
+python scripts/validate_result_snapshot.py \
+  --run-dir results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327 \
+  --track autopet \
+  --require-protocol-benchmark
+```
 
 ## Repository layout
 
