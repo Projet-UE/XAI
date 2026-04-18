@@ -59,7 +59,7 @@
   ],
   "checks_failed": 0,
   "checks_total": 5,
-  "generated_at": "2026-04-18T18:57:51.955736+00:00",
+  "generated_at": "2026-04-18T20:00:56.129712+00:00",
   "inputs": {
     "autopet_run_id": "autopet_fdg_full_post_best_dice_50epochs_20260324",
     "autopet_xai_run_id": "autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327",
