@@ -73,4 +73,9 @@ def test_build_project_evidence_pack_smoke(tmp_path: Path) -> None:
     assert (output / "evidence_manifest.json").exists()
     assert (output / "INTERPRETATION.md").exists()
     assert (output / "EVALUATION_ALIGNMENT.md").exists()
+    assert (output / "EVALUATION_READINESS.md").exists()
+    assert (output / "EVALUATION_READINESS.json").exists()
     assert (output / "DEMO_RUNBOOK.md").exists()
+
+    manifest = json.loads((output / "evidence_manifest.json").read_text(encoding="utf-8"))
+    assert manifest["evaluation_readiness"]["status"] in {"covered", "partial", "missing"}

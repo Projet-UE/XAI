@@ -1,0 +1,222 @@
+{
+  "generated_at": "2026-04-18T18:46:10.772737+00:00",
+  "overall": {
+    "coverage_score": 1.0,
+    "criteria_fully_covered": 9,
+    "criteria_total": 9,
+    "status": "covered"
+  },
+  "pack_dir": "/home/arman/Bureau/f/XAI/results/evidence_pack_20260418_grid",
+  "rubrics": [
+    {
+      "coverage_score": 1.0,
+      "criteria": [
+        {
+          "coverage_ratio": 1.0,
+          "criterion_id": "CLIENT-CLOTURE-FONCTIONNEL",
+          "label": "Etat fonctionnel des livrables",
+          "optional_evidence_present": [
+            "autopet/figures",
+            "brain_mri/figures"
+          ],
+          "optional_present_count": 2,
+          "optional_total": 2,
+          "required_evidence_present": [
+            "autopet/segmentation_metrics.json",
+            "autopet/comparison.json",
+            "brain_mri/metrics.json"
+          ],
+          "required_missing": [],
+          "required_present_count": 3,
+          "required_total": 3,
+          "status": "covered",
+          "weight": 1.0
+        },
+        {
+          "coverage_ratio": 1.0,
+          "criterion_id": "CLIENT-CLOTURE-QUALITATIF",
+          "label": "Etat qualitatif des livrables",
+          "optional_evidence_present": [
+            "autopet/xai_analysis_summary.json",
+            "EVALUATION_ALIGNMENT.md"
+          ],
+          "optional_present_count": 2,
+          "optional_total": 2,
+          "required_evidence_present": [
+            "autopet/method_benchmark.json",
+            "brain_mri/xai_method_benchmark.json",
+            "INTERPRETATION.md"
+          ],
+          "required_missing": [],
+          "required_present_count": 3,
+          "required_total": 3,
+          "status": "covered",
+          "weight": 1.0
+        },
+        {
+          "coverage_ratio": 1.0,
+          "criterion_id": "CLIENT-CLOTURE-MAINTENANCE",
+          "label": "Maintenance, evolutivite et tracabilite",
+          "optional_evidence_present": [],
+          "optional_present_count": 0,
+          "optional_total": 0,
+          "required_evidence_present": [
+            "evidence_manifest.json",
+            "traceability/requirement_traceability.json",
+            "traceability/run_index.json",
+            "DEMO_RUNBOOK.md"
+          ],
+          "required_missing": [],
+          "required_present_count": 4,
+          "required_total": 4,
+          "status": "covered",
+          "weight": 1.0
+        }
+      ],
+      "rubric_id": "client_2025_cloture",
+      "rubric_title": "Evaluation client (phase cl\u00f4ture)",
+      "source": "new/Materials/Cours/EVALUATION_Client_2025.xlsx",
+      "source_exists": true,
+      "status": "covered"
+    },
+    {
+      "coverage_score": 1.0,
+      "criteria": [
+        {
+          "coverage_ratio": 1.0,
+          "criterion_id": "SOUT-CONTEXTE-LIVRABLES",
+          "label": "Contexte, sujet, livrables attendus",
+          "optional_evidence_present": [],
+          "optional_present_count": 0,
+          "optional_total": 0,
+          "required_evidence_present": [
+            "README.md",
+            "autopet/segmentation_metrics.json",
+            "brain_mri/metrics.json",
+            "autopet/comparison.json"
+          ],
+          "required_missing": [],
+          "required_present_count": 4,
+          "required_total": 4,
+          "status": "covered",
+          "weight": 1.0
+        },
+        {
+          "coverage_ratio": 1.0,
+          "criterion_id": "SOUT-PROCESSUS-DEV",
+          "label": "Processus de developpement, qualite, automatisation",
+          "optional_evidence_present": [
+            "traceability/run_index.json"
+          ],
+          "optional_present_count": 1,
+          "optional_total": 1,
+          "required_evidence_present": [
+            "traceability/requirement_traceability.json",
+            "EVALUATION_ALIGNMENT.md",
+            "DEMO_RUNBOOK.md"
+          ],
+          "required_missing": [],
+          "required_present_count": 3,
+          "required_total": 3,
+          "status": "covered",
+          "weight": 1.0
+        },
+        {
+          "coverage_ratio": 1.0,
+          "criterion_id": "SOUT-ANALYSE-XAI",
+          "label": "Analyse critique des resultats et de l'XAI",
+          "optional_evidence_present": [
+            "autopet/xai_analysis_summary.json"
+          ],
+          "optional_present_count": 1,
+          "optional_total": 1,
+          "required_evidence_present": [
+            "autopet/method_benchmark.json",
+            "brain_mri/xai_method_benchmark.json",
+            "INTERPRETATION.md"
+          ],
+          "required_missing": [],
+          "required_present_count": 3,
+          "required_total": 3,
+          "status": "covered",
+          "weight": 1.0
+        }
+      ],
+      "rubric_id": "soutenance_projet_2026",
+      "rubric_title": "Evaluation soutenance projet 2026",
+      "source": "new/Materials/Cours/Dossier des grilles d\u00e9valuation soutenances alternant(e) et projet et du plan projet V3-20260417/EVALUATION_Soutenance_projet 2026 .xlsx",
+      "source_exists": true,
+      "status": "covered"
+    },
+    {
+      "coverage_score": 1.0,
+      "criteria": [
+        {
+          "coverage_ratio": 1.0,
+          "criterion_id": "PLAN-ACCES-ARTEFACTS",
+          "label": "Acces au plan et aux artefacts references",
+          "optional_evidence_present": [
+            "traceability/run_index.json"
+          ],
+          "optional_present_count": 1,
+          "optional_total": 1,
+          "required_evidence_present": [
+            "README.md",
+            "evidence_manifest.json",
+            "EVALUATION_ALIGNMENT.md"
+          ],
+          "required_missing": [],
+          "required_present_count": 3,
+          "required_total": 3,
+          "status": "covered",
+          "weight": 1.0
+        },
+        {
+          "coverage_ratio": 1.0,
+          "criterion_id": "PLAN-COUVERTURE-GP-DEV",
+          "label": "Couverture gestion de projet et developpement",
+          "optional_evidence_present": [],
+          "optional_present_count": 0,
+          "optional_total": 0,
+          "required_evidence_present": [
+            "traceability/requirement_traceability.json",
+            "autopet/comparison.json",
+            "autopet/segmentation_metrics.json",
+            "brain_mri/metrics.json"
+          ],
+          "required_missing": [],
+          "required_present_count": 4,
+          "required_total": 4,
+          "status": "covered",
+          "weight": 1.0
+        },
+        {
+          "coverage_ratio": 1.0,
+          "criterion_id": "PLAN-BILAN-CAPITALISATION",
+          "label": "Bilan, capitalisation et dynamique de progres",
+          "optional_evidence_present": [
+            "autopet/figures",
+            "brain_mri/figures"
+          ],
+          "optional_present_count": 2,
+          "optional_total": 2,
+          "required_evidence_present": [
+            "INTERPRETATION.md",
+            "DEMO_RUNBOOK.md"
+          ],
+          "required_missing": [],
+          "required_present_count": 2,
+          "required_total": 2,
+          "status": "covered",
+          "weight": 1.0
+        }
+      ],
+      "rubric_id": "plan_projet_v3",
+      "rubric_title": "Evaluation plan projet V3",
+      "source": "new/Materials/Cours/Dossier des grilles d\u00e9valuation soutenances alternant(e) et projet et du plan projet V3-20260417/EVALUATION_Plan_Projet_et_UE_Projet.xlsx",
+      "source_exists": true,
+      "status": "covered"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

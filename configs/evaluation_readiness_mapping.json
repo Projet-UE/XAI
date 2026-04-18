@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Rubric-to-evidence mapping aligned with UE Projet client/soutenance/plan-projet grids.",
+  "rubrics": [
+    {
+      "rubric_id": "client_2025_cloture",
+      "rubric_title": "Evaluation client (phase clôture)",
+      "source": "new/Materials/Cours/EVALUATION_Client_2025.xlsx",
+      "criteria": [
+        {
+          "criterion_id": "CLIENT-CLOTURE-FONCTIONNEL",
+          "label": "Etat fonctionnel des livrables",
+          "weight": 1.0,
+          "required_evidence": [
+            "autopet/segmentation_metrics.json",
+            "autopet/comparison.json",
+            "brain_mri/metrics.json"
+          ],
+          "optional_evidence": [
+            "autopet/figures",
+            "brain_mri/figures"
+          ]
+        },
+        {
+          "criterion_id": "CLIENT-CLOTURE-QUALITATIF",
+          "label": "Etat qualitatif des livrables",
+          "weight": 1.0,
+          "required_evidence": [
+            "autopet/method_benchmark.json",
+            "brain_mri/xai_method_benchmark.json",
+            "INTERPRETATION.md"
+          ],
+          "optional_evidence": [
+            "autopet/xai_analysis_summary.json",
+            "EVALUATION_ALIGNMENT.md"
+          ]
+        },
+        {
+          "criterion_id": "CLIENT-CLOTURE-MAINTENANCE",
+          "label": "Maintenance, evolutivite et tracabilite",
+          "weight": 1.0,
+          "required_evidence": [
+            "evidence_manifest.json",
+            "traceability/requirement_traceability.json",
+            "traceability/run_index.json",
+            "DEMO_RUNBOOK.md"
+          ],
+          "optional_evidence": []
+        }
+      ]
+    },
+    {
+      "rubric_id": "soutenance_projet_2026",
+      "rubric_title": "Evaluation soutenance projet 2026",
+      "source": "new/Materials/Cours/Dossier des grilles dévaluation soutenances alternant(e) et projet et du plan projet V3-20260417/EVALUATION_Soutenance_projet 2026 .xlsx",
+      "criteria": [
+        {
+          "criterion_id": "SOUT-CONTEXTE-LIVRABLES",
+          "label": "Contexte, sujet, livrables attendus",
+          "weight": 1.0,
+          "required_evidence": [
+            "README.md",
+            "autopet/segmentation_metrics.json",
+            "brain_mri/metrics.json",
+            "autopet/comparison.json"
+          ],
+          "optional_evidence": []
+        },
+        {
+          "criterion_id": "SOUT-PROCESSUS-DEV",
+          "label": "Processus de developpement, qualite, automatisation",
+          "weight": 1.0,
+          "required_evidence": [
+            "traceability/requirement_traceability.json",
+            "EVALUATION_ALIGNMENT.md",
+            "DEMO_RUNBOOK.md"
+          ],
+          "optional_evidence": [
+            "traceability/run_index.json"
+          ]
+        },
+        {
+          "criterion_id": "SOUT-ANALYSE-XAI",
+          "label": "Analyse critique des resultats et de l'XAI",
+          "weight": 1.0,
+          "required_evidence": [
+            "autopet/method_benchmark.json",
+            "brain_mri/xai_method_benchmark.json",
+            "INTERPRETATION.md"
+          ],
+          "optional_evidence": [
+            "autopet/xai_analysis_summary.json"
+          ]
+        }
+      ]
+    },
+    {
+      "rubric_id": "plan_projet_v3",
+      "rubric_title": "Evaluation plan projet V3",
+      "source": "new/Materials/Cours/Dossier des grilles dévaluation soutenances alternant(e) et projet et du plan projet V3-20260417/EVALUATION_Plan_Projet_et_UE_Projet.xlsx",
+      "criteria": [
+        {
+          "criterion_id": "PLAN-ACCES-ARTEFACTS",
+          "label": "Acces au plan et aux artefacts references",
+          "weight": 1.0,
+          "required_evidence": [
+            "README.md",
+            "evidence_manifest.json",
+            "EVALUATION_ALIGNMENT.md"
+          ],
+          "optional_evidence": [
+            "traceability/run_index.json"
+          ]
+        },
+        {
+          "criterion_id": "PLAN-COUVERTURE-GP-DEV",
+          "label": "Couverture gestion de projet et developpement",
+          "weight": 1.0,
+          "required_evidence": [
+            "traceability/requirement_traceability.json",
+            "autopet/comparison.json",
+            "autopet/segmentation_metrics.json",
+            "brain_mri/metrics.json"
+          ],
+          "optional_evidence": []
+        },
+        {
+          "criterion_id": "PLAN-BILAN-CAPITALISATION",
+          "label": "Bilan, capitalisation et dynamique de progres",
+          "weight": 1.0,
+          "required_evidence": [
+            "INTERPRETATION.md",
+            "DEMO_RUNBOOK.md"
+          ],
+          "optional_evidence": [
+            "autopet/figures",
+            "brain_mri/figures"
+          ]
+        }
+      ]
+    }
+  ]
+}

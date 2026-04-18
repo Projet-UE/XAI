@@ -8,6 +8,13 @@ import shutil
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
+from audit_evidence_pack_readiness import (
+    audit_evidence_pack,
+    load_mapping as load_readiness_mapping,
+    render_markdown as render_readiness_markdown,
+    resolve_mapping_path,
+)
+
 
 def ensure_dir(path: Path) -> Path:
     path.mkdir(parents=True, exist_ok=True)
@@ -39,6 +46,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--brain-mri-xai-benchmark-run-id", type=str, default=None)
     parser.add_argument("--output-run-id", type=str, default=None)
     parser.add_argument("--max-figures-per-track", type=int, default=6)
+    parser.add_argument(
+        "--evaluation-mapping-path",
+        type=Path,
+        default=Path("configs/evaluation_readiness_mapping.json"),
+        help="Rubric-to-evidence mapping used to generate EVALUATION_READINESS.{json,md}.",
+    )
     return parser.parse_args()
 
 
@@ -478,6 +491,8 @@ def main() -> None:
                 "README.md",
                 "INTERPRETATION.md",
                 "EVALUATION_ALIGNMENT.md",
+                "EVALUATION_READINESS.md",
+                "EVALUATION_READINESS.json",
                 "DEMO_RUNBOOK.md",
                 "evidence_manifest.json",
             ],
@@ -597,6 +612,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 - `evidence_manifest.json`: explicit inventory of copied evidence files
 - `INTERPRETATION.md`: concise interpretation blocks ready for report/slides
 - `EVALUATION_ALIGNMENT.md`: rubric-oriented checklist for client/soutenance/plan-projet review
+- `EVALUATION_READINESS.md`: scored readiness report aligned with official evaluation grids
 - `DEMO_RUNBOOK.md`: deterministic 2-3 minute demo flow aligned with `REQ-C2/C4/C5`
 {optional_contents}
 
@@ -620,6 +636,30 @@ This folder consolidates the most important, review-ready artifacts for project 
         ),
         encoding="utf-8",
     )
+
+    readiness_mapping_path: Optional[Path] = None
+    try:
+        readiness_mapping_path = resolve_mapping_path(args.evaluation_mapping_path)
+        readiness_mapping = load_readiness_mapping(readiness_mapping_path)
+        readiness_report = audit_evidence_pack(output_dir, readiness_mapping)
+        save_json(readiness_report, output_dir / "EVALUATION_READINESS.json")
+        (output_dir / "EVALUATION_READINESS.md").write_text(
+            render_readiness_markdown(readiness_report) + "\n",
+            encoding="utf-8",
+        )
+        evidence_manifest["evaluation_readiness"] = {
+            "status": readiness_report.get("overall", {}).get("status", "missing"),
+            "coverage_score": readiness_report.get("overall", {}).get("coverage_score", 0.0),
+            "mapping_path": str(readiness_mapping_path),
+        }
+    except FileNotFoundError:
+        evidence_manifest["evaluation_readiness"] = {
+            "status": "mapping_not_found",
+            "coverage_score": 0.0,
+            "mapping_path": str(args.evaluation_mapping_path),
+        }
+
+    save_json(evidence_manifest, output_dir / "evidence_manifest.json")
 
 
 if __name__ == "__main__":

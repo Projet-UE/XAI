@@ -26,6 +26,8 @@
       "README.md",
       "INTERPRETATION.md",
       "EVALUATION_ALIGNMENT.md",
+      "EVALUATION_READINESS.md",
+      "EVALUATION_READINESS.json",
       "DEMO_RUNBOOK.md",
       "evidence_manifest.json"
     ],
@@ -33,6 +35,11 @@
       "traceability/requirement_traceability.json",
       "traceability/run_index.json"
     ]
+  },
+  "evaluation_readiness": {
+    "coverage_score": 1.0,
+    "mapping_path": "configs/evaluation_readiness_mapping.json",
+    "status": "covered"
   },
   "run_ids": {
     "autopet_comparison": "autopet_fdg_full_50epochs_variant_comparison_20260324",

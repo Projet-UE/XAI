@@ -344,6 +344,19 @@ python scripts/build_project_evidence_pack.py \
   --autopet-xai-analysis-run-id autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327
 ```
 
+The builder now also generates a scored rubric-readiness report from the official UE grids:
+
+- `EVALUATION_READINESS.json`
+- `EVALUATION_READINESS.md`
+
+You can run the audit standalone on any existing evidence pack:
+
+```bash
+python scripts/audit_evidence_pack_readiness.py \
+  --pack-dir results/evidence_pack_20260418_grid \
+  --mapping-path configs/evaluation_readiness_mapping.json
+```
+
 ### Frozen run index
 
 A tracked immutable index of baseline run states is stored in:
