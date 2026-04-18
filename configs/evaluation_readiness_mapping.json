@@ -16,6 +16,34 @@
             "autopet/comparison.json",
             "brain_mri/metrics.json"
           ],
+          "quality_checks": [
+            {
+              "id": "AUTOPET-DICE-RANGE",
+              "type": "json_value_range",
+              "path": "autopet/segmentation_metrics.json",
+              "key": "mean_dice",
+              "min": 0.0,
+              "max": 1.0
+            },
+            {
+              "id": "AUTOPET-METRICS-KEYS",
+              "type": "json_has_keys",
+              "path": "autopet/segmentation_metrics.json",
+              "keys": [
+                "mean_false_negative_volume_ml",
+                "mean_false_positive_volume_ml",
+                "case_count"
+              ]
+            },
+            {
+              "id": "BRAINMRI-ACCURACY-RANGE",
+              "type": "json_value_range",
+              "path": "brain_mri/metrics.json",
+              "key": "accuracy",
+              "min": 0.0,
+              "max": 1.0
+            }
+          ],
           "optional_evidence": [
             "autopet/figures",
             "brain_mri/figures"
@@ -29,6 +57,22 @@
             "autopet/method_benchmark.json",
             "brain_mri/xai_method_benchmark.json",
             "INTERPRETATION.md"
+          ],
+          "quality_checks": [
+            {
+              "id": "AUTOPET-RANKING-NONEMPTY",
+              "type": "json_list_min_length",
+              "path": "autopet/method_benchmark.json",
+              "key": "ranking",
+              "min_length": 1
+            },
+            {
+              "id": "BRAINMRI-RANKING-NONEMPTY",
+              "type": "json_list_min_length",
+              "path": "brain_mri/xai_method_benchmark.json",
+              "key": "ranking",
+              "min_length": 1
+            }
           ],
           "optional_evidence": [
             "autopet/xai_analysis_summary.json",
@@ -44,6 +88,34 @@
             "traceability/requirement_traceability.json",
             "traceability/run_index.json",
             "DEMO_RUNBOOK.md"
+          ],
+          "quality_checks": [
+            {
+              "id": "TRACEABILITY-MIN-REQS",
+              "type": "json_list_min_length",
+              "path": "traceability/requirement_traceability.json",
+              "key": "requirements",
+              "min_length": 6
+            },
+            {
+              "id": "TRACEABILITY-COVERED-COUNT",
+              "type": "json_count_by_key_value",
+              "path": "traceability/requirement_traceability.json",
+              "list_key": "requirements",
+              "field": "status",
+              "value": "covered",
+              "min_count": 6
+            },
+            {
+              "id": "MANIFEST-RUN-IDS",
+              "type": "json_has_keys",
+              "path": "evidence_manifest.json",
+              "keys": [
+                "run_ids.autopet_main",
+                "run_ids.autopet_comparison",
+                "run_ids.brain_mri_backup"
+              ]
+            }
           ],
           "optional_evidence": []
         }
@@ -64,6 +136,17 @@
             "brain_mri/metrics.json",
             "autopet/comparison.json"
           ],
+          "quality_checks": [
+            {
+              "id": "AUTOPET-TRADEOFF-KEYS",
+              "type": "json_has_keys",
+              "path": "autopet/comparison.json",
+              "keys": [
+                "tradeoffs.best_dice_vs_raw.mean_dice_delta",
+                "tradeoffs.low_fp_vs_raw.mean_false_positive_volume_ml_delta"
+              ]
+            }
+          ],
           "optional_evidence": []
         },
         {
@@ -74,6 +157,26 @@
             "traceability/requirement_traceability.json",
             "EVALUATION_ALIGNMENT.md",
             "DEMO_RUNBOOK.md"
+          ],
+          "quality_checks": [
+            {
+              "id": "TRACEABILITY-HAS-REQ-C2",
+              "type": "json_count_by_key_value",
+              "path": "traceability/requirement_traceability.json",
+              "list_key": "requirements",
+              "field": "requirement_id",
+              "value": "REQ-C2",
+              "min_count": 1
+            },
+            {
+              "id": "TRACEABILITY-HAS-REQ-C5",
+              "type": "json_count_by_key_value",
+              "path": "traceability/requirement_traceability.json",
+              "list_key": "requirements",
+              "field": "requirement_id",
+              "value": "REQ-C5",
+              "min_count": 1
+            }
           ],
           "optional_evidence": [
             "traceability/run_index.json"
@@ -87,6 +190,25 @@
             "autopet/method_benchmark.json",
             "brain_mri/xai_method_benchmark.json",
             "INTERPRETATION.md"
+          ],
+          "quality_checks": [
+            {
+              "id": "AUTOPET-XAI-CROSS-AGREEMENT",
+              "type": "json_has_keys",
+              "path": "autopet/method_benchmark.json",
+              "keys": [
+                "cross_method_agreement"
+              ]
+            },
+            {
+              "id": "BRAINMRI-XAI-PROTOCOL",
+              "type": "json_has_keys",
+              "path": "brain_mri/xai_method_benchmark.json",
+              "keys": [
+                "protocol.fractions",
+                "ranking.0.method"
+              ]
+            }
           ],
           "optional_evidence": [
             "autopet/xai_analysis_summary.json"
@@ -108,6 +230,18 @@
             "evidence_manifest.json",
             "EVALUATION_ALIGNMENT.md"
           ],
+          "quality_checks": [
+            {
+              "id": "MANIFEST-COPIED-FILES",
+              "type": "json_has_keys",
+              "path": "evidence_manifest.json",
+              "keys": [
+                "copied_files.autopet",
+                "copied_files.brain_mri",
+                "copied_files.traceability"
+              ]
+            }
+          ],
           "optional_evidence": [
             "traceability/run_index.json"
           ]
@@ -121,6 +255,25 @@
             "autopet/comparison.json",
             "autopet/segmentation_metrics.json",
             "brain_mri/metrics.json"
+          ],
+          "quality_checks": [
+            {
+              "id": "TRACEABILITY-COVERED-MIN",
+              "type": "json_count_by_key_value",
+              "path": "traceability/requirement_traceability.json",
+              "list_key": "requirements",
+              "field": "status",
+              "value": "covered",
+              "min_count": 6
+            },
+            {
+              "id": "BRAINMRI-ROC-AUC-RANGE",
+              "type": "json_value_range",
+              "path": "brain_mri/metrics.json",
+              "key": "roc_auc",
+              "min": 0.0,
+              "max": 1.0
+            }
           ],
           "optional_evidence": []
         },

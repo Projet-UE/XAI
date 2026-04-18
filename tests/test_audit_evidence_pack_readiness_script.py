@@ -70,3 +70,65 @@ def test_audit_evidence_pack_readiness_scoring(tmp_path: Path) -> None:
     markdown = markdown_path.read_text(encoding="utf-8")
     assert "CRIT-1" in markdown
     assert "CRIT-2" in markdown
+
+
+def test_audit_evidence_pack_readiness_quality_checks_affect_score(tmp_path: Path) -> None:
+    repo_root = Path(__file__).resolve().parents[1]
+    pack_dir = tmp_path / "results" / "evidence_pack_quality"
+    pack_dir.mkdir(parents=True, exist_ok=True)
+
+    (pack_dir / "data.json").write_text(json.dumps({"score": 0.2, "items": []}), encoding="utf-8")
+
+    mapping = {
+        "schema_version": "1.0.0",
+        "rubrics": [
+            {
+                "rubric_id": "rubric-quality",
+                "rubric_title": "Rubric quality",
+                "source": "new/Materials/dummy.xlsx",
+                "criteria": [
+                    {
+                        "criterion_id": "CRIT-Q",
+                        "label": "Quality-sensitive criterion",
+                        "weight": 1.0,
+                        "required_evidence": ["data.json"],
+                        "quality_checks": [
+                            {
+                                "id": "CHECK-RANGE",
+                                "type": "json_value_range",
+                                "path": "data.json",
+                                "key": "score",
+                                "min": 0.5,
+                                "max": 1.0,
+                            }
+                        ],
+                    }
+                ],
+            }
+        ],
+    }
+    mapping_path = tmp_path / "mapping_quality.json"
+    mapping_path.write_text(json.dumps(mapping, indent=2), encoding="utf-8")
+
+    script_path = repo_root / "scripts" / "audit_evidence_pack_readiness.py"
+    subprocess.run(
+        [
+            sys.executable,
+            str(script_path),
+            "--pack-dir",
+            str(pack_dir),
+            "--mapping-path",
+            str(mapping_path),
+        ],
+        check=True,
+    )
+
+    report = json.loads((pack_dir / "EVALUATION_READINESS.json").read_text(encoding="utf-8"))
+    assert report["overall"]["status"] == "partial"
+    assert report["overall"]["quality_checks_total"] == 1
+    assert report["overall"]["quality_checks_passed"] == 0
+    assert report["overall"]["coverage_score"] == 0.0
+    criterion = report["rubrics"][0]["criteria"][0]
+    assert criterion["required_present_count"] == 1
+    assert criterion["quality_checks_failed"] == 1
+    assert criterion["status"] == "partial"

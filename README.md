@@ -349,6 +349,11 @@ The builder now also generates a scored rubric-readiness report from the officia
 - `EVALUATION_READINESS.json`
 - `EVALUATION_READINESS.md`
 
+This readiness score now combines:
+
+- required evidence presence (files/folders expected by each rubric criterion)
+- quality checks on key JSON outputs (ranges, required keys, ranking non-empty, traceability counts)
+
 You can run the audit standalone on any existing evidence pack:
 
 ```bash
@@ -356,6 +361,8 @@ python scripts/audit_evidence_pack_readiness.py \
   --pack-dir results/evidence_pack_20260418_grid \
   --mapping-path configs/evaluation_readiness_mapping.json
 ```
+
+Add `--strict` to fail CI/review pipelines whenever the readiness status is not `covered`.
 
 ### Frozen run index
 
