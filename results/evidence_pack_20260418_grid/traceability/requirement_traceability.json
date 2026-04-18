@@ -1,0 +1,77 @@
+{
+  "requirements": [
+    {
+      "description": "Pipeline exp\u00e9rimental XAI sur images m\u00e9dicales.",
+      "evidence_files": [
+        "autopet/segmentation_metrics.json",
+        "autopet/comparison.json",
+        "autopet/method_benchmark.json",
+        "brain_mri/metrics.json"
+      ],
+      "requirement_id": "REQ-C2",
+      "status": "covered"
+    },
+    {
+      "description": "Mod\u00e8le appliqu\u00e9 aux donn\u00e9es pour produire des pr\u00e9dictions.",
+      "evidence_files": [
+        "autopet/segmentation_metrics.json",
+        "brain_mri/metrics.json"
+      ],
+      "requirement_id": "REQ-C3",
+      "status": "covered"
+    },
+    {
+      "description": "G\u00e9n\u00e9ration d'explications XAI.",
+      "evidence_files": [
+        "autopet/xai_analysis_summary.json",
+        "autopet/method_benchmark.json"
+      ],
+      "requirement_id": "REQ-C4",
+      "status": "covered"
+    },
+    {
+      "description": "Analyse des r\u00e9sultats XAI et limites.",
+      "evidence_files": [
+        "autopet/comparison.json",
+        "autopet/method_benchmark.json"
+      ],
+      "requirement_id": "REQ-C5",
+      "status": "covered"
+    },
+    {
+      "description": "Comparaison de m\u00e9thodes XAI selon un protocole commun.",
+      "evidence_files": [
+        "autopet/method_benchmark.json"
+      ],
+      "requirement_id": "REQ-C6",
+      "status": "covered"
+    },
+    {
+      "description": "Tra\u00e7abilit\u00e9 des versions et jalons.",
+      "evidence_files": [],
+      "requirement_id": "REQ-U1",
+      "status": "missing_evidence"
+    },
+    {
+      "description": "Tra\u00e7abilit\u00e9 des d\u00e9cisions et artefacts.",
+      "evidence_files": [
+        "traceability/requirement_traceability.json",
+        "autopet/comparison.json",
+        "autopet/segmentation_metrics.json",
+        "brain_mri/metrics.json"
+      ],
+      "requirement_id": "REQ-U2",
+      "status": "covered"
+    },
+    {
+      "description": "Support de restitution finale.",
+      "evidence_files": [
+        "README.md",
+        "autopet/figures/",
+        "brain_mri/figures/"
+      ],
+      "requirement_id": "REQ-U3",
+      "status": "covered"
+    }
+  ]
+}

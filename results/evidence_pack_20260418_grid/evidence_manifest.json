@@ -1,0 +1,35 @@
+{
+  "copied_files": {
+    "autopet": [
+      "autopet/segmentation_metrics.json",
+      "autopet/comparison.json",
+      "autopet/xai_analysis_summary.json",
+      "autopet/method_benchmark.json",
+      "autopet/figures/integrated_gradients.png",
+      "autopet/figures/integrated_gradients.png",
+      "autopet/figures/integrated_gradients.png",
+      "autopet/figures/integrated_gradients.png",
+      "autopet/figures/integrated_gradients.png",
+      "autopet/figures/integrated_gradients.png"
+    ],
+    "brain_mri": [
+      "brain_mri/metrics.json",
+      "brain_mri/figures/gradcam-checkpoint.png",
+      "brain_mri/figures/integrated_gradients-checkpoint.png",
+      "brain_mri/figures/occlusion-checkpoint.png",
+      "brain_mri/figures/gradcam.png",
+      "brain_mri/figures/integrated_gradients.png",
+      "brain_mri/figures/occlusion.png"
+    ],
+    "traceability": [
+      "traceability/requirement_traceability.json"
+    ]
+  },
+  "run_ids": {
+    "autopet_comparison": "autopet_fdg_full_50epochs_variant_comparison_20260324",
+    "autopet_main": "autopet_fdg_full_post_best_dice_50epochs_20260324",
+    "autopet_xai_analysis": "autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327",
+    "brain_mri_backup": "grenoble_gpu_20260324",
+    "brain_mri_xai_benchmark": null
+  }
+}
