@@ -24,6 +24,41 @@ All heavy runs were designed for **Grid'5000 Grenoble**, while Git only keeps li
 | Main retained autoPET result | `post_best_dice_50epochs` |
 | Main retained brain MRI result | Grenoble classification snapshot from `2026-03-24` |
 
+## Latest review artifacts
+
+If you need the quickest evaluator-facing entrypoint, start here:
+
+- consolidated evidence pack:
+  - [`results/evidence_pack_20260418_grid/README.md`](results/evidence_pack_20260418_grid/README.md)
+- short interpretation blocks (report/slides ready):
+  - [`results/evidence_pack_20260418_grid/INTERPRETATION.md`](results/evidence_pack_20260418_grid/INTERPRETATION.md)
+- rubric-aligned review checklist (client + soutenance + plan-projet):
+  - [`results/evidence_pack_20260418_grid/EVALUATION_ALIGNMENT.md`](results/evidence_pack_20260418_grid/EVALUATION_ALIGNMENT.md)
+- strict gate verdict (snapshots + evidence consistency + rubric readiness):
+  - [`results/evidence_pack_20260418_grid/READINESS_GATE.json`](results/evidence_pack_20260418_grid/READINESS_GATE.json)
+- 2-3 minute defense flow (REQ-C2/C4/C5):
+  - [`results/evidence_pack_20260418_grid/DEMO_RUNBOOK.md`](results/evidence_pack_20260418_grid/DEMO_RUNBOOK.md)
+- explicit evidence inventory:
+  - [`results/evidence_pack_20260418_grid/evidence_manifest.json`](results/evidence_pack_20260418_grid/evidence_manifest.json)
+- requirement traceability:
+  - [`results/evidence_pack_20260418_grid/traceability/requirement_traceability.json`](results/evidence_pack_20260418_grid/traceability/requirement_traceability.json)
+- frozen run index used in the pack:
+  - [`results/evidence_pack_20260418_grid/traceability/run_index.json`](results/evidence_pack_20260418_grid/traceability/run_index.json)
+
+For the detailed autoPET protocol benchmark (with paired CI deltas, failure taxonomy, and cross-method agreement):
+
+- [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json)
+- [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md)
+
+For the refreshed Brain MRI protocol benchmark:
+
+- clean-manifest full benchmark (3 methods, 1000 bootstrap iterations):
+  - [`results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json)
+  - [`results/brain_mri_xai_benchmark_20260418_clean_full/README.md`](results/brain_mri_xai_benchmark_20260418_clean_full/README.md)
+- previous benchmark snapshots (kept for traceability):
+  - [`results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json)
+  - [`results/brain_mri_xai_benchmark_20260418_clean_fast/README.md`](results/brain_mri_xai_benchmark_20260418_clean_fast/README.md)
+
 ## Main track: autoPET FDG PET/CT segmentation + XAI
 
 This is the line kept as the **primary project contribution** because it is the most coherent with the original topic: medical imaging, segmentation, and explainability.
@@ -118,6 +153,39 @@ The panels below combine:
   - [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json)
 - modeling handoff:
   - [`docs/autopet_modeling_handoff.md`](docs/autopet_modeling_handoff.md)
+
+### Evaluation-grade XAI comparison (autoPET)
+
+To satisfy a common-protocol XAI comparison requirement, run:
+
+```bash
+python scripts/autopet_analyze_xai.py \
+  --review-cases-path artifacts/autopet_fdg_poc/fdg_full/xai/review_cases.json \
+  --metrics-path artifacts/autopet_fdg_poc/fdg_full/review_metrics/metrics.json \
+  --output-dir artifacts/autopet_fdg_poc/fdg_full/xai_analysis \
+  --state-name post_best_dice_50epochs
+```
+
+This now exports:
+
+- protocol-level method ranking with a composite score
+- bootstrap 95% confidence intervals for key method metrics
+- a markdown summary ready to cite in the report
+
+For explicit paired method deltas (A-B) with confidence intervals:
+
+```bash
+python scripts/autopet_compare_xai_methods.py \
+  --review-cases-path artifacts/autopet_fdg_poc/fdg_full/xai/review_cases.json \
+  --metrics-path artifacts/autopet_fdg_poc/fdg_full/review_metrics/metrics.json \
+  --output-dir artifacts/autopet_fdg_poc/fdg_full/xai_compare \
+  --bootstrap-iterations 5000
+```
+
+Outputs:
+
+- `method_benchmark.json`
+- `method_benchmark.md`
 
 ## Backup track: Brain MRI classification + XAI
 
@@ -214,6 +282,25 @@ Confusion matrix:
 | `no/No22.jpg` | ![](results/grenoble_gpu_20260324/xai/no/No22/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/no/No22/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/no/No22/occlusion.png) |
 | `no/4 no.jpg` | ![](results/grenoble_gpu_20260324/xai/no/4%20no/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/no/4%20no/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/no/4%20no/occlusion.png) |
 
+#### Extended Brain MRI XAI gallery (refresh run: 8 yes + 8 no)
+
+The refreshed run below expands the examples to **16 test images** using the same model family (`ResNet18`) and two fast methods (`Grad-CAM`, `Integrated Gradients`) to provide broader qualitative coverage.
+
+<p align="center">
+  <img src="results/brain_mri_refresh_xai_20260418/yes/Y195/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients positive case Y195" />
+  <img src="results/brain_mri_refresh_xai_20260418/yes/Y109/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients positive case Y109" />
+</p>
+
+<p align="center">
+  <img src="results/brain_mri_refresh_xai_20260418/no/No22/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients negative case No22" />
+  <img src="results/brain_mri_refresh_xai_20260418/no/4%20no/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients negative case 4 no" />
+</p>
+
+<p align="center">
+  <img src="results/brain_mri_refresh_xai_20260418/yes/Y60/gradcam.png" width="420" alt="Brain MRI refresh Grad-CAM positive case Y60" />
+  <img src="results/brain_mri_refresh_xai_20260418/no/no%2095/gradcam.png" width="420" alt="Brain MRI refresh Grad-CAM negative case no 95" />
+</p>
+
 ### Most useful Brain MRI files
 
 - tracked run summary:
@@ -224,6 +311,102 @@ Confusion matrix:
   - [`results/grenoble_gpu_20260324/run_config.json`](results/grenoble_gpu_20260324/run_config.json)
 - actual XAI outputs:
   - [`results/grenoble_gpu_20260324/xai/`](results/grenoble_gpu_20260324/xai/)
+- refreshed extended gallery (16 images):
+  - [`results/brain_mri_refresh_xai_20260418/xai_summary.json`](results/brain_mri_refresh_xai_20260418/xai_summary.json)
+  - [`results/brain_mri_refresh_xai_20260418/INTERPRETATION.md`](results/brain_mri_refresh_xai_20260418/INTERPRETATION.md)
+  - [`results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json)
+
+### Evaluation-grade XAI comparison (Brain MRI)
+
+To compare Brain MRI XAI methods with a quantitative faithfulness protocol:
+
+```bash
+python scripts/brain_mri_benchmark_xai_methods.py \
+  --data-root "$HOME/data/brain-mri-images" \
+  --manifest-path artifacts/training/splits/brain_mri_split.json \
+  --checkpoint-path artifacts/training/checkpoints/best.pt \
+  --output-dir artifacts/brain_mri_xai_benchmark \
+  --max-samples-per-class 8
+```
+
+This benchmark ranks methods by predicted-class confidence drop after masking top-attribution pixels.
+Higher confidence drop indicates stronger faithfulness for that protocol.
+
+### Unified evidence pack for evaluation
+
+Build one review-ready package with metrics, benchmark summaries, selected figures, and requirement traceability:
+
+```bash
+python scripts/build_project_evidence_pack.py \
+  --results-root results \
+  --run-index-path results/index.json \
+  --autopet-main-run-id autopet_fdg_full_post_best_dice_50epochs_20260324 \
+  --autopet-comparison-run-id autopet_fdg_full_50epochs_variant_comparison_20260324 \
+  --brain-mri-run-id grenoble_gpu_20260324 \
+  --autopet-xai-analysis-run-id autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327
+```
+
+The builder now also generates a scored rubric-readiness report from the official UE grids:
+
+- `EVALUATION_READINESS.json`
+- `EVALUATION_READINESS.md`
+
+This readiness score now combines:
+
+- required evidence presence (files/folders expected by each rubric criterion)
+- quality checks on key JSON outputs (ranges, required keys, ranking non-empty, traceability counts)
+
+You can run the audit standalone on any existing evidence pack:
+
+```bash
+python scripts/audit_evidence_pack_readiness.py \
+  --pack-dir results/evidence_pack_20260418_grid \
+  --mapping-path configs/evaluation_readiness_mapping.json
+```
+
+Add `--strict` to fail CI/review pipelines whenever the readiness status is not `covered`.
+
+Final one-command gate (snapshots + evidence-pack consistency + strict rubric readiness):
+
+```bash
+python scripts/run_readiness_gate.py \
+  --results-root results \
+  --autopet-run-id autopet_fdg_full_post_best_dice_50epochs_20260324 \
+  --autopet-xai-run-id autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327 \
+  --brain-mri-run-id grenoble_gpu_20260324 \
+  --evidence-pack-run-id evidence_pack_20260418_grid \
+  --mapping-path configs/evaluation_readiness_mapping.json \
+  --require-autopet-protocol-benchmark
+```
+
+This writes `results/<evidence-pack-run-id>/READINESS_GATE.json` and returns non-zero on failure by default.
+
+### Frozen run index
+
+A tracked immutable index of baseline run states is stored in:
+
+- [`results/index.json`](results/index.json)
+
+It includes run IDs, split hashes, checkpoint references, and script checksums.
+
+### Snapshot completeness validation
+
+To fail fast on incomplete tracked snapshots:
+
+```bash
+python scripts/validate_result_snapshot.py \
+  --run-dir results/autopet_fdg_full_post_best_dice_50epochs_20260324 \
+  --track autopet
+```
+
+For protocol-grade XAI evidence:
+
+```bash
+python scripts/validate_result_snapshot.py \
+  --run-dir results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327 \
+  --track autopet \
+  --require-protocol-benchmark
+```
 
 ## Repository layout
 

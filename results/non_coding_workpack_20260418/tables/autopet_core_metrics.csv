@@ -1,0 +1,2 @@
+track,state,case_count,mean_dice,mean_false_negative_volume_ml,mean_false_positive_volume_ml
+autoPET_FDG,post_best_dice_50epochs,7,0.4866799506,41.2099919448,6.2933791123

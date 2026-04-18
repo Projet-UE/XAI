@@ -1,0 +1,24 @@
+dataset:
+  family: autopet_i_ii
+  split_name: fdg_full
+  dataset_id: 501
+
+training:
+  configuration: 3d_fullres
+  trainer_baseline: nnUNetTrainer_50epochs
+  trainer_variant_a: nnUNetTrainer_100epochs
+  trainer_variant_b: nnUNetTrainer_50epochs
+  fold: "0"
+  plans: nnUNetPlans
+  checkpoint_name: checkpoint_best.pth
+  device: cuda
+
+postprocess_variant_b:
+  rank_by: mean_pet
+  min_component_ml: [0.0, 5.0, 10.0, 20.0]
+  max_components: [1, 2, 3]
+
+selection_objective:
+  primary: mean_dice
+  secondary: mean_false_positive_volume_ml
+  tertiary: xai_localization_score

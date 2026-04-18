@@ -1,0 +1,20 @@
+autopet:
+  methods: [integrated_gradients, occlusion, saliency]
+  bootstrap_iterations:
+    routine: 2000
+    final: 5000
+  bootstrap_seed: 42
+  protocol_score_formula: "0.75 * mean_mass_ratio_inside_gt + 0.25 * mean_mass_ratio_inside_prediction_on_false_positive"
+  paired_delta_metrics:
+    - mass_ratio_inside_gt__positive_only
+    - top10_ratio_inside_gt__positive_only
+    - mass_ratio_inside_prediction__false_positive_only
+
+brain_mri:
+  methods: [gradcam, integrated_gradients, occlusion]
+  faithfulness_fractions: [0.10, 0.20, 0.30]
+  max_samples_per_class: 8
+  bootstrap_iterations:
+    routine: 2000
+    final: 5000
+  bootstrap_seed: 42

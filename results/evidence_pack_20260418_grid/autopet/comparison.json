@@ -1,0 +1,481 @@
+{
+  "reference_checkpoint": {
+    "configuration": "3d_fullres",
+    "split_name": "fdg_full",
+    "trainer": "nnUNetTrainer_50epochs"
+  },
+  "states": {
+    "post_best_dice_50epochs": {
+      "metrics": {
+        "case_count": 7,
+        "cases": [
+          {
+            "case_id": "PETCT_05bed31780",
+            "dice": 0.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 8.584304183095568,
+            "false_positive_voxels": 690,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_05bed31780/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0057",
+            "pred_volume_ml": 8.584304183095568,
+            "pred_voxels": 690,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0057.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_3bce0eb7aa",
+            "dice": 1.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 0.0,
+            "false_positive_voxels": 0,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_3bce0eb7aa/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0058",
+            "pred_volume_ml": 0.0,
+            "pred_voxels": 0,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0058.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_402c061122",
+            "dice": 0.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 28.042060331445523,
+            "false_positive_voxels": 2254,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_402c061122/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0059",
+            "pred_volume_ml": 28.042060331445523,
+            "pred_voxels": 2254,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0059.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_4848bebb10",
+            "dice": 0.21058522545570835,
+            "false_negative_volume_ml": 238.58145118728072,
+            "false_negative_voxels": 19177,
+            "false_positive_volume_ml": 7.103822737025463,
+            "false_positive_voxels": 571,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_4848bebb10/label.nii.gz",
+            "gt_volume_ml": 271.3510993297064,
+            "gt_voxels": 21811,
+            "nnunet_case_id": "FDG_0060",
+            "pred_volume_ml": 39.873470879451155,
+            "pred_voxels": 3205,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0060.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_a1db71e797",
+            "dice": 0.8982943777637398,
+            "false_negative_volume_ml": 1.965681247723333,
+            "false_negative_voxels": 158,
+            "false_positive_volume_ml": 0.0373230616656329,
+            "false_positive_voxels": 3,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_a1db71e797/label.nii.gz",
+            "gt_volume_ml": 10.811246862478331,
+            "gt_voxels": 869,
+            "nnunet_case_id": "FDG_0061",
+            "pred_volume_ml": 8.882888676420631,
+            "pred_voxels": 714,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0061.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_be3e55a32f",
+            "dice": 0.2978800507338286,
+            "false_negative_volume_ml": 47.922811178672646,
+            "false_negative_voxels": 3852,
+            "false_positive_volume_ml": 0.28614347276985225,
+            "false_positive_voxels": 23,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_be3e55a32f/label.nii.gz",
+            "gt_volume_ml": 58.14933007505606,
+            "gt_voxels": 4674,
+            "nnunet_case_id": "FDG_0062",
+            "pred_volume_ml": 10.512662369153269,
+            "pred_voxels": 845,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0062.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_e2309b8f92",
+            "dice": 1.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 0.0,
+            "false_positive_voxels": 0,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_e2309b8f92/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0063",
+            "pred_volume_ml": 0.0,
+            "pred_voxels": 0,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-5p0__max-1/FDG_0063.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          }
+        ],
+        "mean_dice": 0.48667995056475377,
+        "mean_false_negative_volume_ml": 41.20999194481096,
+        "mean_false_positive_volume_ml": 6.293379112286005
+      },
+      "postprocess": {
+        "max_components": 1,
+        "min_component_volume_ml": 5.0,
+        "rank_by": "mean_pet"
+      }
+    },
+    "post_low_fp_50epochs": {
+      "metrics": {
+        "case_count": 7,
+        "cases": [
+          {
+            "case_id": "PETCT_05bed31780",
+            "dice": 0.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 0.08708714388647677,
+            "false_positive_voxels": 7,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_05bed31780/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0057",
+            "pred_volume_ml": 0.08708714388647677,
+            "pred_voxels": 7,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0057.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_3bce0eb7aa",
+            "dice": 1.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 0.0,
+            "false_positive_voxels": 0,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_3bce0eb7aa/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0058",
+            "pred_volume_ml": 0.0,
+            "pred_voxels": 0,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0058.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_402c061122",
+            "dice": 0.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 0.8335483771991349,
+            "false_positive_voxels": 67,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_402c061122/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0059",
+            "pred_volume_ml": 0.8335483771991349,
+            "pred_voxels": 67,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0059.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_4848bebb10",
+            "dice": 0.21053472943809448,
+            "false_negative_volume_ml": 238.58145118728072,
+            "false_negative_voxels": 19177,
+            "false_positive_volume_ml": 7.178468860356729,
+            "false_positive_voxels": 577,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_4848bebb10/label.nii.gz",
+            "gt_volume_ml": 271.3510993297064,
+            "gt_voxels": 21811,
+            "nnunet_case_id": "FDG_0060",
+            "pred_volume_ml": 39.94811700278242,
+            "pred_voxels": 3211,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0060.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_a1db71e797",
+            "dice": 0.8965952080706179,
+            "false_negative_volume_ml": 1.965681247723333,
+            "false_negative_voxels": 158,
+            "false_positive_volume_ml": 0.0746461233312658,
+            "false_positive_voxels": 6,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_a1db71e797/label.nii.gz",
+            "gt_volume_ml": 10.811246862478331,
+            "gt_voxels": 869,
+            "nnunet_case_id": "FDG_0061",
+            "pred_volume_ml": 8.920211738086264,
+            "pred_voxels": 717,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0061.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_be3e55a32f",
+            "dice": 0.5128772317901722,
+            "false_negative_volume_ml": 37.95755371394866,
+            "false_negative_voxels": 3051,
+            "false_positive_volume_ml": 0.398112657766751,
+            "false_positive_voxels": 32,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_be3e55a32f/label.nii.gz",
+            "gt_volume_ml": 58.14933007505606,
+            "gt_voxels": 4674,
+            "nnunet_case_id": "FDG_0062",
+            "pred_volume_ml": 20.589889018874153,
+            "pred_voxels": 1655,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0062.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_e2309b8f92",
+            "dice": 0.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 0.3234665344354852,
+            "false_positive_voxels": 26,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_e2309b8f92/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0063",
+            "pred_volume_ml": 0.3234665344354852,
+            "pred_voxels": 26,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260324/predictions/rank-mean_pet__minml-0p0__max-2/FDG_0063.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          }
+        ],
+        "mean_dice": 0.3742867384712692,
+        "mean_false_negative_volume_ml": 39.78638373556468,
+        "mean_false_positive_volume_ml": 1.2707613852822632
+      },
+      "postprocess": {
+        "max_components": 2,
+        "min_component_volume_ml": 0.0,
+        "rank_by": "mean_pet"
+      }
+    },
+    "raw_50epochs": {
+      "metrics": {
+        "case_count": 7,
+        "cases": [
+          {
+            "case_id": "PETCT_05bed31780",
+            "dice": 0.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 9.6417909302885,
+            "false_positive_voxels": 775,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_05bed31780/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0057",
+            "pred_volume_ml": 9.6417909302885,
+            "pred_voxels": 775,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0057.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_3bce0eb7aa",
+            "dice": 1.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 0.0,
+            "false_positive_voxels": 0,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_3bce0eb7aa/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0058",
+            "pred_volume_ml": 0.0,
+            "pred_voxels": 0,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0058.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_402c061122",
+            "dice": 0.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 46.205950342053534,
+            "false_positive_voxels": 3714,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_402c061122/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0059",
+            "pred_volume_ml": 46.205950342053534,
+            "pred_voxels": 3714,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0059.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_4848bebb10",
+            "dice": 0.21639318396970653,
+            "false_negative_volume_ml": 237.22537994676273,
+            "false_negative_voxels": 19068,
+            "false_positive_volume_ml": 9.927934403058352,
+            "false_positive_voxels": 798,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_4848bebb10/label.nii.gz",
+            "gt_volume_ml": 271.3510993297064,
+            "gt_voxels": 21811,
+            "nnunet_case_id": "FDG_0060",
+            "pred_volume_ml": 44.05365378600204,
+            "pred_voxels": 3541,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0060.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_a1db71e797",
+            "dice": 0.12522989466644374,
+            "false_negative_volume_ml": 1.4929224666253162,
+            "false_negative_voxels": 120,
+            "false_positive_volume_ml": 128.68991662310225,
+            "false_positive_voxels": 10344,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_a1db71e797/label.nii.gz",
+            "gt_volume_ml": 10.811246862478331,
+            "gt_voxels": 869,
+            "nnunet_case_id": "FDG_0061",
+            "pred_volume_ml": 138.00824101895526,
+            "pred_voxels": 11093,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0061.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_be3e55a32f",
+            "dice": 0.7943455497382199,
+            "false_negative_volume_ml": 10.960539109140862,
+            "false_negative_voxels": 881,
+            "false_positive_volume_ml": 13.473625261293478,
+            "false_positive_voxels": 1083,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_be3e55a32f/label.nii.gz",
+            "gt_volume_ml": 58.14933007505606,
+            "gt_voxels": 4674,
+            "nnunet_case_id": "FDG_0062",
+            "pred_volume_ml": 60.66241622720868,
+            "pred_voxels": 4876,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0062.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          },
+          {
+            "case_id": "PETCT_e2309b8f92",
+            "dice": 0.0,
+            "false_negative_volume_ml": 0.0,
+            "false_negative_voxels": 0,
+            "false_positive_volume_ml": 5.2501106742990284,
+            "false_positive_voxels": 422,
+            "ground_truth_path": "/home/olmechi/data/autopet-fdg/prepared/PETCT_e2309b8f92/label.nii.gz",
+            "gt_volume_ml": 0.0,
+            "gt_voxels": 0,
+            "nnunet_case_id": "FDG_0063",
+            "pred_volume_ml": 5.2501106742990284,
+            "pred_voxels": 422,
+            "prediction_path": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/review_predictions/FDG_0063.nii.gz",
+            "spacing_xyz": [
+              2.0364201068878174,
+              2.0364201068878174,
+              3.0
+            ]
+          }
+        ],
+        "mean_dice": 0.3051383754820529,
+        "mean_false_negative_volume_ml": 35.66840593178984,
+        "mean_false_positive_volume_ml": 30.45561831915645
+      }
+    }
+  },
+  "tradeoffs": {
+    "best_dice_vs_raw": {
+      "mean_dice_delta": 0.18154157508270086,
+      "mean_false_negative_volume_ml_delta": 5.541586013021117,
+      "mean_false_positive_volume_ml_delta": -24.162239206870446
+    },
+    "low_fp_vs_raw": {
+      "mean_dice_delta": 0.06914836298921628,
+      "mean_false_negative_volume_ml_delta": 4.117977803774835,
+      "mean_false_positive_volume_ml_delta": -29.184856933874187
+    }
+  }
+}

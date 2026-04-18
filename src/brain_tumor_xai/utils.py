@@ -7,7 +7,10 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Union
 
 import numpy as np
-import torch
+try:
+    import torch
+except Exception:  # pragma: no cover - depends on optional runtime environment
+    torch = None  # type: ignore[assignment]
 
 
 def ensure_dir(path: Union[str, Path]) -> Path:
@@ -29,14 +32,18 @@ def load_json(path: Union[str, Path]) -> Dict[str, Any]:
 def set_seed(seed: int) -> None:
     random.seed(seed)
     np.random.seed(seed)
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    if torch is None:
+        return
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
-    os.environ["PYTHONHASHSEED"] = str(seed)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
 
-def select_device(device: Optional[str] = None) -> torch.device:
+def select_device(device: Optional[str] = None) -> "torch.device":
+    if torch is None:
+        raise RuntimeError("torch is required for select_device but is not installed in this environment.")
     if device:
         target = torch.device(device)
         if target.type == "cpu":

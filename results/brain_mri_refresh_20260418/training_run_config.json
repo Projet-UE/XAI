@@ -1,0 +1,15 @@
+{
+  "batch_size": 8,
+  "best_checkpoint": "/home/olmechi/XAI_exec/artifacts/brain_mri_refresh_20260418/training/checkpoints/best.pt",
+  "classes": [
+    "no",
+    "yes"
+  ],
+  "data_root": "/home/olmechi/data/brain-mri-images",
+  "device": "cpu",
+  "epochs": 3,
+  "image_size": 224,
+  "learning_rate": 0.0001,
+  "manifest_path": "/home/olmechi/XAI_exec/artifacts/brain_mri_refresh_20260418/splits/brain_mri_split.json",
+  "pretrained": false
+}

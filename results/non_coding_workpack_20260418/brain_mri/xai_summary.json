@@ -1,0 +1,48 @@
+{
+  "exported": [
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients",
+        "occlusion"
+      ],
+      "path": "yes/Y195.JPG",
+      "probability": 0.992295503616333
+    },
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients",
+        "occlusion"
+      ],
+      "path": "yes/Y109.JPG",
+      "probability": 0.9074329733848572
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients",
+        "occlusion"
+      ],
+      "path": "no/No22.jpg",
+      "probability": 0.03244807943701744
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients",
+        "occlusion"
+      ],
+      "path": "no/4 no.jpg",
+      "probability": 0.01678227074444294
+    }
+  ]
+}

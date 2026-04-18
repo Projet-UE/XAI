@@ -1,0 +1,72 @@
+{
+  "frozen_at_utc": "2026-04-18T00:00:00Z",
+  "notes": "Immutable tracked run index for reproducibility and evaluation traceability.",
+  "run_states": [
+    {
+      "checkpoint_reference": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/nnunet_results/Dataset501_AutoPETFDG/nnUNetTrainer_50epochs__nnUNetPlans__3d_fullres/checkpoint_best.pth",
+      "dataset_split_hash_sha256": "d8f41adc318921e82971912065e189ebf48ee99183c62c0a2e38d2d3a1122a20",
+      "metrics_file": "results/autopet_fdg_full_50epochs_20260324/segmentation_metrics.json",
+      "run_config_file": "results/autopet_fdg_full_50epochs_20260324/run_config.json",
+      "run_id": "autopet_fdg_full_50epochs_20260324",
+      "split_name": "fdg_full",
+      "state_name": "raw_50epochs",
+      "track": "autopet_fdg",
+      "trainer": "nnUNetTrainer_50epochs"
+    },
+    {
+      "checkpoint_reference": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/nnunet_results/Dataset501_AutoPETFDG/nnUNetTrainer_50epochs__nnUNetPlans__3d_fullres/checkpoint_best.pth",
+      "dataset_split_hash_sha256": "d8f41adc318921e82971912065e189ebf48ee99183c62c0a2e38d2d3a1122a20",
+      "metrics_file": "results/autopet_fdg_full_post_best_dice_50epochs_20260324/segmentation_metrics.json",
+      "run_config_file": "results/autopet_fdg_full_post_best_dice_50epochs_20260324/run_config.json",
+      "run_id": "autopet_fdg_full_post_best_dice_50epochs_20260324",
+      "split_name": "fdg_full",
+      "state_name": "post_best_dice_50epochs",
+      "track": "autopet_fdg",
+      "trainer": "nnUNetTrainer_50epochs"
+    },
+    {
+      "checkpoint_reference": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/nnunet_results/Dataset501_AutoPETFDG/nnUNetTrainer_50epochs__nnUNetPlans__3d_fullres/checkpoint_best.pth",
+      "dataset_split_hash_sha256": "1fe09cc706082b418a87ba0485dcd5a1a5f5d149d11d84a849f9d218ca20aef2",
+      "metrics_file": "results/autopet_fdg_full_post_low_fp_50epochs_20260324/segmentation_metrics.json",
+      "run_config_file": "results/autopet_fdg_full_post_low_fp_50epochs_20260324/run_config.json",
+      "run_id": "autopet_fdg_full_post_low_fp_50epochs_20260324",
+      "split_name": "fdg_full",
+      "state_name": "post_low_fp_50epochs",
+      "track": "autopet_fdg",
+      "trainer": "nnUNetTrainer_50epochs"
+    },
+    {
+      "checkpoint_reference": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/nnunet_results/Dataset501_AutoPETFDG/nnUNetTrainer_50epochs__nnUNetPlans__3d_fullres/checkpoint_best.pth",
+      "dataset_split_hash_sha256": "5857139a16e73bb57ce25ec94d1d1eca8395630ca6930407ccb85489e35f9a82",
+      "metrics_file": "results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/segmentation_metrics.json",
+      "run_config_file": "results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/run_config.json",
+      "run_id": "autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327",
+      "split_name": "fdg_full",
+      "state_name": "post_best_dice_50epochs_xai_allcases",
+      "track": "autopet_fdg",
+      "trainer": "nnUNetTrainer_50epochs",
+      "xai_analysis_file": "results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json"
+    },
+    {
+      "checkpoint_reference": "~/XAI/artifacts/grenoble_gpu_20260324/training/checkpoints/best.pt",
+      "dataset_split_hash_sha256": "7b575386446984a4a3311fc1ff2ae26d936a3ecd23ae8f906fec4991bae704c6",
+      "metrics_file": "results/grenoble_gpu_20260324/metrics.json",
+      "run_config_file": "results/grenoble_gpu_20260324/run_config.json",
+      "run_id": "grenoble_gpu_20260324",
+      "split_name": "brain_mri_test_snapshot",
+      "state_name": "brain_mri_grenoble_baseline",
+      "track": "brain_mri",
+      "trainer": "resnet18_binary_5epochs"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "script_checksums_sha256": {
+    "scripts/autopet_analyze_xai.py": "6cae140d9f2377f0ff802f7184d5c5e189e370fda95c2b6712d4e9e99b387b07",
+    "scripts/autopet_export_results.py": "a158c9eff4187df0abca898bd1b226511b6b55cd7bc3b10991e520311193c368",
+    "scripts/autopet_generate_xai.py": "c946b1a7edc8ad8bb6087e0cc72d7ca8d0d01c929d3236c49a597366324aff0f",
+    "scripts/autopet_predict_nnunet.py": "74c688381b25d380b7fa9817fea629b05fd37bead2980459a9852694ddfc7cbf",
+    "scripts/autopet_prepare_fdg.py": "6e0c74b18a9936f6d01fd39c1fe4f9c3f3324d9a39213f4d444abf04ebb30d6f",
+    "scripts/autopet_train_nnunet.py": "0d15b526fd0c954ae641dba87029ce3c95a794743a933f162aa54fc1b22bdf12",
+    "scripts/brain_mri_benchmark_xai_methods.py": "79fec2a9aea848e69452ebe23dca7ad83a7fe89494119eb3219fb57ea8555c43"
+  }
+}

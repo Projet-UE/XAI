@@ -3,18 +3,24 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
+import random
 from pathlib import Path
 from statistics import mean
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, Iterable, List, Optional, Sequence
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Summarize qualitative autoPET XAI exports into paper-ready JSON/Markdown.")
+    parser = argparse.ArgumentParser(
+        description="Summarize and benchmark autoPET XAI exports into paper-ready JSON/Markdown."
+    )
     parser.add_argument("--review-cases-path", type=Path, required=True)
     parser.add_argument("--metrics-path", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--state-name", type=str, required=True)
     parser.add_argument("--title", type=str, default="autoPET FDG XAI analysis")
+    parser.add_argument("--bootstrap-iterations", type=int, default=2000)
+    parser.add_argument("--bootstrap-seed", type=int, default=42)
     return parser.parse_args()
 
 
@@ -25,10 +31,67 @@ def _safe_mean(values: Iterable[Optional[float]]) -> Optional[float]:
     return float(mean(filtered))
 
 
+def _safe_std(values: Iterable[Optional[float]]) -> Optional[float]:
+    filtered = [float(value) for value in values if value is not None]
+    if len(filtered) < 2:
+        return None
+    avg = float(mean(filtered))
+    variance = sum((value - avg) ** 2 for value in filtered) / (len(filtered) - 1)
+    return float(math.sqrt(variance))
+
+
 def _safe_ratio(numerator: Optional[float], denominator: Optional[float]) -> Optional[float]:
     if numerator is None or denominator is None or denominator == 0:
         return None
     return float(numerator / denominator)
+
+
+def _case_ratio(numerator: Optional[float], denominator: Optional[float]) -> Optional[float]:
+    if numerator is None or denominator is None or denominator == 0:
+        return None
+    return float(numerator) / float(denominator)
+
+
+def _bootstrap_ci(
+    values: Sequence[Optional[float]],
+    *,
+    iterations: int,
+    seed: int,
+    alpha: float = 0.05,
+) -> Optional[Dict[str, float]]:
+    filtered = [float(value) for value in values if value is not None]
+    if not filtered:
+        return None
+
+    observed_mean = float(mean(filtered))
+    if len(filtered) == 1 or iterations <= 1:
+        return {
+            "mean": observed_mean,
+            "low": observed_mean,
+            "high": observed_mean,
+            "sample_count": float(len(filtered)),
+        }
+
+    rng = random.Random(seed)
+    sample_count = len(filtered)
+    bootstrap_means: List[float] = []
+    for _ in range(iterations):
+        total = 0.0
+        for _ in range(sample_count):
+            total += filtered[rng.randrange(sample_count)]
+        bootstrap_means.append(total / sample_count)
+
+    bootstrap_means.sort()
+    low_index = int((alpha / 2.0) * len(bootstrap_means))
+    high_index = int((1.0 - alpha / 2.0) * len(bootstrap_means))
+    high_index = min(max(high_index, 0), len(bootstrap_means) - 1)
+
+    return {
+        "mean": observed_mean,
+        "low": float(bootstrap_means[low_index]),
+        "high": float(bootstrap_means[high_index]),
+        "sample_count": float(sample_count),
+    }
 
 
 def _case_category(ground_truth_positive: bool, prediction_positive: bool, dice: float) -> str:
@@ -39,6 +102,105 @@ def _case_category(ground_truth_positive: bool, prediction_positive: bool, dice:
     if not ground_truth_positive and prediction_positive:
         return "false_positive"
     return "true_negative"
+
+
+def _method_seed(base_seed: int, method_name: str) -> int:
+    checksum = sum((index + 1) * ord(char) for index, char in enumerate(method_name))
+    return int(base_seed + checksum)
+
+
+def _build_method_benchmark(
+    method_name: str,
+    method_cases: Sequence[Dict[str, Any]],
+    *,
+    bootstrap_iterations: int,
+    bootstrap_seed: int,
+) -> Dict[str, Any]:
+    positive_cases = [case for case in method_cases if case["ground_truth_positive"]]
+    false_positive_cases = [case for case in method_cases if case["category"] == "false_positive"]
+
+    positive_mass_inside_gt = [case["attribution_summary"].get("mass_ratio_inside_gt") for case in positive_cases]
+    positive_top10_inside_gt = [case["attribution_summary"].get("top10_ratio_inside_gt") for case in positive_cases]
+    positive_enrichment = [
+        _case_ratio(
+            case["attribution_summary"].get("mean_attr_inside_gt"),
+            case["attribution_summary"].get("mean_attr_outside_gt"),
+        )
+        for case in positive_cases
+    ]
+    false_positive_mass_inside_prediction = [
+        case["attribution_summary"].get("mass_ratio_inside_prediction") for case in false_positive_cases
+    ]
+
+    localization_mean = _safe_mean(positive_mass_inside_gt)
+    top10_mean = _safe_mean(positive_top10_inside_gt)
+    error_focus_mean = _safe_mean(false_positive_mass_inside_prediction)
+    localization_std = _safe_std(positive_mass_inside_gt)
+    stability_score = 1.0 - min(localization_std if localization_std is not None else 1.0, 1.0)
+
+    composite_score: Optional[float] = None
+    if localization_mean is not None:
+        composite_score = float(
+            0.65 * localization_mean
+            + 0.25 * (error_focus_mean if error_focus_mean is not None else 0.0)
+            + 0.10 * stability_score
+        )
+
+    seed = _method_seed(bootstrap_seed, method_name)
+    return {
+        "case_count": len(method_cases),
+        "positive_case_count": len(positive_cases),
+        "false_positive_case_count": len(false_positive_cases),
+        "localization_mean_mass_inside_gt": localization_mean,
+        "localization_mean_top10_inside_gt": top10_mean,
+        "localization_mean_enrichment": _safe_mean(positive_enrichment),
+        "false_positive_mean_mass_inside_prediction": error_focus_mean,
+        "localization_std_mass_inside_gt": localization_std,
+        "stability_score": stability_score,
+        "composite_protocol_score": composite_score,
+        "ci95_localization_mass_inside_gt": _bootstrap_ci(
+            positive_mass_inside_gt,
+            iterations=bootstrap_iterations,
+            seed=seed,
+        ),
+        "ci95_localization_top10_inside_gt": _bootstrap_ci(
+            positive_top10_inside_gt,
+            iterations=bootstrap_iterations,
+            seed=seed + 1,
+        ),
+        "ci95_false_positive_mass_inside_prediction": _bootstrap_ci(
+            false_positive_mass_inside_prediction,
+            iterations=bootstrap_iterations,
+            seed=seed + 2,
+        ),
+    }
+
+
+def _rank_method_benchmarks(method_benchmarks: Dict[str, Dict[str, Any]]) -> List[Dict[str, Any]]:
+    ranking = [
+        {
+            "method": method_name,
+            "composite_protocol_score": benchmark.get("composite_protocol_score"),
+            "localization_mean_mass_inside_gt": benchmark.get("localization_mean_mass_inside_gt"),
+            "false_positive_mean_mass_inside_prediction": benchmark.get("false_positive_mean_mass_inside_prediction"),
+            "positive_case_count": benchmark.get("positive_case_count"),
+            "false_positive_case_count": benchmark.get("false_positive_case_count"),
+        }
+        for method_name, benchmark in method_benchmarks.items()
+    ]
+    ranking.sort(
+        key=lambda entry: (
+            entry["composite_protocol_score"] if entry["composite_protocol_score"] is not None else -1.0,
+            entry["localization_mean_mass_inside_gt"] if entry["localization_mean_mass_inside_gt"] is not None else -1.0,
+            entry["false_positive_mean_mass_inside_prediction"]
+            if entry["false_positive_mean_mass_inside_prediction"] is not None
+            else -1.0,
+        ),
+        reverse=True,
+    )
+    for index, entry in enumerate(ranking, start=1):
+        entry["rank"] = index
+    return ranking
 
 
 def main() -> None:
@@ -79,6 +241,7 @@ def main() -> None:
 
     method_names = sorted({method["method"] for case in enriched_cases for method in case["methods"]})
     method_summaries: Dict[str, Any] = {}
+    method_benchmarks: Dict[str, Any] = {}
 
     for method_name in method_names:
         method_cases = []
@@ -158,7 +321,20 @@ def main() -> None:
             },
         }
 
-    preferred_method = "integrated_gradients" if "integrated_gradients" in method_summaries else (method_names[0] if method_names else None)
+        method_benchmarks[method_name] = _build_method_benchmark(
+            method_name=method_name,
+            method_cases=method_cases,
+            bootstrap_iterations=args.bootstrap_iterations,
+            bootstrap_seed=args.bootstrap_seed,
+        )
+
+    method_ranking = _rank_method_benchmarks(method_benchmarks)
+    preferred_method = method_ranking[0]["method"] if method_ranking else None
+    if preferred_method is None:
+        preferred_method = "integrated_gradients" if "integrated_gradients" in method_summaries else (
+            method_names[0] if method_names else None
+        )
+
     preferred = method_summaries.get(preferred_method, {})
 
     summary = {
@@ -177,6 +353,22 @@ def main() -> None:
         },
         "preferred_method": preferred_method,
         "method_summaries": method_summaries,
+        "method_benchmark_protocol": {
+            "description": "Common protocol to compare XAI methods on lesion alignment and false-positive focus.",
+            "composite_score_formula": (
+                "0.65 * localization_mean_mass_inside_gt + "
+                "0.25 * false_positive_mean_mass_inside_prediction + "
+                "0.10 * stability_score"
+            ),
+            "stability_score_definition": "1 - min(std(localization_mass_inside_gt), 1.0)",
+            "bootstrap_iterations": args.bootstrap_iterations,
+            "bootstrap_seed": args.bootstrap_seed,
+            "ci": "95%",
+        },
+        "method_benchmark": {
+            "methods": method_benchmarks,
+            "ranking": method_ranking,
+        },
         "cases": enriched_cases,
     }
     (output_dir / "xai_analysis_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
@@ -253,9 +445,41 @@ def main() -> None:
         f"- False positive: `{summary['case_category_counts']['false_positive']}`",
         f"- True negative: `{summary['case_category_counts']['true_negative']}`",
         "",
-        f"## Preferred method summary: `{preferred_method}`",
+        "## Protocol-level method comparison",
+        "",
+        "- Composite score weights:",
+        "  - lesion localization mass inside GT: `0.65`",
+        "  - false-positive focus inside predicted region: `0.25`",
+        "  - stability score: `0.10`",
         "",
     ]
+    if method_ranking:
+        for entry in method_ranking:
+            score_text = "n/a" if entry["composite_protocol_score"] is None else f"{entry['composite_protocol_score']:.4f}"
+            loc_text = (
+                "n/a"
+                if entry["localization_mean_mass_inside_gt"] is None
+                else f"{entry['localization_mean_mass_inside_gt']:.4f}"
+            )
+            fp_text = (
+                "n/a"
+                if entry["false_positive_mean_mass_inside_prediction"] is None
+                else f"{entry['false_positive_mean_mass_inside_prediction']:.4f}"
+            )
+            lines.append(
+                f"- Rank {entry['rank']}: `{entry['method']}` "
+                f"(score `{score_text}`, localization `{loc_text}`, false-positive focus `{fp_text}`)"
+            )
+    else:
+        lines.append("- No method-level benchmark could be computed.")
+
+    lines.extend(
+        [
+            "",
+            f"## Preferred method summary: `{preferred_method}`",
+            "",
+        ]
+    )
     if observations:
         lines.extend([f"- {line}" for line in observations])
     else:
