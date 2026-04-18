@@ -31,6 +31,10 @@
 - `integrated_gradients` produit des cartes plus concentrées et généralement plus informatives visuellement sur les cas positifs.
 - `gradcam` reste utile pour une vue macro rapide, mais les cartes sont plus diffuses sur les cas ambigus.
 - Dans le benchmark quantitatif du projet (confidence-drop), `integrated_gradients` est aussi la méthode la mieux classée, ce qui est cohérent avec la lecture visuelle.
+- Un sanity-check rapide relancé sur ce lot propre (2 méthodes, 500 bootstrap) est aussi disponible:
+  - `results/brain_mri_xai_benchmark_20260418_clean_fast/`
+  - Sur ce run rapide, `gradcam` passe légèrement devant `integrated_gradients`, avec des intervalles de confiance qui se recouvrent.
+  - Interprétation: ce run sert surtout de contrôle de cohérence pipeline; la décision finale méthode doit rester basée sur le benchmark complet.
 
 ## Message prêt à réutiliser dans le rapport
 

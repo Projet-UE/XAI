@@ -13,6 +13,8 @@
 - Méthode XAI prioritaire sur Brain MRI: `integrated_gradients`.
 - Une galerie XAI élargie (`16` cas équilibrés) est disponible pour la partie qualitative:
   - `results/brain_mri_refresh_xai_20260418/`
+- Un benchmark “clean fast” de contrôle (manifest filtré, 2 méthodes) est aussi disponible:
+  - `results/brain_mri_xai_benchmark_20260418_clean_fast/`
 - Les cas proches du seuil (`~0.5`) confirment la zone d'incertitude attendue du classifieur et donnent des exemples concrets à discuter dans le rapport.
 
 ## Message projet recommandé
