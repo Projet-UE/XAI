@@ -10,7 +10,7 @@
 ## Brain MRI (ligne backup)
 
 - Le backup Brain MRI reste cohérent pour la soutenance: accuracy `0.8684`, F1 `0.8889`, ROC-AUC `0.9391`.
-- Méthode XAI prioritaire sur Brain MRI: n/a.
+- Méthode XAI prioritaire sur Brain MRI: n/a (benchmark protocolaire non régénéré dans ce snapshot).
 
 ## Message projet recommandé
 

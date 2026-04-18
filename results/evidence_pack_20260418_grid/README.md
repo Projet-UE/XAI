@@ -21,6 +21,10 @@ This folder consolidates the most important, review-ready artifacts for project 
 - autoPET top method: `integrated_gradients`
 - Brain MRI top method: `n/a`
 
+Note: Brain MRI protocol benchmark is not included in this snapshot. The backup track still contains
+the full prediction metrics and qualitative XAI figures; method ranking can be regenerated with
+`scripts/brain_mri_benchmark_xai_methods.py` once a checkpoint path is available.
+
 ## Contents
 
 - `autopet/`: metrics, comparison, optional method benchmark, selected figures
