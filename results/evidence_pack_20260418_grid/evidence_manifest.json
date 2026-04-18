@@ -14,15 +14,16 @@
     ],
     "brain_mri": [
       "brain_mri/metrics.json",
-      "brain_mri/figures/gradcam-checkpoint.png",
-      "brain_mri/figures/integrated_gradients-checkpoint.png",
-      "brain_mri/figures/occlusion-checkpoint.png",
+      "brain_mri/figures/confusion_matrix.png",
+      "brain_mri/figures/metrics_overview.png",
+      "brain_mri/figures/sample_predictions.png",
       "brain_mri/figures/gradcam.png",
       "brain_mri/figures/integrated_gradients.png",
       "brain_mri/figures/occlusion.png"
     ],
     "traceability": [
-      "traceability/requirement_traceability.json"
+      "traceability/requirement_traceability.json",
+      "traceability/run_index.json"
     ]
   },
   "run_ids": {

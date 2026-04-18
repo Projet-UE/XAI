@@ -240,21 +240,25 @@
       "case_count": 7,
       "false_positive_cases": {
         "count": 2,
+        "mean_prediction_focus_enrichment": 5.681233133145467,
         "mean_prediction_focus_ratio": 0.021626765180861013
       },
       "negative_cases": {
         "count": 4,
         "mean_false_positive_volume_ml": 9.156591128635274,
+        "mean_prediction_focus_enrichment": 4.297588905577967,
         "mean_prediction_focus_ratio": 0.010813382590430506
       },
       "positive_cases": {
         "count": 3,
         "mean_dice": 0.46891988465109224,
+        "mean_gt_focus_enrichment": 4.57872553184194,
         "mean_gt_focus_ratio": 0.024693153607651636,
         "mean_prediction_focus_ratio": 0.0
       },
       "positive_missed_cases": {
         "count": 0,
+        "mean_gt_focus_enrichment": null,
         "mean_gt_focus_ratio": null
       }
     }

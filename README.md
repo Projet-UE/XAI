@@ -24,6 +24,26 @@ All heavy runs were designed for **Grid'5000 Grenoble**, while Git only keeps li
 | Main retained autoPET result | `post_best_dice_50epochs` |
 | Main retained brain MRI result | Grenoble classification snapshot from `2026-03-24` |
 
+## Latest review artifacts
+
+If you need the quickest evaluator-facing entrypoint, start here:
+
+- consolidated evidence pack:
+  - [`results/evidence_pack_20260418_grid/README.md`](results/evidence_pack_20260418_grid/README.md)
+- short interpretation blocks (report/slides ready):
+  - [`results/evidence_pack_20260418_grid/INTERPRETATION.md`](results/evidence_pack_20260418_grid/INTERPRETATION.md)
+- explicit evidence inventory:
+  - [`results/evidence_pack_20260418_grid/evidence_manifest.json`](results/evidence_pack_20260418_grid/evidence_manifest.json)
+- requirement traceability:
+  - [`results/evidence_pack_20260418_grid/traceability/requirement_traceability.json`](results/evidence_pack_20260418_grid/traceability/requirement_traceability.json)
+- frozen run index used in the pack:
+  - [`results/evidence_pack_20260418_grid/traceability/run_index.json`](results/evidence_pack_20260418_grid/traceability/run_index.json)
+
+For the detailed autoPET protocol benchmark (with paired CI deltas, failure taxonomy, and cross-method agreement):
+
+- [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json)
+- [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md)
+
 ## Main track: autoPET FDG PET/CT segmentation + XAI
 
 This is the line kept as the **primary project contribution** because it is the most coherent with the original topic: medical imaging, segmentation, and explainability.

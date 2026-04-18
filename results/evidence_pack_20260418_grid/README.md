@@ -5,7 +5,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 - autoPET main run: `autopet_fdg_full_post_best_dice_50epochs_20260324`
 - autoPET comparison run: `autopet_fdg_full_50epochs_variant_comparison_20260324`
 - Brain MRI backup run: `grenoble_gpu_20260324`
-- includes run index: `no`
+- includes run index: `yes`
 
 ## Key metrics
 
