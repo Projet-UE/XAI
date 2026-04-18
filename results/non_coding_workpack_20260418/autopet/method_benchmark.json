@@ -1,0 +1,429 @@
+{
+  "bootstrap_iterations": 5000,
+  "bootstrap_seed": 42,
+  "cross_method_agreement": {
+    "by_category": {
+      "false_positive": {
+        "case_rows": [
+          {
+            "case_id": "PETCT_05bed31780",
+            "category": "false_positive",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.03918155030889872,
+                "top10_ratio_inside_gt": 0.0
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.03918155030889872
+            },
+            "winners": [
+              "integrated_gradients"
+            ]
+          },
+          {
+            "case_id": "PETCT_402c061122",
+            "category": "false_positive",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.004071980052823305,
+                "top10_ratio_inside_gt": 0.0
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.004071980052823305
+            },
+            "winners": [
+              "integrated_gradients"
+            ]
+          }
+        ],
+        "comparable_case_count": 2,
+        "pairwise_score_dominance": [],
+        "unique_winner_case_count": 2,
+        "unique_winner_rate": 1.0,
+        "winner_share": {
+          "integrated_gradients": 1.0
+        }
+      },
+      "positive_detected": {
+        "case_rows": [
+          {
+            "case_id": "PETCT_4848bebb10",
+            "category": "positive_detected",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.022039613816991748,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.03654466039787141
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.026391127791255645
+            },
+            "winners": [
+              "integrated_gradients"
+            ]
+          },
+          {
+            "case_id": "PETCT_a1db71e797",
+            "category": "positive_detected",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.0
+            },
+            "winners": [
+              "integrated_gradients"
+            ]
+          },
+          {
+            "case_id": "PETCT_be3e55a32f",
+            "category": "positive_detected",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.05203984700596316,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.015144290373648173
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.04097118001626866
+            },
+            "winners": [
+              "integrated_gradients"
+            ]
+          }
+        ],
+        "comparable_case_count": 3,
+        "pairwise_score_dominance": [],
+        "unique_winner_case_count": 3,
+        "unique_winner_rate": 1.0,
+        "winner_share": {
+          "integrated_gradients": 1.0
+        }
+      },
+      "positive_missed": {
+        "case_rows": [],
+        "comparable_case_count": 0,
+        "pairwise_score_dominance": [],
+        "unique_winner_case_count": 0,
+        "unique_winner_rate": null,
+        "winner_share": {
+          "integrated_gradients": null
+        }
+      },
+      "true_negative": {
+        "case_rows": [
+          {
+            "case_id": "PETCT_3bce0eb7aa",
+            "category": "true_negative",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.0
+            },
+            "winners": [
+              "integrated_gradients"
+            ]
+          },
+          {
+            "case_id": "PETCT_e2309b8f92",
+            "category": "true_negative",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.0
+            },
+            "winners": [
+              "integrated_gradients"
+            ]
+          }
+        ],
+        "comparable_case_count": 2,
+        "pairwise_score_dominance": [],
+        "unique_winner_case_count": 2,
+        "unique_winner_rate": 1.0,
+        "winner_share": {
+          "integrated_gradients": 1.0
+        }
+      }
+    },
+    "description": "Compact cross-method agreement report by failure category. Winner share uses case-level score ties split evenly.",
+    "score_definition": "positive categories: 0.7 * mass_ratio_inside_gt + 0.3 * top10_ratio_inside_gt; negative/false-positive categories: mass_ratio_inside_prediction"
+  },
+  "failure_taxonomy": {
+    "by_category": {
+      "false_positive": {
+        "case_count": 2,
+        "case_ids": [
+          "PETCT_05bed31780",
+          "PETCT_402c061122"
+        ],
+        "method_behavior": {
+          "integrated_gradients": {
+            "case_count": 2,
+            "mean_case_score": 0.021626765180861013,
+            "mean_mass_ratio_inside_gt": 0.0,
+            "mean_mass_ratio_inside_prediction": 0.021626765180861013,
+            "mean_top10_ratio_inside_gt": 0.0
+          }
+        }
+      },
+      "positive_detected": {
+        "case_count": 3,
+        "case_ids": [
+          "PETCT_4848bebb10",
+          "PETCT_a1db71e797",
+          "PETCT_be3e55a32f"
+        ],
+        "method_behavior": {
+          "integrated_gradients": {
+            "case_count": 3,
+            "mean_case_score": 0.022454102602508103,
+            "mean_mass_ratio_inside_gt": 0.024693153607651636,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.017229650257173195
+          }
+        }
+      },
+      "positive_missed": {
+        "case_count": 0,
+        "case_ids": [],
+        "method_behavior": {
+          "integrated_gradients": {
+            "case_count": 0,
+            "mean_case_score": null,
+            "mean_mass_ratio_inside_gt": null,
+            "mean_mass_ratio_inside_prediction": null,
+            "mean_top10_ratio_inside_gt": null
+          }
+        }
+      },
+      "true_negative": {
+        "case_count": 2,
+        "case_ids": [
+          "PETCT_3bce0eb7aa",
+          "PETCT_e2309b8f92"
+        ],
+        "method_behavior": {
+          "integrated_gradients": {
+            "case_count": 2,
+            "mean_case_score": 0.0,
+            "mean_mass_ratio_inside_gt": 0.0,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.0
+          }
+        }
+      }
+    },
+    "cases": [
+      {
+        "case_id": "PETCT_05bed31780",
+        "category": "false_positive",
+        "metrics_by_method": {
+          "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.03918155030889872,
+            "top10_ratio_inside_gt": 0.0
+          }
+        },
+        "score_by_method": {
+          "integrated_gradients": 0.03918155030889872
+        },
+        "winners": [
+          "integrated_gradients"
+        ]
+      },
+      {
+        "case_id": "PETCT_402c061122",
+        "category": "false_positive",
+        "metrics_by_method": {
+          "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.004071980052823305,
+            "top10_ratio_inside_gt": 0.0
+          }
+        },
+        "score_by_method": {
+          "integrated_gradients": 0.004071980052823305
+        },
+        "winners": [
+          "integrated_gradients"
+        ]
+      },
+      {
+        "case_id": "PETCT_4848bebb10",
+        "category": "positive_detected",
+        "metrics_by_method": {
+          "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.022039613816991748,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.03654466039787141
+          }
+        },
+        "score_by_method": {
+          "integrated_gradients": 0.026391127791255645
+        },
+        "winners": [
+          "integrated_gradients"
+        ]
+      },
+      {
+        "case_id": "PETCT_a1db71e797",
+        "category": "positive_detected",
+        "metrics_by_method": {
+          "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          }
+        },
+        "score_by_method": {
+          "integrated_gradients": 0.0
+        },
+        "winners": [
+          "integrated_gradients"
+        ]
+      },
+      {
+        "case_id": "PETCT_be3e55a32f",
+        "category": "positive_detected",
+        "metrics_by_method": {
+          "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.05203984700596316,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.015144290373648173
+          }
+        },
+        "score_by_method": {
+          "integrated_gradients": 0.04097118001626866
+        },
+        "winners": [
+          "integrated_gradients"
+        ]
+      },
+      {
+        "case_id": "PETCT_3bce0eb7aa",
+        "category": "true_negative",
+        "metrics_by_method": {
+          "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          }
+        },
+        "score_by_method": {
+          "integrated_gradients": 0.0
+        },
+        "winners": [
+          "integrated_gradients"
+        ]
+      },
+      {
+        "case_id": "PETCT_e2309b8f92",
+        "category": "true_negative",
+        "metrics_by_method": {
+          "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          }
+        },
+        "score_by_method": {
+          "integrated_gradients": 0.0
+        },
+        "winners": [
+          "integrated_gradients"
+        ]
+      }
+    ],
+    "description": "Case-level taxonomy on review set: positive_detected, positive_missed, false_positive, true_negative, with method-specific attribution behavior.",
+    "metrics_by_category": {
+      "false_positive": [
+        "mass_ratio_inside_prediction"
+      ],
+      "positive_detected": [
+        "mass_ratio_inside_gt",
+        "top10_ratio_inside_gt"
+      ],
+      "positive_missed": [
+        "mass_ratio_inside_gt",
+        "top10_ratio_inside_gt"
+      ],
+      "true_negative": [
+        "mass_ratio_inside_prediction"
+      ]
+    }
+  },
+  "method_summaries": {
+    "integrated_gradients": {
+      "case_count": 7,
+      "ci95_false_positive_prediction_focus": {
+        "high": 0.03918155030889872,
+        "low": 0.004071980052823305,
+        "mean": 0.021626765180861013,
+        "sample_count": 2.0
+      },
+      "ci95_mass_ratio_inside_gt": {
+        "high": 0.05203984700596317,
+        "low": 0.0,
+        "mean": 0.024693153607651636,
+        "sample_count": 3.0
+      },
+      "ci95_top10_ratio_inside_gt": {
+        "high": 0.03654466039787141,
+        "low": 0.0,
+        "mean": 0.017229650257173195,
+        "sample_count": 3.0
+      },
+      "false_positive_case_count": 2,
+      "mean_mass_ratio_inside_gt": 0.024693153607651636,
+      "mean_mass_ratio_inside_prediction_on_false_positive": 0.021626765180861013,
+      "mean_top10_ratio_inside_gt": 0.017229650257173195,
+      "positive_case_count": 3,
+      "protocol_score": 0.02392655650095398
+    }
+  },
+  "paired_delta_ci": {
+    "mass_ratio_inside_gt__positive_only": [],
+    "mass_ratio_inside_prediction__false_positive_only": [],
+    "top10_ratio_inside_gt__positive_only": []
+  },
+  "protocol": {
+    "paired_delta_metrics": [
+      "mass_ratio_inside_gt__positive_only",
+      "top10_ratio_inside_gt__positive_only",
+      "mass_ratio_inside_prediction__false_positive_only"
+    ],
+    "score_formula": "0.75 * mean_mass_ratio_inside_gt + 0.25 * mean_mass_ratio_inside_prediction_on_false_positive"
+  },
+  "ranking": [
+    {
+      "mean_mass_ratio_inside_gt": 0.024693153607651636,
+      "mean_mass_ratio_inside_prediction_on_false_positive": 0.021626765180861013,
+      "mean_top10_ratio_inside_gt": 0.017229650257173195,
+      "method": "integrated_gradients",
+      "protocol_score": 0.02392655650095398,
+      "rank": 1
+    }
+  ],
+  "state_name": "post_best_dice_50epochs_xai_allcases_20260327"
+}

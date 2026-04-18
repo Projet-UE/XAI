@@ -1,0 +1,2 @@
+rank,method,protocol_score,mean_mass_ratio_inside_gt,mean_top10_ratio_inside_gt,mean_mass_ratio_inside_prediction_on_false_positive
+1,integrated_gradients,0.0239265565,0.0246931536,0.0172296503,0.0216267652

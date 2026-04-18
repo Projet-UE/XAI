@@ -1,0 +1,4 @@
+rank,method,mean_confidence_drop,ci95_low,ci95_high,sample_count
+1,occlusion,0.0464517952,0.0106103246,0.0836941320,16
+2,gradcam,0.0252681244,0.0083947455,0.0455277913,16
+3,integrated_gradients,0.0180870192,-0.0384443902,0.0762457115,16
