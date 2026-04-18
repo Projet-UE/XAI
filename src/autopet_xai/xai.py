@@ -245,6 +245,61 @@ def _summarize_attribution(
     }
 
 
+def _draw_mask_contour(axis: Any, mask_slice: np.ndarray, color: str) -> None:
+    binary = (mask_slice > 0).astype(np.uint8)
+    if np.count_nonzero(binary) == 0:
+        return
+    if np.count_nonzero(binary == 0) == 0:
+        return
+    axis.contour(binary, levels=[0.5], colors=[color], linewidths=1.2, alpha=0.9)
+
+
+def _render_binary_panel(
+    axis: Any,
+    mask_slice: np.ndarray,
+    *,
+    title: str,
+    cmap: str,
+    empty_text: str,
+) -> None:
+    axis.set_facecolor("#eef1f3")
+    axis.imshow(np.zeros_like(mask_slice), cmap="gray", vmin=0, vmax=1, alpha=0.06)
+    masked = np.ma.masked_where(mask_slice <= 0, mask_slice)
+    axis.imshow(masked, cmap=cmap, vmin=0, vmax=1, interpolation="nearest")
+    axis.set_title(title)
+    if np.count_nonzero(mask_slice) == 0:
+        axis.text(
+            0.5,
+            0.5,
+            empty_text,
+            ha="center",
+            va="center",
+            fontsize=9,
+            color="#6b7280",
+            transform=axis.transAxes,
+        )
+
+
+def _build_error_map(gt_slice: np.ndarray, pred_slice: np.ndarray) -> Tuple[np.ndarray, Dict[str, int]]:
+    gt = gt_slice > 0
+    pred = pred_slice > 0
+
+    tp = np.logical_and(gt, pred)
+    fn = np.logical_and(gt, np.logical_not(pred))
+    fp = np.logical_and(np.logical_not(gt), pred)
+
+    rgb = np.full((*gt.shape, 3), 0.93, dtype=np.float32)
+    rgb[tp] = np.array([0.12, 0.69, 0.22], dtype=np.float32)
+    rgb[fn] = np.array([0.86, 0.18, 0.18], dtype=np.float32)
+    rgb[fp] = np.array([0.20, 0.43, 0.95], dtype=np.float32)
+
+    return rgb, {
+        "tp": int(tp.sum()),
+        "fn": int(fn.sum()),
+        "fp": int(fp.sum()),
+    }
+
+
 def _save_case_panel(
     pet_crop: np.ndarray,
     ct_crop: np.ndarray,
@@ -254,11 +309,12 @@ def _save_case_panel(
     slice_indices: Sequence[int],
     output_path: Union[str, Path],
     title: str,
+    case_summary: Optional[str] = None,
 ) -> None:
     output_path = Path(output_path)
     ensure_dir(output_path.parent)
     rows = len(slice_indices)
-    fig, axes = plt.subplots(rows, 4, figsize=(14, 3.5 * rows))
+    fig, axes = plt.subplots(rows, 5, figsize=(18, 3.6 * rows))
     if rows == 1:
         axes = np.expand_dims(axes, axis=0)
 
@@ -268,22 +324,56 @@ def _save_case_panel(
         gt_slice = label_crop[slice_index]
         pred_slice = pred_crop[slice_index]
         attr_slice = attribution_crop[slice_index]
+        error_map, error_counts = _build_error_map(gt_slice, pred_slice)
 
         axes[row_index, 0].imshow(pet_slice, cmap="inferno")
         axes[row_index, 0].imshow(attr_slice, cmap="magma", alpha=0.45)
+        _draw_mask_contour(axes[row_index, 0], gt_slice, color="#22c55e")
+        _draw_mask_contour(axes[row_index, 0], pred_slice, color="#3b82f6")
         axes[row_index, 0].set_title(f"PET + {title}\nSlice {slice_index}")
+
         axes[row_index, 1].imshow(ct_slice, cmap="gray")
         axes[row_index, 1].imshow(attr_slice, cmap="magma", alpha=0.45)
+        _draw_mask_contour(axes[row_index, 1], gt_slice, color="#22c55e")
+        _draw_mask_contour(axes[row_index, 1], pred_slice, color="#3b82f6")
         axes[row_index, 1].set_title("CT + attribution")
-        axes[row_index, 2].imshow(gt_slice, cmap="Greens")
-        axes[row_index, 2].set_title("Ground truth")
-        axes[row_index, 3].imshow(pred_slice, cmap="Blues")
-        axes[row_index, 3].set_title("Prediction")
 
-        for column in range(4):
+        _render_binary_panel(
+            axes[row_index, 2],
+            gt_slice,
+            title="Ground truth",
+            cmap="Greens",
+            empty_text="No GT voxels\non this slice",
+        )
+        _render_binary_panel(
+            axes[row_index, 3],
+            pred_slice,
+            title="Prediction",
+            cmap="Blues",
+            empty_text="No predicted voxels\non this slice",
+        )
+
+        axes[row_index, 4].imshow(error_map, interpolation="nearest")
+        axes[row_index, 4].set_title("TP / FN / FP")
+        axes[row_index, 4].text(
+            0.5,
+            0.04,
+            f"TP {error_counts['tp']}  FN {error_counts['fn']}  FP {error_counts['fp']}",
+            ha="center",
+            va="bottom",
+            fontsize=8,
+            color="#111827",
+            transform=axes[row_index, 4].transAxes,
+        )
+
+        for column in range(5):
             axes[row_index, column].axis("off")
 
-    fig.tight_layout()
+    if case_summary:
+        fig.suptitle(case_summary, fontsize=11)
+        fig.tight_layout(rect=[0, 0, 1, 0.97])
+    else:
+        fig.tight_layout()
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
 
@@ -374,7 +464,13 @@ def generate_review_xai(
 
         input_tensor = np.stack([_normalize_channel(pet_crop), _normalize_channel(ct_crop)], axis=0)
         input_tensor_torch = torch.from_numpy(input_tensor).unsqueeze(0).to(torch_device, dtype=torch.float32)
-        slice_indices = _choose_representative_slices(label_crop if np.count_nonzero(label_crop) else pred_crop, count=3)
+        union_crop = np.logical_or(label_crop > 0, pred_crop > 0).astype(np.uint8)
+        slice_indices = _choose_representative_slices(union_crop, count=3)
+        case_summary = (
+            f"{case_id} | GT voxels (crop): {int(np.count_nonzero(label_crop))} | "
+            f"Pred voxels (crop): {int(np.count_nonzero(pred_crop))} | "
+            f"Pred positive overall: {bool(np.count_nonzero(prediction) > 0)}"
+        )
 
         case_dir = ensure_dir(output_dir / case_id)
         method_reports: List[Dict[str, Any]] = []
@@ -390,6 +486,7 @@ def generate_review_xai(
                 slice_indices=slice_indices,
                 output_path=figure_path,
                 title=method,
+                case_summary=case_summary,
             )
             method_reports.append(
                 {
@@ -408,6 +505,8 @@ def generate_review_xai(
                 "prediction_positive": bool(np.count_nonzero(prediction) > 0),
                 "ground_truth_voxels": int(np.count_nonzero(label)),
                 "prediction_voxels": int(np.count_nonzero(prediction)),
+                "ground_truth_voxels_in_crop": int(np.count_nonzero(label_crop)),
+                "prediction_voxels_in_crop": int(np.count_nonzero(pred_crop)),
                 "slice_indices": [int(index) for index in slice_indices],
                 "methods": method_reports,
             }
