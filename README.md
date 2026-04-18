@@ -34,6 +34,8 @@ If you need the quickest evaluator-facing entrypoint, start here:
   - [`results/evidence_pack_20260418_grid/INTERPRETATION.md`](results/evidence_pack_20260418_grid/INTERPRETATION.md)
 - rubric-aligned review checklist (client + soutenance + plan-projet):
   - [`results/evidence_pack_20260418_grid/EVALUATION_ALIGNMENT.md`](results/evidence_pack_20260418_grid/EVALUATION_ALIGNMENT.md)
+- strict gate verdict (snapshots + evidence consistency + rubric readiness):
+  - [`results/evidence_pack_20260418_grid/READINESS_GATE.json`](results/evidence_pack_20260418_grid/READINESS_GATE.json)
 - 2-3 minute defense flow (REQ-C2/C4/C5):
   - [`results/evidence_pack_20260418_grid/DEMO_RUNBOOK.md`](results/evidence_pack_20260418_grid/DEMO_RUNBOOK.md)
 - explicit evidence inventory:
@@ -363,6 +365,21 @@ python scripts/audit_evidence_pack_readiness.py \
 ```
 
 Add `--strict` to fail CI/review pipelines whenever the readiness status is not `covered`.
+
+Final one-command gate (snapshots + evidence-pack consistency + strict rubric readiness):
+
+```bash
+python scripts/run_readiness_gate.py \
+  --results-root results \
+  --autopet-run-id autopet_fdg_full_post_best_dice_50epochs_20260324 \
+  --autopet-xai-run-id autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327 \
+  --brain-mri-run-id grenoble_gpu_20260324 \
+  --evidence-pack-run-id evidence_pack_20260418_grid \
+  --mapping-path configs/evaluation_readiness_mapping.json \
+  --require-autopet-protocol-benchmark
+```
+
+This writes `results/<evidence-pack-run-id>/READINESS_GATE.json` and returns non-zero on failure by default.
 
 ### Frozen run index
 
