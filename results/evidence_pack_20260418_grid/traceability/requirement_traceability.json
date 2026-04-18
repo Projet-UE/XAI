@@ -24,7 +24,8 @@
       "description": "G\u00e9n\u00e9ration d'explications XAI.",
       "evidence_files": [
         "autopet/xai_analysis_summary.json",
-        "autopet/method_benchmark.json"
+        "autopet/method_benchmark.json",
+        "brain_mri/xai_method_benchmark.json"
       ],
       "requirement_id": "REQ-C4",
       "status": "covered"
@@ -33,7 +34,8 @@
       "description": "Analyse des r\u00e9sultats XAI et limites.",
       "evidence_files": [
         "autopet/comparison.json",
-        "autopet/method_benchmark.json"
+        "autopet/method_benchmark.json",
+        "brain_mri/xai_method_benchmark.json"
       ],
       "requirement_id": "REQ-C5",
       "status": "covered"
@@ -41,7 +43,8 @@
     {
       "description": "Comparaison de m\u00e9thodes XAI selon un protocole commun.",
       "evidence_files": [
-        "autopet/method_benchmark.json"
+        "autopet/method_benchmark.json",
+        "brain_mri/xai_method_benchmark.json"
       ],
       "requirement_id": "REQ-C6",
       "status": "covered"

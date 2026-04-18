@@ -44,6 +44,11 @@ For the detailed autoPET protocol benchmark (with paired CI deltas, failure taxo
 - [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json)
 - [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md)
 
+For the refreshed Brain MRI protocol benchmark:
+
+- [`results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json)
+- [`results/brain_mri_xai_benchmark_20260418/README.md`](results/brain_mri_xai_benchmark_20260418/README.md)
+
 ## Main track: autoPET FDG PET/CT segmentation + XAI
 
 This is the line kept as the **primary project contribution** because it is the most coherent with the original topic: medical imaging, segmentation, and explainability.

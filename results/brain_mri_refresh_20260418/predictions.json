@@ -1,0 +1,199 @@
+{
+  "predictions": [
+    {
+      "label": 1,
+      "path": "yes/Y38.jpg",
+      "probability": 0.5642049312591553
+    },
+    {
+      "label": 1,
+      "path": "yes/Y49.JPG",
+      "probability": 0.5952274203300476
+    },
+    {
+      "label": 0,
+      "path": "no/no 99.jpg",
+      "probability": 0.43428269028663635
+    },
+    {
+      "label": 0,
+      "path": "no/9 no.jpg",
+      "probability": 0.5207349061965942
+    },
+    {
+      "label": 0,
+      "path": "no/no 92.jpg",
+      "probability": 0.5206505656242371
+    },
+    {
+      "label": 1,
+      "path": "yes/.ipynb_checkpoints/Y195-checkpoint.JPG",
+      "probability": 0.6029672622680664
+    },
+    {
+      "label": 1,
+      "path": "yes/Y26.jpg",
+      "probability": 0.5007229447364807
+    },
+    {
+      "label": 1,
+      "path": "yes/Y148.JPG",
+      "probability": 0.5153263807296753
+    },
+    {
+      "label": 1,
+      "path": "yes/Y75.JPG",
+      "probability": 0.6488826274871826
+    },
+    {
+      "label": 1,
+      "path": "yes/Y74.jpg",
+      "probability": 0.6132022738456726
+    },
+    {
+      "label": 0,
+      "path": "no/44no.jpg",
+      "probability": 0.41665372252464294
+    },
+    {
+      "label": 0,
+      "path": "no/No19.jpg",
+      "probability": 0.263713538646698
+    },
+    {
+      "label": 1,
+      "path": "yes/Y111.JPG",
+      "probability": 0.6938309669494629
+    },
+    {
+      "label": 0,
+      "path": "no/31 no.jpg",
+      "probability": 0.5195980072021484
+    },
+    {
+      "label": 1,
+      "path": "yes/Y97.JPG",
+      "probability": 0.7167918086051941
+    },
+    {
+      "label": 1,
+      "path": "yes/Y36.JPG",
+      "probability": 0.8245803713798523
+    },
+    {
+      "label": 1,
+      "path": "yes/Y34.jpg",
+      "probability": 0.6061161756515503
+    },
+    {
+      "label": 0,
+      "path": "no/no 98.jpg",
+      "probability": 0.25291621685028076
+    },
+    {
+      "label": 0,
+      "path": "no/37 no.jpg",
+      "probability": 0.21355895698070526
+    },
+    {
+      "label": 1,
+      "path": "yes/Y95.jpg",
+      "probability": 0.358026921749115
+    },
+    {
+      "label": 1,
+      "path": "yes/Y17.jpg",
+      "probability": 0.6330640912055969
+    },
+    {
+      "label": 0,
+      "path": "no/N26.JPG",
+      "probability": 0.43169182538986206
+    },
+    {
+      "label": 1,
+      "path": "yes/Y31.jpg",
+      "probability": 0.6040274500846863
+    },
+    {
+      "label": 1,
+      "path": "yes/Y181.jpg",
+      "probability": 0.6061161756515503
+    },
+    {
+      "label": 1,
+      "path": "yes/Y71.JPG",
+      "probability": 0.4998036324977875
+    },
+    {
+      "label": 1,
+      "path": "yes/Y158.JPG",
+      "probability": 0.6425553560256958
+    },
+    {
+      "label": 0,
+      "path": "no/no 8.jpg",
+      "probability": 0.19794316589832306
+    },
+    {
+      "label": 0,
+      "path": "no/10 no.jpg",
+      "probability": 0.5207349061965942
+    },
+    {
+      "label": 1,
+      "path": "yes/Y39.jpg",
+      "probability": 0.5719040036201477
+    },
+    {
+      "label": 1,
+      "path": "yes/Y156.JPG",
+      "probability": 0.5638542175292969
+    },
+    {
+      "label": 1,
+      "path": "yes/Y100.JPG",
+      "probability": 0.5432240962982178
+    },
+    {
+      "label": 1,
+      "path": "yes/Y188.jpg",
+      "probability": 0.42942535877227783
+    },
+    {
+      "label": 1,
+      "path": "yes/Y120.JPG",
+      "probability": 0.6934064626693726
+    },
+    {
+      "label": 1,
+      "path": "yes/Y251.JPG",
+      "probability": 0.49198973178863525
+    },
+    {
+      "label": 0,
+      "path": "no/48 no.jpeg",
+      "probability": 0.3141438066959381
+    },
+    {
+      "label": 0,
+      "path": "no/N22.JPG",
+      "probability": 0.44367074966430664
+    },
+    {
+      "label": 0,
+      "path": "no/No22.jpg",
+      "probability": 0.41943928599357605
+    },
+    {
+      "label": 0,
+      "path": "no/no 95.jpg",
+      "probability": 0.4479771554470062
+    },
+    {
+      "label": 1,
+      "path": "yes/Y193.JPG",
+      "probability": 0.4204999804496765
+    }
+  ]
+}
