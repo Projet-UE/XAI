@@ -277,18 +277,18 @@ Confusion matrix:
 The refreshed run below expands the examples to **16 test images** using the same model family (`ResNet18`) and two fast methods (`Grad-CAM`, `Integrated Gradients`) to provide broader qualitative coverage.
 
 <p align="center">
-  <img src="results/brain_mri_refresh_xai_20260418/yes/Y111/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients positive case Y111" />
-  <img src="results/brain_mri_refresh_xai_20260418/yes/Y148/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients positive case Y148" />
+  <img src="results/brain_mri_refresh_xai_20260418/yes/Y195/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients positive case Y195" />
+  <img src="results/brain_mri_refresh_xai_20260418/yes/Y109/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients positive case Y109" />
 </p>
 
 <p align="center">
-  <img src="results/brain_mri_refresh_xai_20260418/no/No19/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients negative case No19" />
-  <img src="results/brain_mri_refresh_xai_20260418/no/44no/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients negative case 44no" />
+  <img src="results/brain_mri_refresh_xai_20260418/no/No22/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients negative case No22" />
+  <img src="results/brain_mri_refresh_xai_20260418/no/4%20no/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients negative case 4 no" />
 </p>
 
 <p align="center">
-  <img src="results/brain_mri_refresh_xai_20260418/yes/Y74/gradcam.png" width="420" alt="Brain MRI refresh Grad-CAM positive case Y74" />
-  <img src="results/brain_mri_refresh_xai_20260418/no/no%2098/gradcam.png" width="420" alt="Brain MRI refresh Grad-CAM negative case no 98" />
+  <img src="results/brain_mri_refresh_xai_20260418/yes/Y60/gradcam.png" width="420" alt="Brain MRI refresh Grad-CAM positive case Y60" />
+  <img src="results/brain_mri_refresh_xai_20260418/no/no%2095/gradcam.png" width="420" alt="Brain MRI refresh Grad-CAM negative case no 95" />
 </p>
 
 ### Most useful Brain MRI files

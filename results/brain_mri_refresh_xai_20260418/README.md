@@ -12,6 +12,10 @@ This folder tracks an expanded qualitative XAI snapshot for the Brain MRI backup
   - `16` Integrated Gradients figures
   - `xai_summary.json`
 
+## Important data hygiene note
+
+The split manifest used for this snapshot was regenerated with hidden-path filtering, so entries under `.ipynb_checkpoints` are excluded from the sampled cases.
+
 ## Why this snapshot is useful
 
 - It increases visual coverage compared with the earlier 4-case gallery.
@@ -21,9 +25,9 @@ This folder tracks an expanded qualitative XAI snapshot for the Brain MRI backup
 ## Reproduction command (Grid'5000 Grenoble)
 
 ```bash
-python scripts/generate_xai.py \
+PYTHONPATH=/home/olmechi/XAI_exec/src python scripts/generate_xai.py \
   --data-root /home/olmechi/data/brain-mri-images \
-  --manifest-path /home/olmechi/XAI_exec/artifacts/brain_mri_refresh_20260418/splits/brain_mri_split.json \
+  --manifest-path /home/olmechi/XAI_exec/artifacts/brain_mri_refresh_20260418/splits/brain_mri_split_clean2.json \
   --checkpoint-path /home/olmechi/XAI_exec/artifacts/brain_mri_refresh_20260418/training/checkpoints/best.pt \
   --output-dir /home/olmechi/XAI_exec/results/brain_mri_refresh_xai_20260418 \
   --device cpu \
