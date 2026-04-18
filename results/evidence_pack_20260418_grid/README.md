@@ -29,6 +29,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 - `evidence_manifest.json`: explicit inventory of copied evidence files
 - `INTERPRETATION.md`: concise interpretation blocks ready for report/slides
 - `EVALUATION_ALIGNMENT.md`: rubric-oriented checklist for client/soutenance/plan-projet review
+- `DEMO_RUNBOOK.md`: deterministic 2-3 minute demo flow aligned with `REQ-C2/C4/C5`
 - `../brain_mri_refresh_xai_20260418/`: expanded qualitative Brain MRI XAI gallery (`16` balanced cases)
 - `../brain_mri_xai_benchmark_20260418_clean_fast/`: clean-manifest sanity-check benchmark (fast protocol)
 

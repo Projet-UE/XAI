@@ -34,6 +34,8 @@ If you need the quickest evaluator-facing entrypoint, start here:
   - [`results/evidence_pack_20260418_grid/INTERPRETATION.md`](results/evidence_pack_20260418_grid/INTERPRETATION.md)
 - rubric-aligned review checklist (client + soutenance + plan-projet):
   - [`results/evidence_pack_20260418_grid/EVALUATION_ALIGNMENT.md`](results/evidence_pack_20260418_grid/EVALUATION_ALIGNMENT.md)
+- 2-3 minute defense flow (REQ-C2/C4/C5):
+  - [`results/evidence_pack_20260418_grid/DEMO_RUNBOOK.md`](results/evidence_pack_20260418_grid/DEMO_RUNBOOK.md)
 - explicit evidence inventory:
   - [`results/evidence_pack_20260418_grid/evidence_manifest.json`](results/evidence_pack_20260418_grid/evidence_manifest.json)
 - requirement traceability:

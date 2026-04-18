@@ -18,6 +18,17 @@ from brain_tumor_xai.utils import ensure_dir, select_device
 from brain_tumor_xai.xai import compute_attribution
 
 
+def _disable_nnpack_if_needed(device: torch.device) -> None:
+    # On some Grid'5000 CPU frontends, NNPACK initialization fails repeatedly and
+    # floods stderr. Disabling it keeps benchmark logs readable and avoids warning overhead.
+    if device.type == "cpu" and hasattr(torch.backends, "nnpack"):
+        try:
+            torch.backends.nnpack.enabled = False  # type: ignore[attr-defined]
+        except Exception:
+            # Fallback: keep default behavior if this backend flag is unavailable.
+            pass
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -154,6 +165,7 @@ def main() -> None:
 
     output_dir = ensure_dir(args.output_dir)
     device = select_device(args.device)
+    _disable_nnpack_if_needed(device)
     manifest = load_manifest(args.manifest_path)
 
     dataset = BrainTumorDataset(args.data_root, manifest, split="test", image_size=args.image_size, augment=False)

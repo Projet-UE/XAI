@@ -26,6 +26,7 @@
       "README.md",
       "INTERPRETATION.md",
       "EVALUATION_ALIGNMENT.md",
+      "DEMO_RUNBOOK.md",
       "evidence_manifest.json"
     ],
     "traceability": [

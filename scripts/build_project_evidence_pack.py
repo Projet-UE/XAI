@@ -230,6 +230,70 @@ def _build_evaluation_alignment(output_dir: Path) -> str:
     return "\n".join(lines) + "\n"
 
 
+def _build_demo_runbook(
+    *,
+    autopet_main_run_id: str,
+    autopet_comparison_run_id: str,
+    brain_mri_run_id: str,
+    autopet_top_method: Optional[str],
+    brain_top_method: Optional[str],
+) -> str:
+    lines = [
+        "# Demo Runbook (2-3 minutes)",
+        "",
+        "Use this script during soutenance/client review to cover the mandatory acceptance points",
+        "without running heavy training jobs live.",
+        "",
+        "## Objective coverage",
+        "",
+        "- `REQ-C2` (pipeline exécutable): show script interfaces and validated snapshots.",
+        "- `REQ-C4` (explications XAI): show attribution outputs and method benchmark files.",
+        "- `REQ-C5` (analyse critique): show tradeoff and interpretation files.",
+        "",
+        "## Step-by-step sequence",
+        "",
+        "### 1. Context and tracked runs (20-30s)",
+        f"- Open `README.md` and state the three tracked runs: `{autopet_main_run_id}`, `{autopet_comparison_run_id}`, `{brain_mri_run_id}`.",
+        "- Point to `traceability/requirement_traceability.json` for requirement coverage.",
+        "",
+        "### 2. Core segmentation result and tradeoff (35-45s)",
+        "- Open `autopet/segmentation_metrics.json` (main result).",
+        "- Open `autopet/comparison.json` and explain best-Dice vs low-FP tradeoff.",
+        "- This covers the analysis expected by `REQ-C5`.",
+        "",
+        "### 3. autoPET XAI evidence (30-40s)",
+        "- Open one or two files in `autopet/figures/`.",
+        "- Open `autopet/method_benchmark.json` and cite top method.",
+        f"- Current top method: `{autopet_top_method if autopet_top_method else 'n/a'}`.",
+        "- This covers explainability demonstration for `REQ-C4`.",
+        "",
+        "### 4. Brain MRI backup evidence (25-35s)",
+        "- Open `brain_mri/metrics.json`.",
+        "- Open `brain_mri/xai_method_benchmark.json` when present.",
+        f"- Current top method: `{brain_top_method if brain_top_method else 'n/a'}`.",
+        "",
+        "### 5. Quick reproducibility proof (20-30s)",
+        "- Show validation commands (do not launch heavy training):",
+        "",
+        "```bash",
+        "python scripts/validate_result_snapshot.py \\",
+        f"  --run-dir results/{autopet_main_run_id} \\",
+        "  --track autopet",
+        "",
+        "python scripts/validate_result_snapshot.py \\",
+        f"  --run-dir results/{brain_mri_run_id} \\",
+        "  --track brain_mri",
+        "```",
+        "",
+        "These checks support `REQ-C2` by proving runnable, self-contained tracked outputs.",
+        "",
+        "## Final one-line project message",
+        "",
+        "autoPET FDG is the primary scientific line (segmentation + XAI tradeoff analysis), and Brain MRI is a reproducible backup line that confirms the XAI workflow on a second medical setting.",
+    ]
+    return "\n".join(lines) + "\n"
+
+
 def main() -> None:
     args = parse_args()
     today = dt.date.today().strftime("%Y%m%d")
@@ -411,6 +475,7 @@ def main() -> None:
                 "README.md",
                 "INTERPRETATION.md",
                 "EVALUATION_ALIGNMENT.md",
+                "DEMO_RUNBOOK.md",
                 "evidence_manifest.json",
             ],
             "autopet": [
@@ -529,6 +594,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 - `evidence_manifest.json`: explicit inventory of copied evidence files
 - `INTERPRETATION.md`: concise interpretation blocks ready for report/slides
 - `EVALUATION_ALIGNMENT.md`: rubric-oriented checklist for client/soutenance/plan-projet review
+- `DEMO_RUNBOOK.md`: deterministic 2-3 minute demo flow aligned with `REQ-C2/C4/C5`
 {optional_contents}
 
 ## Figure counts
@@ -539,6 +605,16 @@ This folder consolidates the most important, review-ready artifacts for project 
     (output_dir / "README.md").write_text(readme, encoding="utf-8")
     (output_dir / "EVALUATION_ALIGNMENT.md").write_text(
         _build_evaluation_alignment(output_dir),
+        encoding="utf-8",
+    )
+    (output_dir / "DEMO_RUNBOOK.md").write_text(
+        _build_demo_runbook(
+            autopet_main_run_id=args.autopet_main_run_id,
+            autopet_comparison_run_id=args.autopet_comparison_run_id,
+            brain_mri_run_id=args.brain_mri_run_id,
+            autopet_top_method=top_autopet_method,
+            brain_top_method=top_brain_method,
+        ),
         encoding="utf-8",
     )
 
