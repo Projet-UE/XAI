@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import numpy as np
+from PIL import Image
 from brain_tumor_xai.data import BrainTumorDataset, create_split_manifest, ensure_split_manifest
 
 
@@ -18,3 +20,13 @@ def test_dataset_reads_images_and_labels(tiny_dataset: Path, tmp_path: Path) -> 
     assert sample["image"].shape == (3, 64, 64)
     assert sample["label"].item() in {0.0, 1.0}
     assert sample["path"].endswith(".png")
+
+
+def test_manifest_ignores_hidden_checkpoint_images(tiny_dataset: Path, tmp_path: Path) -> None:
+    hidden_dir = tiny_dataset / "yes" / ".ipynb_checkpoints"
+    hidden_dir.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(np.zeros((64, 64, 3), dtype=np.uint8)).save(hidden_dir / "Y_fake-checkpoint.JPG")
+
+    manifest = create_split_manifest(tiny_dataset, tmp_path / "split_hidden.json", seed=42)
+    all_paths = [record["path"] for split in manifest["splits"].values() for record in split]
+    assert all(".ipynb_checkpoints" not in path for path in all_paths)

@@ -272,6 +272,25 @@ Confusion matrix:
 | `no/No22.jpg` | ![](results/grenoble_gpu_20260324/xai/no/No22/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/no/No22/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/no/No22/occlusion.png) |
 | `no/4 no.jpg` | ![](results/grenoble_gpu_20260324/xai/no/4%20no/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/no/4%20no/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/no/4%20no/occlusion.png) |
 
+#### Extended Brain MRI XAI gallery (refresh run: 8 yes + 8 no)
+
+The refreshed run below expands the examples to **16 test images** using the same model family (`ResNet18`) and two fast methods (`Grad-CAM`, `Integrated Gradients`) to provide broader qualitative coverage.
+
+<p align="center">
+  <img src="results/brain_mri_refresh_xai_20260418/yes/Y111/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients positive case Y111" />
+  <img src="results/brain_mri_refresh_xai_20260418/yes/Y148/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients positive case Y148" />
+</p>
+
+<p align="center">
+  <img src="results/brain_mri_refresh_xai_20260418/no/No19/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients negative case No19" />
+  <img src="results/brain_mri_refresh_xai_20260418/no/44no/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients negative case 44no" />
+</p>
+
+<p align="center">
+  <img src="results/brain_mri_refresh_xai_20260418/yes/Y74/gradcam.png" width="420" alt="Brain MRI refresh Grad-CAM positive case Y74" />
+  <img src="results/brain_mri_refresh_xai_20260418/no/no%2098/gradcam.png" width="420" alt="Brain MRI refresh Grad-CAM negative case no 98" />
+</p>
+
 ### Most useful Brain MRI files
 
 - tracked run summary:
@@ -282,6 +301,8 @@ Confusion matrix:
   - [`results/grenoble_gpu_20260324/run_config.json`](results/grenoble_gpu_20260324/run_config.json)
 - actual XAI outputs:
   - [`results/grenoble_gpu_20260324/xai/`](results/grenoble_gpu_20260324/xai/)
+- refreshed extended gallery (16 images):
+  - [`results/brain_mri_refresh_xai_20260418/xai_summary.json`](results/brain_mri_refresh_xai_20260418/xai_summary.json)
 
 ### Evaluation-grade XAI comparison (Brain MRI)
 

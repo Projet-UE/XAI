@@ -1,0 +1,164 @@
+{
+  "exported": [
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "yes/Y38.jpg",
+      "probability": 0.5642049312591553
+    },
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "yes/Y49.JPG",
+      "probability": 0.5952274203300476
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "no/no 99.jpg",
+      "probability": 0.43428269028663635
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "no/9 no.jpg",
+      "probability": 0.5207349061965942
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "no/no 92.jpg",
+      "probability": 0.5206505656242371
+    },
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "yes/.ipynb_checkpoints/Y195-checkpoint.JPG",
+      "probability": 0.6029672622680664
+    },
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "yes/Y26.jpg",
+      "probability": 0.5007229447364807
+    },
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "yes/Y148.JPG",
+      "probability": 0.5153263807296753
+    },
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "yes/Y75.JPG",
+      "probability": 0.6488826274871826
+    },
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "yes/Y74.jpg",
+      "probability": 0.6132022738456726
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "no/44no.jpg",
+      "probability": 0.41665372252464294
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "no/No19.jpg",
+      "probability": 0.263713538646698
+    },
+    {
+      "class_name": "yes",
+      "label": 1,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "yes/Y111.JPG",
+      "probability": 0.6938309669494629
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "no/31 no.jpg",
+      "probability": 0.5195980072021484
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "no/no 98.jpg",
+      "probability": 0.25291621685028076
+    },
+    {
+      "class_name": "no",
+      "label": 0,
+      "methods": [
+        "gradcam",
+        "integrated_gradients"
+      ],
+      "path": "no/37 no.jpg",
+      "probability": 0.21355895698070526
+    }
+  ]
+}

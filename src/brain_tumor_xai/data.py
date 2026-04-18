@@ -17,12 +17,20 @@ IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
 
 
+def _is_hidden_path(path: Path, root: Path) -> bool:
+    try:
+        relative_parts = path.relative_to(root).parts
+    except ValueError:
+        relative_parts = path.parts
+    return any(part.startswith(".") for part in relative_parts)
+
+
 def scan_image_folder(data_root: Union[str, Path]) -> Tuple[List[str], List[Dict[str, Any]]]:
     root = Path(data_root)
     if not root.exists():
         raise FileNotFoundError(f"Dataset directory not found: {root}")
 
-    class_dirs = sorted([path for path in root.iterdir() if path.is_dir()])
+    class_dirs = sorted([path for path in root.iterdir() if path.is_dir() and not path.name.startswith(".")])
     if not class_dirs:
         raise ValueError(f"No class folders found under: {root}")
 
@@ -33,6 +41,8 @@ def scan_image_folder(data_root: Union[str, Path]) -> Tuple[List[str], List[Dict
     for class_name in classes:
         class_dir = root / class_name
         for file_path in sorted(class_dir.rglob("*")):
+            if _is_hidden_path(file_path, root):
+                continue
             if file_path.is_file() and file_path.suffix.lower() in IMAGE_EXTENSIONS:
                 records.append(
                     {
