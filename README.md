@@ -45,10 +45,16 @@ If you need the quickest evaluator-facing entrypoint, start here:
 - frozen run index used in the pack:
   - [`results/evidence_pack_20260418_grid/traceability/run_index.json`](results/evidence_pack_20260418_grid/traceability/run_index.json)
 
-For the detailed autoPET protocol benchmark (with paired CI deltas, failure taxonomy, and cross-method agreement):
+For the current frozen autoPET protocol benchmark snapshot:
 
 - [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json)
 - [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md)
+
+Important note:
+
+- the autoPET pipeline supports Saliency, Integrated Gradients, and Occlusion for figure generation
+- the frozen repo-facing benchmark state currently retains only `integrated_gradients` on the tracked review set
+- a true multi-method autoPET benchmark is therefore not claimed as a final delivered result in this repository
 
 For the refreshed Brain MRI protocol benchmark:
 
@@ -75,7 +81,8 @@ This is the line kept as the **primary project contribution** because it is the 
 | Main checkpoint base | `fdg_full + nnUNetTrainer_50epochs` |
 | Main retained variant | `post_best_dice_50epochs` |
 | Secondary comparison | `post_low_fp_50epochs` |
-| XAI methods | Saliency, Integrated Gradients, Occlusion |
+| XAI pipeline methods | Saliency, Integrated Gradients, Occlusion |
+| Tracked protocol benchmark | `integrated_gradients` only (current frozen evidence) |
 
 ### Main results
 
@@ -168,11 +175,13 @@ python scripts/autopet_analyze_xai.py \
 
 This now exports:
 
-- protocol-level method ranking with a composite score
+- protocol-level method summary for the currently tracked autoPET method set
 - bootstrap 95% confidence intervals for key method metrics
 - a markdown summary ready to cite in the report
 
-For explicit paired method deltas (A-B) with confidence intervals:
+In the current frozen repo-facing state, only `integrated_gradients` is present in the tracked autoPET benchmark, so paired method-delta sections are empty by design.
+
+For explicit paired method deltas (A-B) with confidence intervals, when multiple review-ready methods are available:
 
 ```bash
 python scripts/autopet_compare_xai_methods.py \

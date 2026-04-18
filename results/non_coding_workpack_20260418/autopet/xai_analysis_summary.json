@@ -30,8 +30,9 @@
             "top10_ratio_inside_prediction": 0.0,
             "total_positive_attribution_mass": 9770.1259765625
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_4848bebb10/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_4848bebb10__integrated_gradients.png",
+          "method": "integrated_gradients",
+          "source_figure_original": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_4848bebb10/integrated_gradients.png"
         }
       ],
       "nnunet_case_id": "FDG_0060",
@@ -62,8 +63,9 @@
             "top10_ratio_inside_prediction": 0.0,
             "total_positive_attribution_mass": 1730.3702392578125
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_be3e55a32f/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_be3e55a32f__integrated_gradients.png",
+          "method": "integrated_gradients",
+          "source_figure_original": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_be3e55a32f/integrated_gradients.png"
         }
       ],
       "nnunet_case_id": "FDG_0062",
@@ -94,8 +96,9 @@
             "top10_ratio_inside_prediction": 0.0,
             "total_positive_attribution_mass": 8707.375
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_a1db71e797/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_a1db71e797__integrated_gradients.png",
+          "method": "integrated_gradients",
+          "source_figure_original": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_a1db71e797/integrated_gradients.png"
         }
       ],
       "nnunet_case_id": "FDG_0061",
@@ -126,8 +129,9 @@
             "top10_ratio_inside_prediction": 0.0054168494535467016,
             "total_positive_attribution_mass": 10662.3896484375
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_402c061122/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_402c061122__integrated_gradients.png",
+          "method": "integrated_gradients",
+          "source_figure_original": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_402c061122/integrated_gradients.png"
         }
       ],
       "nnunet_case_id": "FDG_0059",
@@ -158,8 +162,9 @@
             "top10_ratio_inside_prediction": 0.012931774399664309,
             "total_positive_attribution_mass": 2077.29833984375
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_05bed31780/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_05bed31780__integrated_gradients.png",
+          "method": "integrated_gradients",
+          "source_figure_original": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_05bed31780/integrated_gradients.png"
         }
       ],
       "nnunet_case_id": "FDG_0057",
@@ -190,8 +195,9 @@
             "top10_ratio_inside_prediction": 0.0,
             "total_positive_attribution_mass": 10737.9677734375
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_3bce0eb7aa/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_3bce0eb7aa__integrated_gradients.png",
+          "method": "integrated_gradients",
+          "source_figure_original": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_3bce0eb7aa/integrated_gradients.png"
         }
       ],
       "nnunet_case_id": "FDG_0058",
@@ -222,8 +228,9 @@
             "top10_ratio_inside_prediction": 0.0,
             "total_positive_attribution_mass": 10079.5341796875
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_e2309b8f92/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_e2309b8f92__integrated_gradients.png",
+          "method": "integrated_gradients",
+          "source_figure_original": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_e2309b8f92/integrated_gradients.png"
         }
       ],
       "nnunet_case_id": "FDG_0063",

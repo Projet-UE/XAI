@@ -8,9 +8,11 @@
       "autopet/figures/integrated_gradients.png",
       "autopet/figures/PETCT_402c061122__integrated_gradients.png",
       "autopet/figures/PETCT_4848bebb10__integrated_gradients.png",
+      "autopet/figures/PETCT_a1db71e797__integrated_gradients.png",
       "autopet/figures/PETCT_be3e55a32f__integrated_gradients.png",
       "autopet/figures/PETCT_05bed31780__integrated_gradients.png",
-      "autopet/figures/PETCT_3bce0eb7aa__integrated_gradients.png"
+      "autopet/figures/PETCT_3bce0eb7aa__integrated_gradients.png",
+      "autopet/figures/PETCT_e2309b8f92__integrated_gradients.png"
     ],
     "brain_mri": [
       "brain_mri/metrics.json",

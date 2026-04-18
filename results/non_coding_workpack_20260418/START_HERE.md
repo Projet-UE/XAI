@@ -15,7 +15,7 @@ Open these files first:
 ## 2) What each subfolder is for
 
 - `autopet/`
-  - Segmentation metrics, post-processing comparison, XAI analysis, autoPET figures.
+  - Segmentation metrics, post-processing comparison, single-method tracked XAI analysis, autoPET figures.
 - `brain_mri/`
   - Classification metrics, XAI benchmark, Brain MRI figures, extra qualitative XAI examples.
 - `tables/`
@@ -28,7 +28,9 @@ Open these files first:
 - Primary line: **autoPET FDG segmentation + XAI**.
 - Backup line: **Brain MRI classification + XAI**.
 - autoPET result was consolidated around the 50-epoch checkpoint and post-processed variants.
+- autoPET XAI is report-ready but currently consolidated on `integrated_gradients` only.
 - Brain MRI provides a stable classification baseline with interpretable XAI panels.
+- Brain MRI carries the full multi-method XAI benchmark used for method comparison.
 
 ## 4) Suggested figure usage
 

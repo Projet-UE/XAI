@@ -24,6 +24,8 @@ XAI protocol (tracked state):
 |---|---:|---:|
 | integrated_gradients | 1 | 0.0239 |
 
+Note: this frozen autoPET benchmark is a single-method tracked state. It is useful for interpretation and case analysis, but it should not be presented as a final three-method comparison.
+
 ## Brain MRI (backup line)
 
 | Metric | Value |
