@@ -50,9 +50,11 @@ For the detailed autoPET protocol benchmark (with paired CI deltas, failure taxo
 
 For the refreshed Brain MRI protocol benchmark:
 
-- [`results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json)
-- [`results/brain_mri_xai_benchmark_20260418/README.md`](results/brain_mri_xai_benchmark_20260418/README.md)
-- clean-manifest fast sanity check (2 methods, 500 bootstrap iterations):
+- clean-manifest full benchmark (3 methods, 1000 bootstrap iterations):
+  - [`results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json)
+  - [`results/brain_mri_xai_benchmark_20260418_clean_full/README.md`](results/brain_mri_xai_benchmark_20260418_clean_full/README.md)
+- previous benchmark snapshots (kept for traceability):
+  - [`results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json)
   - [`results/brain_mri_xai_benchmark_20260418_clean_fast/README.md`](results/brain_mri_xai_benchmark_20260418_clean_fast/README.md)
 
 ## Main track: autoPET FDG PET/CT segmentation + XAI
@@ -310,7 +312,7 @@ The refreshed run below expands the examples to **16 test images** using the sam
 - refreshed extended gallery (16 images):
   - [`results/brain_mri_refresh_xai_20260418/xai_summary.json`](results/brain_mri_refresh_xai_20260418/xai_summary.json)
   - [`results/brain_mri_refresh_xai_20260418/INTERPRETATION.md`](results/brain_mri_refresh_xai_20260418/INTERPRETATION.md)
-  - [`results/brain_mri_xai_benchmark_20260418_clean_fast/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418_clean_fast/xai_method_benchmark.json)
+  - [`results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json)
 
 ### Evaluation-grade XAI comparison (Brain MRI)
 

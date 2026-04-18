@@ -29,7 +29,7 @@ without running heavy training jobs live.
 ### 4. Brain MRI backup evidence (25-35s)
 - Open `brain_mri/metrics.json`.
 - Open `brain_mri/xai_method_benchmark.json` when present.
-- Current top method: `integrated_gradients`.
+- Current top method: `occlusion`.
 
 ### 5. Quick reproducibility proof (20-30s)
 - Show validation commands (do not launch heavy training):

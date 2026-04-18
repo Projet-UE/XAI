@@ -1,234 +1,10 @@
 {
   "cases": [
     {
-      "base_predicted_class_confidence": 0.5952274203300476,
-      "base_tumor_probability": 0.5952274203300476,
-      "class_name": "yes",
-      "index": 1,
-      "label": 1,
-      "methods": {
-        "gradcam": {
-          "base_predicted_class_confidence": 0.5952274203300476,
-          "base_tumor_probability": 0.5952274203300476,
-          "class_name": "yes",
-          "confidence_drop_by_fraction": {
-            "0.10": 0.027899563312530518,
-            "0.20": 0.025926053524017334,
-            "0.30": 0.039198338985443115
-          },
-          "index": 1,
-          "label": 1,
-          "mean_confidence_drop": 0.03100798527399699,
-          "path": "yes/Y49.JPG",
-          "predicted_label": 1
-        },
-        "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5952274203300476,
-          "base_tumor_probability": 0.5952274203300476,
-          "class_name": "yes",
-          "confidence_drop_by_fraction": {
-            "0.10": 0.13537123799324036,
-            "0.20": 0.15812698006629944,
-            "0.30": 0.1668088734149933
-          },
-          "index": 1,
-          "label": 1,
-          "mean_confidence_drop": 0.1534356971581777,
-          "path": "yes/Y49.JPG",
-          "predicted_label": 1
-        },
-        "occlusion": {
-          "base_predicted_class_confidence": 0.5952274203300476,
-          "base_tumor_probability": 0.5952274203300476,
-          "class_name": "yes",
-          "confidence_drop_by_fraction": {
-            "0.10": 0.11998814344406128,
-            "0.20": 0.11536431312561035,
-            "0.30": 0.11897116899490356
-          },
-          "index": 1,
-          "label": 1,
-          "mean_confidence_drop": 0.11810787518819173,
-          "path": "yes/Y49.JPG",
-          "predicted_label": 1
-        }
-      },
-      "path": "yes/Y49.JPG",
-      "predicted_label": 1
-    },
-    {
-      "base_predicted_class_confidence": 0.5657173097133636,
-      "base_tumor_probability": 0.43428269028663635,
-      "class_name": "no",
-      "index": 2,
-      "label": 0,
-      "methods": {
-        "gradcam": {
-          "base_predicted_class_confidence": 0.5657173097133636,
-          "base_tumor_probability": 0.43428269028663635,
-          "class_name": "no",
-          "confidence_drop_by_fraction": {
-            "0.10": 0.022832214832305908,
-            "0.20": 0.011308938264846802,
-            "0.30": -0.020832061767578125
-          },
-          "index": 2,
-          "label": 0,
-          "mean_confidence_drop": 0.004436363776524861,
-          "path": "no/no 99.jpg",
-          "predicted_label": 0
-        },
-        "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5657173097133636,
-          "base_tumor_probability": 0.43428269028663635,
-          "class_name": "no",
-          "confidence_drop_by_fraction": {
-            "0.10": -0.09799855947494507,
-            "0.20": -0.1682700216770172,
-            "0.30": -0.14986136555671692
-          },
-          "index": 2,
-          "label": 0,
-          "mean_confidence_drop": -0.1387099822362264,
-          "path": "no/no 99.jpg",
-          "predicted_label": 0
-        },
-        "occlusion": {
-          "base_predicted_class_confidence": 0.5657173097133636,
-          "base_tumor_probability": 0.43428269028663635,
-          "class_name": "no",
-          "confidence_drop_by_fraction": {
-            "0.10": -0.06320661306381226,
-            "0.20": -0.0594937801361084,
-            "0.30": -0.024373650550842285
-          },
-          "index": 2,
-          "label": 0,
-          "mean_confidence_drop": -0.04902468125025431,
-          "path": "no/no 99.jpg",
-          "predicted_label": 0
-        }
-      },
-      "path": "no/no 99.jpg",
-      "predicted_label": 0
-    },
-    {
-      "base_predicted_class_confidence": 0.5207349061965942,
-      "base_tumor_probability": 0.5207349061965942,
-      "class_name": "no",
-      "index": 3,
-      "label": 0,
-      "methods": {
-        "gradcam": {
-          "base_predicted_class_confidence": 0.5207349061965942,
-          "base_tumor_probability": 0.5207349061965942,
-          "class_name": "no",
-          "confidence_drop_by_fraction": {
-            "0.10": 0.009550809860229492,
-            "0.20": 0.0007179379463195801,
-            "0.30": 0.002432405948638916
-          },
-          "index": 3,
-          "label": 0,
-          "mean_confidence_drop": 0.004233717918395996,
-          "path": "no/9 no.jpg",
-          "predicted_label": 1
-        },
-        "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5207349061965942,
-          "base_tumor_probability": 0.5207349061965942,
-          "class_name": "no",
-          "confidence_drop_by_fraction": {
-            "0.10": 0.1934855580329895,
-            "0.20": 0.16511905193328857,
-            "0.30": 0.09823939204216003
-          },
-          "index": 3,
-          "label": 0,
-          "mean_confidence_drop": 0.1522813340028127,
-          "path": "no/9 no.jpg",
-          "predicted_label": 1
-        },
-        "occlusion": {
-          "base_predicted_class_confidence": 0.5207349061965942,
-          "base_tumor_probability": 0.5207349061965942,
-          "class_name": "no",
-          "confidence_drop_by_fraction": {
-            "0.10": -0.029021501541137695,
-            "0.20": -0.017314016819000244,
-            "0.30": 0.02955189347267151
-          },
-          "index": 3,
-          "label": 0,
-          "mean_confidence_drop": -0.005594541629155477,
-          "path": "no/9 no.jpg",
-          "predicted_label": 1
-        }
-      },
-      "path": "no/9 no.jpg",
-      "predicted_label": 1
-    },
-    {
-      "base_predicted_class_confidence": 0.5206506252288818,
-      "base_tumor_probability": 0.5206506252288818,
-      "class_name": "no",
-      "index": 4,
-      "label": 0,
-      "methods": {
-        "gradcam": {
-          "base_predicted_class_confidence": 0.5206506252288818,
-          "base_tumor_probability": 0.5206506252288818,
-          "class_name": "no",
-          "confidence_drop_by_fraction": {
-            "0.10": -0.0056816935539245605,
-            "0.20": -0.001891493797302246,
-            "0.30": -0.017267942428588867
-          },
-          "index": 4,
-          "label": 0,
-          "mean_confidence_drop": -0.00828037659327189,
-          "path": "no/no 92.jpg",
-          "predicted_label": 1
-        },
-        "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5206506252288818,
-          "base_tumor_probability": 0.5206506252288818,
-          "class_name": "no",
-          "confidence_drop_by_fraction": {
-            "0.10": 0.1287570297718048,
-            "0.20": 0.15751200914382935,
-            "0.30": 0.11591184139251709
-          },
-          "index": 4,
-          "label": 0,
-          "mean_confidence_drop": 0.13406029343605042,
-          "path": "no/no 92.jpg",
-          "predicted_label": 1
-        },
-        "occlusion": {
-          "base_predicted_class_confidence": 0.5206506252288818,
-          "base_tumor_probability": 0.5206506252288818,
-          "class_name": "no",
-          "confidence_drop_by_fraction": {
-            "0.10": -0.01891481876373291,
-            "0.20": -0.02968919277191162,
-            "0.30": -0.012882232666015625
-          },
-          "index": 4,
-          "label": 0,
-          "mean_confidence_drop": -0.02049541473388672,
-          "path": "no/no 92.jpg",
-          "predicted_label": 1
-        }
-      },
-      "path": "no/no 92.jpg",
-      "predicted_label": 1
-    },
-    {
       "base_predicted_class_confidence": 0.6029672622680664,
       "base_tumor_probability": 0.6029672622680664,
       "class_name": "yes",
-      "index": 5,
+      "index": 0,
       "label": 1,
       "methods": {
         "gradcam": {
@@ -240,10 +16,10 @@
             "0.20": 0.0391276478767395,
             "0.30": 0.03986024856567383
           },
-          "index": 5,
+          "index": 0,
           "label": 1,
           "mean_confidence_drop": 0.03473921616872152,
-          "path": "yes/.ipynb_checkpoints/Y195-checkpoint.JPG",
+          "path": "yes/Y195.JPG",
           "predicted_label": 1
         },
         "integrated_gradients": {
@@ -255,10 +31,10 @@
             "0.20": 0.12013044953346252,
             "0.30": 0.16571307182312012
           },
-          "index": 5,
+          "index": 0,
           "label": 1,
           "mean_confidence_drop": 0.1294128199418386,
-          "path": "yes/.ipynb_checkpoints/Y195-checkpoint.JPG",
+          "path": "yes/Y195.JPG",
           "predicted_label": 1
         },
         "occlusion": {
@@ -270,638 +46,863 @@
             "0.20": 0.14089632034301758,
             "0.30": 0.10332784056663513
           },
-          "index": 5,
+          "index": 0,
           "label": 1,
           "mean_confidence_drop": 0.10926476120948792,
-          "path": "yes/.ipynb_checkpoints/Y195-checkpoint.JPG",
+          "path": "yes/Y195.JPG",
           "predicted_label": 1
         }
       },
-      "path": "yes/.ipynb_checkpoints/Y195-checkpoint.JPG",
+      "path": "yes/Y195.JPG",
       "predicted_label": 1
     },
     {
-      "base_predicted_class_confidence": 0.5007229447364807,
-      "base_tumor_probability": 0.5007229447364807,
+      "base_predicted_class_confidence": 0.5575125217437744,
+      "base_tumor_probability": 0.5575125217437744,
+      "class_name": "yes",
+      "index": 1,
+      "label": 1,
+      "methods": {
+        "gradcam": {
+          "base_predicted_class_confidence": 0.5575125217437744,
+          "base_tumor_probability": 0.5575125217437744,
+          "class_name": "yes",
+          "confidence_drop_by_fraction": {
+            "0.10": -0.01622915267944336,
+            "0.20": -0.05825948715209961,
+            "0.30": -0.036218225955963135
+          },
+          "index": 1,
+          "label": 1,
+          "mean_confidence_drop": -0.036902288595835366,
+          "path": "yes/Y109.JPG",
+          "predicted_label": 1
+        },
+        "integrated_gradients": {
+          "base_predicted_class_confidence": 0.5575125217437744,
+          "base_tumor_probability": 0.5575125217437744,
+          "class_name": "yes",
+          "confidence_drop_by_fraction": {
+            "0.10": 0.058752864599227905,
+            "0.20": 0.10322120785713196,
+            "0.30": 0.02306234836578369
+          },
+          "index": 1,
+          "label": 1,
+          "mean_confidence_drop": 0.061678806940714516,
+          "path": "yes/Y109.JPG",
+          "predicted_label": 1
+        },
+        "occlusion": {
+          "base_predicted_class_confidence": 0.5575125217437744,
+          "base_tumor_probability": 0.5575125217437744,
+          "class_name": "yes",
+          "confidence_drop_by_fraction": {
+            "0.10": 0.0729968249797821,
+            "0.20": 0.08796975016593933,
+            "0.30": 0.06676870584487915
+          },
+          "index": 1,
+          "label": 1,
+          "mean_confidence_drop": 0.0759117603302002,
+          "path": "yes/Y109.JPG",
+          "predicted_label": 1
+        }
+      },
+      "path": "yes/Y109.JPG",
+      "predicted_label": 1
+    },
+    {
+      "base_predicted_class_confidence": 0.580560714006424,
+      "base_tumor_probability": 0.41943928599357605,
+      "class_name": "no",
+      "index": 2,
+      "label": 0,
+      "methods": {
+        "gradcam": {
+          "base_predicted_class_confidence": 0.580560714006424,
+          "base_tumor_probability": 0.41943928599357605,
+          "class_name": "no",
+          "confidence_drop_by_fraction": {
+            "0.10": -0.006461828947067261,
+            "0.20": 0.01999804377555847,
+            "0.30": 0.032318681478500366
+          },
+          "index": 2,
+          "label": 0,
+          "mean_confidence_drop": 0.015284965435663858,
+          "path": "no/No22.jpg",
+          "predicted_label": 0
+        },
+        "integrated_gradients": {
+          "base_predicted_class_confidence": 0.580560714006424,
+          "base_tumor_probability": 0.41943928599357605,
+          "class_name": "no",
+          "confidence_drop_by_fraction": {
+            "0.10": -0.12372443079948425,
+            "0.20": -0.18857607245445251,
+            "0.30": -0.17045462131500244
+          },
+          "index": 2,
+          "label": 0,
+          "mean_confidence_drop": -0.16091837485631308,
+          "path": "no/No22.jpg",
+          "predicted_label": 0
+        },
+        "occlusion": {
+          "base_predicted_class_confidence": 0.580560714006424,
+          "base_tumor_probability": 0.41943928599357605,
+          "class_name": "no",
+          "confidence_drop_by_fraction": {
+            "0.10": -0.01528283953666687,
+            "0.20": -0.004273593425750732,
+            "0.30": 0.022530734539031982
+          },
+          "index": 2,
+          "label": 0,
+          "mean_confidence_drop": 0.00099143385887146,
+          "path": "no/No22.jpg",
+          "predicted_label": 0
+        }
+      },
+      "path": "no/No22.jpg",
+      "predicted_label": 0
+    },
+    {
+      "base_predicted_class_confidence": 0.5052406787872314,
+      "base_tumor_probability": 0.5052406787872314,
+      "class_name": "no",
+      "index": 3,
+      "label": 0,
+      "methods": {
+        "gradcam": {
+          "base_predicted_class_confidence": 0.5052406787872314,
+          "base_tumor_probability": 0.5052406787872314,
+          "class_name": "no",
+          "confidence_drop_by_fraction": {
+            "0.10": -0.0030744075775146484,
+            "0.20": -0.024656593799591064,
+            "0.30": -0.03459960222244263
+          },
+          "index": 3,
+          "label": 0,
+          "mean_confidence_drop": -0.020776867866516113,
+          "path": "no/4 no.jpg",
+          "predicted_label": 1
+        },
+        "integrated_gradients": {
+          "base_predicted_class_confidence": 0.5052406787872314,
+          "base_tumor_probability": 0.5052406787872314,
+          "class_name": "no",
+          "confidence_drop_by_fraction": {
+            "0.10": 0.02254989743232727,
+            "0.20": 0.011964410543441772,
+            "0.30": 0.024890214204788208
+          },
+          "index": 3,
+          "label": 0,
+          "mean_confidence_drop": 0.019801507393519085,
+          "path": "no/4 no.jpg",
+          "predicted_label": 1
+        },
+        "occlusion": {
+          "base_predicted_class_confidence": 0.5052406787872314,
+          "base_tumor_probability": 0.5052406787872314,
+          "class_name": "no",
+          "confidence_drop_by_fraction": {
+            "0.10": -0.03133600950241089,
+            "0.20": -0.035038650035858154,
+            "0.30": -0.05810457468032837
+          },
+          "index": 3,
+          "label": 0,
+          "mean_confidence_drop": -0.041493078072865806,
+          "path": "no/4 no.jpg",
+          "predicted_label": 1
+        }
+      },
+      "path": "no/4 no.jpg",
+      "predicted_label": 1
+    },
+    {
+      "base_predicted_class_confidence": 0.6715632081031799,
+      "base_tumor_probability": 0.32843679189682007,
+      "class_name": "no",
+      "index": 4,
+      "label": 0,
+      "methods": {
+        "gradcam": {
+          "base_predicted_class_confidence": 0.6715632081031799,
+          "base_tumor_probability": 0.32843679189682007,
+          "class_name": "no",
+          "confidence_drop_by_fraction": {
+            "0.10": 0.000888526439666748,
+            "0.20": 0.021425634622573853,
+            "0.30": 0.04964137077331543
+          },
+          "index": 4,
+          "label": 0,
+          "mean_confidence_drop": 0.023985177278518677,
+          "path": "no/N3.jpg",
+          "predicted_label": 0
+        },
+        "integrated_gradients": {
+          "base_predicted_class_confidence": 0.6715632081031799,
+          "base_tumor_probability": 0.32843679189682007,
+          "class_name": "no",
+          "confidence_drop_by_fraction": {
+            "0.10": -0.045922666788101196,
+            "0.20": -0.09183597564697266,
+            "0.30": -0.10287947952747345
+          },
+          "index": 4,
+          "label": 0,
+          "mean_confidence_drop": -0.0802127073208491,
+          "path": "no/N3.jpg",
+          "predicted_label": 0
+        },
+        "occlusion": {
+          "base_predicted_class_confidence": 0.6715632081031799,
+          "base_tumor_probability": 0.32843679189682007,
+          "class_name": "no",
+          "confidence_drop_by_fraction": {
+            "0.10": 0.06917348504066467,
+            "0.20": 0.08719342947006226,
+            "0.30": 0.09653162956237793
+          },
+          "index": 4,
+          "label": 0,
+          "mean_confidence_drop": 0.08429951469103496,
+          "path": "no/N3.jpg",
+          "predicted_label": 0
+        }
+      },
+      "path": "no/N3.jpg",
+      "predicted_label": 0
+    },
+    {
+      "base_predicted_class_confidence": 0.5764482617378235,
+      "base_tumor_probability": 0.5764482617378235,
+      "class_name": "yes",
+      "index": 5,
+      "label": 1,
+      "methods": {
+        "gradcam": {
+          "base_predicted_class_confidence": 0.5764482617378235,
+          "base_tumor_probability": 0.5764482617378235,
+          "class_name": "yes",
+          "confidence_drop_by_fraction": {
+            "0.10": 0.01692342758178711,
+            "0.20": 0.006863534450531006,
+            "0.30": -0.005356788635253906
+          },
+          "index": 5,
+          "label": 1,
+          "mean_confidence_drop": 0.006143391132354736,
+          "path": "yes/Y60.jpg",
+          "predicted_label": 1
+        },
+        "integrated_gradients": {
+          "base_predicted_class_confidence": 0.5764482617378235,
+          "base_tumor_probability": 0.5764482617378235,
+          "class_name": "yes",
+          "confidence_drop_by_fraction": {
+            "0.10": 0.1235988438129425,
+            "0.20": 0.15016290545463562,
+            "0.30": 0.1381114423274994
+          },
+          "index": 5,
+          "label": 1,
+          "mean_confidence_drop": 0.13729106386502585,
+          "path": "yes/Y60.jpg",
+          "predicted_label": 1
+        },
+        "occlusion": {
+          "base_predicted_class_confidence": 0.5764482617378235,
+          "base_tumor_probability": 0.5764482617378235,
+          "class_name": "yes",
+          "confidence_drop_by_fraction": {
+            "0.10": 0.10933253169059753,
+            "0.20": 0.1298390030860901,
+            "0.30": 0.08767810463905334
+          },
+          "index": 5,
+          "label": 1,
+          "mean_confidence_drop": 0.108949879805247,
+          "path": "yes/Y60.jpg",
+          "predicted_label": 1
+        }
+      },
+      "path": "yes/Y60.jpg",
+      "predicted_label": 1
+    },
+    {
+      "base_predicted_class_confidence": 0.538498044013977,
+      "base_tumor_probability": 0.538498044013977,
       "class_name": "yes",
       "index": 6,
       "label": 1,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.5007229447364807,
-          "base_tumor_probability": 0.5007229447364807,
+          "base_predicted_class_confidence": 0.538498044013977,
+          "base_tumor_probability": 0.538498044013977,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.009327948093414307,
-            "0.20": -0.010594010353088379,
-            "0.30": 0.01011320948600769
+            "0.10": 0.024739444255828857,
+            "0.20": 0.023355424404144287,
+            "0.30": 0.046229422092437744
           },
           "index": 6,
           "label": 1,
-          "mean_confidence_drop": 0.0029490490754445395,
-          "path": "yes/Y26.jpg",
+          "mean_confidence_drop": 0.03144143025080363,
+          "path": "yes/Y27.jpg",
           "predicted_label": 1
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5007229447364807,
-          "base_tumor_probability": 0.5007229447364807,
+          "base_predicted_class_confidence": 0.538498044013977,
+          "base_tumor_probability": 0.538498044013977,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.06967049837112427,
-            "0.20": 0.1519862711429596,
-            "0.30": 0.11878961324691772
+            "0.10": 0.08112108707427979,
+            "0.20": 0.1000317633152008,
+            "0.30": 0.039044857025146484
           },
           "index": 6,
           "label": 1,
-          "mean_confidence_drop": 0.11348212758700053,
-          "path": "yes/Y26.jpg",
+          "mean_confidence_drop": 0.07339923580487569,
+          "path": "yes/Y27.jpg",
           "predicted_label": 1
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.5007229447364807,
-          "base_tumor_probability": 0.5007229447364807,
+          "base_predicted_class_confidence": 0.538498044013977,
+          "base_tumor_probability": 0.538498044013977,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.12453392148017883,
-            "0.20": 0.056008338928222656,
-            "0.30": 0.04113665223121643
+            "0.10": 0.027140259742736816,
+            "0.20": 0.05559861660003662,
+            "0.30": 0.06643730401992798
           },
           "index": 6,
           "label": 1,
-          "mean_confidence_drop": 0.07389297087987264,
-          "path": "yes/Y26.jpg",
+          "mean_confidence_drop": 0.0497253934542338,
+          "path": "yes/Y27.jpg",
           "predicted_label": 1
         }
       },
-      "path": "yes/Y26.jpg",
+      "path": "yes/Y27.jpg",
       "predicted_label": 1
     },
     {
-      "base_predicted_class_confidence": 0.5833462774753571,
-      "base_tumor_probability": 0.41665372252464294,
+      "base_predicted_class_confidence": 0.815162181854248,
+      "base_tumor_probability": 0.18483781814575195,
       "class_name": "no",
       "index": 10,
       "label": 0,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.5833462774753571,
-          "base_tumor_probability": 0.41665372252464294,
+          "base_predicted_class_confidence": 0.815162181854248,
+          "base_tumor_probability": 0.18483781814575195,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.012345492839813232,
-            "0.20": 0.01870054006576538,
-            "0.30": 0.023838281631469727
+            "0.10": 0.03644619882106781,
+            "0.20": 0.07834804058074951,
+            "0.30": 0.16167590022087097
           },
           "index": 10,
           "label": 0,
-          "mean_confidence_drop": 0.018294771512349445,
-          "path": "no/44no.jpg",
+          "mean_confidence_drop": 0.09215671320756276,
+          "path": "no/No11.jpg",
           "predicted_label": 0
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5833462774753571,
-          "base_tumor_probability": 0.41665372252464294,
+          "base_predicted_class_confidence": 0.815162181854248,
+          "base_tumor_probability": 0.18483781814575195,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.01386454701423645,
-            "0.20": -0.003629624843597412,
-            "0.30": 0.04042533040046692
+            "0.10": 0.08708140254020691,
+            "0.20": 0.07666322588920593,
+            "0.30": 0.14194321632385254
           },
           "index": 10,
           "label": 0,
-          "mean_confidence_drop": 0.01688675085703532,
-          "path": "no/44no.jpg",
+          "mean_confidence_drop": 0.10189594825108846,
+          "path": "no/No11.jpg",
           "predicted_label": 0
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.5833462774753571,
-          "base_tumor_probability": 0.41665372252464294,
+          "base_predicted_class_confidence": 0.815162181854248,
+          "base_tumor_probability": 0.18483781814575195,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.07391974329948425,
-            "0.20": 0.10207971930503845,
-            "0.30": 0.12007316946983337
+            "0.10": 0.0826621949672699,
+            "0.20": 0.10630762577056885,
+            "0.30": 0.2116488814353943
           },
           "index": 10,
           "label": 0,
-          "mean_confidence_drop": 0.0986908773581187,
-          "path": "no/44no.jpg",
+          "mean_confidence_drop": 0.13353956739107767,
+          "path": "no/No11.jpg",
           "predicted_label": 0
         }
       },
-      "path": "no/44no.jpg",
+      "path": "no/No11.jpg",
       "predicted_label": 0
     },
     {
-      "base_predicted_class_confidence": 0.736286461353302,
-      "base_tumor_probability": 0.263713538646698,
+      "base_predicted_class_confidence": 0.5563292503356934,
+      "base_tumor_probability": 0.44367074966430664,
       "class_name": "no",
       "index": 11,
       "label": 0,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.736286461353302,
-          "base_tumor_probability": 0.263713538646698,
+          "base_predicted_class_confidence": 0.5563292503356934,
+          "base_tumor_probability": 0.44367074966430664,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.005690336227416992,
-            "0.20": 0.03731942176818848,
-            "0.30": 0.10939818620681763
+            "0.10": -0.01609581708908081,
+            "0.20": 0.007825464010238647,
+            "0.30": 0.013077199459075928
           },
           "index": 11,
           "label": 0,
-          "mean_confidence_drop": 0.050802648067474365,
-          "path": "no/No19.jpg",
+          "mean_confidence_drop": 0.0016022821267445881,
+          "path": "no/N22.JPG",
           "predicted_label": 0
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.736286461353302,
-          "base_tumor_probability": 0.263713538646698,
+          "base_predicted_class_confidence": 0.5563292503356934,
+          "base_tumor_probability": 0.44367074966430664,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.009955942630767822,
-            "0.20": 0.05027782917022705,
-            "0.30": 0.06504526734352112
+            "0.10": -0.1990501433610916,
+            "0.20": -0.2576773464679718,
+            "0.30": -0.2237665057182312
           },
           "index": 11,
           "label": 0,
-          "mean_confidence_drop": 0.04175967971483866,
-          "path": "no/No19.jpg",
+          "mean_confidence_drop": -0.2268313318490982,
+          "path": "no/N22.JPG",
           "predicted_label": 0
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.736286461353302,
-          "base_tumor_probability": 0.263713538646698,
+          "base_predicted_class_confidence": 0.5563292503356934,
+          "base_tumor_probability": 0.44367074966430664,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.11327710747718811,
-            "0.20": 0.17573919892311096,
-            "0.30": 0.21889638900756836
+            "0.10": -0.04944878816604614,
+            "0.20": -0.10055795311927795,
+            "0.30": -0.06673035025596619
           },
           "index": 11,
           "label": 0,
-          "mean_confidence_drop": 0.16930423180262247,
-          "path": "no/No19.jpg",
+          "mean_confidence_drop": -0.0722456971804301,
+          "path": "no/N22.JPG",
           "predicted_label": 0
         }
       },
-      "path": "no/No19.jpg",
+      "path": "no/N22.JPG",
       "predicted_label": 0
     },
     {
-      "base_predicted_class_confidence": 0.6040274500846863,
-      "base_tumor_probability": 0.6040274500846863,
+      "base_predicted_class_confidence": 0.5132333636283875,
+      "base_tumor_probability": 0.5132333636283875,
       "class_name": "yes",
       "index": 22,
       "label": 1,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.6040274500846863,
-          "base_tumor_probability": 0.6040274500846863,
+          "base_predicted_class_confidence": 0.5132333636283875,
+          "base_tumor_probability": 0.5132333636283875,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.023728787899017334,
-            "0.20": 0.025777220726013184,
-            "0.30": 0.000979781150817871
+            "0.10": 0.019732177257537842,
+            "0.20": 0.013148069381713867,
+            "0.30": -0.0027602314949035645
           },
           "index": 22,
           "label": 1,
-          "mean_confidence_drop": 0.016828596591949463,
-          "path": "yes/Y31.jpg",
+          "mean_confidence_drop": 0.010040005048116049,
+          "path": "yes/Y61.jpg",
           "predicted_label": 1
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.6040274500846863,
-          "base_tumor_probability": 0.6040274500846863,
+          "base_predicted_class_confidence": 0.5132333636283875,
+          "base_tumor_probability": 0.5132333636283875,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.17685899138450623,
-            "0.20": 0.27361011505126953,
-            "0.30": 0.3185112774372101
+            "0.10": 0.08360707759857178,
+            "0.20": 0.09199461340904236,
+            "0.30": 0.06708505749702454
           },
           "index": 22,
           "label": 1,
-          "mean_confidence_drop": 0.2563267946243286,
-          "path": "yes/Y31.jpg",
+          "mean_confidence_drop": 0.08089558283487956,
+          "path": "yes/Y61.jpg",
           "predicted_label": 1
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.6040274500846863,
-          "base_tumor_probability": 0.6040274500846863,
+          "base_predicted_class_confidence": 0.5132333636283875,
+          "base_tumor_probability": 0.5132333636283875,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.07771307229995728,
-            "0.20": 0.0911821722984314,
-            "0.30": 0.0684848427772522
+            "0.10": -0.015557587146759033,
+            "0.20": -0.02332061529159546,
+            "0.30": -0.024367332458496094
           },
           "index": 22,
           "label": 1,
-          "mean_confidence_drop": 0.0791266957918803,
-          "path": "yes/Y31.jpg",
+          "mean_confidence_drop": -0.021081844965616863,
+          "path": "yes/Y61.jpg",
           "predicted_label": 1
         }
       },
-      "path": "yes/Y31.jpg",
+      "path": "yes/Y61.jpg",
       "predicted_label": 1
     },
     {
-      "base_predicted_class_confidence": 0.8020568341016769,
-      "base_tumor_probability": 0.19794316589832306,
+      "base_predicted_class_confidence": 0.5683081746101379,
+      "base_tumor_probability": 0.43169182538986206,
       "class_name": "no",
       "index": 26,
       "label": 0,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.8020568341016769,
-          "base_tumor_probability": 0.19794316589832306,
+          "base_predicted_class_confidence": 0.5683081746101379,
+          "base_tumor_probability": 0.43169182538986206,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.011320441961288452,
-            "0.20": 0.05022887885570526,
-            "0.30": 0.1312418133020401
+            "0.10": -0.02340957522392273,
+            "0.20": 0.04036816954612732,
+            "0.30": 0.04597201943397522
           },
           "index": 26,
           "label": 0,
-          "mean_confidence_drop": 0.06426371137301128,
-          "path": "no/no 8.jpg",
+          "mean_confidence_drop": 0.020976871252059937,
+          "path": "no/N26.JPG",
           "predicted_label": 0
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.8020568341016769,
-          "base_tumor_probability": 0.19794316589832306,
+          "base_predicted_class_confidence": 0.5683081746101379,
+          "base_tumor_probability": 0.43169182538986206,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": -0.014568030834197998,
-            "0.20": -0.0028947442770004272,
-            "0.30": -5.4329633712768555e-05
+            "0.10": -0.1058456301689148,
+            "0.20": -0.11557793617248535,
+            "0.30": -0.07347726821899414
           },
           "index": 26,
           "label": 0,
-          "mean_confidence_drop": -0.005839034914970398,
-          "path": "no/no 8.jpg",
+          "mean_confidence_drop": -0.0983002781867981,
+          "path": "no/N26.JPG",
           "predicted_label": 0
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.8020568341016769,
-          "base_tumor_probability": 0.19794316589832306,
+          "base_predicted_class_confidence": 0.5683081746101379,
+          "base_tumor_probability": 0.43169182538986206,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.05805449187755585,
-            "0.20": 0.11340616643428802,
-            "0.30": 0.16734908521175385
+            "0.10": -0.10849064588546753,
+            "0.20": -0.07774406671524048,
+            "0.30": -0.06208774447441101
           },
           "index": 26,
           "label": 0,
-          "mean_confidence_drop": 0.11293658117453258,
-          "path": "no/no 8.jpg",
+          "mean_confidence_drop": -0.082774152358373,
+          "path": "no/N26.JPG",
           "predicted_label": 0
         }
       },
-      "path": "no/no 8.jpg",
+      "path": "no/N26.JPG",
       "predicted_label": 0
     },
     {
-      "base_predicted_class_confidence": 0.5207349061965942,
-      "base_tumor_probability": 0.5207349061965942,
+      "base_predicted_class_confidence": 0.6001816391944885,
+      "base_tumor_probability": 0.3998183608055115,
       "class_name": "no",
       "index": 27,
       "label": 0,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.5207349061965942,
-          "base_tumor_probability": 0.5207349061965942,
+          "base_predicted_class_confidence": 0.6001816391944885,
+          "base_tumor_probability": 0.3998183608055115,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.009550809860229492,
-            "0.20": 0.0007179379463195801,
-            "0.30": 0.002432405948638916
+            "0.10": 0.03717470169067383,
+            "0.20": 0.0296136736869812,
+            "0.30": 0.05280753970146179
           },
           "index": 27,
           "label": 0,
-          "mean_confidence_drop": 0.004233717918395996,
-          "path": "no/10 no.jpg",
-          "predicted_label": 1
+          "mean_confidence_drop": 0.039865305026372276,
+          "path": "no/N15.jpg",
+          "predicted_label": 0
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5207349061965942,
-          "base_tumor_probability": 0.5207349061965942,
+          "base_predicted_class_confidence": 0.6001816391944885,
+          "base_tumor_probability": 0.3998183608055115,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.1934855580329895,
-            "0.20": 0.16511905193328857,
-            "0.30": 0.09823939204216003
+            "0.10": -0.046388208866119385,
+            "0.20": -0.03409302234649658,
+            "0.30": -0.008077502250671387
           },
           "index": 27,
           "label": 0,
-          "mean_confidence_drop": 0.1522813340028127,
-          "path": "no/10 no.jpg",
-          "predicted_label": 1
+          "mean_confidence_drop": -0.029519577821095783,
+          "path": "no/N15.jpg",
+          "predicted_label": 0
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.5207349061965942,
-          "base_tumor_probability": 0.5207349061965942,
+          "base_predicted_class_confidence": 0.6001816391944885,
+          "base_tumor_probability": 0.3998183608055115,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": -0.029021501541137695,
-            "0.20": -0.017314016819000244,
-            "0.30": 0.02955189347267151
+            "0.10": -0.060570210218429565,
+            "0.20": 0.01880025863647461,
+            "0.30": 0.06772616505622864
           },
           "index": 27,
           "label": 0,
-          "mean_confidence_drop": -0.005594541629155477,
-          "path": "no/10 no.jpg",
-          "predicted_label": 1
+          "mean_confidence_drop": 0.008652071158091227,
+          "path": "no/N15.jpg",
+          "predicted_label": 0
         }
       },
-      "path": "no/10 no.jpg",
-      "predicted_label": 1
+      "path": "no/N15.jpg",
+      "predicted_label": 0
     },
     {
-      "base_predicted_class_confidence": 0.5719040036201477,
-      "base_tumor_probability": 0.5719040036201477,
+      "base_predicted_class_confidence": 0.7481340169906616,
+      "base_tumor_probability": 0.7481340169906616,
       "class_name": "yes",
       "index": 28,
       "label": 1,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.5719040036201477,
-          "base_tumor_probability": 0.5719040036201477,
+          "base_predicted_class_confidence": 0.7481340169906616,
+          "base_tumor_probability": 0.7481340169906616,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": -0.009846270084381104,
-            "0.20": 0.00520169734954834,
-            "0.30": 0.006664931774139404
+            "0.10": 0.09111028909683228,
+            "0.20": 0.11556267738342285,
+            "0.30": 0.1156158447265625
           },
           "index": 28,
           "label": 1,
-          "mean_confidence_drop": 0.0006734530131022135,
-          "path": "yes/Y39.jpg",
+          "mean_confidence_drop": 0.10742960373560588,
+          "path": "yes/Y11.jpg",
           "predicted_label": 1
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5719040036201477,
-          "base_tumor_probability": 0.5719040036201477,
+          "base_predicted_class_confidence": 0.7481340169906616,
+          "base_tumor_probability": 0.7481340169906616,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.1421053111553192,
-            "0.20": 0.08670908212661743,
-            "0.30": 0.06874442100524902
+            "0.10": 0.23069250583648682,
+            "0.20": 0.23236042261123657,
+            "0.30": 0.2151218056678772
           },
           "index": 28,
           "label": 1,
-          "mean_confidence_drop": 0.09918627142906189,
-          "path": "yes/Y39.jpg",
+          "mean_confidence_drop": 0.2260582447052002,
+          "path": "yes/Y11.jpg",
           "predicted_label": 1
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.5719040036201477,
-          "base_tumor_probability": 0.5719040036201477,
+          "base_predicted_class_confidence": 0.7481340169906616,
+          "base_tumor_probability": 0.7481340169906616,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.07198935747146606,
-            "0.20": 0.09356352686882019,
-            "0.30": 0.06463122367858887
+            "0.10": 0.14763480424880981,
+            "0.20": 0.19759225845336914,
+            "0.30": 0.20718365907669067
           },
           "index": 28,
           "label": 1,
-          "mean_confidence_drop": 0.0767280360062917,
-          "path": "yes/Y39.jpg",
+          "mean_confidence_drop": 0.1841369072596232,
+          "path": "yes/Y11.jpg",
           "predicted_label": 1
         }
       },
-      "path": "yes/Y39.jpg",
+      "path": "yes/Y11.jpg",
       "predicted_label": 1
     },
     {
-      "base_predicted_class_confidence": 0.5638542771339417,
-      "base_tumor_probability": 0.5638542771339417,
+      "base_predicted_class_confidence": 0.6419730186462402,
+      "base_tumor_probability": 0.35802698135375977,
       "class_name": "yes",
       "index": 29,
       "label": 1,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.5638542771339417,
-          "base_tumor_probability": 0.5638542771339417,
+          "base_predicted_class_confidence": 0.6419730186462402,
+          "base_tumor_probability": 0.35802698135375977,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": -0.017973482608795166,
-            "0.20": -0.0055754780769348145,
-            "0.30": 0.0005285143852233887
+            "0.10": -0.015648961067199707,
+            "0.20": 0.0012116730213165283,
+            "0.30": 0.044244617223739624
           },
           "index": 29,
           "label": 1,
-          "mean_confidence_drop": -0.007673482100168864,
-          "path": "yes/Y156.JPG",
-          "predicted_label": 1
+          "mean_confidence_drop": 0.009935776392618815,
+          "path": "yes/Y95.jpg",
+          "predicted_label": 0
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5638542771339417,
-          "base_tumor_probability": 0.5638542771339417,
+          "base_predicted_class_confidence": 0.6419730186462402,
+          "base_tumor_probability": 0.35802698135375977,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.11864179372787476,
-            "0.20": 0.15395107865333557,
-            "0.30": 0.1100451648235321
+            "0.10": -0.03441789746284485,
+            "0.20": -0.04085355997085571,
+            "0.30": -0.03372347354888916
           },
           "index": 29,
           "label": 1,
-          "mean_confidence_drop": 0.1275460124015808,
-          "path": "yes/Y156.JPG",
-          "predicted_label": 1
+          "mean_confidence_drop": -0.03633164366086324,
+          "path": "yes/Y95.jpg",
+          "predicted_label": 0
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.5638542771339417,
-          "base_tumor_probability": 0.5638542771339417,
+          "base_predicted_class_confidence": 0.6419730186462402,
+          "base_tumor_probability": 0.35802698135375977,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.07856318354606628,
-            "0.20": 0.13023963570594788,
-            "0.30": 0.02374941110610962
+            "0.10": 0.09959360957145691,
+            "0.20": 0.1328485906124115,
+            "0.30": 0.14116555452346802
           },
           "index": 29,
           "label": 1,
-          "mean_confidence_drop": 0.07751741011937459,
-          "path": "yes/Y156.JPG",
-          "predicted_label": 1
+          "mean_confidence_drop": 0.12453591823577881,
+          "path": "yes/Y95.jpg",
+          "predicted_label": 0
         }
       },
-      "path": "yes/Y156.JPG",
-      "predicted_label": 1
+      "path": "yes/Y95.jpg",
+      "predicted_label": 0
     },
     {
-      "base_predicted_class_confidence": 0.6934064030647278,
-      "base_tumor_probability": 0.6934064030647278,
+      "base_predicted_class_confidence": 0.6542800068855286,
+      "base_tumor_probability": 0.6542800068855286,
       "class_name": "yes",
       "index": 32,
       "label": 1,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.6934064030647278,
-          "base_tumor_probability": 0.6934064030647278,
+          "base_predicted_class_confidence": 0.6542800068855286,
+          "base_tumor_probability": 0.6542800068855286,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.018261611461639404,
-            "0.20": 0.02839946746826172,
-            "0.30": 0.052055299282073975
+            "0.10": -0.014920294284820557,
+            "0.20": 0.0038450956344604492,
+            "0.30": 0.011313974857330322
           },
           "index": 32,
           "label": 1,
-          "mean_confidence_drop": 0.0329054594039917,
-          "path": "yes/Y120.JPG",
+          "mean_confidence_drop": 7.959206899007161e-05,
+          "path": "yes/Y164.JPG",
           "predicted_label": 1
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.6934064030647278,
-          "base_tumor_probability": 0.6934064030647278,
+          "base_predicted_class_confidence": 0.6542800068855286,
+          "base_tumor_probability": 0.6542800068855286,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.2027207314968109,
-            "0.20": 0.23209208250045776,
-            "0.30": 0.2449592649936676
+            "0.10": 0.08692073822021484,
+            "0.20": 0.1255587935447693,
+            "0.30": 0.11378985643386841
           },
           "index": 32,
           "label": 1,
-          "mean_confidence_drop": 0.22659069299697876,
-          "path": "yes/Y120.JPG",
+          "mean_confidence_drop": 0.10875646273295085,
+          "path": "yes/Y164.JPG",
           "predicted_label": 1
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.6934064030647278,
-          "base_tumor_probability": 0.6934064030647278,
+          "base_predicted_class_confidence": 0.6542800068855286,
+          "base_tumor_probability": 0.6542800068855286,
           "class_name": "yes",
           "confidence_drop_by_fraction": {
-            "0.10": 0.18846756219863892,
-            "0.20": 0.1394963264465332,
-            "0.30": 0.11380738019943237
+            "0.10": 0.015780746936798096,
+            "0.20": 0.04133343696594238,
+            "0.30": 0.0626150369644165
           },
           "index": 32,
           "label": 1,
-          "mean_confidence_drop": 0.14725708961486816,
-          "path": "yes/Y120.JPG",
+          "mean_confidence_drop": 0.03990974028905233,
+          "path": "yes/Y164.JPG",
           "predicted_label": 1
         }
       },
-      "path": "yes/Y120.JPG",
+      "path": "yes/Y164.JPG",
       "predicted_label": 1
     },
     {
-      "base_predicted_class_confidence": 0.6858562529087067,
-      "base_tumor_probability": 0.31414374709129333,
+      "base_predicted_class_confidence": 0.7864409983158112,
+      "base_tumor_probability": 0.21355900168418884,
       "class_name": "no",
-      "index": 34,
+      "index": 33,
       "label": 0,
       "methods": {
         "gradcam": {
-          "base_predicted_class_confidence": 0.6858562529087067,
-          "base_tumor_probability": 0.31414374709129333,
+          "base_predicted_class_confidence": 0.7864409983158112,
+          "base_tumor_probability": 0.21355900168418884,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.032328009605407715,
-            "0.20": 0.02478453516960144,
-            "0.30": 0.06010738015174866
+            "0.10": 0.03226381540298462,
+            "0.20": 0.0321507602930069,
+            "0.30": 0.14045187830924988
           },
-          "index": 34,
+          "index": 33,
           "label": 0,
-          "mean_confidence_drop": 0.03907330830891927,
-          "path": "no/48 no.jpeg",
+          "mean_confidence_drop": 0.06828881800174713,
+          "path": "no/37 no.jpg",
           "predicted_label": 0
         },
         "integrated_gradients": {
-          "base_predicted_class_confidence": 0.6858562529087067,
-          "base_tumor_probability": 0.31414374709129333,
+          "base_predicted_class_confidence": 0.7864409983158112,
+          "base_tumor_probability": 0.21355900168418884,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": -0.01535901427268982,
-            "0.20": -0.024042457342147827,
-            "0.30": -0.08536790311336517
+            "0.10": -0.040307506918907166,
+            "0.20": -0.010291993618011475,
+            "0.30": -0.0024508535861968994
           },
-          "index": 34,
+          "index": 33,
           "label": 0,
-          "mean_confidence_drop": -0.041589791576067604,
-          "path": "no/48 no.jpeg",
+          "mean_confidence_drop": -0.017683451374371845,
+          "path": "no/37 no.jpg",
           "predicted_label": 0
         },
         "occlusion": {
-          "base_predicted_class_confidence": 0.6858562529087067,
-          "base_tumor_probability": 0.31414374709129333,
+          "base_predicted_class_confidence": 0.7864409983158112,
+          "base_tumor_probability": 0.21355900168418884,
           "class_name": "no",
           "confidence_drop_by_fraction": {
-            "0.10": 0.098568856716156,
-            "0.20": 0.1552865207195282,
-            "0.30": 0.16711711883544922
+            "0.10": -0.005258023738861084,
+            "0.20": 0.06341153383255005,
+            "0.30": 0.06456613540649414
           },
-          "index": 34,
+          "index": 33,
           "label": 0,
-          "mean_confidence_drop": 0.14032416542371115,
-          "path": "no/48 no.jpeg",
+          "mean_confidence_drop": 0.040906548500061035,
+          "path": "no/37 no.jpg",
           "predicted_label": 0
         }
       },
-      "path": "no/48 no.jpeg",
-      "predicted_label": 0
-    },
-    {
-      "base_predicted_class_confidence": 0.5795000195503235,
-      "base_tumor_probability": 0.4204999804496765,
-      "class_name": "yes",
-      "index": 38,
-      "label": 1,
-      "methods": {
-        "gradcam": {
-          "base_predicted_class_confidence": 0.5795000195503235,
-          "base_tumor_probability": 0.4204999804496765,
-          "class_name": "yes",
-          "confidence_drop_by_fraction": {
-            "0.10": -0.009564042091369629,
-            "0.20": 0.022634953260421753,
-            "0.30": 0.05709671974182129
-          },
-          "index": 38,
-          "label": 1,
-          "mean_confidence_drop": 0.02338921030362447,
-          "path": "yes/Y193.JPG",
-          "predicted_label": 0
-        },
-        "integrated_gradients": {
-          "base_predicted_class_confidence": 0.5795000195503235,
-          "base_tumor_probability": 0.4204999804496765,
-          "class_name": "yes",
-          "confidence_drop_by_fraction": {
-            "0.10": -0.0739101767539978,
-            "0.20": -0.003357023000717163,
-            "0.30": 0.03411310911178589
-          },
-          "index": 38,
-          "label": 1,
-          "mean_confidence_drop": -0.014384696880976358,
-          "path": "yes/Y193.JPG",
-          "predicted_label": 0
-        },
-        "occlusion": {
-          "base_predicted_class_confidence": 0.5795000195503235,
-          "base_tumor_probability": 0.4204999804496765,
-          "class_name": "yes",
-          "confidence_drop_by_fraction": {
-            "0.10": 0.06711125373840332,
-            "0.20": 0.11064773797988892,
-            "0.30": 0.11291790008544922
-          },
-          "index": 38,
-          "label": 1,
-          "mean_confidence_drop": 0.09689229726791382,
-          "path": "yes/Y193.JPG",
-          "predicted_label": 0
-        }
-      },
-      "path": "yes/Y193.JPG",
+      "path": "no/37 no.jpg",
       "predicted_label": 0
     }
   ],
   "dataset": {
     "data_root": "/home/olmechi/data/brain-mri-images",
-    "manifest_path": "/home/olmechi/XAI_exec/artifacts/brain_mri_refresh_20260418/splits/brain_mri_split.json",
+    "manifest_path": "/home/olmechi/XAI_exec/artifacts/brain_mri_refresh_20260418/splits/brain_mri_split_clean_full.json",
     "selected_case_count": 16,
     "selected_indices": [
+      0,
       1,
       2,
       3,
@@ -916,8 +917,7 @@
       28,
       29,
       32,
-      34,
-      38
+      33
     ]
   },
   "methods": {
@@ -926,120 +926,120 @@
         "no": {
           "case_count": 8,
           "ci95_mean_confidence_drop": {
-            "high": 0.03961362317204476,
-            "low": 0.006235380967458089,
-            "mean": 0.022132232785224915,
+            "high": 0.05461043864488601,
+            "low": 0.007405124604701996,
+            "mean": 0.03017290805776914,
             "sample_count": 8.0
           },
-          "mean_confidence_drop": 0.022132232785224915,
-          "std_confidence_drop": 0.026124877600337666
+          "mean_confidence_drop": 0.03017290805776914,
+          "std_confidence_drop": 0.03614538801676
         },
         "yes": {
           "case_count": 8,
           "ci95_mean_confidence_drop": {
-            "high": 0.02686070650815964,
-            "low": 0.004834557573000589,
-            "mean": 0.016852435966332752,
+            "high": 0.05134953061739604,
+            "low": -0.002375734349091845,
+            "mean": 0.020363340775171917,
             "sample_count": 8.0
           },
-          "mean_confidence_drop": 0.016852435966332752,
-          "std_confidence_drop": 0.016376509065453442
+          "mean_confidence_drop": 0.020363340775171917,
+          "std_confidence_drop": 0.04143535257623712
         }
       },
       "case_count": 16,
       "ci95_mean_confidence_drop": {
-        "high": 0.029831122606992725,
-        "low": 0.009806557868917782,
-        "mean": 0.019492334375778835,
+        "high": 0.04552779129395882,
+        "low": 0.00839474548896154,
+        "mean": 0.025268124416470528,
         "sample_count": 16.0
       },
-      "mean_confidence_drop": 0.019492334375778835,
+      "mean_confidence_drop": 0.025268124416470528,
       "mean_confidence_drop_by_fraction": {
-        "0.10": 0.01031251810491085,
-        "0.20": 0.017049015499651432,
-        "0.30": 0.03111546952277422
+        "0.10": 0.011791768483817577,
+        "0.20": 0.021870489232242107,
+        "0.30": 0.0421421155333519
       },
-      "std_confidence_drop": 0.021238957867434172
+      "std_confidence_drop": 0.03790211345653584
     },
     "integrated_gradients": {
       "by_class": {
         "no": {
           "case_count": 8,
           "ci95_mean_confidence_drop": {
-            "high": 0.10461748143037161,
-            "low": -0.02735086716711521,
-            "mean": 0.038891322910785675,
+            "high": 0.005340399220585823,
+            "low": -0.12723701757689315,
+            "mean": -0.06147103322048982,
             "sample_count": 8.0
           },
-          "mean_confidence_drop": 0.038891322910785675,
-          "std_confidence_drop": 0.10370589536483245
+          "mean_confidence_drop": -0.06147103322048982,
+          "std_confidence_drop": 0.10362962212535548
         },
         "yes": {
           "case_count": 8,
           "ci95_mean_confidence_drop": {
-            "high": 0.18842043230930963,
-            "low": 0.08463583886623383,
-            "mean": 0.13644946490724882,
+            "high": 0.14690635725855827,
+            "low": 0.04907594124476115,
+            "mean": 0.09764507164557776,
             "sample_count": 8.0
           },
-          "mean_confidence_drop": 0.13644946490724882,
-          "std_confidence_drop": 0.08244506538185285
+          "mean_confidence_drop": 0.09764507164557776,
+          "std_confidence_drop": 0.07493438933033697
         }
       },
       "case_count": 16,
       "ci95_mean_confidence_drop": {
-        "high": 0.13544282224029303,
-        "low": 0.03848681257416805,
-        "mean": 0.08767039390901725,
+        "high": 0.07624571149547893,
+        "low": -0.03844439021001259,
+        "mean": 0.018087019212543964,
         "sample_count": 16.0
       },
-      "mean_confidence_drop": 0.08767039390901725,
+      "mean_confidence_drop": 0.018087019212543964,
       "mean_confidence_drop_by_fraction": {
-        "0.10": 0.08034227229654789,
-        "0.20": 0.09452750813215971,
-        "0.30": 0.08814140129834414
+        "0.10": 0.01756642945110798,
+        "0.20": 0.017073867842555046,
+        "0.30": 0.019620760343968868
       },
-      "std_confidence_drop": 0.10358091042075442
+      "std_confidence_drop": 0.11993097134437489
     },
     "occlusion": {
       "by_class": {
         "no": {
           "case_count": 8,
           "ci95_mean_confidence_drop": {
-            "high": 0.11034949434300262,
-            "low": 0.00014975915352503574,
-            "mean": 0.05506833456456661,
+            "high": 0.057431207348903016,
+            "low": -0.03619322677453359,
+            "mean": 0.00898452599843343,
             "sample_count": 8.0
           },
-          "mean_confidence_drop": 0.05506833456456661,
-          "std_confidence_drop": 0.08407077151713788
+          "mean_confidence_drop": 0.00898452599843343,
+          "std_confidence_drop": 0.0754371206001694
         },
         "yes": {
           "case_count": 8,
           "ci95_mean_confidence_drop": {
-            "high": 0.11524756252765657,
-            "low": 0.08153758446375528,
-            "mean": 0.09734839200973511,
+            "high": 0.12313120936354001,
+            "low": 0.041752507289250694,
+            "mean": 0.0839190644522508,
             "sample_count": 8.0
           },
-          "mean_confidence_drop": 0.09734839200973511,
-          "std_confidence_drop": 0.02608966964056055
+          "mean_confidence_drop": 0.0839190644522508,
+          "std_confidence_drop": 0.062286924260789946
         }
       },
       "case_count": 16,
       "ci95_mean_confidence_drop": {
-        "high": 0.10660426411777733,
-        "low": 0.04488440665105979,
-        "mean": 0.07620836328715086,
+        "high": 0.08369413204491138,
+        "low": 0.010610324641068779,
+        "mean": 0.04645179522534212,
         "sample_count": 16.0
       },
-      "mean_confidence_drop": 0.07620836328715086,
+      "mean_confidence_drop": 0.04645179522534212,
       "mean_confidence_drop_by_fraction": {
-        "0.10": 0.06347452383488417,
-        "0.20": 0.08125618565827608,
-        "0.30": 0.08389438036829233
+        "0.10": 0.02637127973139286,
+        "0.20": 0.051303496584296227,
+        "0.30": 0.06168060936033726
       },
-      "std_confidence_drop": 0.06397414656372251
+      "std_confidence_drop": 0.07722421075515273
     }
   },
   "model": {
@@ -1047,7 +1047,7 @@
     "device": "cpu"
   },
   "protocol": {
-    "bootstrap_iterations": 2000,
+    "bootstrap_iterations": 1000,
     "description": "For each sample, compute predicted-class confidence drop after masking top-attribution pixels. Higher confidence drop means stronger faithfulness of the attribution map.",
     "fractions": [
       0.1,
@@ -1060,35 +1060,35 @@
   "ranking": [
     {
       "ci95_mean_confidence_drop": {
-        "high": 0.13544282224029303,
-        "low": 0.03848681257416805,
-        "mean": 0.08767039390901725,
+        "high": 0.08369413204491138,
+        "low": 0.010610324641068779,
+        "mean": 0.04645179522534212,
         "sample_count": 16.0
       },
-      "mean_confidence_drop": 0.08767039390901725,
-      "method": "integrated_gradients",
+      "mean_confidence_drop": 0.04645179522534212,
+      "method": "occlusion",
       "rank": 1
     },
     {
       "ci95_mean_confidence_drop": {
-        "high": 0.10660426411777733,
-        "low": 0.04488440665105979,
-        "mean": 0.07620836328715086,
+        "high": 0.04552779129395882,
+        "low": 0.00839474548896154,
+        "mean": 0.025268124416470528,
         "sample_count": 16.0
       },
-      "mean_confidence_drop": 0.07620836328715086,
-      "method": "occlusion",
+      "mean_confidence_drop": 0.025268124416470528,
+      "method": "gradcam",
       "rank": 2
     },
     {
       "ci95_mean_confidence_drop": {
-        "high": 0.029831122606992725,
-        "low": 0.009806557868917782,
-        "mean": 0.019492334375778835,
+        "high": 0.07624571149547893,
+        "low": -0.03844439021001259,
+        "mean": 0.018087019212543964,
         "sample_count": 16.0
       },
-      "mean_confidence_drop": 0.019492334375778835,
-      "method": "gradcam",
+      "mean_confidence_drop": 0.018087019212543964,
+      "method": "integrated_gradients",
       "rank": 3
     }
   ],

@@ -39,6 +39,6 @@
     "autopet_main": "autopet_fdg_full_post_best_dice_50epochs_20260324",
     "autopet_xai_analysis": "autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327",
     "brain_mri_backup": "grenoble_gpu_20260324",
-    "brain_mri_xai_benchmark": "brain_mri_xai_benchmark_20260418"
+    "brain_mri_xai_benchmark": "brain_mri_xai_benchmark_20260418_clean_full"
   }
 }

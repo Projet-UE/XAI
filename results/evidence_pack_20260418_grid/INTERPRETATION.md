@@ -10,7 +10,7 @@
 ## Brain MRI (ligne backup)
 
 - Le backup Brain MRI reste cohérent pour la soutenance: accuracy `0.8684`, F1 `0.8889`, ROC-AUC `0.9391`.
-- Méthode XAI prioritaire sur Brain MRI: `integrated_gradients`.
+- Méthode XAI prioritaire sur Brain MRI: `occlusion`.
 
 ## Message projet recommandé
 
@@ -18,4 +18,4 @@
 - Le dossier met en évidence le compromis Dice/FN/FP des variantes post-traitées plutôt qu'un unique score isolé.
 - Les méthodes XAI sont interprétées comme explications de décision du modèle, pas comme preuve clinique directe.
 - Une galerie XAI élargie (16 cas équilibrés) est disponible dans `results/brain_mri_refresh_xai_20260418/`.
-- Un benchmark rapide de contrôle est disponible dans `results/brain_mri_xai_benchmark_20260418_clean_fast/`.
+- Le benchmark Brain MRI utilisé dans ce pack est `results/brain_mri_xai_benchmark_20260418_clean_full/`.

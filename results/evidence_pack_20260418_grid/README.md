@@ -19,7 +19,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 ## XAI benchmark highlights
 
 - autoPET top method: `integrated_gradients`
-- Brain MRI top method: `integrated_gradients`
+- Brain MRI top method: `occlusion`
 
 ## Contents
 
@@ -31,7 +31,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 - `EVALUATION_ALIGNMENT.md`: rubric-oriented checklist for client/soutenance/plan-projet review
 - `DEMO_RUNBOOK.md`: deterministic 2-3 minute demo flow aligned with `REQ-C2/C4/C5`
 - `../brain_mri_refresh_xai_20260418/`: expanded qualitative Brain MRI XAI gallery (`16` balanced cases)
-- `../brain_mri_xai_benchmark_20260418_clean_fast/`: clean-manifest sanity-check benchmark (fast protocol)
+- `../brain_mri_xai_benchmark_20260418_clean_full/`: selected Brain MRI benchmark used for this evidence pack
 
 ## Figure counts
 

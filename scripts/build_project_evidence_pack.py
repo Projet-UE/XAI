@@ -460,7 +460,10 @@ def main() -> None:
     if brain_mri_xai_benchmark:
         top_brain_method = _extract_top_method(brain_mri_xai_benchmark)
     brain_refresh_gallery_dir = args.results_root / "brain_mri_refresh_xai_20260418"
-    brain_fast_benchmark_dir = args.results_root / "brain_mri_xai_benchmark_20260418_clean_fast"
+    selected_brain_benchmark_run_id = args.brain_mri_xai_benchmark_run_id
+    selected_brain_benchmark_dir = (
+        args.results_root / selected_brain_benchmark_run_id if selected_brain_benchmark_run_id else None
+    )
 
     evidence_manifest = {
         "run_ids": {
@@ -546,9 +549,9 @@ def main() -> None:
         interpretation_lines.append(
             "- Une galerie XAI élargie (16 cas équilibrés) est disponible dans `results/brain_mri_refresh_xai_20260418/`."
         )
-    if brain_fast_benchmark_dir.exists():
+    if selected_brain_benchmark_dir is not None and selected_brain_benchmark_dir.exists():
         interpretation_lines.append(
-            "- Un benchmark rapide de contrôle est disponible dans `results/brain_mri_xai_benchmark_20260418_clean_fast/`."
+            f"- Le benchmark Brain MRI utilisé dans ce pack est `results/{selected_brain_benchmark_run_id}/`."
         )
     (output_dir / "INTERPRETATION.md").write_text("\n".join(interpretation_lines) + "\n", encoding="utf-8")
 
@@ -557,9 +560,9 @@ def main() -> None:
         optional_content_lines.append(
             "- `../brain_mri_refresh_xai_20260418/`: expanded qualitative Brain MRI XAI gallery (`16` balanced cases)"
         )
-    if brain_fast_benchmark_dir.exists():
+    if selected_brain_benchmark_dir is not None and selected_brain_benchmark_dir.exists():
         optional_content_lines.append(
-            "- `../brain_mri_xai_benchmark_20260418_clean_fast/`: clean-manifest sanity-check benchmark (fast protocol)"
+            f"- `../{selected_brain_benchmark_run_id}/`: selected Brain MRI benchmark used for this evidence pack"
         )
     optional_contents = "\n".join(optional_content_lines)
 
