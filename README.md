@@ -32,6 +32,8 @@ If you need the quickest evaluator-facing entrypoint, start here:
   - [`results/evidence_pack_20260418_grid/README.md`](results/evidence_pack_20260418_grid/README.md)
 - short interpretation blocks (report/slides ready):
   - [`results/evidence_pack_20260418_grid/INTERPRETATION.md`](results/evidence_pack_20260418_grid/INTERPRETATION.md)
+- rubric-aligned review checklist (client + soutenance + plan-projet):
+  - [`results/evidence_pack_20260418_grid/EVALUATION_ALIGNMENT.md`](results/evidence_pack_20260418_grid/EVALUATION_ALIGNMENT.md)
 - explicit evidence inventory:
   - [`results/evidence_pack_20260418_grid/evidence_manifest.json`](results/evidence_pack_20260418_grid/evidence_manifest.json)
 - requirement traceability:

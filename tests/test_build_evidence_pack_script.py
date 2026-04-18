@@ -72,3 +72,4 @@ def test_build_project_evidence_pack_smoke(tmp_path: Path) -> None:
     assert (output / "traceability" / "requirement_traceability.json").exists()
     assert (output / "evidence_manifest.json").exists()
     assert (output / "INTERPRETATION.md").exists()
+    assert (output / "EVALUATION_ALIGNMENT.md").exists()

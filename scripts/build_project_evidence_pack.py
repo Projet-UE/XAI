@@ -44,13 +44,28 @@ def parse_args() -> argparse.Namespace:
 
 def _copy_files(paths: Iterable[Path], destination_root: Path) -> List[str]:
     copied: List[str] = []
+    used_names: Dict[str, int] = {}
     for source in paths:
         if not source.exists() or not source.is_file():
             continue
-        target = destination_root / source.name
+        candidate = source.name
+        if candidate in used_names or (destination_root / candidate).exists():
+            candidate = f"{source.parent.name}__{source.name}"
+        if candidate in used_names or (destination_root / candidate).exists():
+            base = Path(candidate).stem
+            suffix = Path(candidate).suffix
+            index = 2
+            while True:
+                alt = f"{base}_{index}{suffix}"
+                if alt not in used_names and not (destination_root / alt).exists():
+                    candidate = alt
+                    break
+                index += 1
+        used_names[candidate] = used_names.get(candidate, 0) + 1
+        target = destination_root / candidate
         ensure_dir(target.parent)
         shutil.copy2(source, target)
-        copied.append(target.name)
+        copied.append(candidate)
     return copied
 
 
@@ -113,6 +128,106 @@ def _extract_top_method(payload: Dict[str, Any]) -> Optional[str]:
     if ranking:
         return ranking[0].get("method")
     return payload.get("preferred_method")
+
+
+def _status_from_expected(output_dir: Path, expected_paths: List[str]) -> str:
+    if not expected_paths:
+        return "missing"
+    present = [item for item in expected_paths if (output_dir / item).exists()]
+    if len(present) == len(expected_paths):
+        return "covered"
+    if present:
+        return "partial"
+    return "missing"
+
+
+def _build_evaluation_alignment(output_dir: Path) -> str:
+    sections = [
+        {
+            "criterion": "Client clôture — état fonctionnel des livrables",
+            "source": "EVALUATION_Client_2025.xlsx (phase 3: clôture, fonctionnel)",
+            "expected": [
+                "autopet/segmentation_metrics.json",
+                "autopet/comparison.json",
+                "brain_mri/metrics.json",
+            ],
+            "note": "Montre que les pipelines produisent des sorties exploitables et comparables.",
+        },
+        {
+            "criterion": "Client clôture — état qualitatif des livrables",
+            "source": "EVALUATION_Client_2025.xlsx (phase 3: clôture, qualitatif)",
+            "expected": [
+                "autopet/method_benchmark.json",
+                "brain_mri/xai_method_benchmark.json",
+                "INTERPRETATION.md",
+            ],
+            "note": "Supporte l'analyse des méthodes XAI et l'interprétation attendue en revue cliente.",
+        },
+        {
+            "criterion": "Client clôture — maintenance / évolutivité",
+            "source": "EVALUATION_Client_2025.xlsx (phase 3: maintenance et évolution)",
+            "expected": [
+                "traceability/run_index.json",
+                "evidence_manifest.json",
+                "traceability/requirement_traceability.json",
+            ],
+            "note": "Assure la traçabilité des runs, des versions et des preuves pour la reprise ultérieure.",
+        },
+        {
+            "criterion": "Soutenance — contexte / livrables / preuves",
+            "source": "EVALUATION_Soutenance_projet 2026 .xlsx",
+            "expected": [
+                "README.md",
+                "autopet/comparison.json",
+                "autopet/segmentation_metrics.json",
+                "brain_mri/metrics.json",
+                "traceability/requirement_traceability.json",
+            ],
+            "note": "Fournit des artefacts directs pour justifier le contexte, les livrables et les résultats.",
+        },
+        {
+            "criterion": "Plan projet V3 — accès, couverture, traçabilité",
+            "source": "EVALUATION_Plan_Projet_et_UE_Projet.xlsx",
+            "expected": [
+                "README.md",
+                "INTERPRETATION.md",
+                "traceability/requirement_traceability.json",
+                "evidence_manifest.json",
+            ],
+            "note": "Rend vérifiable l'accès aux preuves citées dans le plan projet.",
+        },
+    ]
+
+    lines = [
+        "# Evaluation Alignment",
+        "",
+        "This file maps the evidence pack to key criteria extracted from the project evaluation rubrics",
+        "available in `new/Materials` (client, soutenance, and plan-projet grids).",
+        "",
+    ]
+    for row in sections:
+        status = _status_from_expected(output_dir, row["expected"])
+        lines.append(f"## {row['criterion']}")
+        lines.append("")
+        lines.append(f"- Source rubric: `{row['source']}`")
+        lines.append(f"- Status: `{status}`")
+        lines.append("- Expected evidence:")
+        for expected_path in row["expected"]:
+            exists = (output_dir / expected_path).exists()
+            marker = "x" if exists else " "
+            lines.append(f"  - [{marker}] `{expected_path}`")
+        lines.append(f"- Why it matters: {row['note']}")
+        lines.append("")
+
+    lines.extend(
+        [
+            "## Notes",
+            "",
+            "- This alignment file is an operational checklist for review sessions.",
+            "- It does not replace model metrics; it links rubric questions to concrete evidence paths.",
+        ]
+    )
+    return "\n".join(lines) + "\n"
 
 
 def main() -> None:
@@ -280,6 +395,8 @@ def main() -> None:
     top_brain_method = None
     if brain_mri_xai_benchmark:
         top_brain_method = _extract_top_method(brain_mri_xai_benchmark)
+    brain_refresh_gallery_dir = args.results_root / "brain_mri_refresh_xai_20260418"
+    brain_fast_benchmark_dir = args.results_root / "brain_mri_xai_benchmark_20260418_clean_fast"
 
     evidence_manifest = {
         "run_ids": {
@@ -290,6 +407,12 @@ def main() -> None:
             "brain_mri_xai_benchmark": args.brain_mri_xai_benchmark_run_id,
         },
         "copied_files": {
+            "pack_root": [
+                "README.md",
+                "INTERPRETATION.md",
+                "EVALUATION_ALIGNMENT.md",
+                "evidence_manifest.json",
+            ],
             "autopet": [
                 "autopet/segmentation_metrics.json",
                 "autopet/comparison.json",
@@ -354,7 +477,26 @@ def main() -> None:
             "- Les méthodes XAI sont interprétées comme explications de décision du modèle, pas comme preuve clinique directe.",
         ]
     )
+    if brain_refresh_gallery_dir.exists():
+        interpretation_lines.append(
+            "- Une galerie XAI élargie (16 cas équilibrés) est disponible dans `results/brain_mri_refresh_xai_20260418/`."
+        )
+    if brain_fast_benchmark_dir.exists():
+        interpretation_lines.append(
+            "- Un benchmark rapide de contrôle est disponible dans `results/brain_mri_xai_benchmark_20260418_clean_fast/`."
+        )
     (output_dir / "INTERPRETATION.md").write_text("\n".join(interpretation_lines) + "\n", encoding="utf-8")
+
+    optional_content_lines: List[str] = []
+    if brain_refresh_gallery_dir.exists():
+        optional_content_lines.append(
+            "- `../brain_mri_refresh_xai_20260418/`: expanded qualitative Brain MRI XAI gallery (`16` balanced cases)"
+        )
+    if brain_fast_benchmark_dir.exists():
+        optional_content_lines.append(
+            "- `../brain_mri_xai_benchmark_20260418_clean_fast/`: clean-manifest sanity-check benchmark (fast protocol)"
+        )
+    optional_contents = "\n".join(optional_content_lines)
 
     readme = f"""# Project evidence pack
 
@@ -386,6 +528,8 @@ This folder consolidates the most important, review-ready artifacts for project 
 - `traceability/`: requirement traceability map and optional run index snapshot
 - `evidence_manifest.json`: explicit inventory of copied evidence files
 - `INTERPRETATION.md`: concise interpretation blocks ready for report/slides
+- `EVALUATION_ALIGNMENT.md`: rubric-oriented checklist for client/soutenance/plan-projet review
+{optional_contents}
 
 ## Figure counts
 
@@ -393,6 +537,10 @@ This folder consolidates the most important, review-ready artifacts for project 
 - Brain MRI copied figures: `{len(copied_brain_figures)}`
 """
     (output_dir / "README.md").write_text(readme, encoding="utf-8")
+    (output_dir / "EVALUATION_ALIGNMENT.md").write_text(
+        _build_evaluation_alignment(output_dir),
+        encoding="utf-8",
+    )
 
 
 if __name__ == "__main__":
