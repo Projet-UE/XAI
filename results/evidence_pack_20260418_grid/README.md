@@ -28,6 +28,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 - `traceability/`: requirement traceability map and optional run index snapshot
 - `evidence_manifest.json`: explicit inventory of copied evidence files
 - `INTERPRETATION.md`: concise interpretation blocks ready for report/slides
+- `../brain_mri_refresh_xai_20260418/`: expanded qualitative Brain MRI XAI gallery (`16` balanced cases)
 
 ## Figure counts
 

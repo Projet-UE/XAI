@@ -303,6 +303,7 @@ The refreshed run below expands the examples to **16 test images** using the sam
   - [`results/grenoble_gpu_20260324/xai/`](results/grenoble_gpu_20260324/xai/)
 - refreshed extended gallery (16 images):
   - [`results/brain_mri_refresh_xai_20260418/xai_summary.json`](results/brain_mri_refresh_xai_20260418/xai_summary.json)
+  - [`results/brain_mri_refresh_xai_20260418/INTERPRETATION.md`](results/brain_mri_refresh_xai_20260418/INTERPRETATION.md)
 
 ### Evaluation-grade XAI comparison (Brain MRI)
 
