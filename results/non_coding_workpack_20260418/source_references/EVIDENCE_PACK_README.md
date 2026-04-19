@@ -4,6 +4,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 
 - autoPET main run: `autopet_fdg_full_post_best_dice_50epochs_20260324`
 - autoPET comparison run: `autopet_fdg_full_50epochs_variant_comparison_20260324`
+- autoPET XAI benchmark run: `autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419`
 - Brain MRI backup run: `grenoble_gpu_20260324`
 - includes run index: `yes`
 
@@ -19,13 +20,13 @@ This folder consolidates the most important, review-ready artifacts for project 
 ## XAI benchmark highlights
 
 - autoPET top method: `integrated_gradients`
-- autoPET tracked XAI benchmark status: `single consolidated method only` on the frozen review set
 - Brain MRI top method: `occlusion`
+- autoPET XAI benchmark metrics copied separately: `yes`
 
 ## Contents
 
-- `autopet/`: metrics, comparison, single-method tracked XAI benchmark, selected figures
-- `brain_mri/`: metrics, 3-method protocol benchmark, selected figures
+- `autopet/`: metrics, comparison, optional method benchmark, selected figures
+- `brain_mri/`: metrics, optional method benchmark, selected figures
 - `traceability/`: requirement traceability map and optional run index snapshot
 - `evidence_manifest.json`: explicit inventory of copied evidence files
 - `INTERPRETATION.md`: concise interpretation blocks ready for report/slides
@@ -37,5 +38,5 @@ This folder consolidates the most important, review-ready artifacts for project 
 
 ## Figure counts
 
-- autoPET copied figures: `8`
+- autoPET copied figures: `6`
 - Brain MRI copied figures: `6`

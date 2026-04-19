@@ -12,35 +12,35 @@
     "mean_false_negative_volume_ml": 39.78638373556468,
     "mean_false_positive_volume_ml": 1.2707613852822632
   },
-  "xai_summary_path": "results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json",
+  "xai_summary_path": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/xai_analysis_summary.json",
   "selected_cases": [
     {
-      "role": "strong_positive",
-      "case_id": "PETCT_a1db71e797",
+      "role": "positive_detected",
+      "case_id": "PETCT_4848bebb10",
       "category": "positive_detected",
-      "dice": 0.8982943777637398,
-      "figure": "results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_a1db71e797/integrated_gradients.png"
+      "dice": 0.33983853983853984,
+      "figure": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_4848bebb10/integrated_gradients.png"
     },
     {
-      "role": "moderate_positive",
+      "role": "positive_missed_large",
       "case_id": "PETCT_be3e55a32f",
-      "category": "positive_detected",
-      "dice": 0.2978800507338286,
-      "figure": "results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_be3e55a32f/integrated_gradients.png"
+      "category": "positive_missed",
+      "dice": 0.0,
+      "figure": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_be3e55a32f/integrated_gradients.png"
     },
     {
-      "role": "false_positive",
-      "case_id": "PETCT_05bed31780",
-      "category": "false_positive",
-      "false_positive_volume_ml": 8.584304183095568,
-      "figure": "results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_05bed31780/integrated_gradients.png"
+      "role": "positive_missed_small",
+      "case_id": "PETCT_a1db71e797",
+      "category": "positive_missed",
+      "dice": 0.0,
+      "figure": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_a1db71e797/integrated_gradients.png"
     },
     {
       "role": "true_negative",
       "case_id": "PETCT_3bce0eb7aa",
       "category": "true_negative",
       "dice": 1.0,
-      "figure": "results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_3bce0eb7aa/integrated_gradients.png"
+      "figure": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_3bce0eb7aa/integrated_gradients.png"
     }
   ]
 }

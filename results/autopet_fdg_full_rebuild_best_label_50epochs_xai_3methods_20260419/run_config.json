@@ -1,0 +1,29 @@
+{
+  "artifacts_dir": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full",
+  "configuration": "3d_fullres",
+  "dataset_id": 501,
+  "device": "cuda",
+  "fold": "0",
+  "force_plan_and_preprocess": false,
+  "metrics_path": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/metrics/rank-mean_pet__minml-50p0__max-all__normalized.json",
+  "plans": "nnUNetPlans",
+  "postprocess": {
+    "max_components": null,
+    "min_component_volume_ml": 50.0,
+    "rank_by": "mean_pet"
+  },
+  "postprocess_label": "rank-mean_pet__minml-50p0__max-all",
+  "prediction_dir": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/predictions/rank-mean_pet__minml-50p0__max-all",
+  "rebuild_note": "This XAI benchmark was produced from the reproducible rebuilt 50-epoch FDG state because the original heavy Grenoble artifacts were no longer available.",
+  "skip_plan_and_preprocess": false,
+  "snapshot_title": "autoPET FDG rebuilt 50-epoch XAI snapshot (3 methods)",
+  "split_name": "fdg_full",
+  "state_name": "rebuild_best_label_50epochs_xai_3methods_20260419",
+  "trainer": "nnUNetTrainer_50epochs",
+  "training_output_dir": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/nnunet_results/Dataset501_AutoPETFDG/nnUNetTrainer_50epochs__nnUNetPlans__3d_fullres",
+  "xai_methods": [
+    "saliency",
+    "integrated_gradients",
+    "occlusion"
+  ]
+}

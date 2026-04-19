@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "frozen_at_utc": "2026-04-18T00:00:00Z",
+  "frozen_at_utc": "2026-04-19T09:24:18Z",
   "notes": "Immutable tracked run index for reproducibility and evaluation traceability.",
   "run_states": [
     {
@@ -58,15 +58,32 @@
       "checkpoint_reference": "~/XAI/artifacts/grenoble_gpu_20260324/training/checkpoints/best.pt",
       "metrics_file": "results/grenoble_gpu_20260324/metrics.json",
       "run_config_file": "results/grenoble_gpu_20260324/run_config.json"
+    },
+    {
+      "state_name": "rebuild_best_label_50epochs_xai_3methods",
+      "run_id": "autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419",
+      "track": "autopet_fdg",
+      "split_name": "fdg_full",
+      "dataset_split_hash_sha256": "6761469d1389be9fbf824eeb42ce2247c99c7fb7e607836341ee7394a3da8ab0",
+      "trainer": "nnUNetTrainer_50epochs",
+      "checkpoint_reference": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/nnunet_results/Dataset501_AutoPETFDG/nnUNetTrainer_50epochs__nnUNetPlans__3d_fullres/fold_0/checkpoint_best.pth",
+      "metrics_file": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/segmentation_metrics.json",
+      "xai_analysis_file": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/xai_analysis_summary.json",
+      "method_benchmark_file": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.json",
+      "run_config_file": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/run_config.json",
+      "notes": "Tracked 3-method XAI benchmark on the reproducible rebuilt FDG 50-epoch state; original heavy Grenoble artifacts for the historical state were unavailable."
     }
   ],
   "script_checksums_sha256": {
     "scripts/autopet_prepare_fdg.py": "6e0c74b18a9936f6d01fd39c1fe4f9c3f3324d9a39213f4d444abf04ebb30d6f",
-    "scripts/autopet_train_nnunet.py": "0d15b526fd0c954ae641dba87029ce3c95a794743a933f162aa54fc1b22bdf12",
+    "scripts/autopet_train_nnunet.py": "4bc3eb7c8f56a6823aac52d2a16d155d75449bc3fc5f8250c6f313ad6e0816e6",
     "scripts/autopet_predict_nnunet.py": "74c688381b25d380b7fa9817fea629b05fd37bead2980459a9852694ddfc7cbf",
-    "scripts/autopet_generate_xai.py": "c946b1a7edc8ad8bb6087e0cc72d7ca8d0d01c929d3236c49a597366324aff0f",
+    "scripts/autopet_generate_xai.py": "9caf40eb266c6eea210110237c6dc0adf62af31f244571654ec4bb5e0394bf7c",
     "scripts/autopet_analyze_xai.py": "6cae140d9f2377f0ff802f7184d5c5e189e370fda95c2b6712d4e9e99b387b07",
-    "scripts/autopet_export_results.py": "a158c9eff4187df0abca898bd1b226511b6b55cd7bc3b10991e520311193c368",
-    "scripts/brain_mri_benchmark_xai_methods.py": "79fec2a9aea848e69452ebe23dca7ad83a7fe89494119eb3219fb57ea8555c43"
+    "scripts/autopet_export_results.py": "11e7fff5e645f87fb3e712a50e5ddc8fdbd840539a8ab9e6a4f69d78b3af2612",
+    "scripts/brain_mri_benchmark_xai_methods.py": "eab86212644143191b7cf8d0a953c476627f9e439f77f2d6a537e1c4340e0dc6",
+    "scripts/autopet_compare_xai_methods.py": "cb21ef13801279d9e8fec2d32c71d29cca88814016fc860042066d4120d1b374",
+    "scripts/autopet_finalize_3method_benchmark_from_artifacts.sh": "ca9f0c88be64df7b76b2452284831bb04bf13de043ebc735bac117dbbac7f15c",
+    "scripts/build_project_evidence_pack.py": "f8c93824aeee51d3084c8907a428c601c80dba26b6a5dee2c95ff3c9ae02b9e4"
   }
 }

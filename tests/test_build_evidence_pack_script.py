@@ -27,6 +27,14 @@ def test_build_project_evidence_pack_smoke(tmp_path: Path) -> None:
             "mean_false_positive_volume_ml": 2.0,
         },
     )
+    _write_json(
+        autopet_xai / "segmentation_metrics.json",
+        {
+            "mean_dice": 0.6,
+            "mean_false_negative_volume_ml": 0.8,
+            "mean_false_positive_volume_ml": 1.5,
+        },
+    )
     _write_json(autopet_cmp / "comparison.json", {"delta_candidate_minus_baseline": {"mean_dice": 0.1}})
     _write_json(brain / "metrics.json", {"accuracy": 0.9, "f1": 0.88, "roc_auc": 0.95})
     _write_json(autopet_xai / "xai_analysis_summary.json", {"preferred_method": "integrated_gradients"})
@@ -68,6 +76,7 @@ def test_build_project_evidence_pack_smoke(tmp_path: Path) -> None:
     output = results_root / "evidence_pack_test"
     assert (output / "README.md").exists()
     assert (output / "autopet" / "segmentation_metrics.json").exists()
+    assert (output / "autopet" / "xai_segmentation_metrics.json").exists()
     assert (output / "brain_mri" / "metrics.json").exists()
     assert (output / "traceability" / "requirement_traceability.json").exists()
     assert (output / "evidence_manifest.json").exists()

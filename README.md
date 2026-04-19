@@ -45,16 +45,17 @@ If you need the quickest evaluator-facing entrypoint, start here:
 - frozen run index used in the pack:
   - [`results/evidence_pack_20260418_grid/traceability/run_index.json`](results/evidence_pack_20260418_grid/traceability/run_index.json)
 
-For the current frozen autoPET protocol benchmark snapshot:
+For the current tracked autoPET protocol benchmark snapshot:
 
-- [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.json)
-- [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/method_benchmark.md)
+- [`results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.json`](results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.json)
+- [`results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.md`](results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.md)
+- [`results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/README.md`](results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/README.md)
 
 Important note:
 
-- the autoPET pipeline supports Saliency, Integrated Gradients, and Occlusion for figure generation
-- the frozen repo-facing benchmark state currently retains only `integrated_gradients` on the tracked review set
-- a true multi-method autoPET benchmark is therefore not claimed as a final delivered result in this repository
+- the autoPET pipeline now has a tracked 3-method benchmark (`saliency`, `integrated_gradients`, `occlusion`)
+- the main frozen segmentation headline still remains `post_best_dice_50epochs`
+- the tracked 3-method XAI benchmark was produced on a reproducible rebuilt 50-epoch FDG state because the original heavy Grenoble artifacts for the historical XAI state were no longer available
 
 For the refreshed Brain MRI protocol benchmark:
 
@@ -82,7 +83,7 @@ This is the line kept as the **primary project contribution** because it is the 
 | Main retained variant | `post_best_dice_50epochs` |
 | Secondary comparison | `post_low_fp_50epochs` |
 | XAI pipeline methods | Saliency, Integrated Gradients, Occlusion |
-| Tracked protocol benchmark | `integrated_gradients` only (current frozen evidence) |
+| Tracked protocol benchmark | rebuilt 50-epoch FDG state with `saliency`, `integrated_gradients`, `occlusion` |
 
 ### Main results
 
@@ -121,22 +122,20 @@ The panels below combine:
 - ground-truth mask
 - predicted mask
 
-#### Representative cases from the final all-review analysis
+#### Tracked 3-method benchmark panels
 
 <p align="center">
-  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_4848bebb10/integrated_gradients.png" width="230" alt="autoPET positive case PETCT_4848bebb10" />
-  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_be3e55a32f/integrated_gradients.png" width="230" alt="autoPET positive case PETCT_be3e55a32f" />
-  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_a1db71e797/integrated_gradients.png" width="230" alt="autoPET positive case PETCT_a1db71e797" />
+  <img src="results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_4848bebb10/integrated_gradients.png" width="230" alt="autoPET positive case PETCT_4848bebb10 integrated gradients" />
+  <img src="results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_4848bebb10/saliency.png" width="230" alt="autoPET positive case PETCT_4848bebb10 saliency" />
+  <img src="results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_4848bebb10/occlusion.png" width="230" alt="autoPET positive case PETCT_4848bebb10 occlusion" />
 </p>
 
-<p align="center">
-  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_05bed31780/integrated_gradients.png" width="230" alt="autoPET false positive case PETCT_05bed31780" />
-  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_402c061122/integrated_gradients.png" width="230" alt="autoPET hard negative case PETCT_402c061122" />
-  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_3bce0eb7aa/integrated_gradients.png" width="230" alt="autoPET true negative case PETCT_3bce0eb7aa" />
-</p>
+#### Representative case types from the tracked benchmark
 
 <p align="center">
-  <img src="results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_e2309b8f92/integrated_gradients.png" width="230" alt="autoPET negative case PETCT_e2309b8f92" />
+  <img src="results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_4848bebb10/integrated_gradients.png" width="230" alt="autoPET positive detected case PETCT_4848bebb10" />
+  <img src="results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_be3e55a32f/integrated_gradients.png" width="230" alt="autoPET positive missed case PETCT_be3e55a32f" />
+  <img src="results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/figures/PETCT_3bce0eb7aa/integrated_gradients.png" width="230" alt="autoPET true negative case PETCT_3bce0eb7aa" />
 </p>
 
 #### Variant comparison
@@ -156,8 +155,11 @@ The panels below combine:
   - [`results/autopet_fdg_full_post_low_fp_50epochs_20260324/segmentation_metrics.json`](results/autopet_fdg_full_post_low_fp_50epochs_20260324/segmentation_metrics.json)
 - comparison snapshot:
   - [`results/autopet_fdg_full_50epochs_variant_comparison_20260324/README.md`](results/autopet_fdg_full_50epochs_variant_comparison_20260324/README.md)
-- all-review XAI interpretation:
-  - [`results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json`](results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json)
+- tracked 3-method XAI interpretation:
+  - [`results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/xai_analysis_summary.json`](results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/xai_analysis_summary.json)
+- tracked 3-method XAI benchmark:
+  - [`results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.json`](results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.json)
+  - [`results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.md`](results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.md)
 - modeling handoff:
   - [`docs/autopet_modeling_handoff.md`](docs/autopet_modeling_handoff.md)
 
@@ -167,27 +169,25 @@ To satisfy a common-protocol XAI comparison requirement, run:
 
 ```bash
 python scripts/autopet_analyze_xai.py \
-  --review-cases-path artifacts/autopet_fdg_poc/fdg_full/xai/review_cases.json \
-  --metrics-path artifacts/autopet_fdg_poc/fdg_full/review_metrics/metrics.json \
-  --output-dir artifacts/autopet_fdg_poc/fdg_full/xai_analysis \
-  --state-name post_best_dice_50epochs
+  --review-cases-path artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/review_cases.json \
+  --metrics-path artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/metrics/rank-mean_pet__minml-50p0__max-all__normalized.json \
+  --output-dir artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods \
+  --state-name rebuild_best_label_50epochs_xai_3methods_20260419
 ```
 
 This now exports:
 
-- protocol-level method summary for the currently tracked autoPET method set
+- protocol-level method summary for the tracked autoPET method set
 - bootstrap 95% confidence intervals for key method metrics
 - a markdown summary ready to cite in the report
-
-In the current frozen repo-facing state, only `integrated_gradients` is present in the tracked autoPET benchmark, so paired method-delta sections are empty by design.
 
 For explicit paired method deltas (A-B) with confidence intervals, when multiple review-ready methods are available:
 
 ```bash
 python scripts/autopet_compare_xai_methods.py \
-  --review-cases-path artifacts/autopet_fdg_poc/fdg_full/xai/review_cases.json \
-  --metrics-path artifacts/autopet_fdg_poc/fdg_full/review_metrics/metrics.json \
-  --output-dir artifacts/autopet_fdg_poc/fdg_full/xai_compare \
+  --review-cases-path artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/review_cases.json \
+  --metrics-path artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/metrics/rank-mean_pet__minml-50p0__max-all__normalized.json \
+  --output-dir artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods \
   --bootstrap-iterations 5000
 ```
 
@@ -352,7 +352,7 @@ python scripts/build_project_evidence_pack.py \
   --autopet-main-run-id autopet_fdg_full_post_best_dice_50epochs_20260324 \
   --autopet-comparison-run-id autopet_fdg_full_50epochs_variant_comparison_20260324 \
   --brain-mri-run-id grenoble_gpu_20260324 \
-  --autopet-xai-analysis-run-id autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327
+  --autopet-xai-analysis-run-id autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419
 ```
 
 The builder now also generates a scored rubric-readiness report from the official UE grids:
@@ -381,7 +381,7 @@ Final one-command gate (snapshots + evidence-pack consistency + strict rubric re
 python scripts/run_readiness_gate.py \
   --results-root results \
   --autopet-run-id autopet_fdg_full_post_best_dice_50epochs_20260324 \
-  --autopet-xai-run-id autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327 \
+  --autopet-xai-run-id autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419 \
   --brain-mri-run-id grenoble_gpu_20260324 \
   --evidence-pack-run-id evidence_pack_20260418_grid \
   --mapping-path configs/evaluation_readiness_mapping.json \
@@ -412,7 +412,7 @@ For protocol-grade XAI evidence:
 
 ```bash
 python scripts/validate_result_snapshot.py \
-  --run-dir results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327 \
+  --run-dir results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419 \
   --track autopet \
   --require-protocol-benchmark
 ```

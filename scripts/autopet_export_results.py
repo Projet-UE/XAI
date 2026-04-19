@@ -2,9 +2,10 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import shutil
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 from brain_tumor_xai.utils import ensure_dir, load_json, save_json
 
@@ -39,32 +40,50 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def _copy_selected_figures(xai_dir: Path, target_dir: Path, max_figures: int) -> List[str]:
+def _copy_selected_figures(
+    xai_dir: Path,
+    target_dir: Path,
+    max_figures: int,
+) -> Tuple[List[str], Dict[str, str]]:
     copied: List[str] = []
-    figure_paths: List[Path] = []
+    source_to_relative: Dict[str, str] = {}
 
     case_dirs = [path for path in sorted(xai_dir.iterdir()) if path.is_dir()]
-    preferred_names = ["integrated_gradients.png", "occlusion.png", "saliency.png"]
-    for case_dir in case_dirs:
-        for preferred_name in preferred_names:
-            candidate = case_dir / preferred_name
-            if candidate.exists():
-                figure_paths.append(candidate)
-                break
-        if len(figure_paths) >= max_figures:
-            break
+    if case_dirs:
+        # When case folders exist, treat max_figures as a case budget and copy
+        # every method panel for each selected case so tracked snapshots remain
+        # visually consistent with multi-method benchmarks.
+        for case_dir in case_dirs[:max_figures]:
+            for figure_path in sorted(case_dir.glob("*.png")):
+                relative = figure_path.relative_to(xai_dir)
+                destination = target_dir / relative
+                ensure_dir(destination.parent)
+                shutil.copy2(figure_path, destination)
+                copied.append(str(relative))
+                source_to_relative[str(figure_path)] = str(Path("figures") / relative)
+        return copied, source_to_relative
 
-    if len(figure_paths) < max_figures:
-        remaining_candidates = [path for path in sorted(xai_dir.rglob("*.png")) if path not in figure_paths]
-        figure_paths.extend(remaining_candidates[: max_figures - len(figure_paths)])
-
-    for figure_path in figure_paths:
+    for figure_path in sorted(xai_dir.rglob("*.png"))[:max_figures]:
         relative = figure_path.relative_to(xai_dir)
         destination = target_dir / relative
         ensure_dir(destination.parent)
         shutil.copy2(figure_path, destination)
         copied.append(str(relative))
-    return copied
+        source_to_relative[str(figure_path)] = str(Path("figures") / relative)
+    return copied, source_to_relative
+
+
+def _rewrite_method_figure_paths(cases: List[Dict[str, Any]], source_to_relative: Dict[str, str]) -> None:
+    for case in cases:
+        for method in case.get("methods", []):
+            figure = method.get("figure")
+            if not figure:
+                continue
+            replacement = source_to_relative.get(str(figure))
+            if replacement is None:
+                continue
+            method["original_figure"] = figure
+            method["figure"] = replacement
 
 
 def _normalize_metrics_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
@@ -131,19 +150,30 @@ def main() -> None:
 
     save_json(metrics, target_dir / "segmentation_metrics.json")
     save_json(run_config, target_dir / "run_config.json")
-    save_json(review_cases, target_dir / "review_cases.json")
+
+    copied_figures: List[str] = []
+    source_to_relative: Dict[str, str] = {}
+    if args.require_xai_dir and not xai_dir.exists():
+        raise FileNotFoundError(f"Missing required XAI directory at {xai_dir}")
+    if xai_dir.exists():
+        copied_figures, source_to_relative = _copy_selected_figures(
+            xai_dir,
+            target_dir / "figures",
+            args.max_figures,
+        )
+
+    exported_review_cases = copy.deepcopy(review_cases)
+    _rewrite_method_figure_paths(exported_review_cases.get("cases", []), source_to_relative)
+    save_json(exported_review_cases, target_dir / "review_cases.json")
+
     if analysis_summary is not None:
-        save_json(analysis_summary, target_dir / "xai_analysis_summary.json")
+        exported_analysis_summary = copy.deepcopy(analysis_summary)
+        _rewrite_method_figure_paths(exported_analysis_summary.get("cases", []), source_to_relative)
+        save_json(exported_analysis_summary, target_dir / "xai_analysis_summary.json")
     if method_benchmark is not None:
         save_json(method_benchmark, target_dir / "method_benchmark.json")
     if method_benchmark_md_path.exists():
         shutil.copy2(method_benchmark_md_path, target_dir / "method_benchmark.md")
-
-    copied_figures = []
-    if args.require_xai_dir and not xai_dir.exists():
-        raise FileNotFoundError(f"Missing required XAI directory at {xai_dir}")
-    if xai_dir.exists():
-        copied_figures = _copy_selected_figures(xai_dir, target_dir / "figures", args.max_figures)
 
     top_method = None
     top_score = None

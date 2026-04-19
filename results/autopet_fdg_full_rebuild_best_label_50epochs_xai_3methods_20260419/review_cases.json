@@ -1,0 +1,547 @@
+{
+  "cases": [
+    {
+      "case_id": "PETCT_4848bebb10",
+      "ground_truth_positive": true,
+      "ground_truth_voxels": 21811,
+      "ground_truth_voxels_in_crop": 5718,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 5718,
+            "mass_ratio_inside_gt": 0.028978277918215316,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.028978277918215316,
+            "mean_attr_inside_gt": 0.0669633150100708,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.024741731584072113,
+            "mean_attr_outside_prediction": 0.025202209129929543,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.03309237254191383,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 13213.2158203125
+          },
+          "figure": "figures/PETCT_4848bebb10/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_4848bebb10/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 5718,
+            "mass_ratio_inside_gt": 0.09476028365142883,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.09476028365142883,
+            "mean_attr_inside_gt": 0.07386971265077591,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.007781090214848518,
+            "mean_attr_outside_prediction": 0.008501866832375526,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.08237807320376128,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 4457.4267578125
+          },
+          "figure": "figures/PETCT_4848bebb10/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_4848bebb10/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 5718,
+            "mass_ratio_inside_gt": 0.03503090635181737,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.03503090635181737,
+            "mean_attr_inside_gt": 0.21192704141139984,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.06437025219202042,
+            "mean_attr_outside_prediction": 0.06597953289747238,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.07273246951219513,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 34592.27734375
+          },
+          "figure": "figures/PETCT_4848bebb10/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_4848bebb10/occlusion.png"
+        }
+      ],
+      "nnunet_case_id": "FDG_0060",
+      "prediction_path": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/predictions/rank-mean_pet__minml-50p0__max-all/FDG_0060.nii.gz",
+      "prediction_positive": true,
+      "prediction_voxels": 6679,
+      "prediction_voxels_in_crop": 0,
+      "slice_indices": [
+        0,
+        9,
+        18
+      ]
+    },
+    {
+      "case_id": "PETCT_be3e55a32f",
+      "ground_truth_positive": true,
+      "ground_truth_voxels": 4674,
+      "ground_truth_voxels_in_crop": 1142,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 1142,
+            "mass_ratio_inside_gt": 0.02063207364614839,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.02063207364614839,
+            "mean_attr_inside_gt": 0.25729674100875854,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.026661250740289688,
+            "mean_attr_outside_prediction": 0.027163617312908173,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.016517576150603674,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 14241.55859375
+          },
+          "figure": "figures/PETCT_be3e55a32f/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_be3e55a32f/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 1142,
+            "mass_ratio_inside_gt": 0.05289135042047734,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.05289135042047734,
+            "mean_attr_inside_gt": 0.25175073742866516,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.009840765967965126,
+            "mean_attr_outside_prediction": 0.010367696173489094,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.019454881840202942,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 5435.65869140625
+          },
+          "figure": "figures/PETCT_be3e55a32f/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_be3e55a32f/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 1142,
+            "mass_ratio_inside_gt": 0.006251598796401117,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.006251598796401117,
+            "mean_attr_inside_gt": 0.33207470178604126,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.11522971838712692,
+            "mean_attr_outside_prediction": 0.11570200324058533,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.010308689024390244,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 60661.171875
+          },
+          "figure": "figures/PETCT_be3e55a32f/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_be3e55a32f/occlusion.png"
+        }
+      ],
+      "nnunet_case_id": "FDG_0062",
+      "prediction_path": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/predictions/rank-mean_pet__minml-50p0__max-all/FDG_0062.nii.gz",
+      "prediction_positive": false,
+      "prediction_voxels": 0,
+      "prediction_voxels_in_crop": 0,
+      "slice_indices": [
+        4,
+        14,
+        31
+      ]
+    },
+    {
+      "case_id": "PETCT_a1db71e797",
+      "ground_truth_positive": true,
+      "ground_truth_voxels": 869,
+      "ground_truth_voxels_in_crop": 0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.025799965485930443,
+            "mean_attr_outside_prediction": 0.025799965485930443,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 13526.6123046875
+          },
+          "figure": "figures/PETCT_a1db71e797/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_a1db71e797/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.02178366854786873,
+            "mean_attr_outside_prediction": 0.02178366854786873,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 11420.916015625
+          },
+          "figure": "figures/PETCT_a1db71e797/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_a1db71e797/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.13304679095745087,
+            "mean_attr_outside_prediction": 0.13304679095745087,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 69754.8359375
+          },
+          "figure": "figures/PETCT_a1db71e797/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_a1db71e797/occlusion.png"
+        }
+      ],
+      "nnunet_case_id": "FDG_0061",
+      "prediction_path": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/predictions/rank-mean_pet__minml-50p0__max-all/FDG_0061.nii.gz",
+      "prediction_positive": false,
+      "prediction_voxels": 0,
+      "prediction_voxels_in_crop": 0,
+      "slice_indices": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "case_id": "PETCT_05bed31780",
+      "ground_truth_positive": false,
+      "ground_truth_voxels": 0,
+      "ground_truth_voxels_in_crop": 0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.02717539854347706,
+            "mean_attr_outside_prediction": 0.02717539854347706,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 14247.7353515625
+          },
+          "figure": "figures/PETCT_05bed31780/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_05bed31780/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.00943436473608017,
+            "mean_attr_outside_prediction": 0.00943436473608017,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 4946.32421875
+          },
+          "figure": "figures/PETCT_05bed31780/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_05bed31780/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.11550578474998474,
+            "mean_attr_outside_prediction": 0.11550578474998474,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 60558.296875
+          },
+          "figure": "figures/PETCT_05bed31780/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_05bed31780/occlusion.png"
+        }
+      ],
+      "nnunet_case_id": "FDG_0057",
+      "prediction_path": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/predictions/rank-mean_pet__minml-50p0__max-all/FDG_0057.nii.gz",
+      "prediction_positive": false,
+      "prediction_voxels": 0,
+      "prediction_voxels_in_crop": 0,
+      "slice_indices": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "case_id": "PETCT_3bce0eb7aa",
+      "ground_truth_positive": false,
+      "ground_truth_voxels": 0,
+      "ground_truth_voxels_in_crop": 0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.045128233730793,
+            "mean_attr_outside_prediction": 0.045128233730793,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 23660.19140625
+          },
+          "figure": "figures/PETCT_3bce0eb7aa/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_3bce0eb7aa/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.018377749249339104,
+            "mean_attr_outside_prediction": 0.018377749249339104,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 9635.2333984375
+          },
+          "figure": "figures/PETCT_3bce0eb7aa/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_3bce0eb7aa/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.1267489492893219,
+            "mean_attr_outside_prediction": 0.1267489492893219,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 66452.953125
+          },
+          "figure": "figures/PETCT_3bce0eb7aa/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_3bce0eb7aa/occlusion.png"
+        }
+      ],
+      "nnunet_case_id": "FDG_0058",
+      "prediction_path": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/predictions/rank-mean_pet__minml-50p0__max-all/FDG_0058.nii.gz",
+      "prediction_positive": false,
+      "prediction_voxels": 0,
+      "prediction_voxels_in_crop": 0,
+      "slice_indices": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "case_id": "PETCT_402c061122",
+      "ground_truth_positive": false,
+      "ground_truth_voxels": 0,
+      "ground_truth_voxels_in_crop": 0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.022010602056980133,
+            "mean_attr_outside_prediction": 0.022010602056980133,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 11539.89453125
+          },
+          "figure": "figures/PETCT_402c061122/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_402c061122/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.01232774555683136,
+            "mean_attr_outside_prediction": 0.01232774555683136,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 6463.2890625
+          },
+          "figure": "figures/PETCT_402c061122/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_402c061122/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.07842408865690231,
+            "mean_attr_outside_prediction": 0.07842408865690231,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 41116.80859375
+          },
+          "figure": "figures/PETCT_402c061122/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_402c061122/occlusion.png"
+        }
+      ],
+      "nnunet_case_id": "FDG_0059",
+      "prediction_path": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/predictions/rank-mean_pet__minml-50p0__max-all/FDG_0059.nii.gz",
+      "prediction_positive": false,
+      "prediction_voxels": 0,
+      "prediction_voxels_in_crop": 0,
+      "slice_indices": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "case_id": "PETCT_e2309b8f92",
+      "ground_truth_positive": false,
+      "ground_truth_voxels": 0,
+      "ground_truth_voxels_in_crop": 0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.021012471988797188,
+            "mean_attr_outside_prediction": 0.021012471988797188,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 11016.5869140625
+          },
+          "figure": "figures/PETCT_e2309b8f92/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_e2309b8f92/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.016746902838349342,
+            "mean_attr_outside_prediction": 0.016746902838349342,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 8780.2001953125
+          },
+          "figure": "figures/PETCT_e2309b8f92/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_e2309b8f92/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.08535315096378326,
+            "mean_attr_outside_prediction": 0.08535315096378326,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 44749.6328125
+          },
+          "figure": "figures/PETCT_e2309b8f92/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_e2309b8f92/occlusion.png"
+        }
+      ],
+      "nnunet_case_id": "FDG_0063",
+      "prediction_path": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/postprocess_sweeps/fdg_full_50epochs_postprocess_mean_pet_20260419_rebuild/predictions/rank-mean_pet__minml-50p0__max-all/FDG_0063.nii.gz",
+      "prediction_positive": false,
+      "prediction_voxels": 0,
+      "prediction_voxels_in_crop": 0,
+      "slice_indices": [
+        15,
+        16,
+        17
+      ]
+    }
+  ],
+  "selection": {
+    "available_case_count": 7,
+    "available_negative_case_count": 4,
+    "available_positive_case_count": 3,
+    "balanced_classes": true,
+    "selected_case_count": 7,
+    "selected_case_ids": [
+      "PETCT_4848bebb10",
+      "PETCT_be3e55a32f",
+      "PETCT_a1db71e797",
+      "PETCT_05bed31780",
+      "PETCT_3bce0eb7aa",
+      "PETCT_402c061122",
+      "PETCT_e2309b8f92"
+    ],
+    "selected_negative_case_count": 4,
+    "selected_positive_case_count": 3
+  }
+}

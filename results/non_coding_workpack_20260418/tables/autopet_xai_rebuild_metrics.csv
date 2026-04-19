@@ -1,0 +1,5 @@
+metric,value
+case_count,7
+mean_dice,0.6199769342626487
+mean_false_negative_volume_ml,40.012099394209216
+mean_false_positive_volume_ml,3.2666565400682512

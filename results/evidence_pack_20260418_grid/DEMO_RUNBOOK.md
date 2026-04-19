@@ -12,7 +12,7 @@ without running heavy training jobs live.
 ## Step-by-step sequence
 
 ### 1. Context and tracked runs (20-30s)
-- Open `README.md` and state the three tracked runs: `autopet_fdg_full_post_best_dice_50epochs_20260324`, `autopet_fdg_full_50epochs_variant_comparison_20260324`, `grenoble_gpu_20260324`.
+- Open `README.md` and state the tracked runs: `autopet_fdg_full_post_best_dice_50epochs_20260324`, `autopet_fdg_full_50epochs_variant_comparison_20260324`, `autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419`, `grenoble_gpu_20260324`.
 - Point to `traceability/requirement_traceability.json` for requirement coverage.
 
 ### 2. Core segmentation result and tradeoff (35-45s)
@@ -23,6 +23,7 @@ without running heavy training jobs live.
 ### 3. autoPET XAI evidence (30-40s)
 - Open one or two files in `autopet/figures/`.
 - Open `autopet/method_benchmark.json` and cite top method.
+- If present, open `autopet/xai_segmentation_metrics.json` to show the benchmark's exact rebuilt-state metrics.
 - Current top method: `integrated_gradients`.
 - This covers explainability demonstration for `REQ-C4`.
 
