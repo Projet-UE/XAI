@@ -2,7 +2,7 @@
 
 This note is the final handoff for the modeling/XAI part of the project.
 
-## What To Keep As The Main Result
+## Reference Results
 
 Use the following result as the main autoPET outcome:
 
@@ -34,14 +34,14 @@ Interpretation:
 - `post_best_dice_50epochs` is the main reference result because it gives the strongest Dice.
 - `post_low_fp_50epochs` is useful to discuss the false-positive tradeoff.
 
-## What To Say About XAI
+## XAI Interpretation
 
 Use the all-review analysis here:
 
 - summary: [results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/README.md](/home/arman/Bureau/f/XAI/results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/README.md)
 - machine-readable report: [results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json](/home/arman/Bureau/f/XAI/results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/xai_analysis_summary.json)
 
-Safe interpretation:
+Interpretation guidance:
 
 - XAI does not indicate that a highlighted region is automatically cancerous.
 - XAI shows which regions influenced the model output.
@@ -57,9 +57,9 @@ Paper-safe findings from the current result:
 - on negative cases, attribution intensity inside predicted foreground is about `4.30x` the outside level
 - on explicit false positives, attribution intensity inside predicted foreground is about `5.68x` the outside level
 
-## What To Show In The Report Or Slides
+## Figures for Report or Slides
 
-Recommended final case set:
+Selected case set:
 
 1. strong positive case:
    - case: `PETCT_a1db71e797`
@@ -90,31 +90,31 @@ Optional extra false-positive example:
 - false-positive volume: `28.0421` mL
 - figure: [integrated_gradients.png](/home/arman/Bureau/f/XAI/results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327/figures/PETCT_402c061122/integrated_gradients.png)
 
-## Suggested Result Paragraph
+## Report Paragraph
 
-Suggested wording:
+Report-ready paragraph:
 
 Our main segmentation result is the `post_best_dice_50epochs` variant built from the `fdg_full` autoPET FDG subset and the `nnUNetTrainer_50epochs` baseline. This configuration reaches a mean Dice of `0.4867`, with a mean false negative volume of `41.2100` mL and a mean false positive volume of `6.2934` mL on the review set. Compared with the raw `50 epochs` predictions, this postprocessed variant improves Dice substantially while reducing false positives.
 
-Suggested XAI wording:
+Report-ready XAI paragraph:
 
 Qualitative XAI analysis was conducted with `integrated_gradients` on all `7` review cases of the main result. The analysis shows that, on positive cases, attribution intensity is higher inside lesion regions than outside them, whereas on false-positive cases attribution remains concentrated inside predicted foreground regions despite the absence of ground-truth lesions. This suggests that the model relies on lesion-related PET/CT patterns in successful cases, but can also be attracted by non-lesion uptake patterns in failure cases.
 
-## Suggested Limitations Paragraph
+## Limitations Paragraph
 
 - the experiments were performed on a controlled subset, not the full TCIA FDG dataset
 - the XAI study is qualitative and should not be interpreted as a clinical validation
 - highlighted regions show model influence, not direct medical truth
 - the current conclusions are about model behavior on this subset and setup
 
-## What Not To Spend Time On Anymore
+## Out-of-Scope Work
 
 - do not launch new heavy training runs
 - do not scale to the full `~400 GB` dataset
 - do not open PSMA / multi-tracer work now
 - do not change the main result again unless a supervisor explicitly asks
 
-## Final Position
+## Freeze Point
 
 For the modeling part, this is enough to freeze:
 

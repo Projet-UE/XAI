@@ -4,7 +4,7 @@
 
 - Lot qualitatif: `16` images test (`8 yes`, `8 no`).
 - Méthodes visualisées dans ce dossier: `gradcam`, `integrated_gradients`.
-- Modèle utilisé: checkpoint refresh Brain MRI (`ResNet18` binaire).
+- Modèle utilisé: checkpoint Brain MRI du lot étendu (`ResNet18` binaire).
 - Objectif: fournir un matériau lisible pour le rapport (pas une validation clinique).
 
 ## Comment lire les cartes XAI
@@ -36,7 +36,7 @@
   - Sur ce run rapide, `gradcam` passe légèrement devant `integrated_gradients`, avec des intervalles de confiance qui se recouvrent.
   - Interprétation: ce run sert surtout de contrôle de cohérence pipeline; la décision finale méthode doit rester basée sur le benchmark complet.
 
-## Message prêt à réutiliser dans le rapport
+## Formulation réutilisable pour le rapport
 
 - “Nous avons élargi la galerie Brain MRI XAI à 16 cas équilibrés pour éviter une conclusion basée sur un petit échantillon.  
   Les cartes XAI confirment que les régions mises en avant sont des régions de décision du modèle, et non une annotation clinique.  
@@ -45,4 +45,4 @@
 ## Limites explicites
 
 - Ce lot reste qualitatif; il sert à expliquer les décisions du modèle, pas à valider une causalité clinique.
-- Le modèle refresh (`3` epochs CPU) a des métriques inférieures au snapshot principal Grenoble; ce lot sert surtout d’illustration XAI étendue.
+- Le modèle du lot étendu (`3` epochs CPU) a des métriques inférieures au snapshot principal Grenoble; ce lot sert surtout d’illustration XAI étendue.

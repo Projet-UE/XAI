@@ -171,7 +171,7 @@ bash scripts/autopet_submit_grid5000.sh xai fdg_full nnUNetTrainer_10epochs 02:0
 
 ## Notes
 
-- Keep the classification branch as a backup and comparison point.
+- Keep the classification branch as a secondary comparison point.
 - The first target is a **solid FDG POC**, not a full challenge reproduction.
 - The XAI step is qualitative by design in this first pass.
 - On Grenoble, prefer a concrete GPU cluster name such as `vercors14`; broad aliases like `vercors` can be rejected by OAR.

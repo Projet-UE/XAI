@@ -3,7 +3,7 @@
 This folder contains the project outputs that are most useful for report writing, slides, and oral defense.
 It excludes training code and heavy artifacts.
 
-## 1) If you only have 10 minutes
+## 1) Priority reading order
 
 Open these files first:
 
@@ -23,10 +23,10 @@ Open these files first:
 - `source_references/`
   - Traceability/readiness material copied from the evidence pack.
 
-## 3) Minimal narrative to reuse in report
+## 3) Concise project summary
 
-- Primary line: **autoPET FDG segmentation + XAI**.
-- Backup line: **Brain MRI classification + XAI**.
+- Primary project line: **autoPET FDG segmentation + XAI**.
+- Secondary project line: **Brain MRI classification + XAI**.
 - autoPET result was consolidated around the 50-epoch checkpoint and post-processed variants.
 - autoPET now has a tracked 3-method XAI benchmark on the rebuilt 50-epoch FDG state.
 - On that rebuilt autoPET benchmark, `integrated_gradients` ranks first, followed by `saliency`, then `occlusion`.
@@ -34,7 +34,7 @@ Open these files first:
 - Brain MRI provides a stable classification baseline with interpretable XAI panels.
 - Brain MRI also carries a full multi-method XAI benchmark used for method comparison.
 
-## 4) Suggested figure usage
+## 4) Figure selection guidance
 
 - autoPET:
   - Use `autopet/figures/integrated_gradients.png`, `autopet/figures/saliency.png`, and `autopet/figures/occlusion.png` for the method-comparison slide.
