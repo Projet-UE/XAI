@@ -61,12 +61,22 @@ def main() -> None:
     )
     save_json(
         {
+            "dataset_id": args.dataset_id,
+            "configuration": args.configuration,
+            "fold": args.fold,
+            "trainer": args.trainer,
+            "plans": args.plans,
+            "checkpoint_name": args.checkpoint_name,
+            "device": args.device,
             "training_output_dir": str(training_output_dir),
             "prediction_dir": str(prediction_dir),
             "output_dir": str(output_dir),
             "split_name": args.split_name,
+            "methods": list(args.methods),
             "case_count": len(report["cases"]),
+            "selected_case_ids": [case["case_id"] for case in report["cases"]],
             "balanced_selection": not args.disable_balanced_selection,
+            "selection": report.get("selection", {}),
         },
         output_dir / "xai_run_config.json",
     )

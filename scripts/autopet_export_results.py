@@ -22,6 +22,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--run-config-path", type=Path, default=None)
     parser.add_argument("--analysis-summary-path", type=Path, default=None)
     parser.add_argument("--method-benchmark-path", type=Path, default=None)
+    parser.add_argument("--method-benchmark-md-path", type=Path, default=None)
     parser.add_argument("--require-review-cases", action="store_true")
     parser.add_argument("--require-xai-dir", action="store_true")
     parser.add_argument("--require-analysis-summary", action="store_true")
@@ -76,13 +77,15 @@ def _normalize_metrics_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
 def main() -> None:
     args = parse_args()
     split_root = args.artifacts_dir / args.split_name if (args.artifacts_dir / args.split_name).exists() else args.artifacts_dir
+    xai_dir = args.xai_dir or (split_root / "xai")
     metrics_path = args.metrics_path or (split_root / "review_metrics" / "segmentation_metrics.json")
-    review_cases_path = args.review_cases_path or (split_root / "xai" / "review_cases.json")
+    review_cases_path = args.review_cases_path or (xai_dir / "review_cases.json")
     run_config_path = split_root / "training_run_config.json"
     predict_run_config_path = split_root / "review_metrics" / "predict_run_config.json"
-    xai_run_config_path = split_root / "xai" / "xai_run_config.json"
+    xai_run_config_path = xai_dir / "xai_run_config.json"
     default_analysis_summary_path = split_root / "xai_analysis" / "xai_analysis_summary.json"
     default_method_benchmark_path = split_root / "xai_analysis" / "method_benchmark.json"
+    default_method_benchmark_md_path = split_root / "xai_analysis" / "method_benchmark.md"
 
     if not metrics_path.exists():
         raise FileNotFoundError(f"Missing segmentation metrics at {metrics_path}")
@@ -108,6 +111,7 @@ def main() -> None:
     review_cases = load_json(review_cases_path) if review_cases_path.exists() else {"cases": []}
     analysis_summary_path = args.analysis_summary_path or default_analysis_summary_path
     method_benchmark_path = args.method_benchmark_path or default_method_benchmark_path
+    method_benchmark_md_path = args.method_benchmark_md_path or default_method_benchmark_md_path
     if args.require_analysis_summary and not analysis_summary_path.exists():
         raise FileNotFoundError(f"Missing required xai_analysis_summary.json at {analysis_summary_path}")
     if args.require_method_benchmark and not method_benchmark_path.exists():
@@ -132,9 +136,10 @@ def main() -> None:
         save_json(analysis_summary, target_dir / "xai_analysis_summary.json")
     if method_benchmark is not None:
         save_json(method_benchmark, target_dir / "method_benchmark.json")
+    if method_benchmark_md_path.exists():
+        shutil.copy2(method_benchmark_md_path, target_dir / "method_benchmark.md")
 
     copied_figures = []
-    xai_dir = args.xai_dir or (split_root / "xai")
     if args.require_xai_dir and not xai_dir.exists():
         raise FileNotFoundError(f"Missing required XAI directory at {xai_dir}")
     if xai_dir.exists():

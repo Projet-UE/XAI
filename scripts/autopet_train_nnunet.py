@@ -41,12 +41,16 @@ def main() -> None:
         should_plan_and_preprocess = not preprocessed_dataset_exists(
             dataset_id=args.dataset_id,
             artifacts_dir=split_specific_artifacts,
+            configuration=args.configuration,
+            plans_name=args.plans,
         )
 
     if should_plan_and_preprocess:
         plan_and_preprocess(
             dataset_id=args.dataset_id,
             artifacts_dir=split_specific_artifacts,
+            configurations=[args.configuration],
+            plans_name=args.plans,
             verify_dataset_integrity=not args.disable_dataset_integrity_check,
         )
     train_model(
