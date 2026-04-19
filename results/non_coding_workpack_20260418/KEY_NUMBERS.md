@@ -22,7 +22,20 @@ XAI protocol (tracked state):
 
 | Method | Rank | Protocol score |
 |---|---:|---:|
-| integrated_gradients | 1 | 0.0239 |
+| integrated_gradients | 1 | 0.0369 |
+| saliency | 2 | 0.0124 |
+| occlusion | 3 | 0.0103 |
+
+Rebuilt autoPET XAI benchmark metrics:
+
+| Metric | Value |
+|---|---:|
+| Case count | 7 |
+| Mean Dice | 0.6200 |
+| Mean false negative volume (ml) | 40.0121 |
+| Mean false positive volume (ml) | 3.2667 |
+
+Interpretation note: the project keeps `post_best_dice_50epochs` as the main frozen segmentation headline, but the final 3-method autoPET XAI comparison was produced on a reproducible rebuilt 50-epoch FDG state because the original heavy Grenoble artifacts were no longer available.
 
 ## Brain MRI (backup line)
 

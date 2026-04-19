@@ -131,3 +131,81 @@ def test_export_accepts_standalone_method_benchmark_for_protocol_requirement(tmp
     assert result.returncode == 0
     exported_benchmark = tmp_path / "results" / "tmp_export_with_method_benchmark" / "method_benchmark.json"
     assert exported_benchmark.exists()
+
+
+def test_export_copies_all_method_panels_for_selected_cases_and_rewrites_paths(tmp_path: Path) -> None:
+    repo_root = Path(__file__).resolve().parents[1]
+    metrics_path = tmp_path / "segmentation_metrics.json"
+    _write_json(
+        metrics_path,
+        {
+            "mean_dice": 0.5,
+            "mean_false_negative_volume_ml": 1.0,
+            "mean_false_positive_volume_ml": 2.0,
+            "cases": [],
+        },
+    )
+    xai_dir = tmp_path / "xai"
+    case_dir = xai_dir / "PETCT_case"
+    case_dir.mkdir(parents=True, exist_ok=True)
+    for name in ["integrated_gradients.png", "occlusion.png", "saliency.png"]:
+        (case_dir / name).write_bytes(b"png")
+
+    review_cases_path = tmp_path / "review_cases.json"
+    _write_json(
+        review_cases_path,
+        {
+            "cases": [
+                {
+                    "case_id": "PETCT_case",
+                    "methods": [
+                        {
+                            "method": "integrated_gradients",
+                            "figure": str(case_dir / "integrated_gradients.png"),
+                        },
+                        {
+                            "method": "occlusion",
+                            "figure": str(case_dir / "occlusion.png"),
+                        },
+                        {
+                            "method": "saliency",
+                            "figure": str(case_dir / "saliency.png"),
+                        },
+                    ],
+                }
+            ]
+        },
+    )
+
+    result = _run_export(
+        [
+            "--run-id",
+            "tmp_export_rewrite_paths",
+            "--results-root",
+            str(tmp_path / "results"),
+            "--metrics-path",
+            str(metrics_path),
+            "--review-cases-path",
+            str(review_cases_path),
+            "--xai-dir",
+            str(xai_dir),
+            "--require-review-cases",
+            "--require-xai-dir",
+            "--max-figures",
+            "1",
+        ],
+        repo_root,
+    )
+    assert result.returncode == 0
+
+    exported_dir = tmp_path / "results" / "tmp_export_rewrite_paths"
+    for name in ["integrated_gradients.png", "occlusion.png", "saliency.png"]:
+        assert (exported_dir / "figures" / "PETCT_case" / name).exists()
+
+    exported_review_cases = json.loads((exported_dir / "review_cases.json").read_text(encoding="utf-8"))
+    exported_methods = {
+        entry["method"]: entry["figure"] for entry in exported_review_cases["cases"][0]["methods"]
+    }
+    assert exported_methods["integrated_gradients"] == "figures/PETCT_case/integrated_gradients.png"
+    assert exported_methods["occlusion"] == "figures/PETCT_case/occlusion.png"
+    assert exported_methods["saliency"] == "figures/PETCT_case/saliency.png"

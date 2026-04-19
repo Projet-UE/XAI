@@ -59,20 +59,45 @@ def patch_nnunet_torch_compatibility() -> Optional[Path]:
 def plan_and_preprocess(
     dataset_id: int,
     artifacts_dir: Union[str, Path],
+    configurations: Optional[Sequence[str]] = None,
+    plans_name: str = "nnUNetPlans",
     verify_dataset_integrity: bool = True,
 ) -> Dict[str, str]:
     env = build_nnunet_environment(artifacts_dir)
-    command = ["nnUNetv2_plan_and_preprocess", "-d", str(dataset_id)]
+    fingerprint_command = ["nnUNetv2_extract_fingerprint", "-d", str(dataset_id)]
     if verify_dataset_integrity:
-        command.append("--verify_dataset_integrity")
-    run_command(command, env)
+        fingerprint_command.append("--verify_dataset_integrity")
+    run_command(fingerprint_command, env)
+
+    planning_command = ["nnUNetv2_plan_experiment", "-d", str(dataset_id)]
+    if plans_name != "nnUNetPlans":
+        planning_command.extend(["-overwrite_plans_name", plans_name])
+    run_command(planning_command, env)
+
+    preprocess_command = [
+        "nnUNetv2_preprocess",
+        "-d",
+        str(dataset_id),
+        "-plans_name",
+        plans_name,
+    ]
+    if configurations:
+        preprocess_command.extend(["-c", *configurations])
+    run_command(preprocess_command, env)
     return env
 
 
-def preprocessed_dataset_exists(dataset_id: int, artifacts_dir: Union[str, Path]) -> bool:
+def preprocessed_dataset_exists(
+    dataset_id: int,
+    artifacts_dir: Union[str, Path],
+    *,
+    configuration: str,
+    plans_name: str = "nnUNetPlans",
+) -> bool:
     dataset_name = resolve_dataset_name(dataset_id)
     preprocessed_root = Path(artifacts_dir) / "nnunet_preprocessed" / dataset_name
-    return (preprocessed_root / "nnUNetPlans.json").exists()
+    config_dir = preprocessed_root / f"{plans_name}_{configuration}"
+    return config_dir.exists() and any(config_dir.glob("*.npz"))
 
 
 def train_model(

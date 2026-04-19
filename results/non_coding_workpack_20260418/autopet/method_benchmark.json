@@ -4,48 +4,40 @@
   "cross_method_agreement": {
     "by_category": {
       "false_positive": {
-        "case_rows": [
+        "case_rows": [],
+        "comparable_case_count": 0,
+        "pairwise_score_dominance": [
           {
-            "case_id": "PETCT_05bed31780",
-            "category": "false_positive",
-            "metrics_by_method": {
-              "integrated_gradients": {
-                "mass_ratio_inside_gt": 0.0,
-                "mass_ratio_inside_prediction": 0.03918155030889872,
-                "top10_ratio_inside_gt": 0.0
-              }
-            },
-            "score_by_method": {
-              "integrated_gradients": 0.03918155030889872
-            },
-            "winners": [
-              "integrated_gradients"
-            ]
+            "a_better_count": 0,
+            "b_better_count": 0,
+            "comparable_case_count": 0,
+            "method_a": "integrated_gradients",
+            "method_b": "occlusion",
+            "tie_count": 0
           },
           {
-            "case_id": "PETCT_402c061122",
-            "category": "false_positive",
-            "metrics_by_method": {
-              "integrated_gradients": {
-                "mass_ratio_inside_gt": 0.0,
-                "mass_ratio_inside_prediction": 0.004071980052823305,
-                "top10_ratio_inside_gt": 0.0
-              }
-            },
-            "score_by_method": {
-              "integrated_gradients": 0.004071980052823305
-            },
-            "winners": [
-              "integrated_gradients"
-            ]
+            "a_better_count": 0,
+            "b_better_count": 0,
+            "comparable_case_count": 0,
+            "method_a": "integrated_gradients",
+            "method_b": "saliency",
+            "tie_count": 0
+          },
+          {
+            "a_better_count": 0,
+            "b_better_count": 0,
+            "comparable_case_count": 0,
+            "method_a": "occlusion",
+            "method_b": "saliency",
+            "tie_count": 0
           }
         ],
-        "comparable_case_count": 2,
-        "pairwise_score_dominance": [],
-        "unique_winner_case_count": 2,
-        "unique_winner_rate": 1.0,
+        "unique_winner_case_count": 0,
+        "unique_winner_rate": null,
         "winner_share": {
-          "integrated_gradients": 1.0
+          "integrated_gradients": null,
+          "occlusion": null,
+          "saliency": null
         }
       },
       "positive_detected": {
@@ -55,73 +47,197 @@
             "category": "positive_detected",
             "metrics_by_method": {
               "integrated_gradients": {
-                "mass_ratio_inside_gt": 0.022039613816991748,
+                "mass_ratio_inside_gt": 0.09476028365142883,
                 "mass_ratio_inside_prediction": 0.0,
-                "top10_ratio_inside_gt": 0.03654466039787141
+                "top10_ratio_inside_gt": 0.08237807320376128
+              },
+              "occlusion": {
+                "mass_ratio_inside_gt": 0.03503090635181737,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.07273246951219513
+              },
+              "saliency": {
+                "mass_ratio_inside_gt": 0.028978277918215316,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.03309237254191383
               }
             },
             "score_by_method": {
-              "integrated_gradients": 0.026391127791255645
-            },
-            "winners": [
-              "integrated_gradients"
-            ]
-          },
-          {
-            "case_id": "PETCT_a1db71e797",
-            "category": "positive_detected",
-            "metrics_by_method": {
-              "integrated_gradients": {
-                "mass_ratio_inside_gt": 0.0,
-                "mass_ratio_inside_prediction": 0.0,
-                "top10_ratio_inside_gt": 0.0
-              }
-            },
-            "score_by_method": {
-              "integrated_gradients": 0.0
-            },
-            "winners": [
-              "integrated_gradients"
-            ]
-          },
-          {
-            "case_id": "PETCT_be3e55a32f",
-            "category": "positive_detected",
-            "metrics_by_method": {
-              "integrated_gradients": {
-                "mass_ratio_inside_gt": 0.05203984700596316,
-                "mass_ratio_inside_prediction": 0.0,
-                "top10_ratio_inside_gt": 0.015144290373648173
-              }
-            },
-            "score_by_method": {
-              "integrated_gradients": 0.04097118001626866
+              "integrated_gradients": 0.09104562051712856,
+              "occlusion": 0.046341375299930695,
+              "saliency": 0.03021250630532487
             },
             "winners": [
               "integrated_gradients"
             ]
           }
         ],
-        "comparable_case_count": 3,
-        "pairwise_score_dominance": [],
-        "unique_winner_case_count": 3,
+        "comparable_case_count": 1,
+        "pairwise_score_dominance": [
+          {
+            "a_better_count": 1,
+            "b_better_count": 0,
+            "comparable_case_count": 1,
+            "method_a": "integrated_gradients",
+            "method_b": "occlusion",
+            "tie_count": 0
+          },
+          {
+            "a_better_count": 1,
+            "b_better_count": 0,
+            "comparable_case_count": 1,
+            "method_a": "integrated_gradients",
+            "method_b": "saliency",
+            "tie_count": 0
+          },
+          {
+            "a_better_count": 1,
+            "b_better_count": 0,
+            "comparable_case_count": 1,
+            "method_a": "occlusion",
+            "method_b": "saliency",
+            "tie_count": 0
+          }
+        ],
+        "unique_winner_case_count": 1,
         "unique_winner_rate": 1.0,
         "winner_share": {
-          "integrated_gradients": 1.0
+          "integrated_gradients": 1.0,
+          "occlusion": 0.0,
+          "saliency": 0.0
         }
       },
       "positive_missed": {
-        "case_rows": [],
-        "comparable_case_count": 0,
-        "pairwise_score_dominance": [],
-        "unique_winner_case_count": 0,
-        "unique_winner_rate": null,
+        "case_rows": [
+          {
+            "case_id": "PETCT_a1db71e797",
+            "category": "positive_missed",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              },
+              "occlusion": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              },
+              "saliency": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.0,
+              "occlusion": 0.0,
+              "saliency": 0.0
+            },
+            "winners": [
+              "integrated_gradients",
+              "occlusion",
+              "saliency"
+            ]
+          },
+          {
+            "case_id": "PETCT_be3e55a32f",
+            "category": "positive_missed",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.05289135042047734,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.019454881840202942
+              },
+              "occlusion": {
+                "mass_ratio_inside_gt": 0.006251598796401117,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.010308689024390244
+              },
+              "saliency": {
+                "mass_ratio_inside_gt": 0.02063207364614839,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.016517576150603674
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.04286040984639502,
+              "occlusion": 0.007468725864797855,
+              "saliency": 0.019397724397484974
+            },
+            "winners": [
+              "integrated_gradients"
+            ]
+          }
+        ],
+        "comparable_case_count": 2,
+        "pairwise_score_dominance": [
+          {
+            "a_better_count": 1,
+            "b_better_count": 0,
+            "comparable_case_count": 2,
+            "method_a": "integrated_gradients",
+            "method_b": "occlusion",
+            "tie_count": 1
+          },
+          {
+            "a_better_count": 1,
+            "b_better_count": 0,
+            "comparable_case_count": 2,
+            "method_a": "integrated_gradients",
+            "method_b": "saliency",
+            "tie_count": 1
+          },
+          {
+            "a_better_count": 0,
+            "b_better_count": 1,
+            "comparable_case_count": 2,
+            "method_a": "occlusion",
+            "method_b": "saliency",
+            "tie_count": 1
+          }
+        ],
+        "unique_winner_case_count": 1,
+        "unique_winner_rate": 0.5,
         "winner_share": {
-          "integrated_gradients": null
+          "integrated_gradients": 0.6666666666666666,
+          "occlusion": 0.16666666666666666,
+          "saliency": 0.16666666666666666
         }
       },
       "true_negative": {
         "case_rows": [
+          {
+            "case_id": "PETCT_05bed31780",
+            "category": "true_negative",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              },
+              "occlusion": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              },
+              "saliency": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.0,
+              "occlusion": 0.0,
+              "saliency": 0.0
+            },
+            "winners": [
+              "integrated_gradients",
+              "occlusion",
+              "saliency"
+            ]
+          },
           {
             "case_id": "PETCT_3bce0eb7aa",
             "category": "true_negative",
@@ -130,13 +246,58 @@
                 "mass_ratio_inside_gt": 0.0,
                 "mass_ratio_inside_prediction": 0.0,
                 "top10_ratio_inside_gt": 0.0
+              },
+              "occlusion": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              },
+              "saliency": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
               }
             },
             "score_by_method": {
-              "integrated_gradients": 0.0
+              "integrated_gradients": 0.0,
+              "occlusion": 0.0,
+              "saliency": 0.0
             },
             "winners": [
-              "integrated_gradients"
+              "integrated_gradients",
+              "occlusion",
+              "saliency"
+            ]
+          },
+          {
+            "case_id": "PETCT_402c061122",
+            "category": "true_negative",
+            "metrics_by_method": {
+              "integrated_gradients": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              },
+              "occlusion": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              },
+              "saliency": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              }
+            },
+            "score_by_method": {
+              "integrated_gradients": 0.0,
+              "occlusion": 0.0,
+              "saliency": 0.0
+            },
+            "winners": [
+              "integrated_gradients",
+              "occlusion",
+              "saliency"
             ]
           },
           {
@@ -147,22 +308,63 @@
                 "mass_ratio_inside_gt": 0.0,
                 "mass_ratio_inside_prediction": 0.0,
                 "top10_ratio_inside_gt": 0.0
+              },
+              "occlusion": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
+              },
+              "saliency": {
+                "mass_ratio_inside_gt": 0.0,
+                "mass_ratio_inside_prediction": 0.0,
+                "top10_ratio_inside_gt": 0.0
               }
             },
             "score_by_method": {
-              "integrated_gradients": 0.0
+              "integrated_gradients": 0.0,
+              "occlusion": 0.0,
+              "saliency": 0.0
             },
             "winners": [
-              "integrated_gradients"
+              "integrated_gradients",
+              "occlusion",
+              "saliency"
             ]
           }
         ],
-        "comparable_case_count": 2,
-        "pairwise_score_dominance": [],
-        "unique_winner_case_count": 2,
-        "unique_winner_rate": 1.0,
+        "comparable_case_count": 4,
+        "pairwise_score_dominance": [
+          {
+            "a_better_count": 0,
+            "b_better_count": 0,
+            "comparable_case_count": 4,
+            "method_a": "integrated_gradients",
+            "method_b": "occlusion",
+            "tie_count": 4
+          },
+          {
+            "a_better_count": 0,
+            "b_better_count": 0,
+            "comparable_case_count": 4,
+            "method_a": "integrated_gradients",
+            "method_b": "saliency",
+            "tie_count": 4
+          },
+          {
+            "a_better_count": 0,
+            "b_better_count": 0,
+            "comparable_case_count": 4,
+            "method_a": "occlusion",
+            "method_b": "saliency",
+            "tie_count": 4
+          }
+        ],
+        "unique_winner_case_count": 0,
+        "unique_winner_rate": 0.0,
         "winner_share": {
-          "integrated_gradients": 1.0
+          "integrated_gradients": 0.3333333333333333,
+          "occlusion": 0.3333333333333333,
+          "saliency": 0.3333333333333333
         }
       }
     },
@@ -172,39 +374,6 @@
   "failure_taxonomy": {
     "by_category": {
       "false_positive": {
-        "case_count": 2,
-        "case_ids": [
-          "PETCT_05bed31780",
-          "PETCT_402c061122"
-        ],
-        "method_behavior": {
-          "integrated_gradients": {
-            "case_count": 2,
-            "mean_case_score": 0.021626765180861013,
-            "mean_mass_ratio_inside_gt": 0.0,
-            "mean_mass_ratio_inside_prediction": 0.021626765180861013,
-            "mean_top10_ratio_inside_gt": 0.0
-          }
-        }
-      },
-      "positive_detected": {
-        "case_count": 3,
-        "case_ids": [
-          "PETCT_4848bebb10",
-          "PETCT_a1db71e797",
-          "PETCT_be3e55a32f"
-        ],
-        "method_behavior": {
-          "integrated_gradients": {
-            "case_count": 3,
-            "mean_case_score": 0.022454102602508103,
-            "mean_mass_ratio_inside_gt": 0.024693153607651636,
-            "mean_mass_ratio_inside_prediction": 0.0,
-            "mean_top10_ratio_inside_gt": 0.017229650257173195
-          }
-        }
-      },
-      "positive_missed": {
         "case_count": 0,
         "case_ids": [],
         "method_behavior": {
@@ -214,18 +383,107 @@
             "mean_mass_ratio_inside_gt": null,
             "mean_mass_ratio_inside_prediction": null,
             "mean_top10_ratio_inside_gt": null
+          },
+          "occlusion": {
+            "case_count": 0,
+            "mean_case_score": null,
+            "mean_mass_ratio_inside_gt": null,
+            "mean_mass_ratio_inside_prediction": null,
+            "mean_top10_ratio_inside_gt": null
+          },
+          "saliency": {
+            "case_count": 0,
+            "mean_case_score": null,
+            "mean_mass_ratio_inside_gt": null,
+            "mean_mass_ratio_inside_prediction": null,
+            "mean_top10_ratio_inside_gt": null
           }
         }
       },
-      "true_negative": {
+      "positive_detected": {
+        "case_count": 1,
+        "case_ids": [
+          "PETCT_4848bebb10"
+        ],
+        "method_behavior": {
+          "integrated_gradients": {
+            "case_count": 1,
+            "mean_case_score": 0.09104562051712856,
+            "mean_mass_ratio_inside_gt": 0.09476028365142883,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.08237807320376128
+          },
+          "occlusion": {
+            "case_count": 1,
+            "mean_case_score": 0.046341375299930695,
+            "mean_mass_ratio_inside_gt": 0.03503090635181737,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.07273246951219513
+          },
+          "saliency": {
+            "case_count": 1,
+            "mean_case_score": 0.03021250630532487,
+            "mean_mass_ratio_inside_gt": 0.028978277918215316,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.03309237254191383
+          }
+        }
+      },
+      "positive_missed": {
         "case_count": 2,
         "case_ids": [
-          "PETCT_3bce0eb7aa",
-          "PETCT_e2309b8f92"
+          "PETCT_a1db71e797",
+          "PETCT_be3e55a32f"
         ],
         "method_behavior": {
           "integrated_gradients": {
             "case_count": 2,
+            "mean_case_score": 0.02143020492319751,
+            "mean_mass_ratio_inside_gt": 0.02644567521023867,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.009727440920101471
+          },
+          "occlusion": {
+            "case_count": 2,
+            "mean_case_score": 0.0037343629323989273,
+            "mean_mass_ratio_inside_gt": 0.0031257993982005583,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.005154344512195122
+          },
+          "saliency": {
+            "case_count": 2,
+            "mean_case_score": 0.009698862198742487,
+            "mean_mass_ratio_inside_gt": 0.010316036823074195,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.008258788075301837
+          }
+        }
+      },
+      "true_negative": {
+        "case_count": 4,
+        "case_ids": [
+          "PETCT_05bed31780",
+          "PETCT_3bce0eb7aa",
+          "PETCT_402c061122",
+          "PETCT_e2309b8f92"
+        ],
+        "method_behavior": {
+          "integrated_gradients": {
+            "case_count": 4,
+            "mean_case_score": 0.0,
+            "mean_mass_ratio_inside_gt": 0.0,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.0
+          },
+          "occlusion": {
+            "case_count": 4,
+            "mean_case_score": 0.0,
+            "mean_mass_ratio_inside_gt": 0.0,
+            "mean_mass_ratio_inside_prediction": 0.0,
+            "mean_top10_ratio_inside_gt": 0.0
+          },
+          "saliency": {
+            "case_count": 4,
             "mean_case_score": 0.0,
             "mean_mass_ratio_inside_gt": 0.0,
             "mean_mass_ratio_inside_prediction": 0.0,
@@ -236,51 +494,29 @@
     },
     "cases": [
       {
-        "case_id": "PETCT_05bed31780",
-        "category": "false_positive",
-        "metrics_by_method": {
-          "integrated_gradients": {
-            "mass_ratio_inside_gt": 0.0,
-            "mass_ratio_inside_prediction": 0.03918155030889872,
-            "top10_ratio_inside_gt": 0.0
-          }
-        },
-        "score_by_method": {
-          "integrated_gradients": 0.03918155030889872
-        },
-        "winners": [
-          "integrated_gradients"
-        ]
-      },
-      {
-        "case_id": "PETCT_402c061122",
-        "category": "false_positive",
-        "metrics_by_method": {
-          "integrated_gradients": {
-            "mass_ratio_inside_gt": 0.0,
-            "mass_ratio_inside_prediction": 0.004071980052823305,
-            "top10_ratio_inside_gt": 0.0
-          }
-        },
-        "score_by_method": {
-          "integrated_gradients": 0.004071980052823305
-        },
-        "winners": [
-          "integrated_gradients"
-        ]
-      },
-      {
         "case_id": "PETCT_4848bebb10",
         "category": "positive_detected",
         "metrics_by_method": {
           "integrated_gradients": {
-            "mass_ratio_inside_gt": 0.022039613816991748,
+            "mass_ratio_inside_gt": 0.09476028365142883,
             "mass_ratio_inside_prediction": 0.0,
-            "top10_ratio_inside_gt": 0.03654466039787141
+            "top10_ratio_inside_gt": 0.08237807320376128
+          },
+          "occlusion": {
+            "mass_ratio_inside_gt": 0.03503090635181737,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.07273246951219513
+          },
+          "saliency": {
+            "mass_ratio_inside_gt": 0.028978277918215316,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.03309237254191383
           }
         },
         "score_by_method": {
-          "integrated_gradients": 0.026391127791255645
+          "integrated_gradients": 0.09104562051712856,
+          "occlusion": 0.046341375299930695,
+          "saliency": 0.03021250630532487
         },
         "winners": [
           "integrated_gradients"
@@ -288,36 +524,93 @@
       },
       {
         "case_id": "PETCT_a1db71e797",
-        "category": "positive_detected",
+        "category": "positive_missed",
         "metrics_by_method": {
           "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          },
+          "occlusion": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          },
+          "saliency": {
             "mass_ratio_inside_gt": 0.0,
             "mass_ratio_inside_prediction": 0.0,
             "top10_ratio_inside_gt": 0.0
           }
         },
         "score_by_method": {
-          "integrated_gradients": 0.0
+          "integrated_gradients": 0.0,
+          "occlusion": 0.0,
+          "saliency": 0.0
+        },
+        "winners": [
+          "integrated_gradients",
+          "occlusion",
+          "saliency"
+        ]
+      },
+      {
+        "case_id": "PETCT_be3e55a32f",
+        "category": "positive_missed",
+        "metrics_by_method": {
+          "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.05289135042047734,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.019454881840202942
+          },
+          "occlusion": {
+            "mass_ratio_inside_gt": 0.006251598796401117,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.010308689024390244
+          },
+          "saliency": {
+            "mass_ratio_inside_gt": 0.02063207364614839,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.016517576150603674
+          }
+        },
+        "score_by_method": {
+          "integrated_gradients": 0.04286040984639502,
+          "occlusion": 0.007468725864797855,
+          "saliency": 0.019397724397484974
         },
         "winners": [
           "integrated_gradients"
         ]
       },
       {
-        "case_id": "PETCT_be3e55a32f",
-        "category": "positive_detected",
+        "case_id": "PETCT_05bed31780",
+        "category": "true_negative",
         "metrics_by_method": {
           "integrated_gradients": {
-            "mass_ratio_inside_gt": 0.05203984700596316,
+            "mass_ratio_inside_gt": 0.0,
             "mass_ratio_inside_prediction": 0.0,
-            "top10_ratio_inside_gt": 0.015144290373648173
+            "top10_ratio_inside_gt": 0.0
+          },
+          "occlusion": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          },
+          "saliency": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
           }
         },
         "score_by_method": {
-          "integrated_gradients": 0.04097118001626866
+          "integrated_gradients": 0.0,
+          "occlusion": 0.0,
+          "saliency": 0.0
         },
         "winners": [
-          "integrated_gradients"
+          "integrated_gradients",
+          "occlusion",
+          "saliency"
         ]
       },
       {
@@ -328,13 +621,58 @@
             "mass_ratio_inside_gt": 0.0,
             "mass_ratio_inside_prediction": 0.0,
             "top10_ratio_inside_gt": 0.0
+          },
+          "occlusion": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          },
+          "saliency": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
           }
         },
         "score_by_method": {
-          "integrated_gradients": 0.0
+          "integrated_gradients": 0.0,
+          "occlusion": 0.0,
+          "saliency": 0.0
         },
         "winners": [
-          "integrated_gradients"
+          "integrated_gradients",
+          "occlusion",
+          "saliency"
+        ]
+      },
+      {
+        "case_id": "PETCT_402c061122",
+        "category": "true_negative",
+        "metrics_by_method": {
+          "integrated_gradients": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          },
+          "occlusion": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          },
+          "saliency": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          }
+        },
+        "score_by_method": {
+          "integrated_gradients": 0.0,
+          "occlusion": 0.0,
+          "saliency": 0.0
+        },
+        "winners": [
+          "integrated_gradients",
+          "occlusion",
+          "saliency"
         ]
       },
       {
@@ -345,13 +683,27 @@
             "mass_ratio_inside_gt": 0.0,
             "mass_ratio_inside_prediction": 0.0,
             "top10_ratio_inside_gt": 0.0
+          },
+          "occlusion": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
+          },
+          "saliency": {
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "top10_ratio_inside_gt": 0.0
           }
         },
         "score_by_method": {
-          "integrated_gradients": 0.0
+          "integrated_gradients": 0.0,
+          "occlusion": 0.0,
+          "saliency": 0.0
         },
         "winners": [
-          "integrated_gradients"
+          "integrated_gradients",
+          "occlusion",
+          "saliency"
         ]
       }
     ],
@@ -376,36 +728,191 @@
   "method_summaries": {
     "integrated_gradients": {
       "case_count": 7,
-      "ci95_false_positive_prediction_focus": {
-        "high": 0.03918155030889872,
-        "low": 0.004071980052823305,
-        "mean": 0.021626765180861013,
-        "sample_count": 2.0
-      },
+      "ci95_false_positive_prediction_focus": null,
       "ci95_mass_ratio_inside_gt": {
-        "high": 0.05203984700596317,
+        "high": 0.09476028365142881,
         "low": 0.0,
-        "mean": 0.024693153607651636,
+        "mean": 0.04921721135730205,
         "sample_count": 3.0
       },
       "ci95_top10_ratio_inside_gt": {
-        "high": 0.03654466039787141,
+        "high": 0.08237807320376128,
         "low": 0.0,
-        "mean": 0.017229650257173195,
+        "mean": 0.03394431834798808,
         "sample_count": 3.0
       },
-      "false_positive_case_count": 2,
-      "mean_mass_ratio_inside_gt": 0.024693153607651636,
-      "mean_mass_ratio_inside_prediction_on_false_positive": 0.021626765180861013,
-      "mean_top10_ratio_inside_gt": 0.017229650257173195,
+      "false_positive_case_count": 0,
+      "mean_mass_ratio_inside_gt": 0.04921721135730205,
+      "mean_mass_ratio_inside_prediction_on_false_positive": null,
+      "mean_top10_ratio_inside_gt": 0.03394431834798808,
       "positive_case_count": 3,
-      "protocol_score": 0.02392655650095398
+      "protocol_score": 0.03691290851797654
+    },
+    "occlusion": {
+      "case_count": 7,
+      "ci95_false_positive_prediction_focus": null,
+      "ci95_mass_ratio_inside_gt": {
+        "high": 0.03503090635181737,
+        "low": 0.0,
+        "mean": 0.013760835049406162,
+        "sample_count": 3.0
+      },
+      "ci95_top10_ratio_inside_gt": {
+        "high": 0.07273246951219513,
+        "low": 0.0,
+        "mean": 0.02768038617886179,
+        "sample_count": 3.0
+      },
+      "false_positive_case_count": 0,
+      "mean_mass_ratio_inside_gt": 0.013760835049406162,
+      "mean_mass_ratio_inside_prediction_on_false_positive": null,
+      "mean_top10_ratio_inside_gt": 0.02768038617886179,
+      "positive_case_count": 3,
+      "protocol_score": 0.010320626287054623
+    },
+    "saliency": {
+      "case_count": 7,
+      "ci95_false_positive_prediction_focus": null,
+      "ci95_mass_ratio_inside_gt": {
+        "high": 0.028978277918215316,
+        "low": 0.0,
+        "mean": 0.016536783854787903,
+        "sample_count": 3.0
+      },
+      "ci95_top10_ratio_inside_gt": {
+        "high": 0.03309237254191383,
+        "low": 0.0,
+        "mean": 0.0165366495641725,
+        "sample_count": 3.0
+      },
+      "false_positive_case_count": 0,
+      "mean_mass_ratio_inside_gt": 0.016536783854787903,
+      "mean_mass_ratio_inside_prediction_on_false_positive": null,
+      "mean_top10_ratio_inside_gt": 0.0165366495641725,
+      "positive_case_count": 3,
+      "protocol_score": 0.012402587891090926
     }
   },
   "paired_delta_ci": {
-    "mass_ratio_inside_gt__positive_only": [],
+    "mass_ratio_inside_gt__positive_only": [
+      {
+        "ci95_delta_a_minus_b": {
+          "high": 0.059729377299611454,
+          "low": 0.0,
+          "mean": 0.035456376307895894,
+          "sample_count": 3.0
+        },
+        "delta_a_minus_b": 0.03545637630789589,
+        "mean_a": 0.04921721135730205,
+        "mean_b": 0.013760835049406162,
+        "method_a": "integrated_gradients",
+        "method_b": "occlusion",
+        "paired_case_count": 3,
+        "paired_case_ids": [
+          "PETCT_4848bebb10",
+          "PETCT_a1db71e797",
+          "PETCT_be3e55a32f"
+        ]
+      },
+      {
+        "ci95_delta_a_minus_b": {
+          "high": 0.06578200573321351,
+          "low": 0.0,
+          "mean": 0.03268042750251415,
+          "sample_count": 3.0
+        },
+        "delta_a_minus_b": 0.03268042750251415,
+        "mean_a": 0.04921721135730205,
+        "mean_b": 0.016536783854787903,
+        "method_a": "integrated_gradients",
+        "method_b": "saliency",
+        "paired_case_count": 3,
+        "paired_case_ids": [
+          "PETCT_4848bebb10",
+          "PETCT_a1db71e797",
+          "PETCT_be3e55a32f"
+        ]
+      },
+      {
+        "ci95_delta_a_minus_b": {
+          "high": 0.006052628433602051,
+          "low": -0.014380474849747272,
+          "mean": -0.0027759488053817408,
+          "sample_count": 3.0
+        },
+        "delta_a_minus_b": -0.0027759488053817408,
+        "mean_a": 0.013760835049406162,
+        "mean_b": 0.016536783854787903,
+        "method_a": "occlusion",
+        "method_b": "saliency",
+        "paired_case_count": 3,
+        "paired_case_ids": [
+          "PETCT_4848bebb10",
+          "PETCT_a1db71e797",
+          "PETCT_be3e55a32f"
+        ]
+      }
+    ],
     "mass_ratio_inside_prediction__false_positive_only": [],
-    "top10_ratio_inside_gt__positive_only": []
+    "top10_ratio_inside_gt__positive_only": [
+      {
+        "ci95_delta_a_minus_b": {
+          "high": 0.009645603691566154,
+          "low": 0.0,
+          "mean": 0.006263932169126284,
+          "sample_count": 3.0
+        },
+        "delta_a_minus_b": 0.006263932169126286,
+        "mean_a": 0.03394431834798808,
+        "mean_b": 0.02768038617886179,
+        "method_a": "integrated_gradients",
+        "method_b": "occlusion",
+        "paired_case_count": 3,
+        "paired_case_ids": [
+          "PETCT_4848bebb10",
+          "PETCT_a1db71e797",
+          "PETCT_be3e55a32f"
+        ]
+      },
+      {
+        "ci95_delta_a_minus_b": {
+          "high": 0.049285700661847454,
+          "low": 0.0,
+          "mean": 0.017407668783815573,
+          "sample_count": 3.0
+        },
+        "delta_a_minus_b": 0.017407668783815576,
+        "mean_a": 0.03394431834798808,
+        "mean_b": 0.0165366495641725,
+        "method_a": "integrated_gradients",
+        "method_b": "saliency",
+        "paired_case_count": 3,
+        "paired_case_ids": [
+          "PETCT_4848bebb10",
+          "PETCT_a1db71e797",
+          "PETCT_be3e55a32f"
+        ]
+      },
+      {
+        "ci95_delta_a_minus_b": {
+          "high": 0.0396400969702813,
+          "low": -0.006208887126213429,
+          "mean": 0.01114373661468929,
+          "sample_count": 3.0
+        },
+        "delta_a_minus_b": 0.01114373661468929,
+        "mean_a": 0.02768038617886179,
+        "mean_b": 0.0165366495641725,
+        "method_a": "occlusion",
+        "method_b": "saliency",
+        "paired_case_count": 3,
+        "paired_case_ids": [
+          "PETCT_4848bebb10",
+          "PETCT_a1db71e797",
+          "PETCT_be3e55a32f"
+        ]
+      }
+    ]
   },
   "protocol": {
     "paired_delta_metrics": [
@@ -417,13 +924,29 @@
   },
   "ranking": [
     {
-      "mean_mass_ratio_inside_gt": 0.024693153607651636,
-      "mean_mass_ratio_inside_prediction_on_false_positive": 0.021626765180861013,
-      "mean_top10_ratio_inside_gt": 0.017229650257173195,
+      "mean_mass_ratio_inside_gt": 0.04921721135730205,
+      "mean_mass_ratio_inside_prediction_on_false_positive": null,
+      "mean_top10_ratio_inside_gt": 0.03394431834798808,
       "method": "integrated_gradients",
-      "protocol_score": 0.02392655650095398,
+      "protocol_score": 0.03691290851797654,
       "rank": 1
+    },
+    {
+      "mean_mass_ratio_inside_gt": 0.016536783854787903,
+      "mean_mass_ratio_inside_prediction_on_false_positive": null,
+      "mean_top10_ratio_inside_gt": 0.0165366495641725,
+      "method": "saliency",
+      "protocol_score": 0.012402587891090926,
+      "rank": 2
+    },
+    {
+      "mean_mass_ratio_inside_gt": 0.013760835049406162,
+      "mean_mass_ratio_inside_prediction_on_false_positive": null,
+      "mean_top10_ratio_inside_gt": 0.02768038617886179,
+      "method": "occlusion",
+      "protocol_score": 0.010320626287054623,
+      "rank": 3
     }
   ],
-  "state_name": "post_best_dice_50epochs_xai_allcases_20260327"
+  "state_name": "rebuild_best_label_50epochs_xai_3methods_20260419"
 }

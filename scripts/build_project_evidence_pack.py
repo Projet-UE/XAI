@@ -247,10 +247,16 @@ def _build_demo_runbook(
     *,
     autopet_main_run_id: str,
     autopet_comparison_run_id: str,
+    autopet_xai_run_id: Optional[str],
     brain_mri_run_id: str,
     autopet_top_method: Optional[str],
     brain_top_method: Optional[str],
 ) -> str:
+    tracked_runs = [autopet_main_run_id, autopet_comparison_run_id, brain_mri_run_id]
+    if autopet_xai_run_id and autopet_xai_run_id != autopet_main_run_id:
+        tracked_runs.insert(2, autopet_xai_run_id)
+
+    run_line = ", ".join(f"`{run_id}`" for run_id in tracked_runs)
     lines = [
         "# Demo Runbook (2-3 minutes)",
         "",
@@ -266,7 +272,7 @@ def _build_demo_runbook(
         "## Step-by-step sequence",
         "",
         "### 1. Context and tracked runs (20-30s)",
-        f"- Open `README.md` and state the three tracked runs: `{autopet_main_run_id}`, `{autopet_comparison_run_id}`, `{brain_mri_run_id}`.",
+        f"- Open `README.md` and state the tracked runs: {run_line}.",
         "- Point to `traceability/requirement_traceability.json` for requirement coverage.",
         "",
         "### 2. Core segmentation result and tradeoff (35-45s)",
@@ -277,6 +283,7 @@ def _build_demo_runbook(
         "### 3. autoPET XAI evidence (30-40s)",
         "- Open one or two files in `autopet/figures/`.",
         "- Open `autopet/method_benchmark.json` and cite top method.",
+        "- If present, open `autopet/xai_segmentation_metrics.json` to show the benchmark's exact rebuilt-state metrics.",
         f"- Current top method: `{autopet_top_method if autopet_top_method else 'n/a'}`.",
         "- This covers explainability demonstration for `REQ-C4`.",
         "",
@@ -330,6 +337,7 @@ def main() -> None:
 
     autopet_xai_summary_path = autopet_xai_dir / "xai_analysis_summary.json"
     autopet_method_benchmark_path = autopet_xai_dir / "method_benchmark.json"
+    autopet_xai_metrics_path = autopet_xai_dir / "segmentation_metrics.json"
     if not autopet_method_benchmark_path.exists() and autopet_xai_summary_path.exists():
         # Fallback: analysis summary may already contain benchmark details.
         autopet_method_benchmark_path = autopet_xai_summary_path
@@ -342,6 +350,7 @@ def main() -> None:
     autopet_method_benchmark = (
         load_json(autopet_method_benchmark_path) if autopet_method_benchmark_path.exists() else {}
     )
+    autopet_xai_metrics = load_json(autopet_xai_metrics_path) if autopet_xai_metrics_path.exists() else {}
 
     brain_mri_xai_benchmark = {}
     if brain_mri_xai_dir is not None:
@@ -355,6 +364,11 @@ def main() -> None:
 
     save_json(autopet_metrics, autopet_target / "segmentation_metrics.json")
     save_json(autopet_comparison, autopet_target / "comparison.json")
+    autopet_xai_is_distinct = bool(
+        args.autopet_xai_analysis_run_id and args.autopet_xai_analysis_run_id != args.autopet_main_run_id
+    )
+    if autopet_xai_is_distinct and autopet_xai_metrics:
+        save_json(autopet_xai_metrics, autopet_target / "xai_segmentation_metrics.json")
     if autopet_xai_summary:
         save_json(autopet_xai_summary, autopet_target / "xai_analysis_summary.json")
     if autopet_method_benchmark:
@@ -364,7 +378,15 @@ def main() -> None:
     if brain_mri_xai_benchmark:
         save_json(brain_mri_xai_benchmark, brain_mri_target / "xai_method_benchmark.json")
 
-    autopet_figures = _collect_pngs(autopet_main_dir / "figures", args.max_figures_per_track)
+    autopet_figures: List[Path] = []
+    if autopet_xai_is_distinct:
+        autopet_figures.extend(_collect_pngs(autopet_xai_dir / "figures", args.max_figures_per_track))
+    else:
+        autopet_figures.extend(_collect_pngs(autopet_main_dir / "figures", args.max_figures_per_track))
+    if len(autopet_figures) < args.max_figures_per_track:
+        autopet_figures.extend(
+            _collect_pngs(autopet_main_dir / "figures", args.max_figures_per_track - len(autopet_figures))
+        )
     if len(autopet_figures) < args.max_figures_per_track:
         autopet_figures.extend(
             _collect_pngs(autopet_xai_dir / "figures", args.max_figures_per_track - len(autopet_figures))
@@ -404,6 +426,7 @@ def main() -> None:
                 "REQ-C4",
                 "Génération d'explications XAI.",
                 [
+                    "autopet/xai_segmentation_metrics.json" if autopet_xai_is_distinct and autopet_xai_metrics else "",
                     "autopet/xai_analysis_summary.json" if autopet_xai_summary else "",
                     "autopet/method_benchmark.json" if autopet_method_benchmark else "",
                     "brain_mri/xai_method_benchmark.json" if brain_mri_xai_benchmark else "",
@@ -498,6 +521,7 @@ def main() -> None:
             ],
             "autopet": [
                 "autopet/segmentation_metrics.json",
+                "autopet/xai_segmentation_metrics.json" if autopet_xai_is_distinct and autopet_xai_metrics else "",
                 "autopet/comparison.json",
                 "autopet/xai_analysis_summary.json" if autopet_xai_summary else "",
                 "autopet/method_benchmark.json" if autopet_method_benchmark else "",
@@ -535,6 +559,11 @@ def main() -> None:
             else "- Méthode XAI prioritaire sur autoPET: n/a."
         ),
     ]
+    if autopet_xai_is_distinct and autopet_xai_metrics:
+        interpretation_lines.append(
+            "- Le benchmark XAI autoPET multi-méthodes repose sur un run reconstruit traqué séparément ; "
+            "ses métriques propres sont copiées dans `autopet/xai_segmentation_metrics.json`."
+        )
     interpretation_lines.extend(_autopet_tradeoff_lines(autopet_comparison))
     interpretation_lines.extend(
         [
@@ -587,6 +616,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 
 - autoPET main run: `{args.autopet_main_run_id}`
 - autoPET comparison run: `{args.autopet_comparison_run_id}`
+- autoPET XAI benchmark run: `{args.autopet_xai_analysis_run_id or args.autopet_main_run_id}`
 - Brain MRI backup run: `{args.brain_mri_run_id}`
 - includes run index: `{"yes" if bool(run_index) else "no"}`
 
@@ -603,6 +633,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 
 - autoPET top method: `{top_autopet_method if top_autopet_method else 'n/a'}`
 - Brain MRI top method: `{top_brain_method if top_brain_method else 'n/a'}`
+{f"- autoPET XAI benchmark metrics copied separately: `yes`" if autopet_xai_is_distinct and autopet_xai_metrics else "- autoPET XAI benchmark metrics copied separately: `no`"}
 
 ## Contents
 
@@ -630,6 +661,7 @@ This folder consolidates the most important, review-ready artifacts for project 
         _build_demo_runbook(
             autopet_main_run_id=args.autopet_main_run_id,
             autopet_comparison_run_id=args.autopet_comparison_run_id,
+            autopet_xai_run_id=args.autopet_xai_analysis_run_id or args.autopet_main_run_id,
             brain_mri_run_id=args.brain_mri_run_id,
             autopet_top_method=top_autopet_method,
             brain_top_method=top_brain_method,

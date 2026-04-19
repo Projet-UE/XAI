@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T20:00:49.198097+00:00",
+  "generated_at": "2026-04-19T09:24:32.920746+00:00",
   "overall": {
     "coverage_score": 1.0,
     "criteria_fully_covered": 9,
@@ -77,7 +77,7 @@
           "quality_check_results": [
             {
               "id": "AUTOPET-RANKING-NONEMPTY",
-              "message": "list length 1 >= 1",
+              "message": "list length 3 >= 1",
               "path": "autopet/method_benchmark.json",
               "status": "pass",
               "type": "json_list_min_length"

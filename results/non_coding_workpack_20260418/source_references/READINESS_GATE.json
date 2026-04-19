@@ -11,7 +11,7 @@
     {
       "details": {
         "missing_files": [],
-        "run_dir": "results/autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327"
+        "run_dir": "results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419"
       },
       "id": "autopet_xai_snapshot",
       "status": "pass"
@@ -28,12 +28,12 @@
       "details": {
         "actual": {
           "autopet_main": "autopet_fdg_full_post_best_dice_50epochs_20260324",
-          "autopet_xai_analysis": "autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327",
+          "autopet_xai_analysis": "autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419",
           "brain_mri_backup": "grenoble_gpu_20260324"
         },
         "expected": {
           "autopet_main": "autopet_fdg_full_post_best_dice_50epochs_20260324",
-          "autopet_xai_analysis": "autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327",
+          "autopet_xai_analysis": "autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419",
           "brain_mri_backup": "grenoble_gpu_20260324",
           "evidence_pack": "evidence_pack_20260418_grid"
         },
@@ -59,10 +59,10 @@
   ],
   "checks_failed": 0,
   "checks_total": 5,
-  "generated_at": "2026-04-18T20:00:56.129712+00:00",
+  "generated_at": "2026-04-19T09:25:04.290805+00:00",
   "inputs": {
     "autopet_run_id": "autopet_fdg_full_post_best_dice_50epochs_20260324",
-    "autopet_xai_run_id": "autopet_fdg_full_post_best_dice_50epochs_xai_allcases_20260327",
+    "autopet_xai_run_id": "autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419",
     "brain_mri_run_id": "grenoble_gpu_20260324",
     "evidence_pack_run_id": "evidence_pack_20260418_grid",
     "mapping_path": "configs/evaluation_readiness_mapping.json",

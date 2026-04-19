@@ -1,81 +1,159 @@
 {
   "case_category_counts": {
-    "false_positive": 2,
-    "positive_detected": 3,
-    "positive_missed": 0,
-    "true_negative": 2
+    "false_positive": 0,
+    "positive_detected": 1,
+    "positive_missed": 2,
+    "true_negative": 4
   },
   "cases": [
     {
       "case_id": "PETCT_4848bebb10",
       "category": "positive_detected",
-      "dice": 0.21058522545570835,
-      "false_negative_volume_ml": 238.58145118728072,
-      "false_positive_volume_ml": 7.103822737025463,
+      "dice": 0.33983853983853984,
+      "false_negative_volume_ml": 211.12411882193013,
+      "false_positive_volume_ml": 22.86659578047776,
       "ground_truth_positive": true,
       "gt_volume_ml": 271.3510993297064,
       "methods": [
         {
           "attribution_summary": {
             "gt_positive_voxels": 5718,
-            "mass_ratio_inside_gt": 0.022039613816991748,
+            "mass_ratio_inside_gt": 0.028978277918215316,
             "mass_ratio_inside_prediction": 0.0,
-            "mass_ratio_inside_union": 0.022039613816991748,
-            "mean_attr_inside_gt": 0.03765823692083359,
+            "mass_ratio_inside_union": 0.028978277918215316,
+            "mean_attr_inside_gt": 0.0669633150100708,
             "mean_attr_inside_prediction": null,
-            "mean_attr_outside_gt": 0.01842527464032173,
-            "mean_attr_outside_prediction": 0.018635036423802376,
+            "mean_attr_outside_gt": 0.024741731584072113,
+            "mean_attr_outside_prediction": 0.025202209129929543,
             "pred_positive_voxels": 0,
-            "top10_ratio_inside_gt": 0.03654466039787141,
+            "top10_ratio_inside_gt": 0.03309237254191383,
             "top10_ratio_inside_prediction": 0.0,
-            "total_positive_attribution_mass": 9770.1259765625
+            "total_positive_attribution_mass": 13213.2158203125
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_4848bebb10/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_4848bebb10/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_4848bebb10/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 5718,
+            "mass_ratio_inside_gt": 0.09476028365142883,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.09476028365142883,
+            "mean_attr_inside_gt": 0.07386971265077591,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.007781090214848518,
+            "mean_attr_outside_prediction": 0.008501866832375526,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.08237807320376128,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 4457.4267578125
+          },
+          "figure": "figures/PETCT_4848bebb10/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_4848bebb10/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 5718,
+            "mass_ratio_inside_gt": 0.03503090635181737,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.03503090635181737,
+            "mean_attr_inside_gt": 0.21192704141139984,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.06437025219202042,
+            "mean_attr_outside_prediction": 0.06597953289747238,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.07273246951219513,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 34592.27734375
+          },
+          "figure": "figures/PETCT_4848bebb10/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_4848bebb10/occlusion.png"
         }
       ],
       "nnunet_case_id": "FDG_0060",
-      "pred_volume_ml": 39.873470879451155,
+      "pred_volume_ml": 83.09357628825406,
       "prediction_positive": true
     },
     {
       "case_id": "PETCT_be3e55a32f",
-      "category": "positive_detected",
-      "dice": 0.2978800507338286,
-      "false_negative_volume_ml": 47.922811178672646,
-      "false_positive_volume_ml": 0.28614347276985225,
+      "category": "positive_missed",
+      "dice": 0.0,
+      "false_negative_volume_ml": 58.14933007505606,
+      "false_positive_volume_ml": 0.0,
       "ground_truth_positive": true,
       "gt_volume_ml": 58.14933007505606,
       "methods": [
         {
           "attribution_summary": {
             "gt_positive_voxels": 1142,
-            "mass_ratio_inside_gt": 0.05203984700596316,
+            "mass_ratio_inside_gt": 0.02063207364614839,
             "mass_ratio_inside_prediction": 0.0,
-            "mass_ratio_inside_union": 0.05203984700596316,
-            "mean_attr_inside_gt": 0.07885131239891052,
+            "mass_ratio_inside_union": 0.02063207364614839,
+            "mean_attr_inside_gt": 0.25729674100875854,
             "mean_attr_inside_prediction": null,
-            "mean_attr_outside_gt": 0.003135496051982045,
-            "mean_attr_outside_prediction": 0.003300419310107827,
+            "mean_attr_outside_gt": 0.026661250740289688,
+            "mean_attr_outside_prediction": 0.027163617312908173,
             "pred_positive_voxels": 0,
-            "top10_ratio_inside_gt": 0.015144290373648173,
+            "top10_ratio_inside_gt": 0.016517576150603674,
             "top10_ratio_inside_prediction": 0.0,
-            "total_positive_attribution_mass": 1730.3702392578125
+            "total_positive_attribution_mass": 14241.55859375
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_be3e55a32f/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_be3e55a32f/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_be3e55a32f/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 1142,
+            "mass_ratio_inside_gt": 0.05289135042047734,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.05289135042047734,
+            "mean_attr_inside_gt": 0.25175073742866516,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.009840765967965126,
+            "mean_attr_outside_prediction": 0.010367696173489094,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.019454881840202942,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 5435.65869140625
+          },
+          "figure": "figures/PETCT_be3e55a32f/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_be3e55a32f/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 1142,
+            "mass_ratio_inside_gt": 0.006251598796401117,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.006251598796401117,
+            "mean_attr_inside_gt": 0.33207470178604126,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.11522971838712692,
+            "mean_attr_outside_prediction": 0.11570200324058533,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.010308689024390244,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 60661.171875
+          },
+          "figure": "figures/PETCT_be3e55a32f/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_be3e55a32f/occlusion.png"
         }
       ],
       "nnunet_case_id": "FDG_0062",
-      "pred_volume_ml": 10.512662369153269,
-      "prediction_positive": true
+      "pred_volume_ml": 0.0,
+      "prediction_positive": false
     },
     {
       "case_id": "PETCT_a1db71e797",
-      "category": "positive_detected",
-      "dice": 0.8982943777637398,
-      "false_negative_volume_ml": 1.965681247723333,
-      "false_positive_volume_ml": 0.0373230616656329,
+      "category": "positive_missed",
+      "dice": 0.0,
+      "false_negative_volume_ml": 10.811246862478331,
+      "false_positive_volume_ml": 0.0,
       "ground_truth_positive": true,
       "gt_volume_ml": 10.811246862478331,
       "methods": [
@@ -87,59 +165,66 @@
             "mass_ratio_inside_union": 0.0,
             "mean_attr_inside_gt": null,
             "mean_attr_inside_prediction": null,
-            "mean_attr_outside_gt": 0.016607999801635742,
-            "mean_attr_outside_prediction": 0.016607999801635742,
+            "mean_attr_outside_gt": 0.025799965485930443,
+            "mean_attr_outside_prediction": 0.025799965485930443,
             "pred_positive_voxels": 0,
             "top10_ratio_inside_gt": 0.0,
             "top10_ratio_inside_prediction": 0.0,
-            "total_positive_attribution_mass": 8707.375
+            "total_positive_attribution_mass": 13526.6123046875
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_a1db71e797/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_a1db71e797/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_a1db71e797/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.02178366854786873,
+            "mean_attr_outside_prediction": 0.02178366854786873,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 11420.916015625
+          },
+          "figure": "figures/PETCT_a1db71e797/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_a1db71e797/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.13304679095745087,
+            "mean_attr_outside_prediction": 0.13304679095745087,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 69754.8359375
+          },
+          "figure": "figures/PETCT_a1db71e797/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_a1db71e797/occlusion.png"
         }
       ],
       "nnunet_case_id": "FDG_0061",
-      "pred_volume_ml": 8.882888676420631,
-      "prediction_positive": true
-    },
-    {
-      "case_id": "PETCT_402c061122",
-      "category": "false_positive",
-      "dice": 0.0,
-      "false_negative_volume_ml": 0.0,
-      "false_positive_volume_ml": 28.042060331445523,
-      "ground_truth_positive": false,
-      "gt_volume_ml": 0.0,
-      "methods": [
-        {
-          "attribution_summary": {
-            "gt_positive_voxels": 0,
-            "mass_ratio_inside_gt": 0.0,
-            "mass_ratio_inside_prediction": 0.004071980052823305,
-            "mass_ratio_inside_union": 0.004071980052823305,
-            "mean_attr_inside_gt": null,
-            "mean_attr_inside_prediction": 0.019262216985225677,
-            "mean_attr_outside_gt": 0.020336894318461418,
-            "mean_attr_outside_prediction": 0.020341530442237854,
-            "pred_positive_voxels": 2254,
-            "top10_ratio_inside_gt": 0.0,
-            "top10_ratio_inside_prediction": 0.0054168494535467016,
-            "total_positive_attribution_mass": 10662.3896484375
-          },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_402c061122/integrated_gradients.png",
-          "method": "integrated_gradients"
-        }
-      ],
-      "nnunet_case_id": "FDG_0059",
-      "pred_volume_ml": 28.042060331445523,
-      "prediction_positive": true
+      "pred_volume_ml": 0.0,
+      "prediction_positive": false
     },
     {
       "case_id": "PETCT_05bed31780",
-      "category": "false_positive",
-      "dice": 0.0,
+      "category": "true_negative",
+      "dice": 1.0,
       "false_negative_volume_ml": 0.0,
-      "false_positive_volume_ml": 8.584304183095568,
+      "false_positive_volume_ml": 0.0,
       "ground_truth_positive": false,
       "gt_volume_ml": 0.0,
       "methods": [
@@ -147,24 +232,63 @@
           "attribution_summary": {
             "gt_positive_voxels": 0,
             "mass_ratio_inside_gt": 0.0,
-            "mass_ratio_inside_prediction": 0.03918155030889872,
-            "mass_ratio_inside_union": 0.03918155030889872,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
             "mean_attr_inside_gt": null,
-            "mean_attr_inside_prediction": 0.11795908957719803,
-            "mean_attr_outside_gt": 0.0039621321484446526,
-            "mean_attr_outside_prediction": 0.0038119065575301647,
-            "pred_positive_voxels": 690,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.02717539854347706,
+            "mean_attr_outside_prediction": 0.02717539854347706,
+            "pred_positive_voxels": 0,
             "top10_ratio_inside_gt": 0.0,
-            "top10_ratio_inside_prediction": 0.012931774399664309,
-            "total_positive_attribution_mass": 2077.29833984375
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 14247.7353515625
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_05bed31780/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_05bed31780/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_05bed31780/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.00943436473608017,
+            "mean_attr_outside_prediction": 0.00943436473608017,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 4946.32421875
+          },
+          "figure": "figures/PETCT_05bed31780/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_05bed31780/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.11550578474998474,
+            "mean_attr_outside_prediction": 0.11550578474998474,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 60558.296875
+          },
+          "figure": "figures/PETCT_05bed31780/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_05bed31780/occlusion.png"
         }
       ],
       "nnunet_case_id": "FDG_0057",
-      "pred_volume_ml": 8.584304183095568,
-      "prediction_positive": true
+      "pred_volume_ml": 0.0,
+      "prediction_positive": false
     },
     {
       "case_id": "PETCT_3bce0eb7aa",
@@ -183,18 +307,128 @@
             "mass_ratio_inside_union": 0.0,
             "mean_attr_inside_gt": null,
             "mean_attr_inside_prediction": null,
-            "mean_attr_outside_gt": 0.0204810481518507,
-            "mean_attr_outside_prediction": 0.0204810481518507,
+            "mean_attr_outside_gt": 0.045128233730793,
+            "mean_attr_outside_prediction": 0.045128233730793,
             "pred_positive_voxels": 0,
             "top10_ratio_inside_gt": 0.0,
             "top10_ratio_inside_prediction": 0.0,
-            "total_positive_attribution_mass": 10737.9677734375
+            "total_positive_attribution_mass": 23660.19140625
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_3bce0eb7aa/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_3bce0eb7aa/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_3bce0eb7aa/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.018377749249339104,
+            "mean_attr_outside_prediction": 0.018377749249339104,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 9635.2333984375
+          },
+          "figure": "figures/PETCT_3bce0eb7aa/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_3bce0eb7aa/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.1267489492893219,
+            "mean_attr_outside_prediction": 0.1267489492893219,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 66452.953125
+          },
+          "figure": "figures/PETCT_3bce0eb7aa/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_3bce0eb7aa/occlusion.png"
         }
       ],
       "nnunet_case_id": "FDG_0058",
+      "pred_volume_ml": 0.0,
+      "prediction_positive": false
+    },
+    {
+      "case_id": "PETCT_402c061122",
+      "category": "true_negative",
+      "dice": 1.0,
+      "false_negative_volume_ml": 0.0,
+      "false_positive_volume_ml": 0.0,
+      "ground_truth_positive": false,
+      "gt_volume_ml": 0.0,
+      "methods": [
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.022010602056980133,
+            "mean_attr_outside_prediction": 0.022010602056980133,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 11539.89453125
+          },
+          "figure": "figures/PETCT_402c061122/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_402c061122/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.01232774555683136,
+            "mean_attr_outside_prediction": 0.01232774555683136,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 6463.2890625
+          },
+          "figure": "figures/PETCT_402c061122/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_402c061122/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.07842408865690231,
+            "mean_attr_outside_prediction": 0.07842408865690231,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 41116.80859375
+          },
+          "figure": "figures/PETCT_402c061122/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_402c061122/occlusion.png"
+        }
+      ],
+      "nnunet_case_id": "FDG_0059",
       "pred_volume_ml": 0.0,
       "prediction_positive": false
     },
@@ -215,15 +449,54 @@
             "mass_ratio_inside_union": 0.0,
             "mean_attr_inside_gt": null,
             "mean_attr_inside_prediction": null,
-            "mean_attr_outside_gt": 0.019225185737013817,
-            "mean_attr_outside_prediction": 0.019225185737013817,
+            "mean_attr_outside_gt": 0.021012471988797188,
+            "mean_attr_outside_prediction": 0.021012471988797188,
             "pred_positive_voxels": 0,
             "top10_ratio_inside_gt": 0.0,
             "top10_ratio_inside_prediction": 0.0,
-            "total_positive_attribution_mass": 10079.5341796875
+            "total_positive_attribution_mass": 11016.5869140625
           },
-          "figure": "/home/olmechi/XAI/artifacts/autopet_fdg_poc/fdg_full/xai_post_best_dice_50epochs_allcases/PETCT_e2309b8f92/integrated_gradients.png",
-          "method": "integrated_gradients"
+          "figure": "figures/PETCT_e2309b8f92/saliency.png",
+          "method": "saliency",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_e2309b8f92/saliency.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.016746902838349342,
+            "mean_attr_outside_prediction": 0.016746902838349342,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 8780.2001953125
+          },
+          "figure": "figures/PETCT_e2309b8f92/integrated_gradients.png",
+          "method": "integrated_gradients",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_e2309b8f92/integrated_gradients.png"
+        },
+        {
+          "attribution_summary": {
+            "gt_positive_voxels": 0,
+            "mass_ratio_inside_gt": 0.0,
+            "mass_ratio_inside_prediction": 0.0,
+            "mass_ratio_inside_union": 0.0,
+            "mean_attr_inside_gt": null,
+            "mean_attr_inside_prediction": null,
+            "mean_attr_outside_gt": 0.08535315096378326,
+            "mean_attr_outside_prediction": 0.08535315096378326,
+            "pred_positive_voxels": 0,
+            "top10_ratio_inside_gt": 0.0,
+            "top10_ratio_inside_prediction": 0.0,
+            "total_positive_attribution_mass": 44749.6328125
+          },
+          "figure": "figures/PETCT_e2309b8f92/occlusion.png",
+          "method": "occlusion",
+          "original_figure": "/home/olmechi/XAI_exec_20260419/artifacts/autopet_fdg_poc/fdg_full/xai_rebuild_best_label_50epochs_3methods/PETCT_e2309b8f92/occlusion.png"
         }
       ],
       "nnunet_case_id": "FDG_0063",
@@ -231,43 +504,219 @@
       "prediction_positive": false
     }
   ],
+  "method_benchmark": {
+    "methods": {
+      "integrated_gradients": {
+        "case_count": 7,
+        "ci95_false_positive_mass_inside_prediction": null,
+        "ci95_localization_mass_inside_gt": {
+          "high": 0.09476028365142881,
+          "low": 0.0,
+          "mean": 0.04921721135730205,
+          "sample_count": 3.0
+        },
+        "ci95_localization_top10_inside_gt": {
+          "high": 0.08237807320376128,
+          "low": 0.0,
+          "mean": 0.03394431834798808,
+          "sample_count": 3.0
+        },
+        "composite_protocol_score": 0.12724250091879513,
+        "false_positive_case_count": 0,
+        "false_positive_mean_mass_inside_prediction": null,
+        "localization_mean_enrichment": 17.53796224550934,
+        "localization_mean_mass_inside_gt": 0.04921721135730205,
+        "localization_mean_top10_inside_gt": 0.03394431834798808,
+        "localization_std_mass_inside_gt": 0.04748686463451209,
+        "positive_case_count": 3,
+        "stability_score": 0.9525131353654879
+      },
+      "occlusion": {
+        "case_count": 7,
+        "ci95_false_positive_mass_inside_prediction": null,
+        "ci95_localization_mass_inside_gt": {
+          "high": 0.03503090635181737,
+          "low": 0.0,
+          "mean": 0.013760835049406162,
+          "sample_count": 3.0
+        },
+        "ci95_localization_top10_inside_gt": {
+          "high": 0.07273246951219513,
+          "low": 0.0,
+          "mean": 0.02768038617886179,
+          "sample_count": 3.0
+        },
+        "composite_protocol_score": 0.10707616762764147,
+        "false_positive_case_count": 0,
+        "false_positive_mean_mass_inside_prediction": null,
+        "localization_mean_enrichment": 3.087081411363826,
+        "localization_mean_mass_inside_gt": 0.013760835049406162,
+        "localization_mean_top10_inside_gt": 0.02768038617886179,
+        "localization_std_mass_inside_gt": 0.018683751544725527,
+        "positive_case_count": 3,
+        "stability_score": 0.9813162484552744
+      },
+      "saliency": {
+        "case_count": 7,
+        "ci95_false_positive_mass_inside_prediction": null,
+        "ci95_localization_mass_inside_gt": {
+          "high": 0.028978277918215316,
+          "low": 0.0,
+          "mean": 0.016536783854787903,
+          "sample_count": 3.0
+        },
+        "ci95_localization_top10_inside_gt": {
+          "high": 0.03309237254191383,
+          "low": 0.0,
+          "mean": 0.0165366495641725,
+          "sample_count": 3.0
+        },
+        "composite_protocol_score": 0.10925722020608375,
+        "false_positive_case_count": 0,
+        "false_positive_mean_mass_inside_prediction": null,
+        "localization_mean_enrichment": 6.178540229441813,
+        "localization_mean_mass_inside_gt": 0.016536783854787903,
+        "localization_mean_top10_inside_gt": 0.0165366495641725,
+        "localization_std_mass_inside_gt": 0.014916892995283818,
+        "positive_case_count": 3,
+        "stability_score": 0.9850831070047161
+      }
+    },
+    "ranking": [
+      {
+        "composite_protocol_score": 0.12724250091879513,
+        "false_positive_case_count": 0,
+        "false_positive_mean_mass_inside_prediction": null,
+        "localization_mean_mass_inside_gt": 0.04921721135730205,
+        "method": "integrated_gradients",
+        "positive_case_count": 3,
+        "rank": 1
+      },
+      {
+        "composite_protocol_score": 0.10925722020608375,
+        "false_positive_case_count": 0,
+        "false_positive_mean_mass_inside_prediction": null,
+        "localization_mean_mass_inside_gt": 0.016536783854787903,
+        "method": "saliency",
+        "positive_case_count": 3,
+        "rank": 2
+      },
+      {
+        "composite_protocol_score": 0.10707616762764147,
+        "false_positive_case_count": 0,
+        "false_positive_mean_mass_inside_prediction": null,
+        "localization_mean_mass_inside_gt": 0.013760835049406162,
+        "method": "occlusion",
+        "positive_case_count": 3,
+        "rank": 3
+      }
+    ]
+  },
+  "method_benchmark_protocol": {
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 42,
+    "ci": "95%",
+    "composite_score_formula": "0.65 * localization_mean_mass_inside_gt + 0.25 * false_positive_mean_mass_inside_prediction + 0.10 * stability_score",
+    "description": "Common protocol to compare XAI methods on lesion alignment and false-positive focus.",
+    "stability_score_definition": "1 - min(std(localization_mass_inside_gt), 1.0)"
+  },
   "method_summaries": {
     "integrated_gradients": {
       "all_cases": {
-        "mean_prediction_focus_ratio": 0.006179075765960289,
-        "mean_union_focus_ratio": 0.016761855883525276
+        "mean_prediction_focus_ratio": 0.0,
+        "mean_union_focus_ratio": 0.02109309058170088
       },
       "case_count": 7,
       "false_positive_cases": {
-        "count": 2,
-        "mean_prediction_focus_enrichment": 5.681233133145467,
-        "mean_prediction_focus_ratio": 0.021626765180861013
+        "count": 0,
+        "mean_prediction_focus_enrichment": null,
+        "mean_prediction_focus_ratio": null
       },
       "negative_cases": {
         "count": 4,
-        "mean_false_positive_volume_ml": 9.156591128635274,
-        "mean_prediction_focus_enrichment": 4.297588905577967,
-        "mean_prediction_focus_ratio": 0.010813382590430506
+        "mean_false_positive_volume_ml": 0.0,
+        "mean_prediction_focus_enrichment": null,
+        "mean_prediction_focus_ratio": 0.0
       },
       "positive_cases": {
         "count": 3,
-        "mean_dice": 0.46891988465109224,
-        "mean_gt_focus_enrichment": 4.57872553184194,
-        "mean_gt_focus_ratio": 0.024693153607651636,
+        "mean_dice": 0.11327951327951329,
+        "mean_gt_focus_enrichment": 12.394979598859504,
+        "mean_gt_focus_ratio": 0.04921721135730205,
         "mean_prediction_focus_ratio": 0.0
       },
       "positive_missed_cases": {
+        "count": 2,
+        "mean_gt_focus_enrichment": 15.921279939574417,
+        "mean_gt_focus_ratio": 0.02644567521023867
+      }
+    },
+    "occlusion": {
+      "all_cases": {
+        "mean_prediction_focus_ratio": 0.0,
+        "mean_union_focus_ratio": 0.005897500735459783
+      },
+      "case_count": 7,
+      "false_positive_cases": {
         "count": 0,
-        "mean_gt_focus_enrichment": null,
-        "mean_gt_focus_ratio": null
+        "mean_prediction_focus_enrichment": null,
+        "mean_prediction_focus_ratio": null
+      },
+      "negative_cases": {
+        "count": 4,
+        "mean_false_positive_volume_ml": 0.0,
+        "mean_prediction_focus_enrichment": null,
+        "mean_prediction_focus_ratio": 0.0
+      },
+      "positive_cases": {
+        "count": 3,
+        "mean_dice": 0.11327951327951329,
+        "mean_gt_focus_enrichment": 2.609982623154857,
+        "mean_gt_focus_ratio": 0.013760835049406162,
+        "mean_prediction_focus_ratio": 0.0
+      },
+      "positive_missed_cases": {
+        "count": 2,
+        "mean_gt_focus_enrichment": 2.6750392347844856,
+        "mean_gt_focus_ratio": 0.0031257993982005583
+      }
+    },
+    "saliency": {
+      "all_cases": {
+        "mean_prediction_focus_ratio": 0.0,
+        "mean_union_focus_ratio": 0.007087193080623387
+      },
+      "case_count": 7,
+      "false_positive_cases": {
+        "count": 0,
+        "mean_prediction_focus_enrichment": null,
+        "mean_prediction_focus_ratio": null
+      },
+      "negative_cases": {
+        "count": 4,
+        "mean_false_positive_volume_ml": 0.0,
+        "mean_prediction_focus_enrichment": null,
+        "mean_prediction_focus_ratio": 0.0
+      },
+      "positive_cases": {
+        "count": 3,
+        "mean_dice": 0.11327951327951329,
+        "mean_gt_focus_enrichment": 6.300149124142658,
+        "mean_gt_focus_ratio": 0.016536783854787903,
+        "mean_prediction_focus_ratio": 0.0
+      },
+      "positive_missed_cases": {
+        "count": 2,
+        "mean_gt_focus_enrichment": 9.809026916160649,
+        "mean_gt_focus_ratio": 0.010316036823074195
       }
     }
   },
   "metric_summary": {
     "case_count": 7,
-    "mean_dice": 0.48667995056475377,
-    "mean_false_negative_volume_ml": 41.20999194481096,
-    "mean_false_positive_volume_ml": 6.293379112286005
+    "mean_dice": 0.6199769342626487,
+    "mean_false_negative_volume_ml": 40.012099394209216,
+    "mean_false_positive_volume_ml": 3.2666565400682512
   },
   "preferred_method": "integrated_gradients",
   "selection": {
@@ -280,14 +729,14 @@
       "PETCT_4848bebb10",
       "PETCT_be3e55a32f",
       "PETCT_a1db71e797",
-      "PETCT_402c061122",
       "PETCT_05bed31780",
       "PETCT_3bce0eb7aa",
+      "PETCT_402c061122",
       "PETCT_e2309b8f92"
     ],
     "selected_negative_case_count": 4,
     "selected_positive_case_count": 3
   },
-  "state_name": "post_best_dice_50epochs_allcases",
-  "title": "autoPET FDG XAI analysis (best Dice, all review cases)"
+  "state_name": "rebuild_best_label_50epochs_xai_3methods_20260419",
+  "title": "autoPET FDG rebuilt 50-epoch XAI analysis (3 methods)"
 }

@@ -15,7 +15,7 @@ Open these files first:
 ## 2) What each subfolder is for
 
 - `autopet/`
-  - Segmentation metrics, post-processing comparison, XAI analysis, autoPET figures.
+  - Segmentation metrics, post-processing comparison, rebuilt 3-method autoPET XAI benchmark, autoPET figures.
 - `brain_mri/`
   - Classification metrics, XAI benchmark, Brain MRI figures, extra qualitative XAI examples.
 - `tables/`
@@ -28,12 +28,17 @@ Open these files first:
 - Primary line: **autoPET FDG segmentation + XAI**.
 - Backup line: **Brain MRI classification + XAI**.
 - autoPET result was consolidated around the 50-epoch checkpoint and post-processed variants.
+- autoPET now has a tracked 3-method XAI benchmark on the rebuilt 50-epoch FDG state.
+- On that rebuilt autoPET benchmark, `integrated_gradients` ranks first, followed by `saliency`, then `occlusion`.
+- The frozen segmentation headline remains the historical `post_best_dice_50epochs` snapshot; the multi-method XAI benchmark is documented separately in `autopet/xai_segmentation_metrics.json`.
 - Brain MRI provides a stable classification baseline with interpretable XAI panels.
+- Brain MRI also carries a full multi-method XAI benchmark used for method comparison.
 
 ## 4) Suggested figure usage
 
 - autoPET:
-  - Use `autopet/figures/integrated_gradients.png` plus 2-3 case-specific panels.
+  - Use `autopet/figures/integrated_gradients.png`, `autopet/figures/saliency.png`, and `autopet/figures/occlusion.png` for the method-comparison slide.
+  - Add 1-2 case-specific panels from `autopet/figures/` if you need qualitative examples.
 - Brain MRI:
   - Use `brain_mri/figures/confusion_matrix.png`
   - Use `brain_mri/figures/metrics_overview.png`

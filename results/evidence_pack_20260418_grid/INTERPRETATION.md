@@ -4,6 +4,7 @@
 
 - Le snapshot principal confirme une segmentation mesurée par Dice `0.4867` avec FP moyen `6.2934` mL et FN moyen `41.2100` mL.
 - Méthode XAI prioritaire sur autoPET: `integrated_gradients`.
+- Le benchmark XAI autoPET multi-méthodes repose sur un run reconstruit traqué séparément ; ses métriques propres sont copiées dans `autopet/xai_segmentation_metrics.json`.
 - Variante best-Dice vs raw: Dice +0.1815, FN +5.5416 mL, FP -24.1622 mL.
 - Variante low-FP vs raw: Dice +0.0691, FN +4.1180 mL, FP -29.1849 mL.
 

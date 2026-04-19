@@ -23,6 +23,7 @@
     {
       "description": "G\u00e9n\u00e9ration d'explications XAI.",
       "evidence_files": [
+        "autopet/xai_segmentation_metrics.json",
         "autopet/xai_analysis_summary.json",
         "autopet/method_benchmark.json",
         "brain_mri/xai_method_benchmark.json"
