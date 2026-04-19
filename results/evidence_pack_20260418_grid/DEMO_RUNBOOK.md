@@ -22,15 +22,15 @@ without running heavy training jobs live.
 
 ### 3. autoPET XAI evidence (30-40s)
 - Open one or two files in `autopet/figures/`.
-- Open `autopet/method_benchmark.json` and cite top method.
+- Open `autopet/method_benchmark.json` and cite the highest-ranked method.
 - If present, open `autopet/xai_segmentation_metrics.json` to show the benchmark's exact rebuilt-state metrics.
-- Current top method: `integrated_gradients`.
+- Highest-ranked method in the current benchmark: `integrated_gradients`.
 - This covers explainability demonstration for `REQ-C4`.
 
-### 4. Brain MRI backup evidence (25-35s)
+### 4. Brain MRI secondary evidence (25-35s)
 - Open `brain_mri/metrics.json`.
 - Open `brain_mri/xai_method_benchmark.json` when present.
-- Current top method: `occlusion`.
+- Highest-ranked method in the current benchmark: `occlusion`.
 
 ### 5. Quick reproducibility proof (20-30s)
 - Show validation commands (do not launch heavy training):
@@ -49,4 +49,4 @@ These checks support `REQ-C2` by proving runnable, self-contained tracked output
 
 ## Final one-line project message
 
-autoPET FDG is the primary scientific line (segmentation + XAI tradeoff analysis), and Brain MRI is a reproducible backup line that confirms the XAI workflow on a second medical setting.
+autoPET FDG is the primary scientific line (segmentation + XAI tradeoff analysis), and Brain MRI is a reproducible secondary line that confirms the XAI workflow on a second medical setting.

@@ -1,6 +1,6 @@
-# Brain MRI Refresh XAI Snapshot (2026-04-18)
+# Brain MRI Extended XAI Snapshot (2026-04-18)
 
-This folder tracks an expanded qualitative XAI snapshot for the Brain MRI backup line.
+This folder tracks an expanded qualitative XAI snapshot for the Brain MRI secondary line.
 
 ## What was generated
 

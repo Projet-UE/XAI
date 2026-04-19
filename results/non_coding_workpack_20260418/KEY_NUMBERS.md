@@ -1,6 +1,6 @@
 # Key Numbers (Ready To Cite)
 
-## autoPET FDG (main line)
+## autoPET FDG (primary line)
 
 Main tracked state: `post_best_dice_50epochs`
 
@@ -37,7 +37,7 @@ Rebuilt autoPET XAI benchmark metrics:
 
 Interpretation note: the project keeps `post_best_dice_50epochs` as the main frozen segmentation result, while the final 3-method autoPET XAI comparison was produced on a reproducible rebuilt 50-epoch FDG state because the original heavy Grenoble artifacts were no longer available.
 
-## Brain MRI (backup line)
+## Brain MRI (secondary line)
 
 | Metric | Value |
 |---|---:|

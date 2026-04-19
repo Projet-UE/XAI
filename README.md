@@ -2,8 +2,8 @@
 
 This repository contains the modeling and explainability work for a medical imaging project built around two complementary tracks:
 
-- **main track:** autoPET FDG PET/CT lesion segmentation + XAI
-- **backup track:** brain MRI classification + XAI
+- **primary track:** autoPET FDG PET/CT lesion segmentation + XAI
+- **secondary track:** brain MRI classification + XAI
 
 The goal is not only to report model scores, but to build pipelines that are:
 
@@ -19,14 +19,14 @@ All heavy runs were designed for **Grid'5000 Grenoble**, while Git only keeps li
 | Item | Choice |
 | --- | --- |
 | Main scientific direction | autoPET FDG PET/CT lesion segmentation + XAI |
-| Backup direction | brain MRI classification + XAI |
+| Secondary direction | brain MRI classification + XAI |
 | Main execution platform | Grid'5000 Grenoble |
 | Main retained autoPET result | `post_best_dice_50epochs` |
 | Main retained brain MRI result | Grenoble classification snapshot from `2026-03-24` |
 
 ## Latest review artifacts
 
-If you need the quickest evaluator-facing entrypoint, start here:
+For evaluator-facing materials, start here:
 
 - consolidated evidence pack:
   - [`results/evidence_pack_20260418_grid/README.md`](results/evidence_pack_20260418_grid/README.md)
@@ -51,13 +51,13 @@ For the current tracked autoPET protocol benchmark snapshot:
 - [`results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.md`](results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/method_benchmark.md)
 - [`results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/README.md`](results/autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419/README.md)
 
-Important note:
+Clarification:
 
 - the autoPET pipeline now has a tracked 3-method benchmark (`saliency`, `integrated_gradients`, `occlusion`)
 - the main frozen segmentation result remains `post_best_dice_50epochs`
 - the tracked 3-method XAI benchmark was produced on a reproducible rebuilt 50-epoch FDG state because the original heavy Grenoble artifacts for the earlier XAI state were no longer available
 
-For the refreshed Brain MRI protocol benchmark:
+For the retained Brain MRI protocol benchmark:
 
 - clean-manifest full benchmark (3 methods, 1000 bootstrap iterations):
   - [`results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json)
@@ -66,7 +66,7 @@ For the refreshed Brain MRI protocol benchmark:
   - [`results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418/xai_method_benchmark.json)
   - [`results/brain_mri_xai_benchmark_20260418_clean_fast/README.md`](results/brain_mri_xai_benchmark_20260418_clean_fast/README.md)
 
-## Main track: autoPET FDG PET/CT segmentation + XAI
+## Primary track: autoPET FDG PET/CT segmentation + XAI
 
 This is the line kept as the **primary project contribution** because it is the most coherent with the original topic: medical imaging, segmentation, and explainability.
 
@@ -196,9 +196,9 @@ Outputs:
 - `method_benchmark.json`
 - `method_benchmark.md`
 
-## Backup track: Brain MRI classification + XAI
+## Secondary track: Brain MRI classification + XAI
 
-This track is kept as a **backup baseline**. It is simpler than the autoPET line, but it is still useful because it provides:
+This track is kept as a **secondary baseline**. It is simpler than the autoPET line, but it remains useful because it provides:
 
 - a complete end-to-end classification baseline
 - a lighter XAI setting
@@ -291,9 +291,9 @@ Confusion matrix:
 | `no/No22.jpg` | ![](results/grenoble_gpu_20260324/xai/no/No22/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/no/No22/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/no/No22/occlusion.png) |
 | `no/4 no.jpg` | ![](results/grenoble_gpu_20260324/xai/no/4%20no/gradcam.png) | ![](results/grenoble_gpu_20260324/xai/no/4%20no/integrated_gradients.png) | ![](results/grenoble_gpu_20260324/xai/no/4%20no/occlusion.png) |
 
-#### Extended Brain MRI XAI gallery (refresh run: 8 yes + 8 no)
+#### Extended Brain MRI XAI gallery (additional run: 8 yes + 8 no)
 
-The refreshed run below expands the examples to **16 test images** using the same model family (`ResNet18`) and two fast methods (`Grad-CAM`, `Integrated Gradients`) to provide broader qualitative coverage.
+The additional run below expands the examples to **16 test images** using the same model family (`ResNet18`) and two fast methods (`Grad-CAM`, `Integrated Gradients`) to provide broader qualitative coverage.
 
 <p align="center">
   <img src="results/brain_mri_refresh_xai_20260418/yes/Y195/integrated_gradients.png" width="420" alt="Brain MRI refresh integrated gradients positive case Y195" />
@@ -320,7 +320,7 @@ The refreshed run below expands the examples to **16 test images** using the sam
   - [`results/grenoble_gpu_20260324/run_config.json`](results/grenoble_gpu_20260324/run_config.json)
 - actual XAI outputs:
   - [`results/grenoble_gpu_20260324/xai/`](results/grenoble_gpu_20260324/xai/)
-- refreshed extended gallery (16 images):
+- expanded extended gallery (16 images):
   - [`results/brain_mri_refresh_xai_20260418/xai_summary.json`](results/brain_mri_refresh_xai_20260418/xai_summary.json)
   - [`results/brain_mri_refresh_xai_20260418/INTERPRETATION.md`](results/brain_mri_refresh_xai_20260418/INTERPRETATION.md)
   - [`results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json`](results/brain_mri_xai_benchmark_20260418_clean_full/xai_method_benchmark.json)

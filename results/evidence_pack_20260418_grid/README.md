@@ -5,7 +5,7 @@ This folder consolidates the most important, review-ready artifacts for project 
 - autoPET main run: `autopet_fdg_full_post_best_dice_50epochs_20260324`
 - autoPET comparison run: `autopet_fdg_full_50epochs_variant_comparison_20260324`
 - autoPET XAI benchmark run: `autopet_fdg_full_rebuild_best_label_50epochs_xai_3methods_20260419`
-- Brain MRI backup run: `grenoble_gpu_20260324`
+- Brain MRI secondary run: `grenoble_gpu_20260324`
 - includes run index: `yes`
 
 ## Key metrics
@@ -19,8 +19,8 @@ This folder consolidates the most important, review-ready artifacts for project 
 
 ## XAI benchmark highlights
 
-- autoPET top method: `integrated_gradients`
-- Brain MRI top method: `occlusion`
+- autoPET highest-ranked method: `integrated_gradients`
+- Brain MRI highest-ranked method: `occlusion`
 - autoPET XAI benchmark metrics copied separately: `yes`
 
 ## Contents
