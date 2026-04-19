@@ -35,7 +35,7 @@ Rebuilt autoPET XAI benchmark metrics:
 | Mean false negative volume (ml) | 40.0121 |
 | Mean false positive volume (ml) | 3.2667 |
 
-Interpretation note: the project keeps `post_best_dice_50epochs` as the main frozen segmentation headline, but the final 3-method autoPET XAI comparison was produced on a reproducible rebuilt 50-epoch FDG state because the original heavy Grenoble artifacts were no longer available.
+Interpretation note: the project keeps `post_best_dice_50epochs` as the main frozen segmentation result, while the final 3-method autoPET XAI comparison was produced on a reproducible rebuilt 50-epoch FDG state because the original heavy Grenoble artifacts were no longer available.
 
 ## Brain MRI (backup line)
 

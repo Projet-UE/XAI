@@ -30,7 +30,7 @@ Open these files first:
 - autoPET result was consolidated around the 50-epoch checkpoint and post-processed variants.
 - autoPET now has a tracked 3-method XAI benchmark on the rebuilt 50-epoch FDG state.
 - On that rebuilt autoPET benchmark, `integrated_gradients` ranks first, followed by `saliency`, then `occlusion`.
-- The frozen segmentation headline remains the historical `post_best_dice_50epochs` snapshot; the multi-method XAI benchmark is documented separately in `autopet/xai_segmentation_metrics.json`.
+- The frozen segmentation reference remains the `post_best_dice_50epochs` snapshot; the multi-method XAI benchmark is documented separately in `autopet/xai_segmentation_metrics.json`.
 - Brain MRI provides a stable classification baseline with interpretable XAI panels.
 - Brain MRI also carries a full multi-method XAI benchmark used for method comparison.
 
