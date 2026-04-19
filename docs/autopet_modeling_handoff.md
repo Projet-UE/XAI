@@ -31,7 +31,7 @@ Secondary metrics:
 
 Interpretation:
 
-- `post_best_dice_50epochs` is the best headline result because it gives the strongest Dice.
+- `post_best_dice_50epochs` is the main reference result because it gives the strongest Dice.
 - `post_low_fp_50epochs` is useful to discuss the false-positive tradeoff.
 
 ## What To Say About XAI

@@ -54,8 +54,8 @@ For the current tracked autoPET protocol benchmark snapshot:
 Important note:
 
 - the autoPET pipeline now has a tracked 3-method benchmark (`saliency`, `integrated_gradients`, `occlusion`)
-- the main frozen segmentation headline still remains `post_best_dice_50epochs`
-- the tracked 3-method XAI benchmark was produced on a reproducible rebuilt 50-epoch FDG state because the original heavy Grenoble artifacts for the historical XAI state were no longer available
+- the main frozen segmentation result remains `post_best_dice_50epochs`
+- the tracked 3-method XAI benchmark was produced on a reproducible rebuilt 50-epoch FDG state because the original heavy Grenoble artifacts for the earlier XAI state were no longer available
 
 For the refreshed Brain MRI protocol benchmark:
 
